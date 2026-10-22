@@ -104,6 +104,41 @@ def search_thesaurus(q: str = Query(..., description="Query query text"), domain
     ]
 
 
+
+def _create_case_images(case: str, masks: Any, out_img: Any) -> dict[str, str]:
+    import base64, io
+    from PIL import Image, ImageDraw
+
+    # 1. Biological image
+    img_bio = Image.new("RGB", (260, 260), color=(15, 30, 20))
+    d_bio = ImageDraw.Draw(img_bio)
+    for i in range(12):
+        for j in range(12):
+            d_bio.ellipse([10 + i * 20, 10 + j * 20, 22 + i * 20, 22 + j * 20], fill=(40, 160, 90), outline=(20, 80, 40))
+    d_bio.text((15, 12), f"Biological Source: {case.title()}", fill=(220, 255, 230))
+
+    # 2. Engineering Baseline with Keep-out overlay
+    img_eng = Image.new("RGB", (260, 260), color=(140, 150, 160))
+    d_eng = ImageDraw.Draw(img_eng)
+    d_eng.rectangle([20, 20, 240, 240], fill=(160, 170, 180), outline=(40, 50, 60), width=2)
+    # Mounting flanges (keepout) in red
+    d_eng.rectangle([20, 20, 240, 60], fill=(220, 180, 180), outline=(180, 40, 40), width=2)
+    d_eng.text((30, 35), "KEEP-OUT DATUM FLANGE", fill=(160, 20, 20))
+    # Modifiable zone in light blue
+    d_eng.rectangle([40, 80, 220, 220], fill=(180, 200, 220), outline=(20, 100, 180), width=2)
+    d_eng.text((50, 140), "MODIFIABLE CORE (M_Eng)", fill=(20, 60, 120))
+
+    def _to_b64(im):
+        b = io.BytesIO()
+        im.save(b, format="PNG")
+        return "data:image/png;base64," + base64.b64encode(b.getvalue()).decode("utf-8")
+
+    return {
+        "bio_image": _to_b64(img_bio),
+        "eng_baseline": _to_b64(img_eng),
+        "synthesized_render": _to_b64(out_img.resize((260, 260))),
+    }
+
 CASE_MAP = {
     "lotus": ("bio_lotus-self-cleaning.json", "eng_superhydrophobic-facade.json"),
     "shark": ("bio_shark-denticles.json", "eng_riblet-fuselage-film.json"),
@@ -137,9 +172,10 @@ def run_pipeline(case: str = Query("lotus")) -> dict[str, Any]:
 
     # Stage 6: Multi-Track Synthesis
     from PIL import Image
-    dummy_img = Image.new("RGB", (200, 200), color=(180, 180, 180))
+    dummy_img = Image.new("RGB", (260, 260), color=(180, 180, 180))
     masks = AffordanceSegmenter().segment_masks(dummy_img)
-    _, keep_out_mse = MaskLockedImageSynthesizer().synthesize(dummy_img, masks)
+    synth_out_img, keep_out_mse = MaskLockedImageSynthesizer().synthesize(dummy_img, masks)
+    previews = _create_case_images(case, masks, synth_out_img)
 
     svg_str = SVGSchematicSynthesizer().synthesize(triz_res.modified_graph or g_eng)
     tikz_str = TikZSchematicSynthesizer().synthesize(triz_res.modified_graph or g_eng)
@@ -178,6 +214,7 @@ def run_pipeline(case: str = Query("lotus")) -> dict[str, Any]:
         },
         "synthesis": {
             "keep_out_drift_mse": keep_out_mse,
+            "previews": previews,
             "dangling_edge_length": cad_rep.dangling_edge_length,
             "svg_schematic": svg_str,
             "tikz_code": tikz_str,

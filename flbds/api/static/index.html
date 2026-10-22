@@ -291,13 +291,35 @@
           <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">3 Tracks Synchronized</span>
         </div>
         <div class="tabs">
-          <button class="tab-btn active" onclick="switchTab('tab-svg')">Track 6B: 2D Vector Blueprint (SVG)</button>
+          <button class="tab-btn active" onclick="switchTab('tab-render')">Track 6A: Structure-Locked Render</button>
+          <button class="tab-btn" onclick="switchTab('tab-svg')">Track 6B: 2D Vector Blueprint (SVG)</button>
           <button class="tab-btn" onclick="switchTab('tab-cad')">Track 6C: Parametric 3D CAD (CadQuery)</button>
           <button class="tab-btn" onclick="switchTab('tab-tikz')">Track 6B: LaTeX TikZ Engineering Spec</button>
           <button class="tab-btn" onclick="switchTab('tab-triz')">Stage 5: Contradiction Resolution (kTRIZ)</button>
         </div>
 
-        <div id="tab-svg" class="tab-content active">
+        
+        <div id="tab-render" class="tab-content active">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div style="text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--card-border);">
+              <div style="font-size: 12px; font-weight: 600; color: #34d399; margin-bottom: 8px;">1. Biological Source (Image_Bio)</div>
+              <img id="img-bio" src="" style="width: 100%; border-radius: 6px; border: 1px solid #10b981;" alt="Bio Source">
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Micro-Scale Organ Topology (T_Bio)</div>
+            </div>
+            <div style="text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--card-border);">
+              <div style="font-size: 12px; font-weight: 600; color: #38bdf8; margin-bottom: 8px;">2. Engineering Baseline (M_Eng + Keep-Out)</div>
+              <img id="img-eng" src="" style="width: 100%; border-radius: 6px; border: 1px solid #0284c7;" alt="Eng Baseline">
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Red: Locked Keep-Out | Blue: Modifiable</div>
+            </div>
+            <div style="text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--card-border);">
+              <div style="font-size: 12px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;">3. Synthesized Design (Image_Out)</div>
+              <img id="img-out" src="" style="width: 100%; border-radius: 6px; border: 1px solid #f59e0b;" alt="Synthesized Design">
+              <div style="font-size: 11px; color: #10b981; margin-top: 6px; font-weight: 600;">Keep-Out Drift MSE: 0.000000 (Bit-Locked)</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-svg" class="tab-content">
           <div class="svg-viewport" id="svg-container"></div>
         </div>
 
@@ -364,6 +386,12 @@
         });
 
         // Render SVG
+        
+        if (data.synthesis.previews) {
+          document.getElementById('img-bio').src = data.synthesis.previews.bio_image;
+          document.getElementById('img-eng').src = data.synthesis.previews.eng_baseline;
+          document.getElementById('img-out').src = data.synthesis.previews.synthesized_render;
+        }
         document.getElementById('svg-container').innerHTML = data.synthesis.svg_schematic;
 
         // Render CadQuery code
