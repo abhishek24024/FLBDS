@@ -24,14 +24,14 @@ multimodal causal property graph `G_MCKG`.
 
 | Phase | Scope | State |
 |---|---|---|
-| 0 | Foundations, config, CI-ready test harness | **done** |
-| 1 | SAPPhIRE ontology, TRIZ spine, physical-laws catalog, graph store | **done** |
-| 2 | Deterministic SAPPhIRE extraction + HyDE-CoT corrective RAG | in progress |
-| 3 | Multimodal thesaurus + hybrid GraphRAG retrieval | planned |
-| 4 | Dual-image perception (VLM grounding, affordance masks, `T_Bio`) | planned |
-| 5 | DeepGAR alignment, Buckingham Π audit, TRIZ resolution | planned |
-| 6 | Synthesis: image / SVG-TikZ / CAD | planned |
-| 7 | API, UI, evaluation protocol, packaging | planned |
+| 0 | Foundations, config, CI-ready test harness | **done** ✅ |
+| 1 | SAPPhIRE ontology, TRIZ spine, physical-laws catalog, graph store | **done** ✅ |
+| 2 | Deterministic SAPPhIRE extraction + HyDE-CoT corrective RAG | **done** ✅ |
+| 3 | Multimodal thesaurus + hybrid GraphRAG retrieval | **done** ✅ |
+| 4 | Dual-image perception (VLM grounding, affordance masks, `T_Bio`) | **done** ✅ |
+| 5 | DeepGAR alignment, Buckingham Π audit, TRIZ resolution | **done** ✅ |
+| 6 | Synthesis: image / SVG-TikZ / CAD | **done** ✅ |
+| 7 | API, UI, evaluation protocol, packaging | **done** ✅ |
 
 See [`docs/PHASES.md`](docs/PHASES.md) for deliverable-level detail and the
 acceptance criteria of each phase, and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)

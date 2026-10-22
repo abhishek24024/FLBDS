@@ -53,7 +53,7 @@ the repo contains zero binary artefacts > 1 MB.
 
 ---
 
-## Phase 2 — Extraction: deterministic rules + HyDE-CoT corrective RAG  ⏳ next
+## Phase 2 — Extraction: deterministic rules + HyDE-CoT corrective RAG  ✅ done
 
 **Goal:** turn a patent specification or a biological paper into a validated
 7-node SAPPhIRE graph, without letting an LLM invent constructs.
@@ -72,7 +72,7 @@ node has ≥ 1 supporting evidence span.
 
 ---
 
-## Phase 3 — Visual thesaurus and hybrid GraphRAG retrieval  ⏳ planned
+## Phase 3 — Visual thesaurus and hybrid GraphRAG retrieval  ✅ done
 
 **Goal:** Aim 1 in production form — images and text in one index; causal paths
 out.
@@ -92,7 +92,7 @@ subgraph is causally connected; query latency < 300 ms at 10⁵ nodes.
 
 ---
 
-## Phase 4 — Dual-image perception  ⏳ planned
+## Phase 4 — Dual-image perception  ✅ done
 
 **Goal:** `Image_Bio` and `Image_Eng` become structured, typed geometry.
 
@@ -109,7 +109,7 @@ set; keep-out mask provably disjoint from `M_Eng`.
 
 ---
 
-## Phase 5 — Analogical reasoning, similitude and contradiction resolution  ⏳ planned
+## Phase 5 — Analogical reasoning, similitude and contradiction resolution  ✅ done
 
 **Goal:** decide *what may transfer*, *what breaks*, and *how to fix it*.
 
@@ -128,7 +128,7 @@ violation; no principle outside the canonical 40 is ever emitted.
 
 ---
 
-## Phase 6 — Synthesis: image, vector schematic, CAD  ⏳ planned
+## Phase 6 — Synthesis: image, vector schematic, CAD  ✅ done
 
 **Goal:** three artefact tracks from one locked design.
 
@@ -145,7 +145,7 @@ internal suite.
 
 ---
 
-## Phase 7 — Service, UI and evaluation protocol  ⏳ planned
+## Phase 7 — Service, UI and evaluation protocol  ✅ done
 
 | Deliverable |
 |---|
