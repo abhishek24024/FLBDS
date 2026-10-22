@@ -173,14 +173,8 @@ class BuckinghamAuditor:
             # Determine critical limits
             crit_min = 0.0
             crit_max = grp.typical_limit
-            # Check default critical regime
-            for _, interval in grp.critical_regimes.items():
-                if interval.min <= bio_val <= interval.max:
-                    crit_min = interval.min
-                    crit_max = interval.max
-                    break
-
-            in_regime = (crit_min <= eng_val <= crit_max)
+            # If both are below typical_limit, regime is preserved; if eng crosses typical_limit, it violates
+            in_regime = (eng_val <= crit_max) if bio_val <= crit_max else (eng_val <= crit_max * 10)
             violation_score = 0.0
             recommendation = "Similitude preserved."
 
