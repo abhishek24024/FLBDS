@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLBDS v3.0 — Visual Biomimetic Design System</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --code-bg: #090d16;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .header {
+      max-width: 1400px;
+      margin: 0 auto 24px auto;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .header p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 24px;
+    }
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .panel-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .case-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.15s ease;
+    }
+    .pill-btn:hover, .pill-btn.active {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: var(--primary);
+      color: #38bdf8;
+    }
+    .pill-title { font-weight: 600; }
+    .pill-sub { font-size: 11px; color: var(--text-muted); }
+    .btn-run {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-run:hover { background: var(--primary-dark); }
+    .main-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .stat-val { font-size: 18px; font-weight: 700; color: #f8fafc; margin-top: 4px; }
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 16px;
+      gap: 4px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn.active {
+      color: #38bdf8;
+      border-bottom-color: var(--primary);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .chain-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .chain-node {
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    .chain-sym { font-weight: 700; color: #38bdf8; margin-right: 4px; }
+    .code-box {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: #e2e8f0;
+      max-height: 380px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+    .svg-viewport {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .svg-viewport svg {
+      max-width: 100%;
+      height: auto;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px; text-align: left; border-bottom: 1px solid var(--card-border); }
+    th { color: var(--text-muted); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>
+      FLBDS v3.0: Functional and Logical Biomimetic Design System
+      <span class="badge">Neuro-Symbolic Compiler</span>
+    </h1>
+    <p>Visual Biology-to-Engineering Thesaurus & Dual-Image Analogical Design Compiler (SAPPhIRE + DeepGAR + Buckingham Π + kTRIZ + Multi-Track Synthesis)</p>
+  </div>
+
+  <div class="container">
+    <!-- Left Sidebar: Controls -->
+    <div class="panel">
+      <div class="panel-title">
+        <span>Curated Analogy Pairs</span>
+        <span class="badge">Aim 1 & 2</span>
+      </div>
+      <div class="case-pills">
+        <button class="pill-btn active" onclick="loadCase('lotus')">
+          <div class="pill-title">1. Lotus Leaf → Self-Cleaning Facade</div>
+          <div class="pill-sub">Young-Laplace Capillarity | Cassie-Baxter</div>
+        </button>
+        <button class="pill-btn" onclick="loadCase('shark')">
+          <div class="pill-title">2. Shark Riblets → Aircraft Fuselage</div>
+          <div class="pill-sub">Navier-Stokes Streamwise Vortex Pinning</div>
+        </button>
+        <button class="pill-btn" onclick="loadCase('gecko')">
+          <div class="pill-title">3. Gecko Setae → Robotic Gripper</div>
+          <div class="pill-sub">JKR Contact Adhesion | van der Waals</div>
+        </button>
+        <button class="pill-btn" onclick="loadCase('kingfisher')">
+          <div class="pill-title">4. Kingfisher Beak → Shinkansen Nose</div>
+          <div class="pill-sub">Bernoulli Energy | Tunnel Boom Mitigation</div>
+        </button>
+        <button class="pill-btn" onclick="loadCase('termite')">
+          <div class="pill-title">5. Termite Mound → Eastgate Cooling</div>
+          <div class="pill-sub">Fourier Conduction | Stack Ventilation</div>
+        </button>
+      </div>
+
+      <button class="btn-run" onclick="executePipeline()">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+        Execute Biomimetic Compiler
+      </button>
+
+      <div style="margin-top: 20px; font-size: 11px; color: var(--text-muted); line-height: 1.6;">
+        <p><strong>System Invariant:</strong> Keep-out zone interfaces (mounting datum, bolt holes) are mathematically bit-locked (<span style="color:#10b981">MSE = 0.0</span>). Only the functional core is modifiable.</p>
+      </div>
+    </div>
+
+    <!-- Right Content Area -->
+    <div class="main-grid">
+      <!-- Top Metrics -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-label">Alignment F1</div>
+          <div class="stat-val" id="stat-f1" style="color: #38bdf8;">100.0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Buckingham Π Similitude</div>
+          <div class="stat-val" id="stat-pi" style="color: #10b981;">VERIFIED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Keep-Out Drift MSE</div>
+          <div class="stat-val" id="stat-drift" style="color: #10b981;">0.000000</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">3D CAD Manifold DangEL</div>
+          <div class="stat-val" id="stat-dangel" style="color: #10b981;">0.0000</div>
+        </div>
+      </div>
+
+      <!-- SAPPhIRE Causal Model & Alignment -->
+      <div class="panel">
+        <div class="panel-title">
+          <span>7-Construct SAPPhIRE Causal Model & SMT Alignment</span>
+          <span class="badge" id="case-badge">Lotus → Facade</span>
+        </div>
+        <p id="system-desc" style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;"></p>
+        <div class="chain-flow" id="chain-flow"></div>
+      </div>
+
+      <!-- Synthesis Deliverables Tabs -->
+      <div class="panel">
+        <div class="panel-title">
+          <span>Multi-Track Fabrication Deliverables</span>
+          <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">3 Tracks Synchronized</span>
+        </div>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('tab-svg')">Track 6B: 2D Vector Blueprint (SVG)</button>
+          <button class="tab-btn" onclick="switchTab('tab-cad')">Track 6C: Parametric 3D CAD (CadQuery)</button>
+          <button class="tab-btn" onclick="switchTab('tab-tikz')">Track 6B: LaTeX TikZ Engineering Spec</button>
+          <button class="tab-btn" onclick="switchTab('tab-triz')">Stage 5: Contradiction Resolution (kTRIZ)</button>
+        </div>
+
+        <div id="tab-svg" class="tab-content active">
+          <div class="svg-viewport" id="svg-container"></div>
+        </div>
+
+        <div id="tab-cad" class="tab-content">
+          <div class="code-box" id="cad-code"></div>
+        </div>
+
+        <div id="tab-tikz" class="tab-content">
+          <div class="code-box" id="tikz-code"></div>
+        </div>
+
+        <div id="tab-triz" class="tab-content">
+          <div style="font-size: 13px; margin-bottom: 10px;">
+            <p><strong>Physical Contradiction:</strong> <span id="triz-phys" style="color: #f59e0b;"></span></p>
+            <p style="margin-top: 6px;"><strong>Topological Subdivision Operator:</strong> <span id="triz-subdiv" style="color: #38bdf8;"></span></p>
+            <p style="margin-top: 6px;"><strong>Altshuller 39×39 Inventive Principles:</strong></p>
+            <div id="triz-principles" style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentCase = 'lotus';
+
+    async function loadCase(name) {
+      currentCase = name;
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      await executePipeline();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    async function executePipeline() {
+      try {
+        const resp = await fetch(`/api/pipeline/run?case=${currentCase}`, { method: 'POST' });
+        const data = await resp.json();
+
+        // Update stats
+        document.getElementById('stat-f1').innerText = (data.alignment.alignment_f1 * 100).toFixed(1) + '%';
+        document.getElementById('stat-pi').innerText = data.scaling_audit.has_violations ? 'REPAIRED (TPMS)' : 'VERIFIED';
+        document.getElementById('stat-drift').innerText = data.synthesis.keep_out_drift_mse.toFixed(6);
+        document.getElementById('stat-dangel').innerText = data.synthesis.dangling_edge_length.toFixed(4);
+
+        // Update titles & description
+        document.getElementById('case-badge').innerText = `${data.bio_graph.title} → ${data.eng_graph.title}`;
+        document.getElementById('system-desc').innerText = data.bio_graph.description;
+
+        // Render SAPPhIRE chain
+        const chainEl = document.getElementById('chain-flow');
+        chainEl.innerHTML = '';
+        data.bio_graph.nodes.forEach(n => {
+          const nodeEl = document.createElement('div');
+          nodeEl.className = 'chain-node';
+          nodeEl.innerHTML = `<span class="chain-sym">${n.construct}:</span> ${n.label}`;
+          chainEl.appendChild(nodeEl);
+        });
+
+        // Render SVG
+        document.getElementById('svg-container').innerHTML = data.synthesis.svg_schematic;
+
+        // Render CadQuery code
+        document.getElementById('cad-code').innerText = data.synthesis.cad_script;
+
+        // Render TikZ code
+        document.getElementById('tikz-code').innerText = data.synthesis.tikz_code;
+
+        // Render TRIZ details
+        document.getElementById('triz-phys').innerText = data.triz_resolution.physical_contradiction || 'None (similitude preserved).';
+        document.getElementById('triz-subdiv').innerText = data.triz_resolution.topological_subdivision || 'Direct invariant transfer without macro-micro conflict.';
+        
+        const princEl = document.getElementById('triz-principles');
+        princEl.innerHTML = '';
+        data.triz_resolution.inventive_principles.forEach(p => {
+          const pBadge = document.createElement('span');
+          pBadge.className = 'badge';
+          pBadge.style.background = 'rgba(245, 158, 11, 0.15)';
+          pBadge.style.color = '#fbbf24';
+          pBadge.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+          pBadge.innerText = `#${p.id} ${p.name}`;
+          princEl.appendChild(pBadge);
+        });
+
+      } catch (err) {
+        console.error('Pipeline execution error:', err);
+      }
+    }
+
+    // Auto-run on load
+    window.onload = () => executePipeline();
+  </script>
+</body>
+</html>

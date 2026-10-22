@@ -192,5 +192,30 @@ def ingest(
     ))
 
 
+
+@app.command()
+def serve(
+    host: str = typer.Option("0.0.0.0", "--host", "-h", help="Bind host"),
+    port: int = typer.Option(8765, "--port", "-p", help="Bind port"),
+    reload: bool = typer.Option(False, "--reload", help="Enable auto-reload"),
+) -> None:
+    """Start the FLBDS v3.0 API & UI demonstration server."""
+    import uvicorn
+    console.print(f"[bold green]Starting FLBDS v3.0 API and UI at http://{host}:{port}[/bold green]")
+    uvicorn.run("flbds.api.server:app", host=host, port=port, reload=reload)
+
+
+@app.command(name="eval")
+def run_eval() -> None:
+    """Execute master benchmark evaluation across all 5 specification families."""
+    from flbds.eval.benchmark import BenchmarkRunner
+    runner = BenchmarkRunner()
+    console.print("[cyan]Running master benchmark evaluation suite...[/cyan]")
+    report = runner.run_all()
+    console.print(report.summary_table())
+    if not report.overall_pass:
+        raise typer.Exit(code=1)
+
+
 if __name__ == "__main__":
     app()
