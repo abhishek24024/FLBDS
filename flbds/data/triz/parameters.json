@@ -1,0 +1,428 @@
+[
+ {
+  "id": 1,
+  "name": "Weight of moving object",
+  "description": "The mass or force of gravity exerted – by pressure or suspension – by a moving object. Can be related to: ballast, gravity, load, buoyant force, heaviness, mass, burden, heft, pressure, bulk, lightweight, tonnage, floating, lightness",
+  "keywords": [
+   "weight",
+   "mass",
+   "heavy",
+   "light",
+   "payload",
+   "inertia of moving"
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Weight of stationary object",
+  "description": "The mass or force of gravity exerted – by pressure, suspension, or the surface on which it rests – by a stationary object. Can be related to: ballast, gravity, load, buoyant force, heaviness, mass, burden, heft, pressure, bulk, lightweight, tonnage, floating, lightness",
+  "keywords": [
+   "stationary weight",
+   "dead load",
+   "static mass",
+   "foundation load"
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Length of moving object",
+  "description": "Any linear or angular dimension relating to a moving object, not necessarily the longest. Can be related to: altitude, distance, range, amplitude, extent, span, breadth, gap, stretch, circumference, girth, spread, cross measure, height, tolerance, depth, length, width, diameter, radius",
+  "keywords": [
+   "length",
+   "span",
+   "stroke",
+   "reach",
+   "moving length"
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Length of stationary object",
+  "description": "Any linear or angular dimension relating to a stationary object, not necessarily the longest. Can be related to: altitude, distance, range, amplitude, extent, span, breadth, gap, stretch, circumference, girth, spread, cross measure, height, tolerance, depth, length, width, diameter, radius",
+  "keywords": [
+   "stationary length",
+   "width",
+   "height",
+   "envelope",
+   "footprint"
+  ]
+ },
+ {
+  "id": 5,
+  "name": "Area of moving object",
+  "description": "Characteristics related to surfaces or surface area of a moving object, either internal or external. They may include the square measure of the surface of the object, the part of a surface occupied by the object, or a contact area of the objects. Can be related to: contact area, porosity, space, dimensions, region, square, expanse, section, surface, field, sector, territory, point-contact, size, zone",
+  "keywords": [
+   "area",
+   "surface",
+   "contact area",
+   "moving area"
+  ]
+ },
+ {
+  "id": 6,
+  "name": "Area of stationary object",
+  "description": "Characteristics related to surfaces or surface area of a stationary object, either internal or external. They may include the square measure of the object's surface, the part of a surface occupied by the object, or a contact area of the objects. Can be related to: contact area, porosity, space, dimensions, region, square, expanse, section, surface, field, sector, territory, point-contact, size, zone",
+  "keywords": [
+   "stationary area",
+   "floor area",
+   "plate area"
+  ]
+ },
+ {
+  "id": 7,
+  "name": "Volume of moving object",
+  "description": "Any characteristics related to the cubic measure of space occupied by the moving object or the space around it. Can be related to: 3D dimensions, compactness, size, amount / quantity of substance, cubic measure, shrinkage, flow amount, space, aggregate, oversize, swelling, bulk, room, void, capacity",
+  "keywords": [
+   "volume",
+   "capacity",
+   "displacement",
+   "moving volume"
+  ]
+ },
+ {
+  "id": 8,
+  "name": "Volume of stationary object",
+  "description": "Any characteristics related to the cubic measure of space occupied by the stationary object or the space around it. Can be related to: 3D dimensions, compactness, size, amount / quantity of substance, cubic measure, shrinkage, flow amount, space, aggregate, oversize, swelling, bulk, room, void, capacity",
+  "keywords": [
+   "stationary volume",
+   "enclosure volume",
+   "tank volume"
+  ]
+ },
+ {
+  "id": 9,
+  "name": "Speed",
+  "description": "The velocity or speed of an object or the rate of any kind of process or action in time, focused on issues of dynamics rather than output of product (see: Productivity). The speed may be relative or absolute, linear, or rotational. Can be related to: acceleration, rapidity, slowness, deceleration, rate, speedup, latency, rush, takt time, pace, slowdown, tardiness",
+  "keywords": [
+   "speed",
+   "velocity",
+   "rapidity",
+   "throughput rate"
+  ]
+ },
+ {
+  "id": 10,
+  "name": "Force",
+  "description": "Force measures the interaction between systems. In Newtonian physics, force = mass × acceleration. Here, it is any interaction that is intended to change an object's condition. Can be linear or rotational. Can be related to: action, intensity, stiction, change of momentum, lift, stress, momentum, load, tension, drag, thrust, effort, pull, torque, friction, push, traction, grip, reaction, twist, inertia, shear, voltage",
+  "keywords": [
+   "force",
+   "load",
+   "thrust",
+   "tension",
+   "compression"
+  ]
+ },
+ {
+  "id": 11,
+  "name": "Stress or pressure",
+  "description": "Force exercised per unit area. Stress is the effect of forces on an object. Stresses can be tensile or compressive, static, or dynamic. Parameter also includes strain provided length is not the main issue. Can be related to: chemical fatigue, overload, strain, compression, plasticity, tension, creep, stacking-load weight, thermal fatigue, elasticity, vacuum, fatigue",
+  "keywords": [
+   "stress",
+   "pressure",
+   "stress concentration",
+   "bending stress"
+  ]
+ },
+ {
+  "id": 12,
+  "name": "Shape",
+  "description": "The internal or external contour or profile of a component or assembly required for ergonomic or functional rather than aesthetic reasons. Can be related to: asymmetry, line, roughness, contour, outline, silhouette, curvature, pattern, smoothness, form, porosity, symmetry, flatness, profile, unevenness, geometry",
+  "keywords": [
+   "shape",
+   "geometry",
+   "form",
+   "profile",
+   "topology"
+  ]
+ },
+ {
+  "id": 13,
+  "name": "Stability of the object's composition",
+  "description": "The wholeness or integrity of the system; relation of its constituent elements. It applies to both macro (component) and micro (atomic) level parameters. Can be related to: chemical decomposition, delamination, integrity, dissociation, oxidation, consistency, distortion, rusting, deformation, droop, solidity, desired/undesired, entropy, structure, homogeneity, sustainability, inertness, wear, instability",
+  "keywords": [
+   "stability",
+   "composition stability",
+   "buckling",
+   "overturning"
+  ]
+ },
+ {
+  "id": 14,
+  "name": "Strength",
+  "description": "The degree to which an object is able to resist change in response to a mechanical force. Break resistance. May be elastic limit, plastic limit, or final strength; stretching or compression; linear or rotary. Can be related to: bond, fatigue, rigidity, creep, hardness, robustness, distortion, join, stillness, droop, resistance, tolerance",
+  "keywords": [
+   "strength",
+   "yield",
+   "ultimate strength",
+   "fracture"
+  ]
+ },
+ {
+  "id": 15,
+  "name": "Duration of action by a moving object",
+  "description": "The time that the moving object or the system needs to perform the action. The duration of action is arbitrary – from a few milliseconds to few hours, to several years or even more. The parameter differs from Reliability, which is related to the time to system failure – in this case it is specifically only the duration aspect. Can be related to: (time) countdown, natural frequency, reaction-time, delay, mode, response-time, frequency, period, service life, interval, phase, time-span, life, rate, time-consumption",
+  "keywords": [
+   "durability moving",
+   "wear",
+   "fatigue life",
+   "service life"
+  ]
+ },
+ {
+  "id": 16,
+  "name": "Duration of action by a stationary object",
+  "description": "The time that the non-moving object or the system needs to perform the action. The duration of action is arbitrary – from a few milliseconds to few hours, to several years or even more. The parameter differs from Reliability, which is related to the time to system failure – in this case it is specifically only the duration aspect. Can be related to: (time) countdown, natural frequency, reaction-time, delay, mode, response-time, frequency, period, service life, interval, phase, time-span, life, rate, time-consumption",
+  "keywords": [
+   "durability stationary",
+   "creep",
+   "corrosion life"
+  ]
+ },
+ {
+  "id": 17,
+  "name": "Temperature",
+  "description": "Measured or perceived thermal condition of the object or the system. Includes other thermal parameters, that affect the rate of change of temperature. Can be related to: boiling point, isolation, radiation, cooling, freezing/melting point, thermal capacity, heating, thermodynamic equilibrium, hot, overheating",
+  "keywords": [
+   "temperature",
+   "heat",
+   "thermal",
+   "cooling",
+   "heating"
+  ]
+ },
+ {
+  "id": 18,
+  "name": "Illumination intensity",
+  "description": "The light flux per unit area, as well as all other characteristics related to the color or quality of light, etc. The parameter applies to the light source. Can be related to: colour, light spectrum, saturation, contrast, lustre, shade, darkness, matt, shiny, emissivity, obscuration, tone, invisibility, reflection, transparency, light intensity, reflectivity, visibility",
+  "keywords": [
+   "illumination",
+   "light",
+   "brightness",
+   "optical"
+  ]
+ },
+ {
+  "id": 19,
+  "name": "Use of energy by moving object",
+  "description": "A measure of a moving object's capacity to perform work. This parameter focuses on the actual amount of energy needed to perform a specific job, not on the efficiency of its use. It concerns the use of energy provided by the supersystem (e.g., electricity or heat). Can be related to: power consumption, cooling, heat-input, calories, current, heating, calorific value, fuel consumption",
+  "keywords": [
+   "energy use moving",
+   "power draw moving",
+   "energy consumption"
+  ]
+ },
+ {
+  "id": 20,
+  "name": "Use of energy by stationary object",
+  "description": "A measure of a stationary object's capacity to perform work. This parameter focuses on the actual amount of energy needed to perform a specific job, not on the efficiency of its use. It concerns the use of energy provided by the supersystem (e.g., electricity or heat). Can be related to: power consumption, cooling, heat-input, calories, current, heating, calorific value, fuel consumption",
+  "keywords": [
+   "energy use stationary",
+   "standby power",
+   "idle energy"
+  ]
+ },
+ {
+  "id": 21,
+  "name": "Power",
+  "description": "The rate at which work is performed. The rate of use of energy. Rate of energy output. Can be related to: action intensity, horse-power, voltage, current, shaft horse-power, Wattage, energy",
+  "keywords": [
+   "power",
+   "wattage",
+   "power density",
+   "actuation power"
+  ]
+ },
+ {
+  "id": 22,
+  "name": "Loss of energy",
+  "description": "Loss or waste of energy that does not contribute to the performance of any useful function. It can be partial or complete, permanent, or temporary. Can be related to: cooling down, inefficiency, resistance, damping, interference, slowing down, dissipation, isolation, stiction, friction, long flow, turbulence, heat loss, muting, weakening, weariness",
+  "keywords": [
+   "energy loss",
+   "dissipation",
+   "efficiency loss",
+   "heat loss"
+  ]
+ },
+ {
+  "id": 23,
+  "name": "Loss of substance",
+  "description": "Loss or waste of elements of a system or its surroundings – substances, materials, parts, sub-systems, products, fields, etc. Can be partial or complete, permanent, or temporary. Can be related to: abrasion, erosion, wear, absorption, evaporation, waste, corrosion, leakage, poorly transferable flow of substance, degradability, obstruction, deposition, oxidation, desorption, seal",
+  "keywords": [
+   "substance loss",
+   "material loss",
+   "leakage",
+   "waste"
+  ]
+ },
+ {
+  "id": 24,
+  "name": "Loss of information",
+  "description": "Loss or waste of data or access to data in or by a system. Includes sensory data associated with any of the 5 senses – visual, auditory, kinesthetic, olfactory, or gustatory (VAKOG). Can be partial or complete, permanent or temporary. Can be related to: aroma, jamming, obscuration, corruption, lack of knowledge, opacity, communication issue, lack of feedback, poorly transferable information flow, measurement inaccuracy, grey zone, white spot, interference, misunderstanding",
+  "keywords": [
+   "information loss",
+   "data loss",
+   "signal loss"
+  ]
+ },
+ {
+  "id": 25,
+  "name": "Loss of time",
+  "description": "Time (duration of an activity) inefficiencies. Improving the loss of time means reducing the time taken for the activity. Can be partial or complete, always, or occasional. Can be related to: bottleneck, slack time, time lag, delay, stagnant zone, waiting time, duplication of effort, time lost on redundant or unnecessary activities, reaction-time, response-time, idle time, latency",
+  "keywords": [
+   "time loss",
+   "delay",
+   "latency",
+   "cycle time"
+  ]
+ },
+ {
+  "id": 26,
+  "name": "Quantity of substance/the matter",
+  "description": "The amount, quantity, or number of a system's materials, substances, parts, fields, or sub-systems. The 'substance' is used here in its most general form and includes any physical or temporal 'thing'. Can be related to: absorbency, density, particle, amount, flesh, stuff, mass, flow amount, volume, count, matter",
+  "keywords": [
+   "quantity of substance",
+   "amount of material",
+   "mass of material"
+  ]
+ },
+ {
+  "id": 27,
+  "name": "Reliability",
+  "description": "A system's ability to perform its intended functions in predictable ways and conditions. Also includes durability and issues related to the performance or degradation in performance of an object or system over long periods. Can be related to: durability, life-cycle, Mean-Time-Between-Overhaul (MTBO) failure-rate, Mean-Time-Between-Failure (MTBF) maintenance, in-service, integrity, life, service-time, through-life-cost",
+  "keywords": [
+   "reliability",
+   "failure rate",
+   "robustness",
+   "mtbf"
+  ]
+ },
+ {
+  "id": 28,
+  "name": "Measurement accuracy",
+  "description": "Degree of precision or accuracy. The closeness of a measured value to an actual value of a property of a system. Reducing the error in a measurement improves the accuracy of the measurement. Can be related to: consistency, median, punctuality, error, mode, standard deviation, exactness, precision, tolerance, mean",
+  "keywords": [
+   "measurement accuracy",
+   "precision",
+   "tolerance",
+   "error"
+  ]
+ },
+ {
+  "id": 29,
+  "name": "Manufacturing precision",
+  "description": "The extent to which the actual characteristics of the system or object match the specified or required characteristics. Can be related to: accuracy, quality assurance, surface finish, exactness, repeatability, tolerance, indefiniteness, sigma level, variation (6 Sigma), looseness, standard deviation",
+  "keywords": [
+   "manufacturing precision",
+   "machining tolerance",
+   "process capability"
+  ]
+ },
+ {
+  "id": 30,
+  "name": "External harm affects the object",
+  "description": "This parameter is designed as a catch-all for any form of action or phenomenon in or around a system that manifests itself as a harmful effect on something in the system. Susceptibility of a system to externally generated (harmful) effects. Can be related to: adhesion, mold impact, sun-damage, contamination, oxidization, vulnerability, corroding, resilience, warpage, dust ingestion, undesired effect, weakening, erosion, sticking, weather impact",
+  "keywords": [
+   "harmful external factor",
+   "environmental attack",
+   "corrosion",
+   "contamination"
+  ]
+ },
+ {
+  "id": 31,
+  "name": "Object-generated harmful factors",
+  "description": "A harmful effect that reduces the performance or quality of the operation of an object or system. These harmful effects are generated by the object or system as part of its operation. It can also be any form of pollution or emission to the environment generated by an object or system. Can be related to: abrasion, noise, undesirable side effect, contamination, pollution, fumes emission, radioactivity, unburned hydro-carbons waste, infection, radiation, greenhouse gases emission, toxic by-products",
+  "keywords": [
+   "harmful generated factor",
+   "vibration",
+   "noise",
+   "emissions",
+   "heat rejection"
+  ]
+ },
+ {
+  "id": 32,
+  "name": "Ease of manufacture",
+  "description": "Issues related to manufacture, fabrication, and assembly of the object or system. The degree of facility, comfort or effortlessness in manufacturing or fabricating the object/system. Can be related to: assembly, degree of automation / robotization, machine-setting time, convenience of manufacture, tool-change, unchangeableness",
+  "keywords": [
+   "ease of manufacture",
+   "manufacturability",
+   "assembly",
+   "cost to make"
+  ]
+ },
+ {
+  "id": 33,
+  "name": "Ease of operation",
+  "description": "The extent to which the user is able to learn to operate, to operate, or to control the system, object, or process. Convenience of use. The process is NOT easy if it requires a large number of people, a large number of steps, special tools, etc. In opposite to 'difficult' processes, the 'easy' processes are high-efficient and easy to do them right. Can be related to: competencies, handiness knowledge, setup-time, controllability, simplicity, ease of transport, availability, tool-availability, ease-of-use, learning-curve, training, ergonomics, movability, transportability, familiarization- time, remote control, usability",
+  "keywords": [
+   "ease of operation",
+   "usability",
+   "ergonomics",
+   "operability"
+  ]
+ },
+ {
+  "id": 34,
+  "name": "Ease of repair",
+  "description": "Characteristics such as convenience, comfort, simplicity, and time to repair faults, failures, or defects of the system. Includes issues related to the need for special tools or equipment required for repair. Also consider the conditions for an on-site and remote repair. Can be related to: accessibility, interchangeability, removability, assembly, maintenance, replaceability, convenience of repair, modularity, updatability, recoverability, upgradability, disassembly, remote access, uptime, ergonomics",
+  "keywords": [
+   "ease of repair",
+   "maintainability",
+   "serviceability"
+  ]
+ },
+ {
+  "id": 35,
+  "name": "Adaptability or versatility",
+  "description": "The extent to which a system/object is able to respond to external changes. Also, relates to a system capable of being used in multiple ways or under a variety of circumstances. Flexibility of operation or use. Can be related to: agility, inadaptability, switching, compliance, modulation, tolerance, customizability, plasticity, trainability, evolution, responsivity, universality, flexibility, rigidity, variation",
+  "keywords": [
+   "adaptability",
+   "versatility",
+   "flexibility",
+   "reconfigurability"
+  ]
+ },
+ {
+  "id": 36,
+  "name": "Device complexity",
+  "description": "The number and diversity of elements and element interrelationships within and across the boundaries of a system. The user may be an element of the system that increases the complexity. Includes issues like number of functions, number of interfaces and connections, excessive number of components. Also, the complexity of the control system – either physical components or the algorithms that it contains. Can be related to: differential, modularity, positive feedback, homogeneity, negative feedback, proportionality, integrity, obviousness, seamless, interfaces, part count, simplification, invariability, plainness, uniformity",
+  "keywords": [
+   "complexity",
+   "part count",
+   "device complexity",
+   "control complexity"
+  ]
+ },
+ {
+  "id": 37,
+  "name": "Difficulty of detecting and measuring",
+  "description": "Difficulty in performing measurements on an object or system. Measurement or monitoring systems that are complex, costly, time-consuming, and labor-intensive to set up and use, or that have complex relationships between components or interfering components show 'difficulties in detecting and measuring'. The rising cost of measurement to a satisfactory error is also a sign of increased measurement difficulty. Can be related to: access, disturbance, location, availability, exactness, precision, ability to find the right parameter to measure, inaccessibility, repeatability, integrity, tolerance, interference, visibility, consistency, lag, variability, disappearance, latency",
+  "keywords": [
+   "difficulty of detection",
+   "difficulty of measurement",
+   "sensing"
+  ]
+ },
+ {
+  "id": 38,
+  "name": "Extent of automation",
+  "description": "The ability of a system or object to perform its functions without human interface or intervention. The lowest level of automation is the use of a manually operated tool. For intermediate levels, humans program the tool, observe its operation, and interrupt or re-program as needed. For the highest level, the machine senses the operation needed, programs itself, and monitors its own operations. Can be related to: algorithmic, man-in-the-loop / man-out-of-the-loop, programmability, computerization level, robotization, quality assurance, de-skilling, manual control, repeatability",
+  "keywords": [
+   "automation",
+   "autonomy",
+   "extent of automation"
+  ]
+ },
+ {
+  "id": 39,
+  "name": "Productivity",
+  "description": "The number or amount of useful functions or operations (useful output) performed by a system per unit time. The time per unit function or operation. Cost per unit output. It is not focused on issues of dynamics (see: Speed). Can be related to: bottlenecks, number of, throughput, capacity, operations, value, expenses, output, value-adding, extra processing steps, overproduction, operations, performance, yield",
+  "keywords": [
+   "productivity",
+   "throughput",
+   "yield rate",
+   "output rate"
+  ]
+ }
+]

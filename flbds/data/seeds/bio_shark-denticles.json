@@ -1,0 +1,355 @@
+{
+  "id": "bio:shark-denticles",
+  "title": "Shark Skin Riblet Drag Reduction",
+  "domain": "biological",
+  "description": "Streamwise microgrooves pin streamwise vortices to lower skin friction drag.",
+  "nodes": [
+    {
+      "id": "I1",
+      "construct": "I",
+      "label": "Boundary layer turbulent water stream",
+      "description": "",
+      "attributes": [
+        {
+          "name": "fluid density",
+          "symbol": "rho",
+          "value": 1025.0,
+          "unit": "kg/m^3",
+          "dimension": "M L^-3",
+          "role": "boundary"
+        },
+        {
+          "name": "flow velocity",
+          "symbol": "v",
+          "value": 8.0,
+          "unit": "m/s",
+          "dimension": "L T^-1",
+          "role": "boundary"
+        },
+        {
+          "name": "dynamic viscosity",
+          "symbol": "mu",
+          "value": 0.001,
+          "unit": "Pa s",
+          "dimension": "M L^-1 T^-1",
+          "role": "boundary"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "P1",
+      "construct": "P",
+      "label": "Dermal denticles enameloid scales",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "R1",
+      "construct": "R",
+      "label": "Streamwise microgroove riblet array",
+      "description": "",
+      "attributes": [
+        {
+          "name": "characteristic length",
+          "symbol": "L",
+          "value": 0.035,
+          "unit": "m",
+          "dimension": "L",
+          "role": "interface"
+        },
+        {
+          "name": "dimensionless spacing",
+          "symbol": "s_plus",
+          "value": 15.0,
+          "unit": null,
+          "dimension": "",
+          "role": "interface"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "E1",
+      "construct": "E",
+      "label": "Navier-Stokes fluid momentum",
+      "description": "",
+      "attributes": [
+        {
+          "name": "fluid density",
+          "symbol": "rho",
+          "value": null,
+          "unit": null,
+          "dimension": "M L^-3",
+          "role": null
+        },
+        {
+          "name": "flow velocity",
+          "symbol": "v",
+          "value": null,
+          "unit": null,
+          "dimension": "L T^-1",
+          "role": null
+        },
+        {
+          "name": "characteristic length",
+          "symbol": "L",
+          "value": null,
+          "unit": null,
+          "dimension": "L",
+          "role": null
+        },
+        {
+          "name": "dynamic viscosity",
+          "symbol": "mu",
+          "value": null,
+          "unit": null,
+          "dimension": "M L^-1 T^-1",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "Ph1",
+      "construct": "Ph",
+      "label": "Streamwise vortex pinning and crossflow momentum dampening",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "S1",
+      "construct": "S",
+      "label": "Skin friction drag coefficient drop dCd = -8.5%",
+      "description": "",
+      "attributes": [
+        {
+          "name": "drag reduction",
+          "symbol": "dCd",
+          "value": -0.085,
+          "unit": null,
+          "dimension": "",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "A1",
+      "construct": "A",
+      "label": "Reduce aerodynamic / hydrodynamic drag",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "P1",
+      "target": "R1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "I1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "R1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "E1",
+      "target": "Ph1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "Ph1",
+      "target": "S1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "A1",
+      "relation": "interpreted_as",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "P1",
+      "relation": "modifies",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    }
+  ],
+  "source": {},
+  "created_at": "2026-10-22T16:57:59.864862Z"
+}

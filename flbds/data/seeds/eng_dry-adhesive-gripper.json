@@ -1,0 +1,315 @@
+{
+  "id": "eng:dry-adhesive-gripper",
+  "title": "Fibrillar Elastomer Vacuum-Free Robotic Gripper",
+  "domain": "engineering",
+  "description": "Micro-patterned PDMS mushroom pillars enable clean-room dry adhesion pick-and-place.",
+  "nodes": [
+    {
+      "id": "I1",
+      "construct": "I",
+      "label": "Silicon wafer normal preload force",
+      "description": "",
+      "attributes": [
+        {
+          "name": "work of adhesion",
+          "symbol": "W_adh",
+          "value": 0.04,
+          "unit": "J/m^2",
+          "dimension": "M T^-2",
+          "role": "boundary"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "P1",
+      "construct": "P",
+      "label": "Micro-molded PDMS elastomer pillar pad",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "R1",
+      "construct": "R",
+      "label": "Mushroom-capped micropillar array",
+      "description": "",
+      "attributes": [
+        {
+          "name": "fibril tip radius",
+          "symbol": "R",
+          "value": 5e-6,
+          "unit": "m",
+          "dimension": "L",
+          "role": "interface"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "E1",
+      "construct": "E",
+      "label": "Johnson-Kendall-Roberts contact adhesion",
+      "description": "",
+      "attributes": [
+        {
+          "name": "fibril tip radius",
+          "symbol": "R",
+          "value": null,
+          "unit": null,
+          "dimension": "L",
+          "role": null
+        },
+        {
+          "name": "work of adhesion",
+          "symbol": "W_adh",
+          "value": null,
+          "unit": null,
+          "dimension": "M T^-2",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "Ph1",
+      "construct": "Ph",
+      "label": "Van der Waals intermolecular surface adhesion",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "S1",
+      "construct": "S",
+      "label": "Holding force capacity 25 N in vacuum",
+      "description": "",
+      "attributes": [
+        {
+          "name": "holding force",
+          "symbol": "F_hold",
+          "value": 25.0,
+          "unit": "N",
+          "dimension": "M L T^-2",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "A1",
+      "construct": "A",
+      "label": "Adhere reversibly to smooth surfaces",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "P1",
+      "target": "R1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "I1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "R1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "E1",
+      "target": "Ph1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "Ph1",
+      "target": "S1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "A1",
+      "relation": "interpreted_as",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "P1",
+      "relation": "modifies",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    }
+  ],
+  "source": {},
+  "created_at": "2026-10-22T16:57:59.865092Z"
+}

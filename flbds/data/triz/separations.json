@@ -1,0 +1,83 @@
+[
+ {
+  "id": 1,
+  "name": "Separation in space",
+  "description": "Apply contradictory demands in different places in space.",
+  "guidelines": [
+   "Control question: where?",
+   "Use this approach when the contradictory demands apply to different places in space."
+  ],
+  "principle_ids": [
+   1,
+   2,
+   3,
+   7,
+   4,
+   17
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Separation in time",
+  "description": "Apply contradictory demands at different moments in time.",
+  "guidelines": [
+   "Control question: when?",
+   "Use this approach when the contradictory demands are required at different moments in time."
+  ],
+  "principle_ids": [
+   9,
+   10,
+   11,
+   15,
+   34
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Separation in relation (conditions)",
+  "description": "Apply contradictory demands to different objects or under different conditions.",
+  "guidelines": [
+   "Control question: for whom / for what object?",
+   "Use this approach when the contradictory demands apply to different objects."
+  ],
+  "principle_ids": [
+   3,
+   17,
+   19,
+   31,
+   32,
+   40
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Separation in direction",
+  "description": "Apply contradictory demands in different directions of action.",
+  "guidelines": [
+   "Control question: in what direction?",
+   "Use this approach when the contradictory demands apply to different directions of action."
+  ],
+  "principle_ids": [
+   4,
+   14,
+   17,
+   32,
+   35,
+   40
+  ]
+ },
+ {
+  "id": 5,
+  "name": "Separation at the system level",
+  "description": "Apply contradictory demands at different levels of the system.",
+  "guidelines": [
+   "This approach may always be applied."
+  ],
+  "principle_ids": [
+   1,
+   5,
+   12,
+   33
+  ]
+ }
+]

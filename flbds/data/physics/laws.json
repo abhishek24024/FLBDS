@@ -1,0 +1,522 @@
+{
+  "dimensionless_groups": [
+    {
+      "symbol": "Re",
+      "name": "Reynolds number",
+      "definition": "Ratio of inertial forces to viscous forces in a fluid flow",
+      "formula": "rho * v * L / mu",
+      "length_exponent": 1,
+      "variables": [
+        "rho",
+        "v",
+        "L",
+        "mu"
+      ],
+      "critical_regimes": {
+        "laminar": {
+          "min": 0.0,
+          "max": 2300.0
+        },
+        "transitional": {
+          "min": 2300.0,
+          "max": 4000.0
+        },
+        "turbulent": {
+          "min": 4000.0,
+          "max": 1000000000.0
+        }
+      },
+      "typical_limit": 2300.0
+    },
+    {
+      "symbol": "Bi",
+      "name": "Biot number",
+      "definition": "Ratio of thermal conduction resistance inside a body to convective resistance at the surface",
+      "formula": "h * L_c / k_s",
+      "length_exponent": 1,
+      "variables": [
+        "h",
+        "L_c",
+        "k_s"
+      ],
+      "critical_regimes": {
+        "thermally_thin": {
+          "min": 0.0,
+          "max": 0.1
+        },
+        "transitional": {
+          "min": 0.1,
+          "max": 1.0
+        },
+        "thermal_trapping": {
+          "min": 1.0,
+          "max": 1000000.0
+        }
+      },
+      "typical_limit": 0.1
+    },
+    {
+      "symbol": "Bo",
+      "name": "Bond number",
+      "definition": "Ratio of gravitational / buoyancy forces to surface tension forces",
+      "formula": "delta_rho * g * L^2 / gamma",
+      "length_exponent": 2,
+      "variables": [
+        "delta_rho",
+        "g",
+        "L",
+        "gamma"
+      ],
+      "critical_regimes": {
+        "capillary_dominant": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "gravity_dominant": {
+          "min": 1.0,
+          "max": 1000000.0
+        }
+      },
+      "typical_limit": 1.0
+    },
+    {
+      "symbol": "Pi_g",
+      "name": "Elasto-gravity number",
+      "definition": "Ratio of self-weight gravitational body forces to elastic restoring stiffness",
+      "formula": "rho * g * L / E",
+      "length_exponent": 1,
+      "variables": [
+        "rho",
+        "g",
+        "L",
+        "E"
+      ],
+      "critical_regimes": {
+        "stiffness_dominant": {
+          "min": 0.0,
+          "max": 0.001
+        },
+        "gravity_sag_buckling": {
+          "min": 0.001,
+          "max": 100.0
+        }
+      },
+      "typical_limit": 0.001
+    },
+    {
+      "symbol": "We",
+      "name": "Weber number",
+      "definition": "Ratio of fluid inertia to surface tension",
+      "formula": "rho * v^2 * L / gamma",
+      "length_exponent": 1,
+      "variables": [
+        "rho",
+        "v",
+        "L",
+        "gamma"
+      ],
+      "critical_regimes": {
+        "droplet_cohesion": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "droplet_breakup": {
+          "min": 1.0,
+          "max": 100000.0
+        }
+      },
+      "typical_limit": 1.0
+    },
+    {
+      "symbol": "Pe",
+      "name": "Peclet number",
+      "definition": "Ratio of advective transport rate to diffusive transport rate",
+      "formula": "v * L / D",
+      "length_exponent": 1,
+      "variables": [
+        "v",
+        "L",
+        "D"
+      ],
+      "critical_regimes": {
+        "diffusion_dominant": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "advection_dominant": {
+          "min": 1.0,
+          "max": 10000000.0
+        }
+      },
+      "typical_limit": 1.0
+    }
+  ],
+  "laws": [
+    {
+      "id": "young_laplace",
+      "name": "Young-Laplace capillary law",
+      "equation": "delta_P = 2 * gamma * cos(theta) / r",
+      "domain": "fluid_capillarity",
+      "description": "Describes the capillary pressure difference sustained across the interface between two static fluids.",
+      "dimensionless_groups": [
+        "Bo",
+        "We"
+      ],
+      "variables": [
+        {
+          "symbol": "delta_P",
+          "name": "capillary pressure difference",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "governing"
+        },
+        {
+          "symbol": "gamma",
+          "name": "surface tension",
+          "dimension": "M T^-2",
+          "unit": "N/m",
+          "role": "boundary"
+        },
+        {
+          "symbol": "theta",
+          "name": "contact angle",
+          "dimension": "",
+          "unit": "rad",
+          "role": "interface"
+        },
+        {
+          "symbol": "r",
+          "name": "capillary pore radius",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        }
+      ]
+    },
+    {
+      "id": "navier_stokes",
+      "name": "Navier-Stokes fluid momentum",
+      "equation": "rho * (dv/dt + v . grad(v)) = -grad(p) + mu * grad^2(v) + rho * g",
+      "domain": "fluid_dynamics",
+      "description": "Governs the motion of viscous fluid substances and viscous boundary layer damping.",
+      "dimensionless_groups": [
+        "Re"
+      ],
+      "variables": [
+        {
+          "symbol": "rho",
+          "name": "fluid density",
+          "dimension": "M L^-3",
+          "unit": "kg/m^3",
+          "role": "boundary"
+        },
+        {
+          "symbol": "v",
+          "name": "flow velocity",
+          "dimension": "L T^-1",
+          "unit": "m/s",
+          "role": "boundary"
+        },
+        {
+          "symbol": "L",
+          "name": "characteristic length",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        },
+        {
+          "symbol": "mu",
+          "name": "dynamic viscosity",
+          "dimension": "M L^-1 T^-1",
+          "unit": "Pa s",
+          "role": "boundary"
+        },
+        {
+          "symbol": "p",
+          "name": "fluid pressure",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "observed"
+        }
+      ]
+    },
+    {
+      "id": "fourier_conduction",
+      "name": "Fourier law of thermal conduction",
+      "equation": "q = -k_s * grad(T)",
+      "domain": "thermal",
+      "description": "Governs heat transfer through solid materials by conduction and core heat dissipation.",
+      "dimensionless_groups": [
+        "Bi"
+      ],
+      "variables": [
+        {
+          "symbol": "h",
+          "name": "convective heat transfer coefficient",
+          "dimension": "M T^-3 K^-1",
+          "unit": "W/(m^2 K)",
+          "role": "boundary"
+        },
+        {
+          "symbol": "L_c",
+          "name": "characteristic conduction length",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        },
+        {
+          "symbol": "k_s",
+          "name": "solid thermal conductivity",
+          "dimension": "M L T^-3 K^-1",
+          "unit": "W/(m K)",
+          "role": "interface"
+        },
+        {
+          "symbol": "T",
+          "name": "temperature field",
+          "dimension": "K",
+          "unit": "K",
+          "role": "observed"
+        }
+      ]
+    },
+    {
+      "id": "elasto_gravity_buckling",
+      "name": "Elasto-gravity structural scaling",
+      "equation": "sigma_g = rho * g * L <= E / (slenderness^2)",
+      "domain": "structural_mechanics",
+      "description": "Governs self-weight bending deflection and gravitational buckling slenderness limits.",
+      "dimensionless_groups": [
+        "Pi_g"
+      ],
+      "variables": [
+        {
+          "symbol": "rho",
+          "name": "material density",
+          "dimension": "M L^-3",
+          "unit": "kg/m^3",
+          "role": "internal"
+        },
+        {
+          "symbol": "g",
+          "name": "gravitational acceleration",
+          "dimension": "L T^-2",
+          "unit": "m/s^2",
+          "role": "boundary"
+        },
+        {
+          "symbol": "L",
+          "name": "characteristic structural height / span",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        },
+        {
+          "symbol": "E",
+          "name": "Young elastic modulus",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "internal"
+        }
+      ]
+    },
+    {
+      "id": "hooke_law",
+      "name": "Hooke law of linear elasticity",
+      "equation": "sigma = E * epsilon",
+      "domain": "solid_mechanics",
+      "description": "Relates mechanical stress linearly to strain for reversible elastic deformations.",
+      "dimensionless_groups": [],
+      "variables": [
+        {
+          "symbol": "sigma",
+          "name": "mechanical stress",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "observed"
+        },
+        {
+          "symbol": "E",
+          "name": "elastic modulus",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "internal"
+        },
+        {
+          "symbol": "epsilon",
+          "name": "strain",
+          "dimension": "",
+          "unit": "",
+          "role": "observed"
+        }
+      ]
+    },
+    {
+      "id": "darcy_porous",
+      "name": "Darcy law for porous media",
+      "equation": "Q = -kappa * A * delta_P / (mu * L)",
+      "domain": "porous_flow",
+      "description": "Describes the flow of a fluid through a porous medium under pressure drop.",
+      "dimensionless_groups": [
+        "Re"
+      ],
+      "variables": [
+        {
+          "symbol": "Q",
+          "name": "volumetric flow rate",
+          "dimension": "L^3 T^-1",
+          "unit": "m^3/s",
+          "role": "observed"
+        },
+        {
+          "symbol": "kappa",
+          "name": "permeability",
+          "dimension": "L^2",
+          "unit": "m^2",
+          "role": "interface"
+        },
+        {
+          "symbol": "A",
+          "name": "cross-sectional area",
+          "dimension": "L^2",
+          "unit": "m^2",
+          "role": "interface"
+        },
+        {
+          "symbol": "delta_P",
+          "name": "pressure drop",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "boundary"
+        },
+        {
+          "symbol": "mu",
+          "name": "fluid viscosity",
+          "dimension": "M L^-1 T^-1",
+          "unit": "Pa s",
+          "role": "boundary"
+        },
+        {
+          "symbol": "L",
+          "name": "porous bed thickness",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        }
+      ]
+    },
+    {
+      "id": "cassie_baxter",
+      "name": "Cassie-Baxter superhydrophobic wetting",
+      "equation": "cos(theta_CB) = f_solid * cos(theta_0) - (1 - f_solid)",
+      "domain": "surface_wetting",
+      "description": "Calculates apparent contact angle for air-trapping heterogeneous microstructured interfaces.",
+      "dimensionless_groups": [
+        "Bo"
+      ],
+      "variables": [
+        {
+          "symbol": "theta_CB",
+          "name": "apparent Cassie contact angle",
+          "dimension": "",
+          "unit": "rad",
+          "role": "observed"
+        },
+        {
+          "symbol": "f_solid",
+          "name": "solid fraction area",
+          "dimension": "",
+          "unit": "",
+          "role": "interface"
+        },
+        {
+          "symbol": "theta_0",
+          "name": "intrinsic Young contact angle",
+          "dimension": "",
+          "unit": "rad",
+          "role": "boundary"
+        }
+      ]
+    },
+    {
+      "id": "jkr_adhesion",
+      "name": "Johnson-Kendall-Roberts contact adhesion",
+      "equation": "F_adh = 1.5 * pi * R * W_adh",
+      "domain": "tribology_adhesion",
+      "description": "Predicts pull-off adhesion force for compliant elastic fibrillar contacts governed by surface energy.",
+      "dimensionless_groups": [
+        "Bo"
+      ],
+      "variables": [
+        {
+          "symbol": "F_adh",
+          "name": "pull-off adhesion force",
+          "dimension": "M L T^-2",
+          "unit": "N",
+          "role": "observed"
+        },
+        {
+          "symbol": "R",
+          "name": "fibril tip radius of curvature",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        },
+        {
+          "symbol": "W_adh",
+          "name": "work of adhesion / surface energy",
+          "dimension": "M T^-2",
+          "unit": "J/m^2",
+          "role": "boundary"
+        }
+      ]
+    },
+    {
+      "id": "bernoulli_principle",
+      "name": "Bernoulli fluid energy conservation",
+      "equation": "p + 0.5 * rho * v^2 + rho * g * z = const",
+      "domain": "fluid_dynamics",
+      "description": "Relates fluid pressure, flow velocity, and elevation along a streamline for inviscid incompressible flow.",
+      "dimensionless_groups": [
+        "Re"
+      ],
+      "variables": [
+        {
+          "symbol": "p",
+          "name": "static pressure",
+          "dimension": "M L^-1 T^-2",
+          "unit": "Pa",
+          "role": "observed"
+        },
+        {
+          "symbol": "rho",
+          "name": "fluid density",
+          "dimension": "M L^-3",
+          "unit": "kg/m^3",
+          "role": "boundary"
+        },
+        {
+          "symbol": "v",
+          "name": "flow velocity",
+          "dimension": "L T^-1",
+          "unit": "m/s",
+          "role": "boundary"
+        },
+        {
+          "symbol": "g",
+          "name": "gravity",
+          "dimension": "L T^-2",
+          "unit": "m/s^2",
+          "role": "boundary"
+        },
+        {
+          "symbol": "z",
+          "name": "elevation",
+          "dimension": "L",
+          "unit": "m",
+          "role": "interface"
+        }
+      ]
+    }
+  ]
+}

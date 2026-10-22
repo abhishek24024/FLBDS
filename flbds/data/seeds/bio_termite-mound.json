@@ -1,0 +1,331 @@
+{
+  "id": "bio:termite-mound",
+  "title": "Termite Mound Passive Diurnal Ventilation",
+  "domain": "biological",
+  "description": "Fluted earthen chimneys achieve passive thermal regulation via solar buoyancy convection.",
+  "nodes": [
+    {
+      "id": "I1",
+      "construct": "I",
+      "label": "Diurnal solar radiant heat flux",
+      "description": "",
+      "attributes": [
+        {
+          "name": "convective heat transfer coefficient",
+          "symbol": "h",
+          "value": 25.0,
+          "unit": "W/(m^2 K)",
+          "dimension": "M T^-3 K^-1",
+          "role": "boundary"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "P1",
+      "construct": "P",
+      "label": "Porous clay-saliva composite mound walls",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "R1",
+      "construct": "R",
+      "label": "Fluted ventilation flues and thermal mass core",
+      "description": "",
+      "attributes": [
+        {
+          "name": "characteristic conduction length",
+          "symbol": "L_c",
+          "value": 0.15,
+          "unit": "m",
+          "dimension": "L",
+          "role": "interface"
+        },
+        {
+          "name": "solid thermal conductivity",
+          "symbol": "k_s",
+          "value": 1.2,
+          "unit": "W/(m K)",
+          "dimension": "M L T^-3 K^-1",
+          "role": "interface"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "E1",
+      "construct": "E",
+      "label": "Fourier law of thermal conduction",
+      "description": "",
+      "attributes": [
+        {
+          "name": "convective heat transfer coefficient",
+          "symbol": "h",
+          "value": null,
+          "unit": null,
+          "dimension": "M T^-3 K^-1",
+          "role": null
+        },
+        {
+          "name": "characteristic conduction length",
+          "symbol": "L_c",
+          "value": null,
+          "unit": null,
+          "dimension": "L",
+          "role": null
+        },
+        {
+          "name": "solid thermal conductivity",
+          "symbol": "k_s",
+          "value": null,
+          "unit": null,
+          "dimension": "M L T^-3 K^-1",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "Ph1",
+      "construct": "Ph",
+      "label": "Buoyancy-driven stack ventilation + thermal mass damping",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "S1",
+      "construct": "S",
+      "label": "Internal nest temperature stability dT < 1 K",
+      "description": "",
+      "attributes": [
+        {
+          "name": "temperature variation",
+          "symbol": "dT",
+          "value": 0.8,
+          "unit": "K",
+          "dimension": "K",
+          "role": null
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    },
+    {
+      "id": "A1",
+      "construct": "A",
+      "label": "Maintain interior temperature passively",
+      "description": "",
+      "attributes": [],
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "confidence": 1.0,
+      "tags": [],
+      "meta": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "P1",
+      "target": "R1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "I1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "R1",
+      "target": "E1",
+      "relation": "activates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "E1",
+      "target": "Ph1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "Ph1",
+      "target": "S1",
+      "relation": "creates",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "A1",
+      "relation": "interpreted_as",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    },
+    {
+      "source": "S1",
+      "target": "P1",
+      "relation": "modifies",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source_id": "literature",
+          "source_type": "paper",
+          "locator": "sec 2.1",
+          "quote": null,
+          "chunk_id": null,
+          "confidence": 1.0
+        }
+      ],
+      "meta": {}
+    }
+  ],
+  "source": {},
+  "created_at": "2026-10-22T16:57:59.865272Z"
+}
