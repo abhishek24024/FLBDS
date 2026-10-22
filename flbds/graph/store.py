@@ -40,7 +40,7 @@ class GraphStore:
 
     def _get_conn(self) -> sqlite3.Connection:
         if self._conn is None:
-            self._conn = sqlite3.connect(self.db_path)
+            self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
             self._conn.row_factory = sqlite3.Row
             self._conn.execute("PRAGMA foreign_keys = ON;")
         return self._conn
@@ -347,17 +347,22 @@ class GraphStore:
             "SELECT entity_id, vector, dim FROM embeddings WHERE modality = ?;", (modality,)
         ).fetchall()
 
-        scores: list[tuple[str, float]] = []
-        for r in rows:
-            vec = np.frombuffer(r["vector"], dtype=np.float32)
-            v_norm = np.linalg.norm(vec)
-            if v_norm < 1e-9:
-                continue
-            cos_sim = float(np.dot(query_vec, vec / v_norm))
-            scores.append((r["entity_id"], cos_sim))
+        if not rows:
+            return []
+        ids = [r["entity_id"] for r in rows]
+        mat = np.array([np.frombuffer(r["vector"], dtype=np.float32) for r in rows], dtype=np.float32)
+        norms = np.linalg.norm(mat, axis=1, keepdims=True)
+        norms[norms < 1e-9] = 1.0
+        mat = mat / norms
+        sims = mat @ query_vec
 
-        scores.sort(key=lambda x: x[1], reverse=True)
-        return scores[:top_k]
+        if len(sims) <= top_k:
+            top_idxs = np.argsort(-sims)
+        else:
+            top_idxs = np.argpartition(-sims, top_k)[:top_k]
+            top_idxs = top_idxs[np.argsort(-sims[top_idxs])]
+
+        return [(ids[i], float(sims[i])) for i in top_idxs]
 
     # ------------------------------------------------------ causal traversal
     def backward_causal_path(self, graph_id: str, start_node_id: str) -> list[CausalEdge]:
