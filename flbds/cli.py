@@ -151,5 +151,46 @@ def seed_store(
     console.print(f"[green]Successfully loaded {loaded} seed graphs into {target_db}[/green]")
 
 
+
+@app.command()
+def ingest(
+    file: Path = typer.Option(..., "--file", "-f", help="Path to raw text file or manuscript"),
+    domain: str = typer.Option("biological", "--domain", "-d", help="Domain: biological or engineering"),
+    title: Optional[str] = typer.Option(None, "--title", "-t", help="Title of system"),
+    graph_id: Optional[str] = typer.Option(None, "--id", help="Graph identifier"),
+    db_path: Optional[str] = typer.Option(None, "--db", help="Target SQLite graph store path"),
+) -> None:
+    """Extract and ingest a SAPPhIRE causal graph from text into G_MCKG."""
+    if not file.exists():
+        console.print(f"[red]Error:[/red] File not found: {file}")
+        raise typer.Exit(code=1)
+
+    raw_text = file.read_text(encoding="utf-8")
+    doc_title = title or file.stem.replace("_", " ").title()
+    gid = graph_id or f"{domain[:3]}:{file.stem.lower()}"
+
+    from flbds.extraction.fusion import SAPPhIREExtractor
+    extractor = SAPPhIREExtractor()
+    graph, meta = extractor.extract(
+        text=raw_text,
+        graph_id=gid,
+        title=doc_title,
+        domain=domain,
+        source_id=f"file:{file.name}",
+    )
+
+    settings = get_settings()
+    store = GraphStore(db_path or str(settings.paths.graph_db))
+    store.save_graph(graph)
+
+    status_str = "[green]VALID[/green]" if meta["valid"] else "[red]INVALID[/red]"
+    console.print(Panel.fit(
+        f"Ingested: [bold cyan]{graph.id}[/bold cyan] ({graph.title})\n"
+        f"Status: {status_str} | Errors: {meta['n_errors']} | Warnings: {meta['n_warnings']}\n"
+        f"Construct Coverage: {meta['construct_coverage']:.0%} | Grounding: {meta['grounding_ratio']:.0%}\n"
+        f"Saved to: {store.db_path}"
+    ))
+
+
 if __name__ == "__main__":
     app()
