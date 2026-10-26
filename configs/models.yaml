@@ -1,0 +1,32 @@
+# FLBDS Model Configuration
+teacher:
+  repo_id: "RedHatAI/Qwen2.5-72B-Instruct-FP8-dynamic"
+  local_dir: "/home/abhishek24024/flbds_data/models/Qwen2.5-72B-Instruct-FP8"
+  quantization: null
+  max_model_len: 8192
+  gpu_memory_utilization: 0.90
+  temperature: 0.2
+
+critic:
+  repo_id: "RedHatAI/Qwen2.5-32B-Instruct-FP8-dynamic"
+  local_dir: "/home/abhishek24024/flbds_data/models/Qwen2.5-32B-Instruct-FP8"
+  quantization: null
+  max_model_len: 8192
+  gpu_memory_utilization: 0.85
+  temperature: 0.1
+
+filter:
+  repo_id: "Qwen/Qwen2.5-7B-Instruct"
+  local_dir: "/home/abhishek24024/flbds_data/models/Qwen2.5-7B-Instruct"
+  quantization: null
+  max_model_len: 8192
+  gpu_memory_utilization: 0.85
+  temperature: 0.0
+
+extractor:
+  repo_id: "Qwen/Qwen2.5-7B-Instruct"
+  local_dir: "/home/abhishek24024/flbds_data/models/Qwen2.5-7B-Instruct"
+  quantization: null
+  max_model_len: 8192
+  gpu_memory_utilization: 0.85
+  temperature: 0.0

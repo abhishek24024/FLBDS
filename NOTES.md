@@ -71,3 +71,7 @@
 * [2026-10-26] Server Directory Standardization: Standardized on `/home/abhishek24024/flbds` as the single real directory (removed symlink and renamed `FLBDS` to `flbds`).
 * [2026-10-26] Step 3 Complete: Harvested 1,000 pilot documents server-side into `/home/abhishek24024/flbds_data/corpus/` (500 PMC bio articles, 22.38 MB; 500 US patents in CPC sections F and E, 12.67 MB). Reproducible scripts and 5-doc samples committed to git as commit `5bc5d2e`.
 * [2026-10-26] Step 4 Model Research: Evaluated current state-of-the-art open instruct models across 8B, ~30B, and ~70B tiers on Hugging Face (October 2026 benchmark and licensing landscape). Reported gating, VRAM footprints, and vLLM FP8 support. Awaiting user approval before downloading any model weights.
+
+* [2026-10-26] Step 4 Complete: Downloaded Qwen2.5-7B-Instruct (BF16, 15 GB), Qwen2.5-32B-Instruct-FP8-dynamic (32 GB), and Qwen2.5-72B-Instruct-FP8-dynamic (72 GB) to `/home/abhishek24024/flbds_data/models/`. Measured throughput on NVIDIA H200: 7B at 1,658 decode tok/s; 32B FP8 at 593.2 decode tok/s; 72B FP8 at 325.3 decode tok/s.
+* [2026-10-26] BigPatent Provenance Clarification: Engineering corpus patents originate from Hugging Face `NortheasternUniversity/big_patent` (CPC sections F and E, filtered by thermal/fluid/insulation keywords, text up to ~2018), rather than direct USPTO bulk downloads, avoiding auth requirements.
+* [2026-10-26] Bio Sample License Compliance: `data/sample/bio_sample.jsonl` replaced with strictly 5 CC BY / CC0 papers for GitHub repository compliance.
