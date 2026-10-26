@@ -65,3 +65,6 @@
 ## 5. Decisions & Approvals Log
 * [2026-10-26] Approved proceeding with Git connection on top of `5cf1d7b` on `main`.
 * [2026-10-26] Approved proceeding with Step 1 (core Pydantic v2 schemas and unit tests).
+* [2026-10-26] Step 1 Complete: Scaffolding deployed to `flbds/schema/` (`MechanismCard`, `ProblemCard`, `RoleBinding`, `VerificationReport`). All 15 unit tests passed on server (`pytest tests/test_schemas.py`). Pushed as commit `3843702`.
+* [2026-10-26] Step 2 Complete: Source register verified live on server (`docs/source_register.md`). Identified migrations: PMC FTP -> AWS Open Data S3; PatentsView -> USPTO Open Data Portal (`data.uspto.gov`). Model candidates verified (Qwen2.5 72B/32B/7B under Apache 2.0).
+* [2026-10-26] Pending Approval: Review of `docs/source_register.md` to authorize proceeding to Step 3 (downloading a small pilot corpus of ~1,000 documents: ~500 bio, ~500 eng server-side only into `flbds_data/`).
