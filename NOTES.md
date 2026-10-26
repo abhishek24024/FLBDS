@@ -61,10 +61,13 @@
 | Date | Step / Task Description | Target Model / Job | Duration (s) | GPU-Hours | Cumulative Week Total | Remaining Weekly Quota |
 |---|---|---|---|---|---|---|
 | 2026-10-26 | Step 0: Recon & NVML probe | N/A (broker ping) | ~2 s | < 0.001 h | ~0.001 h | 90.00 h |
+| 2026-10-26 | Step 3: Harvest pilot corpus | CPU Network I/O | ~180 s | 0.000 h | ~0.001 h | 90.00 h |
 
 ## 5. Decisions & Approvals Log
 * [2026-10-26] Approved proceeding with Git connection on top of `5cf1d7b` on `main`.
 * [2026-10-26] Approved proceeding with Step 1 (core Pydantic v2 schemas and unit tests).
 * [2026-10-26] Step 1 Complete: Scaffolding deployed to `flbds/schema/` (`MechanismCard`, `ProblemCard`, `RoleBinding`, `VerificationReport`). All 15 unit tests passed on server (`pytest tests/test_schemas.py`). Pushed as commit `3843702`.
-* [2026-10-26] Step 2 Complete: Source register verified live on server (`docs/source_register.md`). Identified migrations: PMC FTP -> AWS Open Data S3; PatentsView -> USPTO Open Data Portal (`data.uspto.gov`). Model candidates verified (Qwen2.5 72B/32B/7B under Apache 2.0).
-* [2026-10-26] Pending Approval: Review of `docs/source_register.md` to authorize proceeding to Step 3 (downloading a small pilot corpus of ~1,000 documents: ~500 bio, ~500 eng server-side only into `flbds_data/`).
+* [2026-10-26] Step 2 Complete: Source register verified live on server (`docs/source_register.md`). Identified migrations: PMC FTP -> AWS Open Data S3; PatentsView -> USPTO Open Data Portal (`data.uspto.gov`). Model candidates verified (Qwen2.5 72B/32B/7B under Apache 2.0). Pushed as commit `f07fb7e`.
+* [2026-10-26] Server Directory Standardization: Standardized on `/home/abhishek24024/flbds` as the single real directory (removed symlink and renamed `FLBDS` to `flbds`).
+* [2026-10-26] Step 3 Complete: Harvested 1,000 pilot documents server-side into `/home/abhishek24024/flbds_data/corpus/` (500 PMC bio articles, 22.38 MB; 500 US patents in CPC sections F and E, 12.67 MB). Reproducible scripts and 5-doc samples committed to git as commit `5bc5d2e`.
+* [2026-10-26] Step 4 Model Research: Evaluated current state-of-the-art open instruct models across 8B, ~30B, and ~70B tiers on Hugging Face (October 2026 benchmark and licensing landscape). Reported gating, VRAM footprints, and vLLM FP8 support. Awaiting user approval before downloading any model weights.
