@@ -75,3 +75,17 @@
 * [2026-10-26] Step 4 Complete: Downloaded Qwen2.5-7B-Instruct (BF16, 15 GB), Qwen2.5-32B-Instruct-FP8-dynamic (32 GB), and Qwen2.5-72B-Instruct-FP8-dynamic (72 GB) to `/home/abhishek24024/flbds_data/models/`. Measured throughput on NVIDIA H200: 7B at 1,658 decode tok/s; 32B FP8 at 593.2 decode tok/s; 72B FP8 at 325.3 decode tok/s.
 * [2026-10-26] BigPatent Provenance Clarification: Engineering corpus patents originate from Hugging Face `NortheasternUniversity/big_patent` (CPC sections F and E, filtered by thermal/fluid/insulation keywords, text up to ~2018), rather than direct USPTO bulk downloads, avoiding auth requirements.
 * [2026-10-26] Bio Sample License Compliance: `data/sample/bio_sample.jsonl` replaced with strictly 5 CC BY / CC0 papers for GitHub repository compliance.
+
+* [2026-10-26] Step 5 & Step 6 Autonomous Execution Complete:
+  - Deployed master driver `scripts/run_pilot.sh` running Stages 0-7 resumably.
+  - Smoke test executed on 40 docs (20 bio, 20 eng): 0.0676 GPU-hours.
+  - Full pilot executed on 1,000 docs (500 bio, 500 eng): 0.2004 GPU-hours.
+  - Stage 1 (7B Relevance Filter): 1,000 in -> 372 out, 628 dropped (46,841 tok/s, 0.0106 GPU-h).
+  - Stage 2 (72B Teacher Drafting): 372 in -> 361 out, 11 dropped on schema validation (642.6 decode tok/s, 0.0925 GPU-h).
+  - Stage 3 (72B Agreement Sample on 300 docs): Mean overall inter-sample agreement = 67.7% (subject: 67.1%, action verb: 80.5%, state variable: 82.3%, physical effect: 64.3%, phenomenon: 44.2%) across 298 valid pairs (648.3 decode tok/s, 0.0783 GPU-h).
+  - Stage 4 (Deterministic Programmatic Evidence Verifier): 361 in -> 348 out, 13 dropped (0 valid spans). Evaluated 783 spans: 700 realigned to exact verbatim text, 83 hallucinated/unmatched spans dropped (CPU, 0.0 GPU-h).
+  - Stage 5 (32B Causal Entailment Critic): 348 in -> 270 out, 78 dropped due to unentailed physical causal claims (3,012.9 decode tok/s, 0.0119 GPU-h).
+  - Stage 6 (7B + Pint Quantity Extractor): 270 in -> 270 out. Extracted 573 quantities: 446 Pint-validated with SI units, 127 unparseable rejected (4,235.7 decode tok/s, 0.0071 GPU-h).
+  - Stage 7 (Near-Duplicate Deduplication): 270 in -> 269 unique silver cards retained (1 duplicate removed, CPU, 0.0 GPU-h).
+  - Step 6 Gold Annotation Tools: Sampled 30 documents (15 bio, 15 eng, seed=42) to `/home/abhishek24024/flbds_data/pilot/gold_candidates.json`. Built terminal side-by-side viewer `scripts/view_card.py` and field-level F1 evaluator `scripts/eval_f1.py` with 7 synthetic unit tests (`tests/test_eval_f1.py`).
+  - Total Pilot GPU-Hours: 0.2004 h (Full) + 0.0676 h (Smoke) + ~0.05 h (Calibration) = ~0.318 GPU-hours total, well within the 20.0 h pilot cap and 90.0 h weekly quota.
