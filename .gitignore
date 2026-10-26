@@ -1,0 +1,42 @@
+# Credentials and sensitive connection details (Rule 3)
+ssh_details.md
+*ssh_details*
+*.pem
+*.key
+*id_rsa*
+*.env
+.env.*
+
+# Python environments and caches
+flbds_env/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data, model weights, checkpoints, large outputs (Rule 1 & 2)
+flbds_data/
+data/raw/
+data/processed/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.h5
+*.onnx
+*.tar.gz
+*.zip
+*.parquet
+*.arrow
+outputs/
+logs/
+checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
