@@ -149,7 +149,32 @@ def wilson_interval(k: int, n: int, confidence: float = 0.95):
     return p, (round(low, 4), round(high, 4))
 
 
-def run_m5_eval(prob: ProblemCard, gt: GroundTruthEval, ref_design: TemplateParameters):
+
+DEV_SPECS = {
+    "DEV-M1-S1": {"required_energy_J_m2": 4.0e6, "thickness_max_m": 0.05},
+    "DEV-M1-S2": {"required_energy_J_m2": 4.5e6, "thickness_max_m": 0.05},
+    "DEV-M1-S3": {"required_energy_J_m2": 2.5e6, "thickness_max_m": 0.04},
+    "DEV-M2-S1": {"required_duty_W": 500.0, "max_pressure_drop_Pa": 500.0, "pressure_drop_cap_Pa": 500.0},
+    "DEV-M2-S2": {"required_duty_W": 2000.0, "max_pressure_drop_Pa": 800.0, "pressure_drop_cap_Pa": 800.0},
+    "DEV-M2-S3": {"required_duty_W": 800.0, "max_pressure_drop_Pa": 250.0, "pressure_drop_cap_Pa": 250.0},
+    "DEV-M3-S1": {"max_inner_leakage_W_m2": 40.0, "required_net_cooling_W_m2": 0.0},
+    "DEV-M3-S2": {"max_inner_leakage_W_m2": 50.0, "required_net_cooling_W_m2": 0.0},
+    "DEV-M3-S3": {"max_inner_leakage_W_m2": 20.0, "required_net_cooling_W_m2": 0.0},
+    "DEV-M4-S1": {"required_flux_mol_m2_s": 0.005, "min_pore_diameter_m": 20e-9},
+    "DEV-M4-S2": {"required_flux_mol_m2_s": 0.008, "min_pore_diameter_m": 25e-9},
+    "DEV-M4-S3": {"required_flux_mol_m2_s": 0.006, "min_pore_diameter_m": 35e-9},
+}
+
+def run_m5_eval(prob: ProblemCard, gt: GroundTruthEval, ref_design: TemplateParameters, cid: str = ""):
+    """Run full M5-Eval scoring pipeline with ground-truth problem limits enforced."""
+    # Enforce ground-truth problem loads and caps (prevent model-hallucinated cap gaming)
+    spec = DEV_SPECS.get(cid, {})
+    for k, v in spec.items():
+        if hasattr(ref_design, k):
+            setattr(ref_design, k, v)
+        if k == "max_pressure_drop_Pa" and hasattr(ref_design, "pressure_drop_cap_Pa"):
+            setattr(ref_design, "pressure_drop_cap_Pa", v)
+
     """Run full M5-Eval scoring pipeline."""
     # 1. Template choice check
     acceptable = [
@@ -175,7 +200,7 @@ def run_m5_eval(prob: ProblemCard, gt: GroundTruthEval, ref_design: TemplatePara
         elif isinstance(ref_design, TPL02Params):
             res = eval_tpl02(ref_design, bc_type=BoundaryTypeEnum.BC_FLUX)
         elif isinstance(ref_design, TPL03Params):
-            res = eval_tpl03(ref_design)
+            res = eval_tpl03_evaporation(ref_design)
         elif isinstance(ref_design, TPL04Params):
             res = eval_tpl04(ref_design)
         elif isinstance(ref_design, TPL05Params):
@@ -208,6 +233,7 @@ def main():
     parser.add_argument("--dev-dir", default=default_dev)
     parser.add_argument("--output-json", default="/home/abhishek24024/flbds_data/benchmark/b0_redo_results.json")
     parser.add_argument("--seeds", type=int, nargs="+", default=[1, 2, 3, 4, 5])
+    parser.add_argument("--temperature", type=float, default=0.7)
     args = parser.parse_args()
 
     dev_base = Path(args.dev_dir).resolve()
@@ -255,10 +281,10 @@ def main():
     # Run across 5 seeds
     for seed in args.seeds:
         print(f"\n--- Running Seed {seed} across 12 Dev Cases ---", flush=True)
-        sp_gen = SamplingParams(temperature=0.7, top_p=0.9, seed=seed, max_tokens=1024)
-        sp_critic = SamplingParams(temperature=0.3, top_p=0.9, seed=seed, max_tokens=1024)
+        sp_gen = SamplingParams(temperature=args.temperature, top_p=0.9, seed=seed, max_tokens=1024)
+        sp_critic = SamplingParams(temperature=args.temperature, top_p=0.9, seed=seed, max_tokens=1024)
         sp_refine = SamplingParams(
-            temperature=0.1,
+            temperature=args.temperature,
             top_p=0.9,
             seed=seed,
             max_tokens=1024,
@@ -387,7 +413,7 @@ def main():
                 continue
 
             # 3. M5-Eval physics & template check
-            passed, fail_type, reason = run_m5_eval(prob, gt, ref_design)
+            passed, fail_type, reason = run_m5_eval(prob, gt, ref_design, cid)
             record["passed"] = passed
             if passed:
                 record["failure_type"] = None
