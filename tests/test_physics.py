@@ -22,10 +22,27 @@ import pytest
 import numpy as np
 
 from flbds.schema.enums import BoundaryTypeEnum, DuctCrossSectionEnum, TemplateEnum
-from flbds.schema.templates import TPL02Params, TPL08Params, TPL09Params, TPL10Params
+from flbds.schema.templates import (
+    TPL01Params,
+    TPL02Params,
+    TPL03Params,
+    TPL04Params,
+    TPL05Params,
+    TPL06Params,
+    TPL07Params,
+    TPL08Params,
+    TPL09Params,
+    TPL10Params,
+)
 from flbds.physics.capacity_bound import (
     check_thermal_storage_capacity,
     check_evaporative_capacity,
+)
+from flbds.physics.tpl01_conduction import (
+    screen_tpl01,
+    eval_tpl01,
+    compute_thermal_diffusivity,
+    compute_diurnal_damping_and_lag,
 )
 from flbds.physics.tpl02_pcm import (
     screen_tpl02,
@@ -34,6 +51,36 @@ from flbds.physics.tpl02_pcm import (
     solve_24h_robin_cycle,
     neumann_analytical_lambda,
     compute_composite_properties,
+)
+from flbds.physics.tpl03_evaporation import (
+    screen_tpl03_evaporation,
+    eval_tpl03_evaporation,
+    screen_tpl03_condensation,
+    eval_tpl03_condensation,
+    saturation_vapor_pressure_Pa,
+    humidity_ratio,
+    dew_point_temperature_degC,
+)
+from flbds.physics.tpl04_sorption import (
+    screen_tpl04,
+    eval_tpl04,
+)
+from flbds.physics.tpl05_wicking import (
+    screen_tpl05,
+    eval_tpl05,
+    compute_jurin_height_m,
+    compute_bond_number,
+)
+from flbds.physics.tpl06_porous_flow import (
+    screen_tpl06,
+    eval_tpl06,
+    compute_ergun_pressure_drop,
+)
+from flbds.physics.tpl07_fin import (
+    screen_tpl07,
+    eval_tpl07,
+    compute_fin_efficiency,
+    compute_constructal_spacing_m,
 )
 from flbds.physics.tpl08_countercurrent import (
     screen_tpl08,
@@ -432,3 +479,356 @@ class TestTPL10Diffusion:
         res_valid = eval_tpl10(params_valid)
         assert res_valid.passed
         assert res_valid.metrics["J_coupled_mol_m2_s"] > 0.01
+
+
+class TestTPL01Conduction:
+    """TPL-01: Transient conduction and thermal mass (>= 3 textbook problems)."""
+
+    def test_textbook_adobe_wall_periodic_attenuation(self):
+        """Case 1: Incropera textbook periodic conduction in adobe wall (d=0.25 m)."""
+        # alpha = 0.72 / (1800 * 840) = 4.76e-7 m^2/s
+        params = TPL01Params(
+            template_id=TemplateEnum.TPL_01,
+            thickness_m=0.25,
+            density_kg_m3=1800.0,
+            specific_heat_J_kgK=840.0,
+            thermal_conductivity_W_mK=0.72,
+            required_energy_J_m2=1.5e6,
+            period_hours=24.0,
+        )
+        # Screen check: Fo in [0.25, 5.0]
+        screen_res = screen_tpl01(params)
+        assert screen_res.passed
+        assert 0.25 <= screen_res.metrics["Fo"] <= 5.0
+
+        # Eval check: cyclic Robin damping factor and phase lag
+        eval_res = eval_tpl01(params)
+        assert eval_res.passed
+        assert 0.01 <= eval_res.metrics["damping_factor"] <= 0.50
+        assert eval_res.metrics["phase_lag_hours"] > 3.0
+
+    def test_textbook_concrete_slab_thermal_mass(self):
+        """Case 2: Concrete slab thermal mass (d=0.20 m, rho=2300 kg/m3, cp=1000 J/kgK)."""
+        params = TPL01Params(
+            template_id=TemplateEnum.TPL_01,
+            thickness_m=0.20,
+            density_kg_m3=2300.0,
+            specific_heat_J_kgK=1000.0,
+            thermal_conductivity_W_mK=1.4,
+            required_energy_J_m2=2.0e6,
+            period_hours=24.0,
+        )
+        screen_res = screen_tpl01(params)
+        assert screen_res.passed
+        assert screen_res.metrics["stored_energy_MJ_m2"] >= 2.0
+        eval_res = eval_tpl01(params)
+        assert eval_res.passed
+
+    def test_screen_fails_thin_foil_on_fourier_limit(self):
+        """Case 3: Thin aluminum foil (d=0.002 m) has Fo >> 5.0; fails thermal damping screen."""
+        params = TPL01Params(
+            template_id=TemplateEnum.TPL_01,
+            thickness_m=0.002,
+            density_kg_m3=2700.0,
+            specific_heat_J_kgK=900.0,
+            thermal_conductivity_W_mK=200.0,
+            required_energy_J_m2=1.0e4,  # Small energy so it tests Fourier upper bound
+            period_hours=24.0,
+        )
+        screen_res = screen_tpl01(params)
+        assert not screen_res.passed
+        assert "Fo=" in screen_res.reason or "Fourier" in screen_res.reason
+
+
+class TestTPL03EvaporationAndCondensation:
+    """TPL-03: Evaporation and Condensation (>= 3 textbook problems)."""
+
+    def test_textbook_direct_evaporative_cooling(self):
+        """Case 1: ASHRAE evaporative cooling water budget and latent flux."""
+        params = TPL03Params(
+            template_id=TemplateEnum.TPL_03,
+            latent_heat_J_kg=2.44e6,
+            evaporation_rate_kg_m2_s=1.0e-4,  # ~0.36 kg/m2/h
+            water_budget_kg_m2=8.0,           # covers 8h (2.88 kg/m2 needed)
+            ambient_relative_humidity=0.35,
+            air_velocity_m_s=2.0,
+            characteristic_length_m=1.0,
+        )
+        screen_res = screen_tpl03_evaporation(params, operating_hours=8.0, required_cooling_W_m2=200.0)
+        assert screen_res.passed
+        eval_res = eval_tpl03_evaporation(params, T_amb_degC=35.0, operating_hours=8.0, required_cooling_W_m2=200.0)
+        assert eval_res.passed
+        assert eval_res.metrics["latent_cooling_flux_W_m2"] >= 200.0
+
+    def test_textbook_dew_condensation_humidity_ratio_check(self):
+        """Case 2: Atmospheric dew condensation with air stream humidity-ratio capacity check."""
+        params = TPL03Params(
+            template_id=TemplateEnum.TPL_03,
+            latent_heat_J_kg=2.44e6,
+            evaporation_rate_kg_m2_s=2.0e-5,
+            water_budget_kg_m2=5.0,
+            ambient_relative_humidity=0.85,
+            air_velocity_m_s=1.5,
+            characteristic_length_m=0.5,
+        )
+        # Chilled plate at 12 degC in moist air at 22 degC, RH=85% (T_dew ~ 19.4 degC)
+        screen_res = screen_tpl03_condensation(params, T_surf_degC=12.0, T_amb_degC=22.0, RH=0.85)
+        assert screen_res.passed
+
+        # Eval: Air stream capacity check
+        eval_res = eval_tpl03_condensation(
+            params,
+            T_surf_degC=12.0,
+            T_amb_degC=22.0,
+            RH=0.85,
+            m_dot_air_kg_s=0.10,
+            required_condensate_kg_h=0.05,
+        )
+        assert eval_res.passed
+        assert eval_res.metrics["condensate_rate_kg_h"] >= 0.05
+
+    def test_condensation_fails_surface_above_dew_point(self):
+        """Case 3: Surface temperature at 25 degC is above dew point (19.4 degC); fails screen."""
+        params = TPL03Params(
+            template_id=TemplateEnum.TPL_03,
+            latent_heat_J_kg=2.44e6,
+            evaporation_rate_kg_m2_s=2.0e-5,
+            water_budget_kg_m2=5.0,
+            ambient_relative_humidity=0.85,
+            air_velocity_m_s=1.5,
+            characteristic_length_m=0.5,
+        )
+        screen_res = screen_tpl03_condensation(params, T_surf_degC=25.0, T_amb_degC=22.0, RH=0.85)
+        assert not screen_res.passed
+        assert "dew point" in screen_res.reason.lower()
+
+
+class TestTPL04SorptionStorage:
+    """TPL-04: Closed-loop sorption thermal storage (>= 3 textbook problems)."""
+
+    def test_textbook_zeolite_water_thermochemical_storage(self):
+        """Case 1: Zeolite 13X/water closed-loop thermochemical battery (bulk density 700 kg/m3)."""
+        params = TPL04Params(
+            template_id=TemplateEnum.TPL_04,
+            bulk_density_kg_m3=700.0,
+            sorption_density_J_kg=1.2e6,  # 1.2 MJ/kg sorbent
+            regeneration_temp_degC=200.0,
+            ldf_time_constant_s=500.0,
+            charge_period_hours=8.0,
+        )
+        screen_res = screen_tpl04(params, bed_thickness_m=0.04, required_energy_J_m2=5.0e6)
+        assert screen_res.passed
+        assert screen_res.metrics["stored_energy_MJ_m2"] >= 5.0
+
+        eval_res = eval_tpl04(params, T_source_available_degC=220.0, bed_thickness_m=0.04, required_energy_J_m2=5.0e6)
+        assert eval_res.passed
+
+    def test_textbook_silica_gel_ldf_kinetics(self):
+        """Case 2: Silica gel/water low-temperature storage with LDF kinetics validation."""
+        params = TPL04Params(
+            template_id=TemplateEnum.TPL_04,
+            bulk_density_kg_m3=650.0,
+            sorption_density_J_kg=8.5e5,
+            regeneration_temp_degC=85.0,
+            ldf_time_constant_s=400.0,
+            charge_period_hours=6.0,
+        )
+        eval_res = eval_tpl04(params, T_source_available_degC=95.0, bed_thickness_m=0.05, required_energy_J_m2=4.0e6)
+        assert eval_res.passed
+        assert eval_res.metrics["tau_ldf_s"] <= 0.15 * (6.0 * 3600.0)
+
+    def test_eval_fails_insufficient_regeneration_temperature(self):
+        """Case 3: Available source (70 degC) is below sorbent desorption requirement (180 degC)."""
+        params = TPL04Params(
+            template_id=TemplateEnum.TPL_04,
+            bulk_density_kg_m3=700.0,
+            sorption_density_J_kg=1.2e6,
+            regeneration_temp_degC=180.0,
+            ldf_time_constant_s=500.0,
+            charge_period_hours=8.0,
+        )
+        eval_res = eval_tpl04(params, T_source_available_degC=70.0, bed_thickness_m=0.04, required_energy_J_m2=5.0e6)
+        assert not eval_res.passed
+        assert "regeneration" in eval_res.reason.lower() or "desorption" in eval_res.reason.lower()
+
+
+class TestTPL05CapillaryWicking:
+    """TPL-05: Capillary wicking (>= 3 textbook problems)."""
+
+    def test_textbook_sintered_wick_heat_pipe(self):
+        """Case 1: Sintered copper heat pipe wick (r_p = 25 um, lift = 0.10 m)."""
+        params = TPL05Params(
+            template_id=TemplateEnum.TPL_05,
+            lift_height_m=0.10,
+            pore_radius_m=25e-6,
+            surface_tension_N_m=0.0728,
+            contact_angle_deg=0.0,
+            permeability_m2=1.5e-11,
+            dynamic_viscosity_Pa_s=1e-3,
+            fluid_density_kg_m3=1000.0,
+            required_mass_flux_kg_m2_s=0.02,
+        )
+        screen_res = screen_tpl05(params)
+        assert screen_res.passed
+        assert screen_res.metrics["h_jurin_m"] >= 1.5 * 0.10
+        assert screen_res.metrics["Bo"] < 0.1
+
+        eval_res = eval_tpl05(params)
+        assert eval_res.passed
+        assert eval_res.metrics["mass_flux_supply_kg_m2_s"] >= 0.02
+
+    def test_eval_pore_clearance_and_fouling(self):
+        """Case 2: Micro-grooved wick with pore clearance check above particulate fouling limit."""
+        params = TPL05Params(
+            template_id=TemplateEnum.TPL_05,
+            lift_height_m=0.05,
+            pore_radius_m=10e-6,
+            surface_tension_N_m=0.0728,
+            contact_angle_deg=10.0,
+            permeability_m2=8.0e-12,
+            dynamic_viscosity_Pa_s=1e-3,
+            fluid_density_kg_m3=1000.0,
+            required_mass_flux_kg_m2_s=0.015,
+        )
+        eval_res = eval_tpl05(params, min_pore_diameter_fouling_m=2e-6)
+        assert eval_res.passed
+
+    def test_screen_fails_coarse_wick_bond_number(self):
+        """Case 3: Coarse pore wick (r_p = 2 mm): Jurin height < lift and Bo > 0.1."""
+        params = TPL05Params(
+            template_id=TemplateEnum.TPL_05,
+            lift_height_m=0.05,
+            pore_radius_m=2e-3,
+            surface_tension_N_m=0.0728,
+            contact_angle_deg=0.0,
+            permeability_m2=1.0e-9,
+            dynamic_viscosity_Pa_s=1e-3,
+            fluid_density_kg_m3=1000.0,
+            required_mass_flux_kg_m2_s=0.02,
+        )
+        screen_res = screen_tpl05(params)
+        assert not screen_res.passed
+
+
+class TestTPL06PorousMediaFlow:
+    """TPL-06: Darcy-Forchheimer porous flow (>= 3 textbook problems)."""
+
+    def test_textbook_ergun_packed_bed(self):
+        """Case 1: Ergun (1952) packed bed of spheres (eps=0.40, d_p=3 mm)."""
+        # Low superficial velocity for Darcy screen check
+        params_darcy = TPL06Params(
+            template_id=TemplateEnum.TPL_06,
+            bed_length_m=0.20,
+            bed_porosity=0.40,
+            mean_pore_diameter_m=3e-3,
+            fluid_density_kg_m3=1.2,
+            fluid_viscosity_Pa_s=1.8e-5,
+            superficial_velocity_m_s=0.02,
+            pressure_drop_cap_Pa=200.0,
+            min_pumping_cop=10.0,
+        )
+        screen_res = screen_tpl06(params_darcy)
+        assert screen_res.passed
+
+        # High velocity for inertial Ergun coupled eval
+        params_ergun = TPL06Params(
+            template_id=TemplateEnum.TPL_06,
+            bed_length_m=0.20,
+            bed_porosity=0.40,
+            mean_pore_diameter_m=3e-3,
+            fluid_density_kg_m3=1.2,
+            fluid_viscosity_Pa_s=1.8e-5,
+            superficial_velocity_m_s=0.25,
+            pressure_drop_cap_Pa=500.0,
+            min_pumping_cop=10.0,
+        )
+        eval_res = eval_tpl06(params_ergun, thermal_duty_W=150.0, bed_cross_section_m2=0.05)
+        assert eval_res.passed
+
+    def test_textbook_laminar_porous_heat_sink(self):
+        """Case 2: Nield & Bejan laminar porous matrix flow (pore Re <= 10)."""
+        params = TPL06Params(
+            template_id=TemplateEnum.TPL_06,
+            bed_length_m=0.10,
+            bed_porosity=0.50,
+            mean_pore_diameter_m=1e-3,
+            fluid_density_kg_m3=1.2,
+            fluid_viscosity_Pa_s=1.8e-5,
+            superficial_velocity_m_s=0.05,
+            pressure_drop_cap_Pa=100.0,
+            min_pumping_cop=20.0,
+        )
+        screen_res = screen_tpl06(params)
+        assert screen_res.passed
+        assert screen_res.metrics["Re_pore"] <= 10.0
+
+    def test_screen_fails_excessive_pressure_drop(self):
+        """Case 3: Dense micro-particulate bed exceeds pressure drop cap."""
+        params = TPL06Params(
+            template_id=TemplateEnum.TPL_06,
+            bed_length_m=0.25,
+            bed_porosity=0.30,
+            mean_pore_diameter_m=50e-6,
+            fluid_density_kg_m3=1.2,
+            fluid_viscosity_Pa_s=1.8e-5,
+            superficial_velocity_m_s=1.0,
+            pressure_drop_cap_Pa=500.0,
+            min_pumping_cop=10.0,
+        )
+        screen_res = screen_tpl06(params)
+        assert not screen_res.passed
+        assert "pressure drop" in screen_res.reason.lower()
+
+
+class TestTPL07FinConvection:
+    """TPL-07: Fin convection (>= 3 textbook problems)."""
+
+    def test_textbook_rectangular_aluminum_fin(self):
+        """Case 1: Incropera Ex 3.9 straight rectangular fin efficiency and Biot check."""
+        params = TPL07Params(
+            template_id=TemplateEnum.TPL_07,
+            fin_thickness_m=0.002,
+            fin_spacing_m=0.010,
+            fin_length_m=0.050,
+            fin_conductivity_W_mK=200.0,
+            h_conv_W_m2K=50.0,
+            fluid_thermal_diffusivity_m2_s=2.2e-5,
+        )
+        screen_res = screen_tpl07(params)
+        assert screen_res.passed
+        assert 0.75 <= screen_res.metrics["eta_f"] <= 0.90
+        assert screen_res.metrics["Bi"] < 0.1
+
+        eval_res = eval_tpl07(params, base_excess_temp_K=60.0, required_duty_W=100.0)
+        assert eval_res.passed
+
+    def test_textbook_constructal_boundary_layer_spacing(self):
+        """Case 2: Bejan constructal spacing check (S >= 2 * delta_th)."""
+        params = TPL07Params(
+            template_id=TemplateEnum.TPL_07,
+            fin_thickness_m=0.0015,
+            fin_spacing_m=0.008,
+            fin_length_m=0.040,
+            fin_conductivity_W_mK=160.0,
+            h_conv_W_m2K=40.0,
+            fluid_thermal_diffusivity_m2_s=2.2e-5,
+        )
+        s_opt = compute_constructal_spacing_m(params.fin_length_m)
+        assert params.fin_spacing_m >= s_opt
+        eval_res = eval_tpl07(params, base_excess_temp_K=45.0, required_duty_W=80.0)
+        assert eval_res.passed
+
+    def test_eval_fails_boundary_layer_choking(self):
+        """Case 3: Unphysically narrow fin spacing (S = 0.5 mm) triggers boundary-layer choking."""
+        params = TPL07Params(
+            template_id=TemplateEnum.TPL_07,
+            fin_thickness_m=0.0015,
+            fin_spacing_m=0.0005,  # 0.5 mm clearance << 2 * delta_th
+            fin_length_m=0.080,
+            fin_conductivity_W_mK=200.0,
+            h_conv_W_m2K=50.0,
+            fluid_thermal_diffusivity_m2_s=2.2e-5,
+        )
+        eval_res = eval_tpl07(params, base_excess_temp_K=60.0, required_duty_W=1000.0)
+        assert not eval_res.passed
+        assert "spacing" in eval_res.reason.lower() or "choking" in eval_res.reason.lower()

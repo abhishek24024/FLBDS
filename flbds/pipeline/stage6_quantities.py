@@ -25,8 +25,10 @@ class QuantityList(BaseModel):
     items: list[CandidateQuantity] = Field(default_factory=list)
 
 
-def normalize_unit_string(unit_str: str) -> str:
-    """Normalize common unit colloquialisms into strict Pint-parseable expressions."""
+import re
+
+def old_normalize_unit_string(unit_str: str) -> str:
+    """Original un-sanitized unit normalizer from pilot run."""
     u = unit_str.strip()
     replacements = {
         "°C": "degC",
@@ -44,6 +46,68 @@ def normalize_unit_string(unit_str: str) -> str:
         "W/m2": "W / m^2",
     }
     return replacements.get(u, u)
+
+
+def sanitize_quantity(value: float, unit_str: str) -> tuple[float, str]:
+    """Robust physical quantity and unit sanitizer.
+
+    Handles:
+    - Unicode minus (\\u2212) and dashes (\\u2013, \\u2014) -> '-'
+    - vol.%, wt.%, vol %, wt %, volume %, weight % -> 'percent'
+    - Compound slashes e.g. g/m2/h, kg/m2/s, kJ/kg/K -> g / (m^2 * hr), kg / (m^2 * s)
+    - Scientific scaling prefixes e.g. 'x10^-6 m', '10^-3 Pa' -> scales numerical value, unit 'm', 'Pa'
+    - Exponents and powers e.g. m2 -> m^2, J g-1 -> J * g^-1
+    """
+    u = unit_str.strip()
+    # Normalize unicode minuses and dashes
+    u = u.replace("−", "-").replace("–", "-").replace("—", "-")
+    u = u.replace("²", "^2").replace("³", "^3").replace("⁻¹", "^-1").replace("⁻²", "^-2")
+
+    # Extract scientific prefix multiplier if in unit string e.g. x10^-6, 10^-3, x10^5
+    scale_match = re.search(r"[x×]?\s*10\s*\^\s*([+-]?\d+)", u)
+    if scale_match:
+        exp = int(scale_match.group(1))
+        value = value * (10.0 ** exp)
+        u = re.sub(r"[x×]?\s*10\s*\^\s*([+-]?\d+)\s*\*?", "", u).strip()
+
+    # Percentage variants
+    u = re.sub(r"^(vol|wt|weight|volume)\.?\s*%", "percent", u, flags=re.IGNORECASE)
+    u = re.sub(r"^(vol|wt|weight|volume)\s*percent", "percent", u, flags=re.IGNORECASE)
+    u = re.sub(r"%\s*(vol|wt)", "percent", u, flags=re.IGNORECASE)
+
+    # Temperatures
+    u = re.sub(r"^(°C|C|deg\s*C|degrees?\s*C)$", "degC", u, flags=re.IGNORECASE)
+    u = re.sub(r"^(°F|F|deg\s*F|degrees?\s*F)$", "degF", u, flags=re.IGNORECASE)
+
+    # Hyphenated unit products (e.g. m-K -> m * K)
+    u = re.sub(r"([a-zA-Z])-([a-zA-Z])", r"\1 * \2", u)
+    u = re.sub(r"/mK\b", "/(m*K)", u)
+
+    # Multi-slash division compound expressions
+    slash_parts = [p.strip() for p in u.split("/")]
+    if len(slash_parts) > 2:
+        num = slash_parts[0]
+        denom = " * ".join(slash_parts[1:])
+        u = f"{num} / ({denom})"
+
+    # Unmarked powers e.g. m2 -> m^2, m3 -> m^3
+    u = re.sub(r"([a-zA-Z])([23])\b", r"\1^\2", u)
+
+    # Negative exponents written as space-separated e.g. J g-1 -> J * g^-1
+    u = re.sub(r"\b([a-df-zA-DF-Z])\s*-\s*(\d+)", r"\1^-\2", u)
+
+    # Hour abbreviation
+    u = re.sub(r"\b(h|hr|hour|hours)\b", "hr", u)
+
+    # Implicit multiplication between tokens
+    parts = u.split("*")
+    new_parts = []
+    for p in parts:
+        sub = re.sub(r"([a-zA-Z\^0-9\-\+]+)\s+([a-zA-Z\^0-9\-\+]+)", r"\1 * \2", p.strip())
+        new_parts.append(sub)
+    u = " * ".join(new_parts)
+
+    return value, u
 
 
 def build_quantity_prompt(rec: dict) -> str:
@@ -116,8 +180,13 @@ def run_quantities(
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     total_extracted = 0
+    old_valid_count = 0
+    old_rejected_count = 0
     pint_valid = 0
     pint_rejected = 0
+
+    recovered_items = []
+    remaining_rejected_items = []
 
     with open(output_path, "w") as fout:
         for rec, out in zip(records, outputs):
@@ -127,20 +196,50 @@ def run_quantities(
                 cand_list = QuantityList.model_validate_json(out.outputs[0].text.strip())
                 for item in cand_list.items:
                     total_extracted += 1
-                    norm_unit = normalize_unit_string(item.unit)
+
+                    # 1. Test original un-sanitized normalizer
+                    old_unit = old_normalize_unit_string(item.unit)
+                    old_passed = False
                     try:
-                        # Verify dimensional validity via Pint
-                        ureg.parse_units(norm_unit)
+                        ureg.parse_units(old_unit)
+                        old_passed = True
+                        old_valid_count += 1
+                    except Exception:
+                        old_rejected_count += 1
+
+                    # 2. Test new sanitizer
+                    san_val, san_unit = sanitize_quantity(item.value, item.unit)
+                    try:
+                        parsed_u = ureg.parse_units(san_unit)
                         q = Quantity(
                             name=item.name,
-                            value=item.value,
-                            unit=norm_unit,
+                            value=san_val,
+                            unit=san_unit,
                             regime_of_validity=item.regime,
                         )
                         quant_objs.append(q.model_dump())
                         pint_valid += 1
-                    except Exception:
+
+                        if not old_passed:
+                            recovered_items.append({
+                                "doc_id": rec.get("doc_id", ""),
+                                "name": item.name,
+                                "raw_value": item.value,
+                                "raw_unit": item.unit,
+                                "sanitized_value": san_val,
+                                "sanitized_unit": san_unit,
+                                "pint_parsed": str(parsed_u),
+                            })
+                    except Exception as e:
                         pint_rejected += 1
+                        remaining_rejected_items.append({
+                            "doc_id": rec.get("doc_id", ""),
+                            "name": item.name,
+                            "raw_value": item.value,
+                            "raw_unit": item.unit,
+                            "sanitized_unit": san_unit,
+                            "pint_error": str(e),
+                        })
             except Exception:
                 pass
 
@@ -150,6 +249,26 @@ def run_quantities(
 
     elapsed = time.perf_counter() - t_start
     gpu_hours = round(elapsed / 3600.0, 5)
+
+    audit_path = output_path.parent / "stage_6_recovery_audit.json"
+    audit_data = {
+        "total_extracted": total_extracted,
+        "old_pipeline": {
+            "valid": old_valid_count,
+            "purged": old_rejected_count,
+        },
+        "new_pipeline": {
+            "valid": pint_valid,
+            "purged": pint_rejected,
+            "recovered_count": len(recovered_items),
+        },
+        "recovered_sample_10": recovered_items[:10],
+        "remaining_rejected_sample_10": remaining_rejected_items[:10],
+        "all_recovered": recovered_items,
+        "all_remaining_rejected": remaining_rejected_items,
+    }
+    with open(audit_path, "w") as fa:
+        json.dump(audit_data, fa, indent=2)
 
     summary = {
         "stage": 6,
@@ -162,6 +281,9 @@ def run_quantities(
         "quantities_extracted": total_extracted,
         "pint_valid_quantities": pint_valid,
         "pint_rejected_quantities": pint_rejected,
+        "old_valid_quantities": old_valid_count,
+        "old_purged_quantities": old_rejected_count,
+        "recovered_quantities": len(recovered_items),
         "prompt_tokens": total_prompt_tokens,
         "output_tokens": total_output_tokens,
         "decode_tokens_per_sec": round(decode_tok_s, 1),

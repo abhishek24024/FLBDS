@@ -43,7 +43,7 @@ def chunk_document(doc: dict, max_chars: int = 12000) -> dict:
     else:
         cleaned_text = clean_eng_text(raw_text, max_chars=max_chars)
     
-    return {
+    res = {
         "doc_id": doc["doc_id"],
         "domain": domain,
         "title": doc.get("title", ""),
@@ -53,6 +53,9 @@ def chunk_document(doc: dict, max_chars: int = 12000) -> dict:
         "raw_char_len": len(raw_text),
         "chunk_char_len": len(cleaned_text),
     }
+    if "organism" in doc:
+        res["organism"] = doc["organism"]
+    return res
 
 
 def process_corpus(input_path: Path, output_path: Path, limit: int | None = None, max_chars: int = 12000) -> int:

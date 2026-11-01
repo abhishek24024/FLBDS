@@ -2,7 +2,7 @@
   "problem_id": "PROB-DEV-M4-S1",
   "source_image": null,
   "system": {
-    "name": "Submerged Plastron Hair Array",
+    "name": "Submerged Hydrophobic Microporous Membrane Aerator",
     "components": [],
     "geometry_summary": null,
     "scale": null
@@ -23,9 +23,9 @@
   },
   "required_function": {
     "action": "diffuse",
-    "target_object": "dissolved oxygen gas",
+    "target_object": "underwater sensor oxygen supply",
     "state_variable": "species molar flux",
-    "target_change": "maintain steady passive oxygen replenishment across stable gas interface",
+    "target_change": "maintain steady passive oxygen replenishment across stable hydrophobic gas-liquid interface",
     "target_direction": "transport-directional",
     "boundary_type": "BC_FLUX",
     "flux_or_load": 0.005

@@ -2,7 +2,7 @@
   "problem_id": "PROB-DEV-M2-S1",
   "source_image": null,
   "system": {
-    "name": "Aquatic Extremity Vascular Bundle",
+    "name": "Avionics Liquid-Liquid Microchannel Countercurrent Heat Exchanger",
     "components": [],
     "geometry_summary": null,
     "scale": null
@@ -23,9 +23,9 @@
   },
   "required_function": {
     "action": "conserve",
-    "target_object": "arterial stream enthalpy",
+    "target_object": "avionics coolant stream enthalpy",
     "state_variable": "thermal energy",
-    "target_change": "transfer heat back to venous blood before reaching flipper tip",
+    "target_change": "transfer heat from hot supply loop back into cold return loop across countercurrent core",
     "target_direction": "transport-directional",
     "boundary_type": "BC_TEMP",
     "flux_or_load": 500.0

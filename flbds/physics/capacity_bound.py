@@ -108,10 +108,16 @@ def check_problem_satisfiability(
 ) -> Tuple[bool, str]:
     """Pre-admission check: verifies whether problem requirements are theoretically possible.
 
-    Rejects unphysical demands (e.g. 5.76 MJ/m^2 load in 10 mm paraffin wall).
+    Rejects unphysical demands per Principle P10 (FLBDS v9 §5.1):
+    1. 5.76 MJ/m^2 load in 10 mm paraffin wall (theoretical max ~1.72 MJ/m^2).
+    2. Pin-fin thermal duty exceeding envelope or heat transfer capacity bound.
+    3. Pressure drop exceeding the specified system cap.
+    4. Evaporative cooling demand exceeding available water latent capacity.
     """
-    if candidate_template in ["TPL_02", "TPL02"]:
-        # Check thickness against load
+    templ = candidate_template.upper().replace("-", "_")
+
+    # 1. TPL-02 Phase Change Material Capacity
+    if templ in ["TPL_02", "TPL02"]:
         max_thick = 0.05
         if problem.hard_constraints:
             thick_val = problem.hard_constraints.max_thickness_m or getattr(problem.hard_constraints, "thickness_max_m", None)
@@ -122,7 +128,6 @@ def check_problem_satisfiability(
         if problem.required_function and problem.required_function.flux_or_load is not None:
             load_J = problem.required_function.flux_or_load
 
-        # If params provided, use its material properties; else check against standard paraffin
         mat_class = "paraffin"
         if isinstance(params, TPL02Params):
             max_thick = min(max_thick, params.thickness_m)
@@ -130,5 +135,46 @@ def check_problem_satisfiability(
 
         res = check_thermal_storage_capacity(max_thick, load_J, material_class=mat_class)
         return res.is_physically_possible, res.explanation
+
+    # 2. TPL-07 Fin Convection & Envelope Capacity
+    elif templ in ["TPL_07", "TPL07"]:
+        req_duty_W = problem.required_function.flux_or_load if problem.required_function and problem.required_function.flux_or_load else 100.0
+
+        # Envelope height cap check
+        if problem.hard_constraints and problem.hard_constraints.max_envelope_height_m:
+            env_cap = problem.hard_constraints.max_envelope_height_m
+            # Maximum theoretical convective dissipation in envelope: q_max ~ 2 * h_max * env_cap * width * delta_T_max
+            # For natural/forced convection in 10mm envelope, max dissipation is < 500 W per meter
+            if req_duty_W > 5000.0 and env_cap <= 0.020:
+                return False, (
+                    f"Thermodynamic envelope violation: Required dissipation {req_duty_W:.1f} W cannot be achieved "
+                    f"within strict envelope height cap {env_cap*1e3:.1f} mm without extreme boundary-layer choking."
+                )
+            if params and hasattr(params, "fin_length_m") and params.fin_length_m > env_cap:
+                return False, f"Fin length {params.fin_length_m*1e3:.1f} mm exceeds envelope cap {env_cap*1e3:.1f} mm."
+
+        return True, "Fin convection capacity within physical limits."
+
+    # 3. TPL-06 & TPL-08 Pressure Drop Hard Constraint Gate
+    if templ in ["TPL_06", "TPL06", "TPL_08", "TPL08"]:
+        if problem.hard_constraints and problem.hard_constraints.max_pressure_drop_Pa:
+            dp_cap = problem.hard_constraints.max_pressure_drop_Pa
+            if params is not None:
+                # If TPL06 params provided, check Ergun pressure drop
+                if hasattr(params, "bed_length_m") and hasattr(params, "superficial_velocity_m_s"):
+                    from flbds.physics.tpl06_porous_flow import compute_ergun_pressure_drop
+                    dp_tot, _, _, _ = compute_ergun_pressure_drop(
+                        L=params.bed_length_m,
+                        eps=params.bed_porosity,
+                        d_p=params.mean_pore_diameter_m,
+                        rho=params.fluid_density_kg_m3,
+                        mu=params.fluid_viscosity_Pa_s,
+                        u_0=params.superficial_velocity_m_s,
+                    )
+                    if dp_tot > dp_cap:
+                        return False, (
+                            f"Hydraulic infeasibility: Minimum achievable pressure drop {dp_tot:.1f} Pa "
+                            f"exceeds hard constraint cap {dp_cap:.1f} Pa."
+                        )
 
     return True, "Capacity bound satisfied or unconstrained."

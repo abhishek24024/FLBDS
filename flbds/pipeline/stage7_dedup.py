@@ -9,17 +9,17 @@ from pathlib import Path
 def card_signature(card: dict) -> set[str]:
     """Create a token set representing the causal essence of a card."""
     parts = []
-    sub = card.get("subject", {}).get("name", "")
+    sub = (card.get("subject") or {}).get("name", "")
     parts.append(sub.lower())
 
-    act = card.get("action", {})
+    act = card.get("action") or {}
     parts.append(act.get("verb", "").lower())
     parts.append(act.get("object", "").lower())
 
-    eff = card.get("effect", {})
+    eff = card.get("effect") or {}
     parts.append(eff.get("canonical_name", "").lower())
 
-    ph = card.get("phenomenon", {})
+    ph = card.get("phenomenon") or {}
     parts.extend(ph.get("description", "").lower().split())
 
     tokens = set()

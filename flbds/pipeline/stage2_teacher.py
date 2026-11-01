@@ -123,6 +123,7 @@ def run_teacher(
                 record = {
                     "doc_id": doc["doc_id"],
                     "domain": doc["domain"],
+                    "organism": doc.get("organism"),
                     "title": doc.get("title", ""),
                     "citation": doc.get("citation", ""),
                     "license": doc.get("license", "Unknown"),

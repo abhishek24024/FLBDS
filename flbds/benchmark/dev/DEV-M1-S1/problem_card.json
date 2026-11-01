@@ -2,7 +2,7 @@
   "problem_id": "PROB-DEV-M1-S1",
   "source_image": null,
   "system": {
-    "name": "Field Biological Organism Shell",
+    "name": "Biomimetic Architectural Thermal Buffer Facade Panel",
     "components": [],
     "geometry_summary": null,
     "scale": null
@@ -26,7 +26,7 @@
   },
   "required_function": {
     "action": "buffer",
-    "target_object": "body core temperature",
+    "target_object": "interior enclosure temperature",
     "state_variable": "thermal energy",
     "target_change": "damp thermal swings under intense daytime solar irradiation",
     "target_direction": "stabilise",

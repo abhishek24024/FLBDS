@@ -2,7 +2,7 @@
   "problem_id": "PROB-DEV-M3-S1",
   "source_image": null,
   "system": {
-    "name": "Desert Arthropod Dorsal Cuticle",
+    "name": "Solar-Exposed Optical Sensor Canopy Radiative Shield",
     "components": [],
     "geometry_summary": null,
     "scale": null
@@ -24,9 +24,9 @@
   },
   "required_function": {
     "action": "reject",
-    "target_object": "incident solar and ambient heat",
+    "target_object": "canopy substrate temperature",
     "state_variable": "surface temperature",
-    "target_change": "reflect solar wavelengths while strongly emitting into thermal infrared window",
+    "target_change": "reflect solar wavelengths while strongly emitting into 8-13 um atmospheric thermal infrared window",
     "target_direction": "decrease",
     "boundary_type": "BC_FLUX",
     "flux_or_load": 20.0

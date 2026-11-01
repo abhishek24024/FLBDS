@@ -95,7 +95,7 @@ def run_critic(
 
     schema = CriticAssessment.model_json_schema()
     sampling_params = SamplingParams(
-        temperature=0.1,
+        temperature=0.0,
         max_tokens=300,
         structured_outputs=StructuredOutputsParams(json=schema),
     )
@@ -128,25 +128,36 @@ def run_critic(
                     rationale=f"Critic parsing fallback: {e}",
                 )
 
-            # Drop card if rejected by critic or both core phenomenon and effect ungrounded
-            if assessment.overall_verdict == "reject" or (not assessment.phenomenon_supported and not assessment.effect_supported):
+            # Check if core causal chain is entailed:
+            # (phenomenon or effect supported) AND (action or state_change supported)
+            core_causal_chain_entailed = (
+                (assessment.phenomenon_supported or assessment.effect_supported)
+                and (assessment.action_supported or assessment.state_change_supported)
+            )
+
+            # Drop card only if the core causal chain is broken / ungrounded
+            if not core_causal_chain_entailed:
                 dropped_count += 1
-                reason = "rejected_unsupported_causal_mechanism"
+                reason = "unsupported_core_causal_chain"
                 drop_reasons[reason] = drop_reasons.get(reason, 0) + 1
             else:
                 card = rec["card"]
-                # Update unsupported_fields
+                # Retain card and prune unsupported failing fields
                 existing_unsupp = set(card.get("unsupported_fields", []))
                 for fld in assessment.unsupported_fields:
                     existing_unsupp.add(fld)
                 if not assessment.action_supported:
                     existing_unsupp.add("action")
+                    card["action"] = None
                 if not assessment.state_change_supported:
                     existing_unsupp.add("state_change")
+                    card["state_change"] = None
                 if not assessment.effect_supported:
                     existing_unsupp.add("effect")
+                    card["effect"] = None
                 if not assessment.phenomenon_supported:
                     existing_unsupp.add("phenomenon")
+                    card["phenomenon"] = None
                 card["unsupported_fields"] = sorted(list(existing_unsupp))
 
                 rec["critic_assessment"] = assessment.model_dump()

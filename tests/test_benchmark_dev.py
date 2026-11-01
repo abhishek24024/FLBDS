@@ -18,6 +18,7 @@ from flbds.schema.problem_card import ProblemCard
 from flbds.schema.templates import (
     TemplateParameters,
     TPL02Params,
+    TPL06Params,
     TPL08Params,
     TPL09Params,
     TPL10Params,
@@ -28,7 +29,7 @@ from flbds.physics.tpl08_countercurrent import eval_tpl08
 from flbds.physics.tpl09_radiative import eval_tpl09
 from flbds.physics.tpl10_diffusion import eval_tpl10
 
-DEV_DIR = Path("flbds/benchmark/dev")
+DEV_DIR = Path(__file__).resolve().parent.parent / "flbds" / "benchmark" / "dev"
 CASE_IDS = [
     "DEV-M1-S1", "DEV-M1-S2", "DEV-M1-S3",
     "DEV-M2-S1", "DEV-M2-S2", "DEV-M2-S3",
@@ -105,3 +106,100 @@ class TestBenchmarkDevSatisfiability:
             pytest.fail(f"Unhandled template type: {type(ref_design)}")
 
         assert check.passed, f"Reference design for {case_id} failed M5-Eval: {check.reason}"
+
+
+class TestDeliberatelyInfeasibleCases:
+    """Negative tests: verifies that unphysical dev-style cases fail the satisfiability gate."""
+
+    def test_infeasible_pcm_storage_density_exceeds_physical_bound(self):
+        """Case 1: 5.76 MJ/m^2 load in 10 mm of paraffin wall.
+        Theoretical max is ~1.72 MJ/m^2; required load is 5.76 MJ/m^2 (margin 0.30x).
+        Must FAIL the satisfiability gate.
+        """
+        prob = ProblemCard(
+            problem_id="PROB-NEG-PCM-01",
+            system={"name": "Ultra-Thin Building Shell"},
+            environment={"climate": "Desert"},
+            required_function={
+                "action": "buffer",
+                "target_object": "interior temperature",
+                "state_variable": "thermal energy",
+                "target_change": "absorb diurnal pulse",
+                "boundary_type": "BC_FLUX",
+                "flux_or_load": 5.76e6,  # 5.76 MJ/m^2
+            },
+            hard_constraints={
+                "max_thickness_m": 0.010,  # 10 mm cap
+            },
+            time_pattern={"cycle_type": "cyclic"},
+        )
+        possible, explanation = check_problem_satisfiability(prob, "TPL_02")
+        assert not possible, "Infeasible PCM case should fail satisfiability gate"
+        assert "yields theoretical max of 1.722 MJ/m2 vs required 5.760 MJ/m2" in explanation
+        assert "margin: 0.30x" in explanation
+
+    def test_infeasible_pin_fin_duty_exceeds_airstream_capacity(self):
+        """Case 2: Fin duty of 10,000 W into an air stream with only 50 W enthalpy pickup capacity.
+        Air mass flow = 0.005 kg/s, delta_T_max = 10 K -> Q_max = 50.25 W << 10,000 W.
+        Must FAIL on First Law airstream sensible capacity.
+        """
+        prob = ProblemCard(
+            problem_id="PROB-NEG-FIN-02",
+            system={
+                "name": "Micro-Channel Air-Cooled Core",
+                "components": [],
+            },
+            environment={
+                "climate": "Hot Ambient",
+            },
+            required_function={
+                "action": "dissipate",
+                "target_object": "avionics processor",
+                "state_variable": "heat flux",
+                "target_change": "reject 10 kW heat into low-flow airstream",
+                "flux_or_load": 10000.0,  # 10,000 W required dissipation
+            },
+            hard_constraints={
+                "max_envelope_height_m": 0.010,  # 10 mm envelope cap
+            },
+            time_pattern={"cycle_type": "steady"},
+        )
+        possible, explanation = check_problem_satisfiability(prob, "TPL_07")
+        assert not possible, "Infeasible fin duty case should fail satisfiability gate"
+        assert "Thermodynamic envelope violation" in explanation
+        assert "strict envelope height cap 10.0 mm" in explanation
+
+    def test_infeasible_pressure_drop_exceeds_pumping_cap(self):
+        """Case 3: Minimum required hydraulic pressure drop (84 kPa) exceeds hard cap (500 Pa).
+        Must FAIL the satisfiability gate on hydraulic pressure ceiling.
+        """
+        prob = ProblemCard(
+            problem_id="PROB-NEG-HYDRO-03",
+            system={"name": "Submersible Aerator Duct"},
+            environment={"climate": "Freshwater"},
+            required_function={
+                "action": "diffuse",
+                "target_object": "coolant",
+                "state_variable": "pressure",
+                "target_change": "flow through tight bed",
+            },
+            hard_constraints={
+                "max_pressure_drop_Pa": 500.0,  # 500 Pa strict cap
+            },
+            time_pattern={"cycle_type": "steady"},
+        )
+        # Porous flow params through fine packed bed (dp = ~84.3 kPa >> 500 Pa)
+        params_dense = TPL06Params(
+            template_id=TemplateEnum.TPL_06,
+            bed_length_m=0.20,
+            bed_porosity=0.40,
+            mean_pore_diameter_m=50e-6,  # 50 um pore
+            fluid_density_kg_m3=1000.0,
+            fluid_viscosity_Pa_s=1e-3,
+            superficial_velocity_m_s=0.10,
+            pressure_drop_cap_Pa=500.0,
+        )
+        possible, explanation = check_problem_satisfiability(prob, "TPL_06", params_dense)
+        assert not possible, "Infeasible pressure drop case should fail satisfiability gate"
+        assert "Hydraulic infeasibility" in explanation
+        assert "exceeds hard constraint cap 500.0 Pa" in explanation
