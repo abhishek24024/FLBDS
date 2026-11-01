@@ -10,6 +10,33 @@ from vllm import LLM, SamplingParams
 from vllm.sampling_params import StructuredOutputsParams
 
 
+CANONICAL_SCHEMA_FIELDS = {
+    "subject", "context", "action", "state_change",
+    "phenomenon", "effect", "inputs", "organ", "part",
+    "quantities", "constraints_and_resources", "evidence"
+}
+
+def canonicalize_field_name(fld: str) -> str | None:
+    if not isinstance(fld, str):
+        return None
+    norm = fld.strip().lower().replace("-", "_")
+    base = norm.split(".")[0]
+    if base in CANONICAL_SCHEMA_FIELDS:
+        return base
+    if norm in CANONICAL_SCHEMA_FIELDS:
+        return norm
+    synonyms = {
+        "regime": "context",
+        "scale": "context",
+        "environment": "context",
+        "relevant_variables": "effect",
+        "governing_equation": "effect",
+        "material_properties": "context",
+        "boundary_conditions": "context",
+    }
+    return synonyms.get(base)
+
+
 class CriticAssessment(BaseModel):
     action_supported: bool = Field(..., description="Evidence entails stated action")
     state_change_supported: bool = Field(..., description="Evidence entails stated state change")
@@ -128,41 +155,47 @@ def run_critic(
                     rationale=f"Critic parsing fallback: {e}",
                 )
 
-            # Check if core causal chain is entailed:
-            # (phenomenon or effect supported) AND (action or state_change supported)
-            core_causal_chain_entailed = (
-                (assessment.phenomenon_supported or assessment.effect_supported)
-                and (assessment.action_supported or assessment.state_change_supported)
-            )
-
-            # Drop card only if the core causal chain is broken / ungrounded
-            if not core_causal_chain_entailed:
+            # Strict Rule: Both action AND effect must be supported; otherwise DROP
+            if not assessment.action_supported:
                 dropped_count += 1
-                reason = "unsupported_core_causal_chain"
+                reason = "unsupported_action"
                 drop_reasons[reason] = drop_reasons.get(reason, 0) + 1
-            else:
-                card = rec["card"]
-                # Retain card and prune unsupported failing fields
-                existing_unsupp = set(card.get("unsupported_fields", []))
-                for fld in assessment.unsupported_fields:
-                    existing_unsupp.add(fld)
-                if not assessment.action_supported:
-                    existing_unsupp.add("action")
-                    card["action"] = None
-                if not assessment.state_change_supported:
-                    existing_unsupp.add("state_change")
-                    card["state_change"] = None
-                if not assessment.effect_supported:
-                    existing_unsupp.add("effect")
-                    card["effect"] = None
-                if not assessment.phenomenon_supported:
-                    existing_unsupp.add("phenomenon")
-                    card["phenomenon"] = None
-                card["unsupported_fields"] = sorted(list(existing_unsupp))
+                continue
 
-                rec["critic_assessment"] = assessment.model_dump()
-                fout.write(json.dumps(rec) + "\n")
-                kept_count += 1
+            if not assessment.effect_supported:
+                dropped_count += 1
+                reason = "unsupported_effect"
+                drop_reasons[reason] = drop_reasons.get(reason, 0) + 1
+                continue
+
+            # Core mechanism (action + effect) is supported -> Retain card
+            card = rec["card"]
+            pruned_fields = set()
+
+            # Canonicalize raw unsupported fields from card and critic assessment
+            raw_unsupp = list(card.get("unsupported_fields", [])) + list(assessment.unsupported_fields)
+            for raw_fld in raw_unsupp:
+                canon = canonicalize_field_name(raw_fld)
+                if canon and canon not in ("action", "effect"):
+                    pruned_fields.add(canon)
+
+            if not assessment.state_change_supported:
+                pruned_fields.add("state_change")
+                card["state_change"] = None
+
+            if not assessment.phenomenon_supported:
+                pruned_fields.add("phenomenon")
+                card["phenomenon"] = None
+
+            # Nullify any non-core field that was pruned
+            for canon in pruned_fields:
+                if canon in card and canon not in ("action", "effect"):
+                    card[canon] = None
+
+            card["unsupported_fields"] = sorted(list(pruned_fields))
+            rec["critic_assessment"] = assessment.model_dump()
+            fout.write(json.dumps(rec) + "\n")
+            kept_count += 1
 
     elapsed = time.perf_counter() - t_start
     gpu_hours = round(elapsed / 3600.0, 5)

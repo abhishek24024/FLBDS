@@ -27,6 +27,32 @@ class QuantityList(BaseModel):
 
 import re
 
+UNIVERSAL_CONSTANTS = {
+    "r", "universal gas constant", "gas constant",
+    "boltzmann", "boltzmann constant", "kb", "k_b",
+    "avogadro", "avogadro constant", "na", "n_a",
+    "planck", "planck constant", "h",
+    "stefan-boltzmann", "stefan boltzmann", "stefan-boltzmann constant", "sigma",
+    "speed of light", "c",
+    "acceleration of gravity", "gravitational acceleration", "g",
+    "faraday", "faraday constant", "f",
+}
+
+def is_universal_constant(name: str, val: float, unit: str) -> bool:
+    n = name.strip().lower()
+    if n in UNIVERSAL_CONSTANTS:
+        return True
+    if n == "r" and abs(val - 8.314) < 0.1:
+        return True
+    if n in ("kb", "k_b") and abs(val - 1.38e-23) < 1e-24:
+        return True
+    if n in ("na", "n_a") and abs(val - 6.022e23) < 1e22:
+        return True
+    if n in ("mw", "m_w") and abs(val - 0.018) < 1e-4:
+        return True
+    return False
+
+
 def old_normalize_unit_string(unit_str: str) -> str:
     """Original un-sanitized unit normalizer from pilot run."""
     u = unit_str.strip()
@@ -53,15 +79,26 @@ def sanitize_quantity(value: float, unit_str: str) -> tuple[float, str]:
 
     Handles:
     - Unicode minus (\\u2212) and dashes (\\u2013, \\u2014) -> '-'
+    - Unicode superscripts (⁻², ⁻¹, ², ³, etc.) -> '^-2', '^-1', '^2', '^3'
+    - Dot products (J·mol−1·K−1, W·m−2·K−1) -> J * mol^-1 * K^-1
+    - Dimensionless multipliers (fold, times, x) -> 'dimensionless'
     - vol.%, wt.%, vol %, wt %, volume %, weight % -> 'percent'
     - Compound slashes e.g. g/m2/h, kg/m2/s, kJ/kg/K -> g / (m^2 * hr), kg / (m^2 * s)
     - Scientific scaling prefixes e.g. 'x10^-6 m', '10^-3 Pa' -> scales numerical value, unit 'm', 'Pa'
     - Exponents and powers e.g. m2 -> m^2, J g-1 -> J * g^-1
     """
     u = unit_str.strip()
-    # Normalize unicode minuses and dashes
+    # Normalize unicode minuses, dashes, and middle dots
     u = u.replace("−", "-").replace("–", "-").replace("—", "-")
-    u = u.replace("²", "^2").replace("³", "^3").replace("⁻¹", "^-1").replace("⁻²", "^-2")
+    u = u.replace("·", " * ").replace("•", " * ")
+
+    supers = {
+        "⁻": "^-", "⁰": "^0", "¹": "^1", "²": "^2", "³": "^3",
+        "⁴": "^4", "⁵": "^5", "⁶": "^6", "⁷": "^7", "⁸": "^8", "⁹": "^9"
+    }
+    for k, v in supers.items():
+        u = u.replace(k, v)
+    u = u.replace("^-^-", "^-").replace("^-^", "^-")
 
     # Extract scientific prefix multiplier if in unit string e.g. x10^-6, 10^-3, x10^5
     scale_match = re.search(r"[x×]?\s*10\s*\^\s*([+-]?\d+)", u)
@@ -70,14 +107,33 @@ def sanitize_quantity(value: float, unit_str: str) -> tuple[float, str]:
         value = value * (10.0 ** exp)
         u = re.sub(r"[x×]?\s*10\s*\^\s*([+-]?\d+)\s*\*?", "", u).strip()
 
+    # Dimensionless ratios and multipliers
+    if u.lower() in ["fold", "times", "x", "-", "--"]:
+        return value, "dimensionless"
+
     # Percentage variants
-    u = re.sub(r"^(vol|wt|weight|volume)\.?\s*%", "percent", u, flags=re.IGNORECASE)
-    u = re.sub(r"^(vol|wt|weight|volume)\s*percent", "percent", u, flags=re.IGNORECASE)
-    u = re.sub(r"%\s*(vol|wt)", "percent", u, flags=re.IGNORECASE)
+    if re.search(r"(wt|vol|weight|volume)\.?\s*%", u, re.IGNORECASE) or u.endswith("%"):
+        return value, "percent"
 
     # Temperatures
     u = re.sub(r"^(°C|C|deg\s*C|degrees?\s*C)$", "degC", u, flags=re.IGNORECASE)
     u = re.sub(r"^(°F|F|deg\s*F|degrees?\s*F)$", "degF", u, flags=re.IGNORECASE)
+
+    # Adjacent capital units: Wm^-2 -> W * m^-2
+    u = re.sub(r"([a-z])([A-Z])", r"\1 * \2", u)
+    if u.startswith("Wm^"):
+        u = u.replace("Wm^", "W * m^")
+
+    # Replace unit-1 -> unit^-1
+    u = re.sub(r"([a-zA-Z]+)-(\d+)", r"\1^-\2", u)
+
+    # Time units in rates: d^-1 -> day^-1, h^-1 -> hr^-1
+    u = re.sub(r"\bd\^-", "day^-", u)
+    u = re.sub(r"\bh\^-", "hr^-", u)
+
+    # Spacing between unit tokens
+    u = re.sub(r"(\^[-+]?\d+)\s+([a-zA-Z])", r"\1 * \2", u)
+    u = re.sub(r"([a-zA-Z])\s+([a-zA-Z])", r"\1 * \2", u)
 
     # Hyphenated unit products (e.g. m-K -> m * K)
     u = re.sub(r"([a-zA-Z])-([a-zA-Z])", r"\1 * \2", u)
@@ -87,7 +143,7 @@ def sanitize_quantity(value: float, unit_str: str) -> tuple[float, str]:
     slash_parts = [p.strip() for p in u.split("/")]
     if len(slash_parts) > 2:
         num = slash_parts[0]
-        denom = " * ".join(slash_parts[1:])
+        denom = " * ".join(f"({p})" if re.search(r"[\s*]", p) else p for p in slash_parts[1:])
         u = f"{num} / ({denom})"
 
     # Unmarked powers e.g. m2 -> m^2, m3 -> m^3
@@ -187,6 +243,7 @@ def run_quantities(
 
     recovered_items = []
     remaining_rejected_items = []
+    excluded_constants = []
 
     with open(output_path, "w") as fout:
         for rec, out in zip(records, outputs):
@@ -196,6 +253,16 @@ def run_quantities(
                 cand_list = QuantityList.model_validate_json(out.outputs[0].text.strip())
                 for item in cand_list.items:
                     total_extracted += 1
+
+                    # 0. Exclude universal constants and symbol definitions
+                    if is_universal_constant(item.name, item.value, item.unit):
+                        excluded_constants.append({
+                            "doc_id": rec.get("doc_id", ""),
+                            "name": item.name,
+                            "value": item.value,
+                            "unit": item.unit,
+                        })
+                        continue
 
                     # 1. Test original un-sanitized normalizer
                     old_unit = old_normalize_unit_string(item.unit)
@@ -253,6 +320,8 @@ def run_quantities(
     audit_path = output_path.parent / "stage_6_recovery_audit.json"
     audit_data = {
         "total_extracted": total_extracted,
+        "excluded_universal_constants_count": len(excluded_constants),
+        "excluded_constants_sample": excluded_constants[:10],
         "old_pipeline": {
             "valid": old_valid_count,
             "purged": old_rejected_count,
@@ -266,6 +335,7 @@ def run_quantities(
         "remaining_rejected_sample_10": remaining_rejected_items[:10],
         "all_recovered": recovered_items,
         "all_remaining_rejected": remaining_rejected_items,
+        "all_excluded_constants": excluded_constants,
     }
     with open(audit_path, "w") as fa:
         json.dump(audit_data, fa, indent=2)

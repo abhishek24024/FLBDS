@@ -285,10 +285,10 @@ class TestTPL02PhaseChangeStorage:
 
 
 class TestTPL08CountercurrentExchanger:
-    """Validation of TPL-08 against textbook heat exchanger problems and friction correlations."""
+    """Validation of TPL-08 against canonical heat exchanger NTU relations (self-consistency only) and friction correlations."""
 
     def test_textbook_incropera_ex_11_3(self):
-        """Incropera & DeWitt Example 11.3: Countercurrent exchanger NTU & duty."""
+        """Analytical NTU check (self-consistency only; modeled after Incropera Ex 11.3): Countercurrent exchanger NTU & duty."""
         # Hot fluid: C_h = 2 kg/s * 2131 J/kg.K = 4262 W/K, T_h_in = 100 degC
         # Cold fluid: C_c = 1.5 kg/s * 4178 J/kg.K = 6267 W/K, T_c_in = 30 degC
         # C_min = 4262, C_max = 6267, Cr = 4262 / 6267 = 0.680
@@ -298,19 +298,19 @@ class TestTPL08CountercurrentExchanger:
         NTU = 6000.0 / 4262.0
         epsilon = compute_countercurrent_ntu_effectiveness(NTU, Cr)
 
-        # Incropera textbook value: eps ~ 0.643
+        # Canonical analytical value: eps ~ 0.643
         assert epsilon == pytest.approx(0.643, abs=0.01)
         q_duty = epsilon * 4262.0 * (100.0 - 30.0)
         assert q_duty == pytest.approx(191800.0, abs=2000.0)
 
     def test_balanced_countercurrent_cr_equals_one(self):
-        """Incropera & Kays & London: Balanced flow Cr = 1.0 -> eps = NTU / (1 + NTU)."""
+        """Analytical balanced flow relation (self-consistency only): Cr = 1.0 -> eps = NTU / (1 + NTU)."""
         NTU = 2.0
         epsilon = compute_countercurrent_ntu_effectiveness(NTU, 1.0)
         assert epsilon == pytest.approx(2.0 / 3.0, abs=1e-5)
 
     def test_axial_conduction_degradation(self):
-        """Kroeger relation: Axial wall conduction degrades ideal effectiveness."""
+        """Kroeger relation (self-consistency only): Axial wall conduction degrades ideal effectiveness."""
         eps_ideal = 0.80
         Cr = 1.0
         lambda_axial = 0.05
@@ -358,10 +358,10 @@ class TestTPL08CountercurrentExchanger:
 
 
 class TestTPL09RadiativeExchange:
-    """Validation of TPL-09 against textbook radiative-convective energy balance problems."""
+    """Validation of TPL-09 against canonical radiative-convective energy balance relations (self-consistency only)."""
 
     def test_solar_equilibrium_temperature(self):
-        """Incropera Example: Surface exposed to 800 W/m2 solar, h=10 W/m2.K, T_amb=300 K."""
+        """Analytical energy balance check (self-consistency only): Surface exposed to 800 W/m2 solar, h=10 W/m2.K, T_amb=300 K."""
         T_surf_K, q_rad, q_conv, q_leak = solve_quartic_surface_temperature(
             q_solar=800.0,
             alpha_solar=0.9,
@@ -419,10 +419,10 @@ class TestTPL09RadiativeExchange:
 
 
 class TestTPL10Diffusion:
-    """Validation of TPL-10 against Cussler / Bird-Stewart-Lightfoot mass transfer problems."""
+    """Validation of TPL-10 against canonical mass transfer relations (self-consistency only: analytical Fickian & Bosanquet diffusion)."""
 
     def test_molecular_diffusion_flux(self):
-        """Textbook Fickian diffusion: O2 in air across 100 um stagnant boundary."""
+        """Analytical Fickian diffusion check (self-consistency only): O2 in air across 100 um stagnant boundary."""
         # D = 2.0e-5 m2/s, delta_C = 8.0 mol/m3, L = 1e-4 m
         # J = D * delta_C / L = 2e-5 * 8 / 1e-4 = 1.6 mol/(m2.s)
         D_mol = 2.0e-5
@@ -482,10 +482,10 @@ class TestTPL10Diffusion:
 
 
 class TestTPL01Conduction:
-    """TPL-01: Transient conduction and thermal mass (>= 3 textbook problems)."""
+    """TPL-01: Transient conduction and thermal mass (>= 3 canonical problems; self-consistency only)."""
 
     def test_textbook_adobe_wall_periodic_attenuation(self):
-        """Case 1: Incropera textbook periodic conduction in adobe wall (d=0.25 m)."""
+        """Case 1: Periodic conduction in adobe wall (d=0.25 m; self-consistency only)."""
         # alpha = 0.72 / (1800 * 840) = 4.76e-7 m^2/s
         params = TPL01Params(
             template_id=TemplateEnum.TPL_01,
