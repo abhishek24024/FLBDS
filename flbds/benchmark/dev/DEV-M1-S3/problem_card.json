@@ -1,0 +1,54 @@
+{
+  "problem_id": "PROB-DEV-M1-S3",
+  "source_image": null,
+  "system": {
+    "name": "Ultra-Compact Thermal Buffer Panel",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Enclosed Equipment Bay",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "waste_heat_stream",
+      "ambient_air"
+    ],
+    "resources_absent": [
+      "liquid_water"
+    ],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "absorb",
+    "target_object": "component heat surge",
+    "state_variable": "thermal energy",
+    "target_change": "absorb intermittent heat pulse in tight packaging envelope",
+    "target_direction": "store-and-release",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 3500000.0
+  },
+  "time_pattern": {
+    "cycle_type": "cyclic",
+    "time_mode": null,
+    "period_hours": 12.0,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

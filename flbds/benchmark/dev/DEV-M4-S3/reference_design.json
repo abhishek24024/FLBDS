@@ -1,0 +1,17 @@
+{
+  "template_id": "TPL_10",
+  "membrane_thickness_m": 0.00006,
+  "porosity": 0.7,
+  "mean_pore_radius_m": 2.5e-8,
+  "pore_diameter_m": 5e-8,
+  "min_pore_diameter_m": 3.5e-8,
+  "tortuosity": 1.5,
+  "species_diffusivity_m2_s": 0.000022,
+  "molecular_diffusivity_m2_s": 0.000022,
+  "molecular_mass_kg_mol": 0.032,
+  "molar_mass_kg_mol": 0.032,
+  "temperature_K": 303.15,
+  "temperature_degC": 30.0,
+  "delta_concentration_mol_m3": 8.0,
+  "required_flux_mol_m2_s": 0.006
+}

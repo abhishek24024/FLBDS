@@ -1,0 +1,52 @@
+{
+  "problem_id": "PROB-DEV-M3-S3",
+  "source_image": null,
+  "system": {
+    "name": "Precision Cryo-Storage Top Shield",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Outdoor Arid Platform",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "night_sky_sink",
+      "ambient_air"
+    ],
+    "resources_absent": [],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "block",
+    "target_object": "inner conductive heat leak",
+    "state_variable": "conduction flux",
+    "target_change": "minimize inward parasitic conduction under intense downward infrared and ambient flux",
+    "target_direction": "decrease",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 20.0
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

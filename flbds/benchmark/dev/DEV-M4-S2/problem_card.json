@@ -1,0 +1,53 @@
+{
+  "problem_id": "PROB-DEV-M4-S2",
+  "source_image": null,
+  "system": {
+    "name": "Submersible Fuel Cell Aeration Interface",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Marine Trench Simulation",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "liquid_water"
+    ],
+    "resources_absent": [
+      "pressurised_gas"
+    ],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "transport",
+    "target_object": "oxygen reactant gas",
+    "state_variable": "molar flow rate",
+    "target_change": "supply oxidant continuously across hydrophobic membrane without pressurized cylinders",
+    "target_direction": "transport-directional",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 0.008
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

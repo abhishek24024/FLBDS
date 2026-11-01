@@ -1,0 +1,55 @@
+{
+  "problem_id": "PROB-DEV-M3-S2",
+  "source_image": null,
+  "system": {
+    "name": "Telecom Cabinet Roof Radiator",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Desert Substation",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "solar_irradiance",
+      "night_sky_sink",
+      "ambient_air"
+    ],
+    "resources_absent": [
+      "grid_electricity"
+    ],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "cool",
+    "target_object": "enclosure rooftop skin",
+    "state_variable": "thermal radiation flux",
+    "target_change": "shed enclosure heat to cold sky without power consumption",
+    "target_direction": "decrease",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 40.0
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

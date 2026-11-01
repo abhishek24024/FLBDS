@@ -1,0 +1,52 @@
+{
+  "problem_id": "PROB-DEV-M2-S1",
+  "source_image": null,
+  "system": {
+    "name": "Aquatic Extremity Vascular Bundle",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Sub-Antarctic Marine",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "ambient_air",
+      "liquid_water"
+    ],
+    "resources_absent": [],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "conserve",
+    "target_object": "arterial stream enthalpy",
+    "state_variable": "thermal energy",
+    "target_change": "transfer heat back to venous blood before reaching flipper tip",
+    "target_direction": "transport-directional",
+    "boundary_type": "BC_TEMP",
+    "flux_or_load": 500.0
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

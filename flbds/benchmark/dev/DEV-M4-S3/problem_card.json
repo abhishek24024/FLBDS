@@ -1,0 +1,54 @@
+{
+  "problem_id": "PROB-DEV-M4-S3",
+  "source_image": null,
+  "system": {
+    "name": "Fouling-Resistant Bioreactor Gas Scavenger",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Bioreactor Broth",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "liquid_water",
+      "ambient_air"
+    ],
+    "resources_absent": [],
+    "hazards": [
+      "dust_fouling"
+    ]
+  },
+  "required_function": {
+    "action": "diffuse",
+    "target_object": "dissolved gas",
+    "state_variable": "species molar flux",
+    "target_change": "transfer gas through pores that remain larger than biofouling particle diameter",
+    "target_direction": "transport-directional",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 0.006
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

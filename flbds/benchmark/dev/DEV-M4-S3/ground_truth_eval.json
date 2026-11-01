@@ -1,0 +1,14 @@
+{
+  "case_id": "DEV-M4-S3",
+  "source_card_id": "MC-BIO-DEV-M4",
+  "cluster": "DEV-M4",
+  "split": 3,
+  "expected_conflicts": [],
+  "expected_operators": [],
+  "acceptable_templates": [
+    "TPL_10"
+  ],
+  "reference_design_file": "reference_design.json",
+  "reference_design": null,
+  "notes": null
+}

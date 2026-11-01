@@ -1,0 +1,16 @@
+{
+  "template_id": "TPL_02",
+  "thickness_m": 0.04,
+  "pcm_density_kg_m3": 820.0,
+  "pcm_latent_heat_J_kg": 210000.0,
+  "pcm_specific_heat_J_kgK": 2000.0,
+  "matrix_volume_fraction": 0.12,
+  "matrix_density_kg_m3": 2700.0,
+  "matrix_specific_heat_J_kgK": 900.0,
+  "k_eff_W_mK": 2.8,
+  "melting_temp_degC": 28.0,
+  "superheat_limit_K": 10.0,
+  "heat_flux_W_m2": 200.0,
+  "charge_hours": 8.0,
+  "required_energy_J_m2": 5760000.0
+}

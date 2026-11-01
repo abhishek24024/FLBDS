@@ -74,93 +74,95 @@ class TestQuantity:
         assert "Unparseable or invalid unit string" in str(exc_info.value)
 
 
+@pytest.fixture
+def valid_bio_card_data():
+    return {
+        "card_id": "MC-BIO-0001",
+        "domain": "bio",
+        "subject": {
+            "name": "Loxodonta africana",
+            "identifier": "NCBI:txid9813",
+        },
+        "context": {
+            "environment": "African savanna, high diurnal solar load",
+            "scale": "macro (tonnes)",
+            "regime": "sensible storage + latent evaporative boundary",
+        },
+        "action": {
+            "verb": "regulate",
+            "object": "body_temperature",
+            "description": "Maintains core temperature within safe operating bounds under high solar insolation",
+        },
+        "state_change": {
+            "state_variable": "skin_temperature",
+            "from_value": "42 degC peak skin temp",
+            "to_value": "35 degC evaporatively cooled",
+            "magnitude": {
+                "name": "temperature_drop",
+                "value": 7.0,
+                "unit": "delta_degC",
+            },
+        },
+        "phenomenon": {
+            "description": "Evaporation of retained water from mud crust absorbing latent heat of vaporization",
+        },
+        "effect": {
+            "canonical_name": "latent_heat_of_vaporization",
+            "governing_equation": "Q_evap = m_water * h_fg",
+            "relevant_variables": ["latent_heat", "evaporation_rate", "surface_area"],
+        },
+        "inputs": [
+            {
+                "input_type": "material",
+                "name": "liquid_water",
+                "rate_or_quantity": {
+                    "name": "water_mass",
+                    "value": 50.0,
+                    "unit": "kg",
+                },
+            },
+            {
+                "input_type": "energy",
+                "name": "solar_radiation",
+            },
+        ],
+        "organ": {
+            "description": "Micro-channelled crevice skin morphology enhancing capillary fluid retention",
+        },
+        "part": {
+            "description": "Epidermis, mud crust matrix, and body core thermal buffer",
+        },
+        "quantities": [
+            {
+                "name": "latent_heat",
+                "value": 2.4e6,
+                "unit": "J / kg",
+            },
+            {
+                "name": "retention_time",
+                "value": 26.0,
+                "unit": "hour",
+                "regime_of_validity": "in skin crevices vs flat surface",
+            },
+        ],
+        "constraints_and_resources": ["requires periodic re-wetting with liquid water"],
+        "evidence": [
+            {
+                "source_doc_id": "PMC_BIO_SAMPLE_001",
+                "text_span": "Retention of mud in skin crevices delays dehydration for up to 26 hours.",
+                "char_start": 450,
+                "char_end": 526,
+                "citation": "Physiol Zool 1987",
+            }
+        ],
+        "license": "CC BY 4.0",
+        "confidence": 0.92,
+        "tier": "silver",
+        "unsupported_fields": [],
+    }
+
+
 class TestMechanismCard:
-    @pytest.fixture
-    def valid_bio_card_data(self):
-        return {
-            "card_id": "MC-BIO-0001",
-            "domain": "bio",
-            "subject": {
-                "name": "Loxodonta africana",
-                "identifier": "NCBI:txid9813",
-            },
-            "context": {
-                "environment": "African savanna, high diurnal solar load",
-                "scale": "macro (tonnes)",
-                "regime": "sensible storage + latent evaporative boundary",
-            },
-            "action": {
-                "verb": "regulate",
-                "object": "body_temperature",
-                "description": "Maintains core temperature within safe operating bounds under high solar insolation",
-            },
-            "state_change": {
-                "state_variable": "skin_temperature",
-                "from_value": "42 degC peak skin temp",
-                "to_value": "35 degC evaporatively cooled",
-                "magnitude": {
-                    "name": "temperature_drop",
-                    "value": 7.0,
-                    "unit": "delta_degC",
-                },
-            },
-            "phenomenon": {
-                "description": "Evaporation of retained water from mud crust absorbing latent heat of vaporization",
-            },
-            "effect": {
-                "canonical_name": "latent_heat_of_vaporization",
-                "governing_equation": "Q_evap = m_water * h_fg",
-                "relevant_variables": ["latent_heat", "evaporation_rate", "surface_area"],
-            },
-            "inputs": [
-                {
-                    "input_type": "material",
-                    "name": "liquid_water",
-                    "rate_or_quantity": {
-                        "name": "water_mass",
-                        "value": 50.0,
-                        "unit": "kg",
-                    },
-                },
-                {
-                    "input_type": "energy",
-                    "name": "solar_radiation",
-                },
-            ],
-            "organ": {
-                "description": "Micro-channelled crevice skin morphology enhancing capillary fluid retention",
-            },
-            "part": {
-                "description": "Epidermis, mud crust matrix, and body core thermal buffer",
-            },
-            "quantities": [
-                {
-                    "name": "latent_heat",
-                    "value": 2.4e6,
-                    "unit": "J / kg",
-                },
-                {
-                    "name": "retention_time",
-                    "value": 26.0,
-                    "unit": "hour",
-                    "regime_of_validity": "in skin crevices vs flat surface",
-                },
-            ],
-            "constraints_and_resources": ["requires periodic re-wetting with liquid water"],
-            "evidence": [
-                {
-                    "source_doc_id": "PMC_BIO_SAMPLE_001",
-                    "text_span": "Retention of mud in skin crevices delays dehydration for up to 26 hours.",
-                    "char_start": 450,
-                    "char_end": 526,
-                    "citation": "Physiol Zool 1987",
-                }
-            ],
-            "license": "CC BY 4.0",
-            "confidence": 0.92,
-            "tier": "silver",
-            "unsupported_fields": [],
-        }
 
     def test_valid_bio_card(self, valid_bio_card_data):
         card = MechanismCard(**valid_bio_card_data)
@@ -410,3 +412,174 @@ class TestSerializationRoundtrip:
         assert reconstructed.quantities[0].value == 50000.0
         assert reconstructed.quantities[0].unit == "W / (m * K)"
         assert reconstructed.evidence[0].source_doc_id == "US_PATENT_9876543"
+
+
+class TestV9SchemaAdditions:
+    def test_enums_and_poiseuille_numbers(self):
+        from flbds.schema import (
+            BoundaryTypeEnum,
+            DirectionEnum,
+            DuctCrossSectionEnum,
+            HazardEnum,
+            ResourceEnum,
+            TemplateEnum,
+            TimeModeEnum,
+        )
+
+        assert ResourceEnum.LIQUID_WATER.value == "liquid_water"
+        assert HazardEnum.DUST_FOULING.value == "dust_fouling"
+        assert DirectionEnum.STORE_AND_RELEASE.value == "store-and-release"
+        assert BoundaryTypeEnum.BC_FLUX.value == "BC_FLUX"
+        assert BoundaryTypeEnum.BC_TEMP.value == "BC_TEMP"
+        assert DuctCrossSectionEnum.CIRCULAR.poiseuille_number == 64.0
+        assert DuctCrossSectionEnum.PARALLEL_PLATES.poiseuille_number == 96.0
+        assert TemplateEnum.TPL_02.value == "TPL_02"
+
+    def test_problem_card_no_template_leakage(self):
+        from flbds.schema import (
+            BoundaryTypeEnum,
+            EnvironmentSpec,
+            HardConstraints,
+            HazardEnum,
+            ProblemCard,
+            RequiredFunction,
+            ResourceEnum,
+            SystemSpec,
+            TimeModeEnum,
+            TimePattern,
+        )
+
+        # Valid card with typed constraints and no template names
+        card = ProblemCard(
+            problem_id="PROB-V9-001",
+            system=SystemSpec(name="Passive thermal envelope", scale="macro"),
+            environment=EnvironmentSpec(
+                climate="Desert",
+                resources_absent=[ResourceEnum.LIQUID_WATER],
+                hazards=[HazardEnum.HIGH_HUMIDITY],
+            ),
+            required_function=RequiredFunction(
+                action="buffer",
+                target_object="thermal_flux",
+                state_variable="wall_temperature",
+                target_change="absorb heat by day",
+                boundary_type=BoundaryTypeEnum.BC_FLUX,
+                flux_or_load=200.0,
+            ),
+            time_pattern=TimePattern(cycle_type="diurnal", time_mode=TimeModeEnum.CYCLIC_DIURNAL),
+            hard_constraints=HardConstraints(
+                max_thickness_m=0.05,
+                max_mass_kg_m2=45.0,
+                max_surface_superheat_K=10.0,
+            ),
+        )
+        assert card.hard_constraints.max_thickness_m == 0.05
+
+        # Template leakage raises ValidationError
+        with pytest.raises(ValidationError) as exc:
+            ProblemCard(
+                problem_id="PROB-BAD",
+                system=SystemSpec(name="Bad System"),
+                environment=EnvironmentSpec(climate="Desert"),
+                required_function=RequiredFunction(
+                    action="cool",
+                    target_object="air",
+                    state_variable="T",
+                    target_change="use TPL_02 for latent cooling",  # Leaks template name!
+                ),
+                time_pattern=TimePattern(cycle_type="steady"),
+            )
+        assert "Template leakage detected" in str(exc.value)
+
+    def test_ground_truth_eval_acceptable_templates_list(self):
+        from flbds.schema import GroundTruthEval, TemplateEnum
+
+        eval_spec = GroundTruthEval(
+            case_id="DEV-M1-S2",
+            source_card_id="MC-BIO-ELEPHANT",
+            cluster="DEV-M1",
+            split=2,
+            expected_conflicts=["resource", "direction", "timing", "effect"],
+            expected_operators=["T1", "T2", "T3", "T4", "T5"],
+            acceptable_templates=[TemplateEnum.TPL_02, TemplateEnum.TPL_04],
+            reference_design_file="ref_dev_m1_s2.json",
+        )
+        assert len(eval_spec.acceptable_templates) == 2
+        assert TemplateEnum.TPL_02 in eval_spec.acceptable_templates
+
+    def test_role_binding_node_ids_citation(self):
+        from flbds.schema import RoleBinding
+
+        rb = RoleBinding(
+            source_node="organ_crevice_matrix",
+            target_node="porous_aluminum_foam",
+            relation="transformed",
+            operator="T5",
+            justification="Rescales effective thermal conductivity to keep Fo in range",
+            source_card_node_ids=["MC-BIO-0001:organ", "MC-BIO-0001:effect"],
+        )
+        assert rb.operator == "T5"
+        assert len(rb.source_card_node_ids) == 2
+
+    def test_discriminated_union_template_parameters(self):
+        from pydantic import TypeAdapter
+        from flbds.schema import TPL01Params, TPL02Params, TemplateEnum, TemplateParameters
+
+        adapter = TypeAdapter(TemplateParameters)
+
+        # Deserialize TPL-02
+        raw_tpl02 = {
+            "template_id": "TPL_02",
+            "thickness_m": 0.04,
+            "pcm_density_kg_m3": 820.0,
+            "pcm_latent_heat_J_kg": 210000.0,
+            "matrix_volume_fraction": 0.12,
+            "matrix_density_kg_m3": 2700.0,
+            "k_eff_W_mK": 2.8,
+            "melting_temp_degC": 28.0,
+            "superheat_limit_K": 10.0,
+            "heat_flux_W_m2": 200.0,
+            "charge_hours": 8.0,
+            "required_energy_J_m2": 5.76e6,
+        }
+        parsed_02 = adapter.validate_python(raw_tpl02)
+        assert isinstance(parsed_02, TPL02Params)
+        assert parsed_02.template_id == TemplateEnum.TPL_02
+        assert parsed_02.k_eff_W_mK == 2.8
+
+        # Deserialize TPL-01
+        raw_tpl01 = {
+            "template_id": "TPL_01",
+            "thickness_m": 0.2,
+            "density_kg_m3": 2400.0,
+            "specific_heat_J_kgK": 1000.0,
+            "thermal_conductivity_W_mK": 1.5,
+            "required_energy_J_m2": 2.0e6,
+            "period_hours": 24.0,
+        }
+        parsed_01 = adapter.validate_python(raw_tpl01)
+        assert isinstance(parsed_01, TPL01Params)
+        assert parsed_01.density_kg_m3 == 2400.0
+
+    def test_mechanism_card_v9_additions(self, valid_bio_card_data):
+        from flbds.schema import AbstractionLadder, MechanismCard
+
+        valid_bio_card_data["abstraction_ladder"] = AbstractionLadder(
+            L0_specimen="African elephant wallowing in mud",
+            L1_mechanism="Porous mud retains water; evaporation absorbs latent heat; body mass buffers swing",
+            L2_causal_chain="SAPPhIRE causal graph with mud crust and capillary retention",
+            L3_solution_neutral_principle="Porous matrix holds working fluid; phase change absorbs heat; thermal mass damps cycle",
+            L4_function="Keep body below temperature limit under diurnal heat load",
+        ).model_dump()
+        valid_bio_card_data["figure_regions"] = ["Fig 2A [100, 200, 400, 500]"]
+        valid_bio_card_data["human_verified"] = False
+        valid_bio_card_data["extraction_agreement"] = 0.85
+        valid_bio_card_data["purpose_embedding"] = [0.1, 0.2, 0.3]
+        valid_bio_card_data["mechanism_embedding"] = [0.4, 0.5, 0.6]
+        valid_bio_card_data["effect_embedding"] = [0.7, 0.8, 0.9]
+
+        card = MechanismCard(**valid_bio_card_data)
+        assert card.abstraction_ladder.L0_specimen == "African elephant wallowing in mud"
+        assert card.extraction_agreement == 0.85
+        assert card.figure_regions == ["Fig 2A [100, 200, 400, 500]"]
+        assert len(card.purpose_embedding) == 3

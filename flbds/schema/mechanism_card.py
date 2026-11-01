@@ -47,6 +47,16 @@ class Context(BaseModel):
     )
 
 
+class AbstractionLadder(BaseModel):
+    """Five-level abstraction ladder for cross-domain retrieval (L0 to L4)."""
+
+    L0_specimen: Optional[str] = Field(default=None, description="L0 Specimen description or organism instance")
+    L1_mechanism: Optional[str] = Field(default=None, description="L1 Specific domain mechanism description")
+    L2_causal_chain: Optional[str] = Field(default=None, description="L2 SAPPhIRE causal chain graph summary")
+    L3_solution_neutral_principle: Optional[str] = Field(default=None, description="L3 Solution-neutral physical principle")
+    L4_function: Optional[str] = Field(default=None, description="L4 High-level abstract functional goal")
+
+
 class MechanismCard(BaseModel):
     """A verified or extracted causal mechanism card grounded in scientific literature or patents."""
 
@@ -95,6 +105,10 @@ class MechanismCard(BaseModel):
         default_factory=list,
         description="Exact quoted evidence spans grounding each causal claim",
     )
+    figure_regions: list[str] = Field(
+        default_factory=list,
+        description="Citations to specific figure panels or ROI bounding boxes (e.g. ['Fig 2B [100,50,400,300]'])",
+    )
     license: str = Field(
         ...,
         min_length=1,
@@ -110,9 +124,37 @@ class MechanismCard(BaseModel):
         default="silver",
         description="Verification tier: 'silver' for teacher-extracted cards, 'gold' for human-written ground truth",
     )
+    human_verified: bool = Field(
+        default=False,
+        description="Explicit flag indicating whether card has been reviewed and certified by a human expert",
+    )
+    extraction_agreement: Optional[float] = Field(
+        default=None,
+        ge=0.0,
+        le=1.0,
+        description="Agreement score across independent teacher extraction runs",
+    )
     unsupported_fields: list[str] = Field(
         default_factory=list,
         description="List of fields unsupported by cited evidence and deliberately left empty/unfilled",
+    )
+
+    # v9 Abstraction Ladder & Multimodal Embeddings
+    abstraction_ladder: Optional[AbstractionLadder] = Field(
+        default=None,
+        description="Five-tier abstraction ladder from L0 specimen to L4 function",
+    )
+    purpose_embedding: Optional[list[float]] = Field(
+        default=None,
+        description="Functional purpose vector embedding (from L4)",
+    )
+    mechanism_embedding: Optional[list[float]] = Field(
+        default=None,
+        description="Solution-neutral mechanism vector embedding (from L3)",
+    )
+    effect_embedding: Optional[list[float]] = Field(
+        default=None,
+        description="Physical effect vector embedding (from L2)",
     )
 
     @model_validator(mode="after")
@@ -120,4 +162,6 @@ class MechanismCard(BaseModel):
         # Rule 4: If marked gold, it must be human-verified with evidence
         if self.tier == "gold" and not self.evidence:
             raise ValueError("Gold tier cards must include supporting evidence spans.")
+        if self.tier == "gold":
+            self.human_verified = True
         return self

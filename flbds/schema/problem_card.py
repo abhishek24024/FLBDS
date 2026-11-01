@@ -1,7 +1,8 @@
 """Problem Card schema: represents target engineering requirements, environment, and constraints."""
 
-from typing import Literal, Optional
-from pydantic import BaseModel, Field
+from typing import Any, Literal, Optional, Union
+from pydantic import BaseModel, Field, model_validator
+from .enums import BoundaryTypeEnum, DirectionEnum, HazardEnum, ResourceEnum, TimeModeEnum
 
 
 class SystemSpec(BaseModel):
@@ -27,7 +28,7 @@ class SystemSpec(BaseModel):
 
 
 class EnvironmentSpec(BaseModel):
-    """Target environment resource availability and absence inventory."""
+    """Target environment resource availability, absence inventory, and hazards."""
 
     climate: str = Field(
         ...,
@@ -37,6 +38,12 @@ class EnvironmentSpec(BaseModel):
     temperature_range: Optional[tuple[float, float]] = Field(
         default=None,
         description="Operating ambient temperature range (T_min, T_max) in degC",
+    )
+    relative_humidity: Optional[float] = Field(
+        default=None,
+        ge=0.0,
+        le=1.0,
+        description="Ambient relative humidity (0.0 to 1.0)",
     )
     radiation: Optional[str] = Field(
         default=None,
@@ -50,9 +57,17 @@ class EnvironmentSpec(BaseModel):
         default_factory=list,
         description="Energy resources present (e.g. solar direct, nocturnal radiative cooling)",
     )
-    resources_absent: list[str] = Field(
+    resources_available: list[Union[ResourceEnum, str]] = Field(
+        default_factory=list,
+        description="Typed inventory of available environmental resources",
+    )
+    resources_absent: list[Union[ResourceEnum, str]] = Field(
         default_factory=list,
         description="Critical absent resources (e.g. liquid water, mains electricity, pressurized coolant)",
+    )
+    hazards: list[Union[HazardEnum, str]] = Field(
+        default_factory=list,
+        description="Environmental hazards (e.g. high_humidity, dust_fouling, icing)",
     )
 
 
@@ -79,6 +94,18 @@ class RequiredFunction(BaseModel):
         min_length=1,
         description="Explicit direction and timing of desired change (e.g. store daytime heat, discharge at night)",
     )
+    target_direction: Optional[Union[DirectionEnum, str]] = Field(
+        default=None,
+        description="Controlled functional direction enum (increase, decrease, stabilise, store-and-release)",
+    )
+    boundary_type: Optional[Union[BoundaryTypeEnum, str]] = Field(
+        default=None,
+        description="Thermodynamic boundary condition type (BC_FLUX or BC_TEMP)",
+    )
+    flux_or_load: Optional[float] = Field(
+        default=None,
+        description="Target thermal or fluid flux/duty magnitude (e.g. 200 W/m^2)",
+    )
 
 
 class TimePattern(BaseModel):
@@ -88,6 +115,10 @@ class TimePattern(BaseModel):
         ...,
         min_length=1,
         description="Cycle characterization (e.g. diurnal 24h, periodic pulse, steady continuous)",
+    )
+    time_mode: Optional[Union[TimeModeEnum, str]] = Field(
+        default=None,
+        description="Operational temporal mode enum (continuous, cyclic_diurnal, pulsed, steady)",
     )
     period_hours: Optional[float] = Field(
         default=None,
@@ -117,6 +148,45 @@ class Constraint(BaseModel):
         default="hard",
         description="Classification of constraint: hard (inviolable) or soft (optimizable)",
     )
+
+
+class HardConstraints(BaseModel):
+    """Typed hard engineering constraints enforced by M5-Screen and M5-Eval."""
+
+    max_thickness_m: Optional[float] = Field(default=None, gt=0.0)
+    max_mass_kg_m2: Optional[float] = Field(default=None, gt=0.0)
+    max_pressure_drop_Pa: Optional[float] = Field(default=None, gt=0.0)
+    max_surface_superheat_K: Optional[float] = Field(default=None, gt=0.0)
+    min_pore_diameter_m: Optional[float] = Field(default=None, gt=0.0)
+    min_cop: Optional[float] = Field(default=None, gt=0.0)
+    max_envelope_height_m: Optional[float] = Field(default=None, gt=0.0)
+
+    @model_validator(mode="before")
+    @classmethod
+    def harmonize_constraints(cls, data: Any):
+        if not isinstance(data, dict):
+            return data
+        if "thickness_max_m" in data and "max_thickness_m" not in data:
+            data["max_thickness_m"] = data["thickness_max_m"]
+        if "mass_per_area_max_kg_m2" in data and "max_mass_kg_m2" not in data:
+            data["max_mass_kg_m2"] = data["mass_per_area_max_kg_m2"]
+        if "pressure_drop_max_Pa" in data and "max_pressure_drop_Pa" not in data:
+            data["max_pressure_drop_Pa"] = data["pressure_drop_max_Pa"]
+        if "surface_superheat_max_K" in data and "max_surface_superheat_K" not in data:
+            data["max_surface_superheat_K"] = data["surface_superheat_max_K"]
+        if "minimum_pore_diameter_m" in data and "min_pore_diameter_m" not in data:
+            data["min_pore_diameter_m"] = data["minimum_pore_diameter_m"]
+        if "envelope_height_max_m" in data and "max_envelope_height_m" not in data:
+            data["max_envelope_height_m"] = data["envelope_height_max_m"]
+        return data
+
+    @property
+    def thickness_max_m(self) -> Optional[float]:
+        return self.max_thickness_m
+
+    @property
+    def mass_per_area_max_kg_m2(self) -> Optional[float]:
+        return self.max_mass_kg_m2
 
 
 class Contradiction(BaseModel):
@@ -155,6 +225,10 @@ class ProblemCard(BaseModel):
     required_function: RequiredFunction
     time_pattern: TimePattern
     constraints: list[Constraint] = Field(default_factory=list)
+    hard_constraints: Optional[HardConstraints] = Field(
+        default=None,
+        description="Explicit typed hard constraints per v9 specification",
+    )
     contradictions: list[Contradiction] = Field(default_factory=list)
     evidence: list[str] = Field(
         default_factory=list,
@@ -166,3 +240,14 @@ class ProblemCard(BaseModel):
         le=1.0,
         description="Confidence score of problem parsing",
     )
+
+    @model_validator(mode="after")
+    def verify_no_template_leakage(self) -> "ProblemCard":
+        """Verify that ProblemCard strictly contains NO template names (v9 principle P7)."""
+        card_str = str(self.model_dump()).upper()
+        for tpl_num in range(1, 11):
+            bad_key = f"TPL_{tpl_num:02d}"
+            bad_key2 = f"TPL-{tpl_num:02d}"
+            if bad_key in card_str or bad_key2 in card_str:
+                raise ValueError(f"Template leakage detected: ProblemCard must not contain template name {bad_key}")
+        return self

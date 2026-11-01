@@ -1,0 +1,51 @@
+{
+  "problem_id": "PROB-DEV-M2-S3",
+  "source_image": null,
+  "system": {
+    "name": "Low-Power Avionics Coolant Exchanger",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Unpressurized Avionics Bay",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "waste_heat_stream"
+    ],
+    "resources_absent": [],
+    "hazards": []
+  },
+  "required_function": {
+    "action": "cool",
+    "target_object": "circulating avionics loop",
+    "state_variable": "thermal energy",
+    "target_change": "maintain coolant temperature below upper limit under tight pressure drop ceiling",
+    "target_direction": "transport-directional",
+    "boundary_type": "BC_TEMP",
+    "flux_or_load": 800.0
+  },
+  "time_pattern": {
+    "cycle_type": "steady",
+    "time_mode": null,
+    "period_hours": null,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

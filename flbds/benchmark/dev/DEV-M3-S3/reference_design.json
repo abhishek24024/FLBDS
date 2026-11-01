@@ -1,0 +1,23 @@
+{
+  "template_id": "TPL_09",
+  "surface_emissivity": 0.92,
+  "emissivity_thermal": 0.92,
+  "solar_absorptivity": 0.05,
+  "absorptivity_solar": 0.05,
+  "h_conv_ambient_W_m2K": 5.0,
+  "h_conv_W_m2K": 5.0,
+  "t_ambient_K": 305.15,
+  "T_ambient_degC": 32.0,
+  "t_sky_K": 283.15,
+  "T_sky_degC": 10.0,
+  "q_solar_W_m2": 500.0,
+  "solar_irradiance_W_m2": 500.0,
+  "thickness_m": 0.04,
+  "substrate_thickness_m": 0.04,
+  "thermal_conductivity_W_mK": 0.03,
+  "substrate_k_W_mK": 0.03,
+  "substrate_density_kg_m3": 80.0,
+  "T_inner_degC": 20.0,
+  "max_inner_leakage_W_m2": 20.0,
+  "required_net_cooling_W_m2": 0.0
+}

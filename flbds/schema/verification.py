@@ -52,6 +52,54 @@ class PhysicsCheck(BaseModel):
         description="Outcome of this template check. 'not_modelled' cannot be counted as a pass.",
     )
 
+    @model_validator(mode="before")
+    @classmethod
+    def harmonize_check_fields(cls, data: Any):
+        if not isinstance(data, dict):
+            return data
+
+        # Map name -> template_name
+        if "name" in data and "template_name" not in data:
+            data["template_name"] = data["name"]
+
+        # Map metrics -> results
+        if "metrics" in data and "results" not in data:
+            data["results"] = data["metrics"]
+
+        # Map passed -> verdict & assertions
+        if "passed" in data and "verdict" not in data:
+            passed_bool = bool(data["passed"])
+            data["verdict"] = "pass" if passed_bool else "fail"
+
+        # Map reason -> assertion
+        if "reason" in data and "assertions" not in data:
+            reason_msg = str(data["reason"])
+            passed_bool = data.get("verdict") == "pass" or bool(data.get("passed", False))
+            data["assertions"] = [
+                AssertionResult(
+                    assertion_name="primary_verification_check",
+                    passed=passed_bool,
+                    message=reason_msg,
+                    details=data.get("results") or data.get("metrics"),
+                )
+            ]
+
+        return data
+
+    @property
+    def passed(self) -> bool:
+        return self.verdict == "pass"
+
+    @property
+    def reason(self) -> str:
+        if self.assertions:
+            return self.assertions[0].message
+        return f"Check completed with verdict: {self.verdict}"
+
+    @property
+    def metrics(self) -> dict[str, Any]:
+        return self.results
+
 
 class VerificationReport(BaseModel):
     """Complete physics verification report and feasible parameter bounds for a proposed concept."""

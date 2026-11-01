@@ -1,0 +1,55 @@
+{
+  "problem_id": "PROB-DEV-M1-S1",
+  "source_image": null,
+  "system": {
+    "name": "Field Biological Organism Shell",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Arid Savannah",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "liquid_water",
+      "ambient_air",
+      "solar_irradiance"
+    ],
+    "resources_absent": [],
+    "hazards": [
+      "high_humidity"
+    ]
+  },
+  "required_function": {
+    "action": "buffer",
+    "target_object": "body core temperature",
+    "state_variable": "thermal energy",
+    "target_change": "damp thermal swings under intense daytime solar irradiation",
+    "target_direction": "stabilise",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 4000000.0
+  },
+  "time_pattern": {
+    "cycle_type": "cyclic",
+    "time_mode": null,
+    "period_hours": 24.0,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

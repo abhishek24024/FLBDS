@@ -1,0 +1,57 @@
+{
+  "problem_id": "PROB-DEV-M1-S2",
+  "source_image": null,
+  "system": {
+    "name": "Desert Shelter Storage Wall",
+    "components": [],
+    "geometry_summary": null,
+    "scale": null
+  },
+  "environment": {
+    "climate": "Desert",
+    "temperature_range": null,
+    "relative_humidity": null,
+    "radiation": null,
+    "fluids_available": [],
+    "energy_available": [],
+    "resources_available": [
+      "solar_irradiance",
+      "ambient_air",
+      "night_sky_sink"
+    ],
+    "resources_absent": [
+      "liquid_water"
+    ],
+    "hazards": [
+      "none"
+    ]
+  },
+  "required_function": {
+    "action": "store-and-release",
+    "target_object": "interior thermal zone",
+    "state_variable": "heat flux",
+    "target_change": "absorb daytime gross solar flux and discharge release at night",
+    "target_direction": "store-and-release",
+    "boundary_type": "BC_FLUX",
+    "flux_or_load": 5760000.0
+  },
+  "time_pattern": {
+    "cycle_type": "cyclic",
+    "time_mode": null,
+    "period_hours": 24.0,
+    "phases": []
+  },
+  "constraints": [],
+  "hard_constraints": {
+    "max_thickness_m": null,
+    "max_mass_kg_m2": null,
+    "max_pressure_drop_Pa": null,
+    "max_surface_superheat_K": null,
+    "min_pore_diameter_m": null,
+    "min_cop": null,
+    "max_envelope_height_m": null
+  },
+  "contradictions": [],
+  "evidence": [],
+  "confidence": 1.0
+}

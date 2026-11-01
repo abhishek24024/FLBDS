@@ -1,0 +1,22 @@
+{
+  "case_id": "DEV-M1-S3",
+  "source_card_id": "MC-BIO-DEV-M1",
+  "cluster": "DEV-M1",
+  "split": 3,
+  "expected_conflicts": [
+    "resource",
+    "timing"
+  ],
+  "expected_operators": [
+    "T1",
+    "T3",
+    "T5"
+  ],
+  "acceptable_templates": [
+    "TPL_02",
+    "TPL_04"
+  ],
+  "reference_design_file": "reference_design.json",
+  "reference_design": null,
+  "notes": null
+}

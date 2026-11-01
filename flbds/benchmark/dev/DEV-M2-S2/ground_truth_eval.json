@@ -1,0 +1,18 @@
+{
+  "case_id": "DEV-M2-S2",
+  "source_card_id": "MC-BIO-DEV-M2",
+  "cluster": "DEV-M2",
+  "split": 2,
+  "expected_conflicts": [
+    "direction"
+  ],
+  "expected_operators": [
+    "T2"
+  ],
+  "acceptable_templates": [
+    "TPL_08"
+  ],
+  "reference_design_file": "reference_design.json",
+  "reference_design": null,
+  "notes": null
+}
