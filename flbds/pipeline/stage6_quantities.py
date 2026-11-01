@@ -53,6 +53,33 @@ def is_universal_constant(name: str, val: float, unit: str) -> bool:
     return False
 
 
+def is_number_in_span(val: float, span: str) -> bool:
+    """Check if numeric value or close formatting appears in span."""
+    s_val = str(val)
+    if s_val.endswith(".0"):
+        s_val_int = str(int(val))
+        if re.search(r'\b' + re.escape(s_val_int) + r'\b', span):
+            return True
+    if re.search(r'\b' + re.escape(s_val) + r'\b', span):
+        return True
+    if re.search(r'\b' + re.escape(f"{val:.1f}") + r'\b', span):
+        return True
+    if re.search(r'\b' + re.escape(f"{val:.2f}") + r'\b', span):
+        return True
+    return False
+
+
+def check_name_in_span(name: str, span: str) -> bool:
+    """Check if key content words of quantity name appear in span."""
+    name_words = re.findall(r'[a-zA-Z]{3,}', name.lower())
+    stop = {"the", "and", "for", "with", "per", "from", "into", "over", "rate", "value", "level"}
+    keywords = [w for w in name_words if w not in stop]
+    if not keywords:
+        return True
+    span_lower = span.lower()
+    return any(kw in span_lower for kw in keywords)
+
+
 def old_normalize_unit_string(unit_str: str) -> str:
     """Original un-sanitized unit normalizer from pilot run."""
     u = unit_str.strip()
@@ -245,10 +272,14 @@ def run_quantities(
     remaining_rejected_items = []
     excluded_constants = []
 
+    purged_not_in_span = []
+    flagged_mismatched_name = []
+
     with open(output_path, "w") as fout:
         for rec, out in zip(records, outputs):
             card = rec["card"]
             quant_objs = []
+            evidence_spans = [ev.get("text_span", "") for ev in card.get("evidence", [])]
             try:
                 cand_list = QuantityList.model_validate_json(out.outputs[0].text.strip())
                 for item in cand_list.items:
@@ -263,6 +294,37 @@ def run_quantities(
                             "unit": item.unit,
                         })
                         continue
+
+                    # Rule 1: Keep quantity ONLY if its number is inside its cited span
+                    matching_span = None
+                    for span in evidence_spans:
+                        if is_number_in_span(item.value, span):
+                            matching_span = span
+                            break
+                    
+                    if matching_span is None:
+                        purged_not_in_span.append({
+                            "doc_id": rec.get("doc_id", ""),
+                            "name": item.name,
+                            "value": item.value,
+                            "unit": item.unit,
+                            "reason": "number_not_in_cited_span"
+                        })
+                        continue
+
+                    # Rule 2: Flag quantity if its name does not match the span wording
+                    name_matches = check_name_in_span(item.name, matching_span)
+                    regime_label = item.regime
+                    if not name_matches:
+                        regime_label = f"{item.regime} [FLAG: mismatched_name]"
+                        flagged_mismatched_name.append({
+                            "doc_id": rec.get("doc_id", ""),
+                            "name": item.name,
+                            "value": item.value,
+                            "unit": item.unit,
+                            "matching_span": matching_span[:120],
+                            "reason": "name_words_not_in_span"
+                        })
 
                     # 1. Test original un-sanitized normalizer
                     old_unit = old_normalize_unit_string(item.unit)
@@ -282,7 +344,7 @@ def run_quantities(
                             name=item.name,
                             value=san_val,
                             unit=san_unit,
-                            regime_of_validity=item.regime,
+                            regime_of_validity=regime_label,
                         )
                         quant_objs.append(q.model_dump())
                         pint_valid += 1
@@ -322,6 +384,10 @@ def run_quantities(
         "total_extracted": total_extracted,
         "excluded_universal_constants_count": len(excluded_constants),
         "excluded_constants_sample": excluded_constants[:10],
+        "purged_not_in_span_count": len(purged_not_in_span),
+        "purged_not_in_span_sample": purged_not_in_span[:10],
+        "flagged_mismatched_name_count": len(flagged_mismatched_name),
+        "flagged_mismatched_name_sample": flagged_mismatched_name[:10],
         "old_pipeline": {
             "valid": old_valid_count,
             "purged": old_rejected_count,
@@ -336,6 +402,8 @@ def run_quantities(
         "all_recovered": recovered_items,
         "all_remaining_rejected": remaining_rejected_items,
         "all_excluded_constants": excluded_constants,
+        "all_purged_not_in_span": purged_not_in_span,
+        "all_flagged_mismatched_name": flagged_mismatched_name,
     }
     with open(audit_path, "w") as fa:
         json.dump(audit_data, fa, indent=2)
