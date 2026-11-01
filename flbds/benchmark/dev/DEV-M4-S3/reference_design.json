@@ -5,6 +5,7 @@
   "mean_pore_radius_m": 2.5e-8,
   "pore_diameter_m": 5e-8,
   "min_pore_diameter_m": 3.5e-8,
+  "hydrostatic_head_m": 120.0,
   "tortuosity": 1.5,
   "species_diffusivity_m2_s": 0.000022,
   "molecular_diffusivity_m2_s": 0.000022,
