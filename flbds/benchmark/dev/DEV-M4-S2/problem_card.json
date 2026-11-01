@@ -37,13 +37,19 @@
     "period_hours": null,
     "phases": []
   },
-  "constraints": [],
+  "constraints": [
+    {
+      "variable": "submerged_hydrostatic_head_m",
+      "bound": "80.0 m",
+      "hard_or_soft": "hard"
+    }
+  ],
   "hard_constraints": {
     "max_thickness_m": null,
     "max_mass_kg_m2": null,
     "max_pressure_drop_Pa": null,
     "max_surface_superheat_K": null,
-    "min_pore_diameter_m": null,
+    "min_pore_diameter_m": 2.5e-08,
     "min_cop": null,
     "max_envelope_height_m": null
   },

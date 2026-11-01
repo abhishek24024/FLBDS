@@ -41,3 +41,8 @@ checkpoints/
 .DS_Store
 Thumbs.db
 flbds_v5.md
+
+# Review and screening packets (contain text excerpts)
+*packet*.md
+*screening_packet*
+

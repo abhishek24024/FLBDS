@@ -43,8 +43,8 @@
   },
   "constraints": [],
   "hard_constraints": {
-    "max_thickness_m": null,
-    "max_mass_kg_m2": null,
+    "max_thickness_m": 0.05,
+    "max_mass_kg_m2": 45.0,
     "max_pressure_drop_Pa": null,
     "max_surface_superheat_K": null,
     "min_pore_diameter_m": null,

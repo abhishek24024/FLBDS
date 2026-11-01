@@ -142,10 +142,10 @@ CONTENT = """# Handover Verification Report (Phase A)
 - **Cold Read**: Saved Crossref JSON files verified; abstract fields checked.
 - **Physical Proof from Artifacts**:
   - Files under `/home/abhishek24024/flbds_data/api_responses/`:
-    - `martins_2018_crossref.json`: `.message.abstract` present (`<jats:title>Abstract</jats:title><jats:p>An intricate network of crevices adorns the skin surface...`)
-    - `flynn_bush_2008_crossref.json`: `.message.abstract` present (`<jats:p>The rough, hairy surfaces of many insects and spiders serve to render them water-repellent...`)
-    - `shi_2015_crossref.json`: `.message.abstract` present (`<jats:title>Keeping cool</jats:title><jats:p>Silver ants inhabit one of the hottest...`)
-    - `shirtcliffe_2006_crossref.json`: `.message.abstract` present (`<jats:p>Most insects and spiders drown when submerged during flooding...`)
+    - `martins_2018_crossref.json`: `.message.abstract` present. DOI 10.1126/science.aau2960 (AAAS, non-CC-BY). Paraphrase: Skin crevice morphology regulates evaporative heat loss in African elephants.
+    - `flynn_bush_2008_crossref.json`: `.message.abstract` present. DOI 10.1017/S002211200800181X (Cambridge Univ Press, non-CC-BY). Paraphrase: Hairy surfaces and plastron retention underwater for arthropod respiration.
+    - `shi_2015_crossref.json`: `.message.abstract` present. DOI 10.1126/science.aab3564 (AAAS, non-CC-BY). Paraphrase: Triangular hairs in Saharan silver ants enhance mid-infrared thermal radiation and solar reflection.
+    - `shirtcliffe_2006_crossref.json`: `.message.abstract` present. DOI 10.1063/1.2347891 (AIP, non-CC-BY). Paraphrase: Artificial plastrons and gas exchange dynamics on superhydrophobic surfaces.
     - `scholander_1955_crossref.json`: `.message.abstract` is **null** (`NO MESSAGE.ABSTRACT`). Confirms HANDOVER.md claim: Scholander 1955 abstract is unavailable via API.
 
 #### 6. Split 2 Problem Card Fields & Physical Conflict Encoding

@@ -39,10 +39,16 @@
     "period_hours": null,
     "phases": []
   },
-  "constraints": [],
+  "constraints": [
+    {
+      "variable": "max_inner_leakage_W_m2",
+      "bound": "<= 50.0 W/m2",
+      "hard_or_soft": "hard"
+    }
+  ],
   "hard_constraints": {
-    "max_thickness_m": null,
-    "max_mass_kg_m2": null,
+    "max_thickness_m": 0.05,
+    "max_mass_kg_m2": 20.0,
     "max_pressure_drop_Pa": null,
     "max_surface_superheat_K": null,
     "min_pore_diameter_m": null,
