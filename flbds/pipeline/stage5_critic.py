@@ -20,6 +20,8 @@ def canonicalize_field_name(fld: str) -> str | None:
     if not isinstance(fld, str):
         return None
     norm = fld.strip().lower().replace("-", "_")
+    if norm == "subject.identifier":
+        return "subject.identifier"
     base = norm.split(".")[0]
     if base in CANONICAL_SCHEMA_FIELDS:
         return base
@@ -168,7 +170,7 @@ def run_critic(
                 drop_reasons[reason] = drop_reasons.get(reason, 0) + 1
                 continue
 
-            # Core mechanism (action + effect) is supported -> Retain card
+            # Core mechanism (action + effect) and subject entity are protected
             card = rec["card"]
             pruned_fields = set()
 
@@ -176,7 +178,18 @@ def run_critic(
             raw_unsupp = list(card.get("unsupported_fields", [])) + list(assessment.unsupported_fields)
             for raw_fld in raw_unsupp:
                 canon = canonicalize_field_name(raw_fld)
-                if canon and canon not in ("action", "effect"):
+                if not canon:
+                    continue
+                if canon == "subject.identifier":
+                    if isinstance(card.get("subject"), dict):
+                        card["subject"]["identifier"] = None
+                    pruned_fields.add("subject.identifier")
+                elif canon == "subject":
+                    # Only prune subject if it lacks a valid name
+                    if not (isinstance(card.get("subject"), dict) and card["subject"].get("name")):
+                        pruned_fields.add("subject")
+                        card["subject"] = None
+                elif canon not in ("action", "effect"):
                     pruned_fields.add(canon)
 
             if not assessment.state_change_supported:
@@ -187,9 +200,9 @@ def run_critic(
                 pruned_fields.add("phenomenon")
                 card["phenomenon"] = None
 
-            # Nullify any non-core field that was pruned
+            # Nullify any non-core field that was pruned (action, effect, and valid subject are protected)
             for canon in pruned_fields:
-                if canon in card and canon not in ("action", "effect"):
+                if canon in card and canon not in ("action", "effect", "subject"):
                     card[canon] = None
 
             card["unsupported_fields"] = sorted(list(pruned_fields))

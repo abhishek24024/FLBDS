@@ -152,8 +152,8 @@ def wilson_interval(k: int, n: int, confidence: float = 0.95):
 
 DEV_SPECS = {
     "DEV-M1-S1": {"required_energy_J_m2": 4.0e6, "thickness_max_m": 0.05},
-    "DEV-M1-S2": {"required_energy_J_m2": 4.5e6, "thickness_max_m": 0.05},
-    "DEV-M1-S3": {"required_energy_J_m2": 2.5e6, "thickness_max_m": 0.04},
+    "DEV-M1-S2": {"required_energy_J_m2": 5.76e6, "thickness_max_m": 0.05},
+    "DEV-M1-S3": {"required_energy_J_m2": 3.5e6, "thickness_max_m": 0.04},
     "DEV-M2-S1": {"required_duty_W": 500.0, "max_pressure_drop_Pa": 500.0, "pressure_drop_cap_Pa": 500.0},
     "DEV-M2-S2": {"required_duty_W": 2000.0, "max_pressure_drop_Pa": 800.0, "pressure_drop_cap_Pa": 800.0},
     "DEV-M2-S3": {"required_duty_W": 800.0, "max_pressure_drop_Pa": 250.0, "pressure_drop_cap_Pa": 250.0},
@@ -198,9 +198,10 @@ def run_m5_eval(prob: ProblemCard, gt: GroundTruthEval, ref_design: TemplatePara
         if isinstance(ref_design, TPL01Params):
             res = eval_tpl01(ref_design)
         elif isinstance(ref_design, TPL02Params):
-            res = eval_tpl02(ref_design, bc_type=BoundaryTypeEnum.BC_FLUX)
+            t_cap = spec.get("thickness_max_m", 0.05)
+            res = eval_tpl02(ref_design, bc_type=BoundaryTypeEnum.BC_FLUX, thickness_cap_m=t_cap)
         elif isinstance(ref_design, TPL03Params):
-            res = eval_tpl03_evaporation(ref_design)
+            res = eval_tpl03(ref_design)
         elif isinstance(ref_design, TPL04Params):
             res = eval_tpl04(ref_design)
         elif isinstance(ref_design, TPL05Params):
@@ -295,6 +296,8 @@ def main():
         t1_prompts = []
         for cid in DEV_CASES:
             prob, _ = case_data[cid]
+            c_list = [c.model_dump() for c in prob.constraints] if prob.constraints else []
+            c_str = f"Specific Constraints: {json.dumps(c_list)}\n" if c_list else ""
             p_text = (
                 f"<|im_start|>system\nYou are an expert thermal-fluid physics and engineering design engine.<|im_end|>\n"
                 f"<|im_start|>user\n"
@@ -303,6 +306,7 @@ def main():
                 f"Required Function: {prob.required_function}\n"
                 f"Environment: {prob.environment}\n"
                 f"Time Pattern: {prob.time_pattern}\n"
+                f"{c_str}"
                 f"Hard Constraints: {prob.hard_constraints.model_dump_json(indent=2)}\n"
                 f"{AVAILABLE_TEMPLATES}\n\n"
                 f"Task (Turn 1): Propose the best physics template (e.g. TPL_02, TPL_08, TPL_09, TPL_10) "
@@ -320,11 +324,14 @@ def main():
         for cid, t1_out in zip(DEV_CASES, t1_outs):
             t1_ans = t1_out.outputs[0].text
             prob, _ = case_data[cid]
+            c_list = [c.model_dump() for c in prob.constraints] if prob.constraints else []
+            c_str = f"Specific Constraints: {json.dumps(c_list)}\n" if c_list else ""
             p_text = (
                 f"<|im_start|>system\nYou are an expert thermal-fluid physics and engineering design engine.<|im_end|>\n"
                 f"<|im_start|>user\n"
                 f"Engineering Problem: {prob.system.name}\n"
                 f"Required Function: {prob.required_function}\n"
+                f"{c_str}"
                 f"Constraints: {prob.hard_constraints.model_dump_json()}\n"
                 f"Proposed Initial Design:\n{t1_ans}\n\n"
                 f"Task (Turn 2 - Critique): Critically analyze this proposed design against physical reality:\n"

@@ -25,6 +25,11 @@ class SystemSpec(BaseModel):
         default=None,
         description="Characteristic physical scale (e.g. 10-100 m^2, building envelope)",
     )
+    characteristic_length_m: Optional[float] = Field(
+        default=None,
+        gt=0.0,
+        description="Characteristic physical length in meters (e.g. 0.05, 1.0)",
+    )
 
 
 class EnvironmentSpec(BaseModel):
@@ -240,6 +245,18 @@ class ProblemCard(BaseModel):
         le=1.0,
         description="Confidence score of problem parsing",
     )
+
+    @model_validator(mode="before")
+    @classmethod
+    def handle_system_alias(cls, data: Any):
+        if isinstance(data, dict):
+            if "target_system" in data and "system" not in data:
+                data["system"] = data["target_system"]
+        return data
+
+    @property
+    def target_system(self) -> SystemSpec:
+        return self.system
 
     @model_validator(mode="after")
     def verify_no_template_leakage(self) -> "ProblemCard":

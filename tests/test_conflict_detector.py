@@ -150,5 +150,74 @@ def test_split2_proposed_rewrites_fire_intended_single_operators():
     # DEV-M4-S2: Regime Re-scaling -> T5 (characteristic_length_m = 1.0 m vs biological gill 0.005 m)
     with open(DEV_DIR / "DEV-M4-S2" / "problem_card.json") as f:
         prob_m4 = ProblemCard.model_validate_json(f.read())
-    flags_m4 = detect_conflicts(SOURCE_CARDS["DEV-M4"], prob_m4, proposed_char_length=1.0)
+    prob_m4.target_system.characteristic_length_m = 1.0
+    flags_m4 = detect_conflicts(SOURCE_CARDS["DEV-M4"], prob_m4)
     assert flags_m4 == ["T5"], f"DEV-M4-S2 expected ['T5'], got {flags_m4}"
+
+
+def test_conflict_detector_negative_tests():
+    """Negative tests for rule-based conflict detector:
+    1. If you strip the conflict from a Split-2 case, detector returns 0 flags.
+    2. If you add the conflict to a Split-1 case, detector returns the matching flag.
+    """
+    # 1. Strip conflict from Split-2 cases -> 0 flags
+    # M1-S2: Strip T1 (Resource Absence) by removing liquid_water from resources_absent
+    with open(DEV_DIR / "DEV-M1-S2" / "problem_card.json") as f:
+        prob_m1 = ProblemCard.model_validate_json(f.read())
+    prob_m1.environment.resources_absent = [
+        r for r in prob_m1.environment.resources_absent
+        if str(r) != "liquid_water" and getattr(r, "value", str(r)) != "liquid_water"
+    ]
+    flags_m1_stripped = detect_conflicts(SOURCE_CARDS["DEV-M1"], prob_m1)
+    assert flags_m1_stripped == [], f"Stripped DEV-M1-S2 expected [], got {flags_m1_stripped}"
+
+    # M2-S2: Strip T3 (Timing Conflict) by setting time_mode to STEADY
+    with open(DEV_DIR / "DEV-M2-S2" / "problem_card.json") as f:
+        prob_m2 = ProblemCard.model_validate_json(f.read())
+    prob_m2.time_pattern.time_mode = TimeModeEnum.STEADY
+    flags_m2_stripped = detect_conflicts(SOURCE_CARDS["DEV-M2"], prob_m2)
+    assert flags_m2_stripped == [], f"Stripped DEV-M2-S2 expected [], got {flags_m2_stripped}"
+
+    # M3-S2: Strip T2 (Direction Inversion) by setting target_direction to DECREASE
+    with open(DEV_DIR / "DEV-M3-S2" / "problem_card.json") as f:
+        prob_m3 = ProblemCard.model_validate_json(f.read())
+    prob_m3.required_function.target_direction = DirectionEnum.DECREASE
+    flags_m3_stripped = detect_conflicts(SOURCE_CARDS["DEV-M3"], prob_m3)
+    assert flags_m3_stripped == [], f"Stripped DEV-M3-S2 expected [], got {flags_m3_stripped}"
+
+    # M4-S2: Strip T5 (Regime Re-scaling) by setting characteristic_length_m <= 5*source_max_L
+    with open(DEV_DIR / "DEV-M4-S2" / "problem_card.json") as f:
+        prob_m4 = ProblemCard.model_validate_json(f.read())
+    prob_m4.target_system.characteristic_length_m = 0.005  # within biological gill regime
+    flags_m4_stripped = detect_conflicts(SOURCE_CARDS["DEV-M4"], prob_m4)
+    assert flags_m4_stripped == [], f"Stripped DEV-M4-S2 expected [], got {flags_m4_stripped}"
+
+    # 2. Add conflict to Split-1 cases -> matching flag
+    # M1-S1: Add T1 (Resource Absence)
+    with open(DEV_DIR / "DEV-M1-S1" / "problem_card.json") as f:
+        prob_m1_s1 = ProblemCard.model_validate_json(f.read())
+    prob_m1_s1.environment.resources_absent.append("liquid_water")
+    flags_m1_added = detect_conflicts(SOURCE_CARDS["DEV-M1"], prob_m1_s1)
+    assert flags_m1_added == ["T1"], f"Added conflict to DEV-M1-S1 expected ['T1'], got {flags_m1_added}"
+
+    # M2-S1: Add T3 (Timing Conflict)
+    with open(DEV_DIR / "DEV-M2-S1" / "problem_card.json") as f:
+        prob_m2_s1 = ProblemCard.model_validate_json(f.read())
+    prob_m2_s1.time_pattern.time_mode = TimeModeEnum.CYCLIC_DIURNAL
+    flags_m2_added = detect_conflicts(SOURCE_CARDS["DEV-M2"], prob_m2_s1)
+    assert flags_m2_added == ["T3"], f"Added conflict to DEV-M2-S1 expected ['T3'], got {flags_m2_added}"
+
+    # M3-S1: Add T2 (Direction Inversion)
+    with open(DEV_DIR / "DEV-M3-S1" / "problem_card.json") as f:
+        prob_m3_s1 = ProblemCard.model_validate_json(f.read())
+    prob_m3_s1.required_function.target_direction = DirectionEnum.INCREASE
+    flags_m3_added = detect_conflicts(SOURCE_CARDS["DEV-M3"], prob_m3_s1)
+    assert flags_m3_added == ["T2"], f"Added conflict to DEV-M3-S1 expected ['T2'], got {flags_m3_added}"
+
+    # M4-S1: Add T5 (Regime Re-scaling)
+    with open(DEV_DIR / "DEV-M4-S1" / "problem_card.json") as f:
+        prob_m4_s1 = ProblemCard.model_validate_json(f.read())
+    prob_m4_s1.target_system.characteristic_length_m = 1.0  # Macro-scale (1.0m >> 5*0.005m)
+    flags_m4_added = detect_conflicts(SOURCE_CARDS["DEV-M4"], prob_m4_s1)
+    assert flags_m4_added == ["T5"], f"Added conflict to DEV-M4-S1 expected ['T5'], got {flags_m4_added}"
+
