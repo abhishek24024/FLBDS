@@ -8,7 +8,7 @@
 Audit Round 8 completed all mandate items across compute server and repository infrastructure. Every metric, quote, and identifier is printed directly from persisted files. Branch `fix-subject-pruning` is merged into `main`, full test suite passes (107/107), and physical GPU identity is confirmed as NVIDIA H200 SXM.
 
 ## 1. B0 Baseline Validity, Rescoring, and Transcript Audit
-Proof of Round 7 Run Invalidity: MD5 of `b0_t07_exposed_seeds1to5.json` is `9fd335fe72156b229cffbc91318e8772`, while `b0_temp07_results.json` is `f92ae19d9e2cc7871d508fd783b1646c`. Raw outputs were identical for 58 of 60 runs. Turn-1 prompt comparison for DEV-M1-S1, DEV-M2-S1, and DEV-M4-S1 confirmed `hard_constraints` remained `null` because files were not copied to the dev path read by the runner. The run was not valid; a clean re-run is queued. Synchronized caps (DEV-M1-S2 5.76e6 stricter, DEV-M1-S3 3.5e6 stricter, DEV-M3-S2 50.0 looser) were rescored across all earlier B0 runs (T=0.0: 7/60 pass; T=0.7: 12/60 pass; Seeds 6-10: 13/60 pass), producing zero verdict flips. All 12 dev case margins remain valid (1.10x to 2.75x; 39 unit tests pass in 0.99s). Human review of 6 Seed 61 transcripts isolated three distinct failure modes: capacity bound deficit, template incompetence, and gross dimensional hallucination. Blind packet is compiled in `docs/audit/b0_blind_transcript_packet.md`.
+Proof of Round 7 Run Invalidity: MD5 of `b0_t07_exposed_seeds1to5.json` from Round 7 is `9fd335fe72156b229cffbc91318e8772`, while `b0_temp07_results.json` is `f92ae19d9e2cc7871d508fd783b1646c`. Raw outputs were identical for 58 of 60 runs, and Turn-1 prompts showed `null` for all `hard_constraints` because server files were read from an un-updated dev directory. The run was invalid and re-executed under broker Job 7832 (start: 11:16:50, end: 11:22:37, 338.04 s, 0.0939 GPU-hours) producing `audit8/b0_t07_exposed_seeds1to5.json` (MD5: `d66f0d8d185620a098c6bac6fcd8fd9c`). Raw outputs differ from the invalid run in 60 of 60 runs (100.0%), and Turn-1 prompts differ in 60 of 60 runs (100.0%), exposing all numeric limits. Valid baseline performance: 14/60 passes (23.3%, 95% Wilson CI: [14.4%, 35.4%]), 43/60 physics failures (71.7%, [59.2%, 81.5%]), 3/60 template choice errors (5.0%, [1.7%, 13.7%]), 0 schema failures, and 0 parse failures (S1: 3/20; S2: 5/20; S3: 6/20). Synchronized caps (DEV-M1-S2 5.76e6 stricter, DEV-M1-S3 3.5e6 stricter, DEV-M3-S2 50.0 looser) rescored across earlier runs yielded zero flips. All 12 dev case margins remain valid (1.10x to 2.75x; 39 unit tests pass in 0.99s). Human review of 6 Seed 61 transcripts from the valid run is compiled in `docs/audit/b0_blind_transcript_packet.md`.
 
 ### Table 1: Synchronized Caps and Evaluator Margins
 | Case ID | Evaluator Old Cap | Problem Card Synchronized Cap | Direction | Reference Design Margin | Test Status |
@@ -17,15 +17,15 @@ Proof of Round 7 Run Invalidity: MD5 of `b0_t07_exposed_seeds1to5.json` is `9fd3
 | DEV-M1-S3 | 2.50e6 J/m² | 3.50e6 J/m² | Stricter | 1.10x | PASS |
 | DEV-M3-S2 | 35.0 W/m² | 50.0 W/m² | Looser | 1.10x | PASS |
 
-### Table 2: Human Audit of 6 Baseline Transcripts (Seed 61)
+### Table 2: Human Audit of 6 Valid Baseline Transcripts (Seed 61)
 | Case ID | Seed | Template | Outcome | Limits Used / Misread | Physical Realism | Failure Taxonomy |
 |---|---|---|---|---|---|---|
-| DEV-M3-S1 | 4 | TPL_09 | PASS | Solar 800 W/m², emiss 0.90, absorp 0.05 | High (T_surf=22.56 °C, sub-ambient 4.44 K) | None (Clean Pass) |
-| DEV-M3-S2 | 1 | TPL_09 | PASS | Nocturnal sky 15 °C, solar 0 W/m² | High (T_surf=26.60 °C, sub-ambient 0.40 K) | None (Clean Pass) |
-| DEV-M3-S2 | 4 | TPL_09 | PASS | Solar 800 W/m², emiss 0.95, absorp 0.05 | High (T_surf=27.67 °C, sub-ambient 7.33 K) | None (Clean Pass) |
-| DEV-M2-S3 | 2 | TPL_08 | FAIL | Flow rate 0.001 kg/s yields duty 115.8 W vs 800 W | Unphysical (mass flow deficit by 6.4x) | Capacity Bound Violation |
-| DEV-M1-S2 | 3 | TPL_01 | FAIL | Chose sensible storage under L<=0.08m, m<=40kg/m² | Unfeasible (proposed 0.226 m, 452 kg/m²) | Template Incompetence |
-| DEV-M4-S3 | 2 | TPL_10 | FAIL | Proposed membrane thickness = 1.0 m | Grotesque (chokes O2 flux by 1000x) | Gross Dimensional Hallucination |
+| DEV-M2-S2 | 4 | TPL_08 | PASS | Exhaust 150 °C -> 30 °C, duty 2000 W, dP <= 800 Pa | High (rectangular duct, m_dot=0.5 kg/s) | None (Clean Pass) |
+| DEV-M2-S3 | 2 | TPL_08 | PASS | Coolant 50 °C -> 30 °C, duty 800 W, dP <= 250 Pa | High (circular duct, m_dot=0.0383 kg/s) | None (Clean Pass) |
+| DEV-M3-S1 | 4 | TPL_09 | PASS | Solar 800 W/m², emiss 0.90, absorp 0.10 | High (T_surf=30.76 °C, sub-ambient 4.24 K) | None (Clean Pass) |
+| DEV-M2-S1 | 2 | TPL_08 | FAIL | Flow 0.1 kg/s across 1mm gap yields dP 44.5 MPa | Unphysical (friction exceeds 500 Pa cap) | Hydraulic Friction Violation |
+| DEV-M1-S2 | 3 | TPL_02 | FAIL | Used TPL_02 under L<=0.05m; superheat hit 12.04 K | Realist PCM, but k_eff=0.5 W/mK exceeded 10 K | Thermal Superheat Violation |
+| DEV-M4-S2 | 2 | TPL_10 | FAIL | Proposed membrane thickness = 1.0 m | Grotesque (chokes O2 flux to 1.08e-5 mol/m²s) | Gross Dimensional Hallucination |
 
 ## 2. Quantity Re-linking, Pipeline Differences, and Proposed Stage 6 Rule
 Full-document re-linking on the 190 quantities dropped by Rule 1 located 165 (86.8%) in-document and 25 (13.2%) nowhere. A Seed 71 human review of 20 re-linked quantities verified 15 (75.0%, Wilson 95% CI: [0.5313, 0.8881]) true quantity matches and 5 (25.0%, Wilson 95% CI: [0.1119, 0.4687]) false-positive substring collisions (figure labels, citations, decimal digits). Quantities differ in 56 cards between pilot and audit6 sets because Rule 1 was introduced in commit `2f0ff74` and active during audit6; Stage 6 uses `temperature=0.0` but lacks an explicit seed. Subject changes (86 null to named) do not appear in git diff because `flbds_data/` is git-ignored and only Python code changes were tracked. We propose a three-tier Stage 6 rule: retain `provenance='span'` automatically; retain `provenance='document'` only when co-occurring within 50 characters of unit or name tokens; and purge `nowhere` unconditionally.
