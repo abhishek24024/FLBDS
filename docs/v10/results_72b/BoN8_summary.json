@@ -1,0 +1,38 @@
+{
+  "condition": "BoN8",
+  "n_runs": 144,
+  "eval_passes": 55,
+  "pass_rate": 0.3819444444444444,
+  "wilson_ci": [
+    0.3066335034786473,
+    0.46339041084679183
+  ],
+  "screen_passes": 61,
+  "screen_pass_rate": 0.4236111111111111,
+  "screen_pass_eval_fail": 7,
+  "screen_fail_eval_pass": 1,
+  "template_choice_errors": 0,
+  "schema_failure_final": 0,
+  "parse_failures_total": 0,
+  "tokens_total": 156029,
+  "tokens_mean_per_run": 1083.5347222222222,
+  "per_family": {
+    "F_HX": {
+      "n": 36,
+      "pass_rate": 0.0
+    },
+    "F_MEM": {
+      "n": 36,
+      "pass_rate": 0.7777777777777778
+    },
+    "F_PCM": {
+      "n": 36,
+      "pass_rate": 0.08333333333333333
+    },
+    "F_RAD": {
+      "n": 36,
+      "pass_rate": 0.6666666666666666
+    }
+  },
+  "elapsed_seconds_this_invocation": 41.9
+}

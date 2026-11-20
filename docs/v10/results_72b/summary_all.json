@@ -1,0 +1,230 @@
+{
+  "B0": {
+    "condition": "B0",
+    "n_runs": 144,
+    "eval_passes": 35,
+    "pass_rate": 0.24305555555555555,
+    "wilson_ci": [
+      0.18026945936748356,
+      0.3191943541643548
+    ],
+    "screen_passes": 38,
+    "screen_pass_rate": 0.2638888888888889,
+    "screen_pass_eval_fail": 3,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 2,
+    "parse_failures_total": 0,
+    "tokens_total": 19472,
+    "tokens_mean_per_run": 135.22222222222223,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 0.6666666666666666
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.08333333333333333
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.2222222222222222
+      }
+    },
+    "elapsed_seconds_this_invocation": 21.4
+  },
+  "OPT": {
+    "condition": "OPT",
+    "n_runs": 144,
+    "eval_passes": 95,
+    "pass_rate": 0.6597222222222222,
+    "wilson_ci": [
+      0.5790850676242641,
+      0.7320590482883768
+    ],
+    "screen_passes": 144,
+    "screen_pass_rate": 1.0,
+    "screen_pass_eval_fail": 49,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 19478,
+    "tokens_mean_per_run": 135.26388888888889,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 1.0
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.027777777777777776
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.6111111111111112
+      }
+    },
+    "elapsed_seconds_this_invocation": 18.6
+  },
+  "L3": {
+    "condition": "L3",
+    "n_runs": 144,
+    "eval_passes": 79,
+    "pass_rate": 0.5486111111111112,
+    "wilson_ci": [
+      0.46712268302595106,
+      0.6275733522518093
+    ],
+    "screen_passes": 88,
+    "screen_pass_rate": 0.6111111111111112,
+    "screen_pass_eval_fail": 9,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 55329,
+    "tokens_mean_per_run": 384.2291666666667,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 0.1388888888888889
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.25
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.8055555555555556
+      }
+    },
+    "elapsed_seconds_this_invocation": 47.2
+  },
+  "L3_BIOMATCH": {
+    "condition": "L3_BIOMATCH",
+    "n_runs": 144,
+    "eval_passes": 75,
+    "pass_rate": 0.5208333333333334,
+    "wilson_ci": [
+      0.4397629773960765,
+      0.6008210377229637
+    ],
+    "screen_passes": 84,
+    "screen_pass_rate": 0.5833333333333334,
+    "screen_pass_eval_fail": 9,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 53575,
+    "tokens_mean_per_run": 372.0486111111111,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 0.05555555555555555
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.2777777777777778
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.75
+      }
+    },
+    "elapsed_seconds_this_invocation": 49.9
+  },
+  "L3_BIOMISMATCH": {
+    "condition": "L3_BIOMISMATCH",
+    "n_runs": 144,
+    "eval_passes": 71,
+    "pass_rate": 0.4930555555555556,
+    "wilson_ci": [
+      0.4126463655407692,
+      0.5738256294195508
+    ],
+    "screen_passes": 79,
+    "screen_pass_rate": 0.5486111111111112,
+    "screen_pass_eval_fail": 8,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 55160,
+    "tokens_mean_per_run": 383.05555555555554,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 0.027777777777777776
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.19444444444444445
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.75
+      }
+    },
+    "elapsed_seconds_this_invocation": 51.2
+  },
+  "BoN8": {
+    "condition": "BoN8",
+    "n_runs": 144,
+    "eval_passes": 55,
+    "pass_rate": 0.3819444444444444,
+    "wilson_ci": [
+      0.3066335034786473,
+      0.46339041084679183
+    ],
+    "screen_passes": 61,
+    "screen_pass_rate": 0.4236111111111111,
+    "screen_pass_eval_fail": 7,
+    "screen_fail_eval_pass": 1,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 156029,
+    "tokens_mean_per_run": 1083.5347222222222,
+    "per_family": {
+      "F_HX": {
+        "n": 36,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 36,
+        "pass_rate": 0.7777777777777778
+      },
+      "F_PCM": {
+        "n": 36,
+        "pass_rate": 0.08333333333333333
+      },
+      "F_RAD": {
+        "n": 36,
+        "pass_rate": 0.6666666666666666
+      }
+    },
+    "elapsed_seconds_this_invocation": 41.9
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "condition": "OPTONLY",
+  "n_runs": 96,
+  "eval_passes": 65,
+  "pass_rate": 0.6770833333333334,
+  "wilson_ci": [
+    0.5782983099894397,
+    0.7622415859776339
+  ],
+  "screen_passes": 96,
+  "screen_pass_rate": 1.0,
+  "screen_pass_eval_fail": 31,
+  "screen_fail_eval_pass": 0,
+  "template_choice_errors": 0,
+  "schema_failure_final": 0,
+  "parse_failures_total": 0,
+  "tokens_total": 0,
+  "tokens_mean_per_run": 0.0,
+  "per_family": {
+    "F_HX": {
+      "n": 24,
+      "pass_rate": 1.0
+    },
+    "F_MEM": {
+      "n": 24,
+      "pass_rate": 1.0
+    },
+    "F_PCM": {
+      "n": 24,
+      "pass_rate": 0.125
+    },
+    "F_RAD": {
+      "n": 24,
+      "pass_rate": 0.5833333333333334
+    }
+  },
+  "elapsed_seconds_this_invocation": 6.9
+}

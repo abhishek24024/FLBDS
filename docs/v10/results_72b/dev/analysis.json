@@ -1,0 +1,273 @@
+{
+  "per_condition": {
+    "B0": {
+      "condition": "B0",
+      "n_runs": 60,
+      "eval_passes": 18,
+      "pass_rate": 0.3,
+      "wilson_ci": [
+        0.19898166138769108,
+        0.42508707946914487
+      ],
+      "screen_passes": 18,
+      "screen_pass_rate": 0.3,
+      "screen_pass_eval_fail": 1,
+      "screen_fail_eval_pass": 1,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 8042,
+      "tokens_mean_per_run": 134.03333333333333
+    },
+    "L3": {
+      "condition": "L3",
+      "n_runs": 60,
+      "eval_passes": 39,
+      "pass_rate": 0.65,
+      "wilson_ci": [
+        0.5236261884175486,
+        0.7583222559398244
+      ],
+      "screen_passes": 42,
+      "screen_pass_rate": 0.7,
+      "screen_pass_eval_fail": 3,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 21434,
+      "tokens_mean_per_run": 357.23333333333335
+    },
+    "OPT": {
+      "condition": "OPT",
+      "n_runs": 60,
+      "eval_passes": 41,
+      "pass_rate": 0.6833333333333333,
+      "wilson_ci": [
+        0.5576623297382323,
+        0.7869413244763347
+      ],
+      "screen_passes": 60,
+      "screen_pass_rate": 1.0,
+      "screen_pass_eval_fail": 19,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 8046,
+      "tokens_mean_per_run": 134.1
+    },
+    "OPTONLY": {
+      "condition": "OPTONLY",
+      "n_runs": 60,
+      "eval_passes": 39,
+      "pass_rate": 0.65,
+      "wilson_ci": [
+        0.5236261884175486,
+        0.7583222559398244
+      ],
+      "screen_passes": 60,
+      "screen_pass_rate": 1.0,
+      "screen_pass_eval_fail": 21,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 0,
+      "tokens_mean_per_run": 0.0
+    }
+  },
+  "pairs": [
+    {
+      "a": "L3",
+      "b": "B0",
+      "metric": "eval_pass",
+      "n_instances": 12,
+      "mean_a": 0.65,
+      "mean_b": 0.3,
+      "mean_diff": 0.35000000000000003,
+      "sd_diff": 0.33166247903554,
+      "ci95_bootstrap": [
+        0.18333333333333332,
+        0.5333333333333333
+      ],
+      "p_sign_flip": 0.0078125,
+      "per_family": {
+        "F_HX": {
+          "n": 3,
+          "mean_a": 0.13333333333333333,
+          "mean_b": 0.0,
+          "mean_diff": 0.13333333333333333,
+          "ci95_bootstrap": [
+            0.0,
+            0.20000000000000004
+          ],
+          "p_sign_flip": 0.5
+        },
+        "F_MEM": {
+          "n": 3,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_PCM": {
+          "n": 3,
+          "mean_a": 0.6,
+          "mean_b": 0.0,
+          "mean_diff": 0.6,
+          "ci95_bootstrap": [
+            0.4000000000000001,
+            0.8000000000000002
+          ],
+          "p_sign_flip": 0.25
+        },
+        "F_RAD": {
+          "n": 3,
+          "mean_a": 0.8666666666666667,
+          "mean_b": 0.20000000000000004,
+          "mean_diff": 0.6666666666666666,
+          "ci95_bootstrap": [
+            0.39999999999999997,
+            0.8000000000000002
+          ],
+          "p_sign_flip": 0.25
+        }
+      },
+      "pair": "L3:B0",
+      "margin_secondary": null,
+      "p_holm": 0.015625
+    },
+    {
+      "a": "OPT",
+      "b": "L3",
+      "metric": "eval_pass",
+      "n_instances": 12,
+      "mean_a": 0.6833333333333332,
+      "mean_b": 0.65,
+      "mean_diff": 0.03333333333333334,
+      "sd_diff": 0.5710171679210758,
+      "ci95_bootstrap": [
+        -0.25,
+        0.35000000000000003
+      ],
+      "p_sign_flip": 0.9375,
+      "per_family": {
+        "F_HX": {
+          "n": 3,
+          "mean_a": 1.0,
+          "mean_b": 0.13333333333333333,
+          "mean_diff": 0.8666666666666667,
+          "ci95_bootstrap": [
+            0.8000000000000002,
+            1.0
+          ],
+          "p_sign_flip": 0.25
+        },
+        "F_MEM": {
+          "n": 3,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_PCM": {
+          "n": 3,
+          "mean_a": 0.0,
+          "mean_b": 0.6,
+          "mean_diff": -0.6,
+          "ci95_bootstrap": [
+            -0.8000000000000002,
+            -0.4000000000000001
+          ],
+          "p_sign_flip": 0.25
+        },
+        "F_RAD": {
+          "n": 3,
+          "mean_a": 0.7333333333333334,
+          "mean_b": 0.8666666666666667,
+          "mean_diff": -0.13333333333333333,
+          "ci95_bootstrap": [
+            -0.39999999999999997,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        }
+      },
+      "pair": "OPT:L3",
+      "margin_secondary": null,
+      "p_holm": 0.9375
+    },
+    {
+      "a": "OPTONLY",
+      "b": "OPT",
+      "metric": "eval_pass",
+      "n_instances": 12,
+      "mean_a": 0.65,
+      "mean_b": 0.6833333333333332,
+      "mean_diff": -0.03333333333333333,
+      "sd_diff": 0.11547005383792518,
+      "ci95_bootstrap": [
+        -0.10000000000000002,
+        0.0
+      ],
+      "p_sign_flip": 1.0,
+      "per_family": {
+        "F_HX": {
+          "n": 3,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_MEM": {
+          "n": 3,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_PCM": {
+          "n": 3,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_RAD": {
+          "n": 3,
+          "mean_a": 0.6,
+          "mean_b": 0.7333333333333334,
+          "mean_diff": -0.13333333333333333,
+          "ci95_bootstrap": [
+            -0.4000000000000001,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        }
+      },
+      "pair": "OPTONLY:OPT",
+      "margin_secondary": null
+    }
+  ]
+}

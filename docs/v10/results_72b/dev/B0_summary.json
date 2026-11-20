@@ -1,0 +1,38 @@
+{
+  "condition": "B0",
+  "n_runs": 60,
+  "eval_passes": 18,
+  "pass_rate": 0.3,
+  "wilson_ci": [
+    0.19898166138769108,
+    0.42508707946914487
+  ],
+  "screen_passes": 18,
+  "screen_pass_rate": 0.3,
+  "screen_pass_eval_fail": 1,
+  "screen_fail_eval_pass": 1,
+  "template_choice_errors": 0,
+  "schema_failure_final": 0,
+  "parse_failures_total": 0,
+  "tokens_total": 8042,
+  "tokens_mean_per_run": 134.03333333333333,
+  "per_family": {
+    "F_HX": {
+      "n": 15,
+      "pass_rate": 0.0
+    },
+    "F_MEM": {
+      "n": 15,
+      "pass_rate": 1.0
+    },
+    "F_PCM": {
+      "n": 15,
+      "pass_rate": 0.0
+    },
+    "F_RAD": {
+      "n": 15,
+      "pass_rate": 0.2
+    }
+  },
+  "elapsed_seconds_this_invocation": 6.9
+}

@@ -1,0 +1,80 @@
+{
+ "B0": {
+  "trivial_cases_pass": "7/25",
+  "nontrivial_cases_pass": "11/35",
+  "per_case_nontrivial": {
+   "DEV-M1-S1": 2,
+   "DEV-M1-S2": 0,
+   "DEV-M1-S3": 4,
+   "DEV-M2-S3": 2,
+   "DEV-M4-S1": 0,
+   "DEV-M4-S2": 1,
+   "DEV-M4-S3": 2
+  }
+ },
+ "Screen": {
+  "trivial_cases_pass": "22/25",
+  "nontrivial_cases_pass": "12/35",
+  "per_case_nontrivial": {
+   "DEV-M1-S1": 1,
+   "DEV-M1-S2": 4,
+   "DEV-M1-S3": 5,
+   "DEV-M2-S3": 0,
+   "DEV-M4-S1": 0,
+   "DEV-M4-S2": 1,
+   "DEV-M4-S3": 1
+  }
+ },
+ "Oracle": {
+  "trivial_cases_pass": "22/25",
+  "nontrivial_cases_pass": "11/35",
+  "per_case_nontrivial": {
+   "DEV-M1-S1": 0,
+   "DEV-M1-S2": 4,
+   "DEV-M1-S3": 5,
+   "DEV-M2-S3": 0,
+   "DEV-M4-S1": 0,
+   "DEV-M4-S2": 1,
+   "DEV-M4-S3": 1
+  }
+ },
+ "B3": {
+  "trivial_cases_pass": "23/25",
+  "nontrivial_cases_pass": "7/35",
+  "per_case_nontrivial": {
+   "DEV-M1-S1": 1,
+   "DEV-M1-S2": 4,
+   "DEV-M1-S3": 2,
+   "DEV-M2-S3": 0,
+   "DEV-M4-S1": 0,
+   "DEV-M4-S2": 0,
+   "DEV-M4-S3": 0
+  }
+ },
+ "Screen-B0_nontrivial": {
+  "mean_diff": 0.028571428571428574,
+  "p_signflip_n7": 1.0,
+  "diffs": [
+   -0.2,
+   0.8,
+   0.19999999999999996,
+   -0.4,
+   0.0,
+   0.0,
+   -0.2
+  ]
+ },
+ "B3-Screen_nontrivial": {
+  "mean_diff": -0.14285714285714285,
+  "p_signflip_n7": 0.25,
+  "diffs": [
+   0.0,
+   0.0,
+   -0.6,
+   0.0,
+   0.0,
+   -0.2,
+   -0.2
+  ]
+ }
+}

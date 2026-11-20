@@ -1,0 +1,1381 @@
+{
+  "canary": "FLBDS-V10-SEALED-CANARY-7f3c9a1e: do not train on or publish this benchmark",
+  "config": {
+    "n_per_family": 12,
+    "max_candidates_per_family": 60,
+    "de_maxiter": 40,
+    "de_popsize": 15,
+    "n_random": 200,
+    "max_trivial_rate": 0.5,
+    "families": [
+      "F_PCM",
+      "F_HX",
+      "F_RAD",
+      "F_MEM"
+    ],
+    "seed": 20261119
+  },
+  "acceptance_stats": {
+    "F_PCM": {
+      "candidates": 12,
+      "unsatisfiable": 0,
+      "too_easy": 0,
+      "kept": 12,
+      "seconds": 33.28,
+      "acceptance_rate": 1.0,
+      "mean_trivial_rate_kept": 0.07
+    },
+    "F_HX": {
+      "candidates": 12,
+      "unsatisfiable": 0,
+      "too_easy": 0,
+      "kept": 12,
+      "seconds": 1.91,
+      "acceptance_rate": 1.0,
+      "mean_trivial_rate_kept": 0.09166666666666667
+    },
+    "F_RAD": {
+      "candidates": 12,
+      "unsatisfiable": 0,
+      "too_easy": 0,
+      "kept": 12,
+      "seconds": 1.74,
+      "acceptance_rate": 1.0,
+      "mean_trivial_rate_kept": 0.06458333333333334
+    },
+    "F_MEM": {
+      "candidates": 33,
+      "unsatisfiable": 0,
+      "too_easy": 21,
+      "kept": 12,
+      "seconds": 3.12,
+      "acceptance_rate": 0.36363636363636365,
+      "mean_trivial_rate_kept": 0.3383333333333334
+    }
+  },
+  "n_instances": 48,
+  "sha256": "788426ffe962f1780c034cca07bb2701553c62c50dfa14acb324e5573eec05cc",
+  "instances": [
+    {
+      "instance_id": "V10-F_PCM-001",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Biomimetic Architectural Thermal Buffer Facade Panel",
+      "env": {
+        "heat_flux_W_m2": 113.69858588678133,
+        "charge_hours": 5.45356814899783,
+        "required_energy_J_m2": 2136320.941858374,
+        "thickness_max_m": 0.04101429323595021,
+        "mass_cap_kg_m2": 39.09224228594029,
+        "superheat_limit_K": 10.596545770550222
+      },
+      "problem_statement": "Target system: Biomimetic Architectural Thermal Buffer Facade Panel\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 113.7 W/m^2 (constant)\n- charging duration: 5.45 h\n- energy that must be stored per unit area: 2.136 MJ/m^2\nHard constraints:\n- layer thickness <= 41.0 mm\n- areal mass <= 39.1 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 10.6 K\n",
+      "certified_design": {
+        "thickness_m": 0.01913734254183622,
+        "k_eff_W_mK": 1.2421068208687671,
+        "matrix_volume_fraction": 1.1674137281003638e-05,
+        "matrix_density_kg_m3": 6055.489287752075,
+        "matrix_specific_heat_J_kgK": 673.7331913226063,
+        "pcm_density_kg_m3": 956.7665164181019,
+        "pcm_latent_heat_J_kg": 259980.37744808686,
+        "pcm_specific_heat_J_kgK": 1402.9018336474319
+      },
+      "certified_min_margin": 0.5315922903837461,
+      "trivial_pass_rate": 0.15,
+      "candidate_index": 0
+    },
+    {
+      "instance_id": "V10-F_PCM-002",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Lightweight Rooftop Thermal Buffer Tile",
+      "env": {
+        "heat_flux_W_m2": 248.42502924433728,
+        "charge_hours": 7.41885744692315,
+        "required_energy_J_m2": 6221343.003713354,
+        "thickness_max_m": 0.058352571751350064,
+        "mass_cap_kg_m2": 30.994270376882355,
+        "superheat_limit_K": 9.24904598348621
+      },
+      "problem_statement": "Target system: Lightweight Rooftop Thermal Buffer Tile\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 248.4 W/m^2 (constant)\n- charging duration: 7.42 h\n- energy that must be stored per unit area: 6.221 MJ/m^2\nHard constraints:\n- layer thickness <= 58.4 mm\n- areal mass <= 31.0 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 9.2 K\n",
+      "certified_design": {
+        "thickness_m": 0.03856790014813359,
+        "k_eff_W_mK": 2.4664331848587375,
+        "matrix_volume_fraction": 3.489530205671443e-05,
+        "matrix_density_kg_m3": 2787.138887431406,
+        "matrix_specific_heat_J_kgK": 934.8541894566183,
+        "pcm_density_kg_m3": 750.3254944750789,
+        "pcm_latent_heat_J_kg": 250575.52118471893,
+        "pcm_specific_heat_J_kgK": 2088.209037742779
+      },
+      "certified_min_margin": 0.06623967528419826,
+      "trivial_pass_rate": 0.0,
+      "candidate_index": 1
+    },
+    {
+      "instance_id": "V10-F_PCM-003",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Desert Shelter Wall Heat-Load Damping Liner",
+      "env": {
+        "heat_flux_W_m2": 248.77563820824977,
+        "charge_hours": 4.609033289962814,
+        "required_energy_J_m2": 4011373.9086353634,
+        "thickness_max_m": 0.055059440116512696,
+        "mass_cap_kg_m2": 32.01257021152386,
+        "superheat_limit_K": 7.760559724654936
+      },
+      "problem_statement": "Target system: Desert Shelter Wall Heat-Load Damping Liner\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 248.8 W/m^2 (constant)\n- charging duration: 4.61 h\n- energy that must be stored per unit area: 4.011 MJ/m^2\nHard constraints:\n- layer thickness <= 55.1 mm\n- areal mass <= 32.0 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 7.8 K\n",
+      "certified_design": {
+        "thickness_m": 0.030101325072396858,
+        "k_eff_W_mK": 1.0306933541272725,
+        "matrix_volume_fraction": 0.0012737829011139179,
+        "matrix_density_kg_m3": 2880.0347486024384,
+        "matrix_specific_heat_J_kgK": 554.0261312806128,
+        "pcm_density_kg_m3": 750.2259809102411,
+        "pcm_latent_heat_J_kg": 258682.11598698466,
+        "pcm_specific_heat_J_kgK": 2782.5087973713294
+      },
+      "certified_min_margin": 0.2920137844192017,
+      "trivial_pass_rate": 0.015,
+      "candidate_index": 2
+    },
+    {
+      "instance_id": "V10-F_PCM-004",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Modular Classroom Envelope Thermal Buffer Board",
+      "env": {
+        "heat_flux_W_m2": 179.62529753836878,
+        "charge_hours": 4.708003645959565,
+        "required_energy_J_m2": 2813047.454756192,
+        "thickness_max_m": 0.05301834687931596,
+        "mass_cap_kg_m2": 39.249891007861955,
+        "superheat_limit_K": 14.849845408000876
+      },
+      "problem_statement": "Target system: Modular Classroom Envelope Thermal Buffer Board\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 179.6 W/m^2 (constant)\n- charging duration: 4.71 h\n- energy that must be stored per unit area: 2.813 MJ/m^2\nHard constraints:\n- layer thickness <= 53.0 mm\n- areal mass <= 39.2 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 14.8 K\n",
+      "certified_design": {
+        "thickness_m": 0.027949138546223475,
+        "k_eff_W_mK": 0.6290543683367457,
+        "matrix_volume_fraction": 0.0,
+        "matrix_density_kg_m3": 4132.800074003898,
+        "matrix_specific_heat_J_kgK": 634.038300842329,
+        "pcm_density_kg_m3": 767.0391352655315,
+        "pcm_latent_heat_J_kg": 260000.0,
+        "pcm_specific_heat_J_kgK": 1854.645118540094
+      },
+      "certified_min_margin": 0.4538052842588115,
+      "trivial_pass_rate": 0.075,
+      "candidate_index": 3
+    },
+    {
+      "instance_id": "V10-F_PCM-005",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Biomimetic Architectural Thermal Buffer Facade Panel",
+      "env": {
+        "heat_flux_W_m2": 227.48706339082057,
+        "charge_hours": 4.186391592180987,
+        "required_energy_J_m2": 3102444.5731507735,
+        "thickness_max_m": 0.04260226545386987,
+        "mass_cap_kg_m2": 53.420763428512956,
+        "superheat_limit_K": 10.340386851240972
+      },
+      "problem_statement": "Target system: Biomimetic Architectural Thermal Buffer Facade Panel\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 227.5 W/m^2 (constant)\n- charging duration: 4.19 h\n- energy that must be stored per unit area: 3.102 MJ/m^2\nHard constraints:\n- layer thickness <= 42.6 mm\n- areal mass <= 53.4 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 10.3 K\n",
+      "certified_design": {
+        "thickness_m": 0.02532365267352119,
+        "k_eff_W_mK": 0.8350429315166499,
+        "matrix_volume_fraction": 0.057573593072480146,
+        "matrix_density_kg_m3": 3947.7433122167677,
+        "matrix_specific_heat_J_kgK": 642.6881103304668,
+        "pcm_density_kg_m3": 1017.8312915690186,
+        "pcm_latent_heat_J_kg": 258541.9015939759,
+        "pcm_specific_heat_J_kgK": 2391.095963322872
+      },
+      "certified_min_margin": 0.4055796606711608,
+      "trivial_pass_rate": 0.065,
+      "candidate_index": 4
+    },
+    {
+      "instance_id": "V10-F_PCM-006",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Lightweight Rooftop Thermal Buffer Tile",
+      "env": {
+        "heat_flux_W_m2": 149.51638180329707,
+        "charge_hours": 6.260375434264005,
+        "required_energy_J_m2": 3325740.7019609716,
+        "thickness_max_m": 0.0379740624197721,
+        "mass_cap_kg_m2": 49.925482927705325,
+        "superheat_limit_K": 10.829671979619551
+      },
+      "problem_statement": "Target system: Lightweight Rooftop Thermal Buffer Tile\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 149.5 W/m^2 (constant)\n- charging duration: 6.26 h\n- energy that must be stored per unit area: 3.326 MJ/m^2\nHard constraints:\n- layer thickness <= 38.0 mm\n- areal mass <= 49.9 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 10.8 K\n",
+      "certified_design": {
+        "thickness_m": 0.02560435619237126,
+        "k_eff_W_mK": 0.4204878735557531,
+        "matrix_volume_fraction": 0.013025763439602966,
+        "matrix_density_kg_m3": 7581.506403931931,
+        "matrix_specific_heat_J_kgK": 430.7030102165135,
+        "pcm_density_kg_m3": 1142.4165229051,
+        "pcm_latent_heat_J_kg": 240473.00813547353,
+        "pcm_specific_heat_J_kgK": 2030.2497833880775
+      },
+      "certified_min_margin": 0.32574079925310795,
+      "trivial_pass_rate": 0.09,
+      "candidate_index": 5
+    },
+    {
+      "instance_id": "V10-F_PCM-007",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Desert Shelter Wall Heat-Load Damping Liner",
+      "env": {
+        "heat_flux_W_m2": 129.24873472645376,
+        "charge_hours": 5.363641672581066,
+        "required_energy_J_m2": 2337458.0972915743,
+        "thickness_max_m": 0.05242394946893701,
+        "mass_cap_kg_m2": 30.911251266874373,
+        "superheat_limit_K": 13.417183274639479
+      },
+      "problem_statement": "Target system: Desert Shelter Wall Heat-Load Damping Liner\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 129.2 W/m^2 (constant)\n- charging duration: 5.36 h\n- energy that must be stored per unit area: 2.337 MJ/m^2\nHard constraints:\n- layer thickness <= 52.4 mm\n- areal mass <= 30.9 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 13.4 K\n",
+      "certified_design": {
+        "thickness_m": 0.02083061258341528,
+        "k_eff_W_mK": 0.6414976100674846,
+        "matrix_volume_fraction": 0.00014262559070225554,
+        "matrix_density_kg_m3": 4586.248461051203,
+        "matrix_specific_heat_J_kgK": 565.9460573205595,
+        "pcm_density_kg_m3": 826.9871389961481,
+        "pcm_latent_heat_J_kg": 259749.28497426896,
+        "pcm_specific_heat_J_kgK": 2098.8257501755515
+      },
+      "certified_min_margin": 0.4423448847362595,
+      "trivial_pass_rate": 0.08,
+      "candidate_index": 6
+    },
+    {
+      "instance_id": "V10-F_PCM-008",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Modular Classroom Envelope Thermal Buffer Board",
+      "env": {
+        "heat_flux_W_m2": 185.3001797926537,
+        "charge_hours": 7.290707770400908,
+        "required_energy_J_m2": 4634724.672549534,
+        "thickness_max_m": 0.05284575376685116,
+        "mass_cap_kg_m2": 31.091083310101755,
+        "superheat_limit_K": 14.848284385903233
+      },
+      "problem_statement": "Target system: Modular Classroom Envelope Thermal Buffer Board\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 185.3 W/m^2 (constant)\n- charging duration: 7.29 h\n- energy that must be stored per unit area: 4.635 MJ/m^2\nHard constraints:\n- layer thickness <= 52.8 mm\n- areal mass <= 31.1 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 14.8 K\n",
+      "certified_design": {
+        "thickness_m": 0.032577735227725266,
+        "k_eff_W_mK": 3.1513279075064697,
+        "matrix_volume_fraction": 0.00022901042045723183,
+        "matrix_density_kg_m3": 2309.2661935746573,
+        "matrix_specific_heat_J_kgK": 927.4440346868962,
+        "pcm_density_kg_m3": 753.0567920479009,
+        "pcm_latent_heat_J_kg": 255299.06475668293,
+        "pcm_specific_heat_J_kgK": 2538.1919634388837
+      },
+      "certified_min_margin": 0.21040329308889172,
+      "trivial_pass_rate": 0.0,
+      "candidate_index": 7
+    },
+    {
+      "instance_id": "V10-F_PCM-009",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Biomimetic Architectural Thermal Buffer Facade Panel",
+      "env": {
+        "heat_flux_W_m2": 234.23848548449124,
+        "charge_hours": 8.42088110682758,
+        "required_energy_J_m2": 6910108.862317798,
+        "thickness_max_m": 0.05049055970390923,
+        "mass_cap_kg_m2": 31.016001578258884,
+        "superheat_limit_K": 9.99352970634954
+      },
+      "problem_statement": "Target system: Biomimetic Architectural Thermal Buffer Facade Panel\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 234.2 W/m^2 (constant)\n- charging duration: 8.42 h\n- energy that must be stored per unit area: 6.910 MJ/m^2\nHard constraints:\n- layer thickness <= 50.5 mm\n- areal mass <= 31.0 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 10.0 K\n",
+      "certified_design": {
+        "thickness_m": 0.04070985597997487,
+        "k_eff_W_mK": 2.696591588114468,
+        "matrix_volume_fraction": 0.0006213790593641056,
+        "matrix_density_kg_m3": 2101.340921217961,
+        "matrix_specific_heat_J_kgK": 862.7557572404492,
+        "pcm_density_kg_m3": 750.0,
+        "pcm_latent_heat_J_kg": 239174.0957721421,
+        "pcm_specific_heat_J_kgK": 2540.3840480928275
+      },
+      "certified_min_margin": 0.014490124458081175,
+      "trivial_pass_rate": 0.0,
+      "candidate_index": 8
+    },
+    {
+      "instance_id": "V10-F_PCM-010",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Lightweight Rooftop Thermal Buffer Tile",
+      "env": {
+        "heat_flux_W_m2": 213.62155779892248,
+        "charge_hours": 8.29210202175235,
+        "required_energy_J_m2": 5769652.004469169,
+        "thickness_max_m": 0.04443900717961469,
+        "mass_cap_kg_m2": 31.692399536214733,
+        "superheat_limit_K": 13.071769931079633
+      },
+      "problem_statement": "Target system: Lightweight Rooftop Thermal Buffer Tile\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 213.6 W/m^2 (constant)\n- charging duration: 8.29 h\n- energy that must be stored per unit area: 5.770 MJ/m^2\nHard constraints:\n- layer thickness <= 44.4 mm\n- areal mass <= 31.7 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 13.1 K\n",
+      "certified_design": {
+        "thickness_m": 0.03723496279163213,
+        "k_eff_W_mK": 1.9377824828544872,
+        "matrix_volume_fraction": 5.275801096034094e-05,
+        "matrix_density_kg_m3": 3870.4054067199186,
+        "matrix_specific_heat_J_kgK": 561.6007946811343,
+        "pcm_density_kg_m3": 751.7743905955158,
+        "pcm_latent_heat_J_kg": 258645.95486871895,
+        "pcm_specific_heat_J_kgK": 1919.8907965263693
+      },
+      "certified_min_margin": 0.11130802824025247,
+      "trivial_pass_rate": 0.0,
+      "candidate_index": 9
+    },
+    {
+      "instance_id": "V10-F_PCM-011",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Desert Shelter Wall Heat-Load Damping Liner",
+      "env": {
+        "heat_flux_W_m2": 206.54252961016746,
+        "charge_hours": 5.271525667435782,
+        "required_energy_J_m2": 3545846.0141520263,
+        "thickness_max_m": 0.04883885487830885,
+        "mass_cap_kg_m2": 41.202920851544235,
+        "superheat_limit_K": 9.376325541966665
+      },
+      "problem_statement": "Target system: Desert Shelter Wall Heat-Load Damping Liner\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 206.5 W/m^2 (constant)\n- charging duration: 5.27 h\n- energy that must be stored per unit area: 3.546 MJ/m^2\nHard constraints:\n- layer thickness <= 48.8 mm\n- areal mass <= 41.2 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 9.4 K\n",
+      "certified_design": {
+        "thickness_m": 0.029292272399989744,
+        "k_eff_W_mK": 3.589446700186749,
+        "matrix_volume_fraction": 0.0,
+        "matrix_density_kg_m3": 1675.5392136709631,
+        "matrix_specific_heat_J_kgK": 604.7873511075697,
+        "pcm_density_kg_m3": 850.8410263982188,
+        "pcm_latent_heat_J_kg": 260000.0,
+        "pcm_specific_heat_J_kgK": 2355.60750487871
+      },
+      "certified_min_margin": 0.39511406960340767,
+      "trivial_pass_rate": 0.055,
+      "candidate_index": 10
+    },
+    {
+      "instance_id": "V10-F_PCM-012",
+      "family": "F_PCM",
+      "template_id": "TPL_02",
+      "dev_cluster": "DEV-M1",
+      "system_name": "Modular Classroom Envelope Thermal Buffer Board",
+      "env": {
+        "heat_flux_W_m2": 102.66284822073219,
+        "charge_hours": 4.568459905898235,
+        "required_energy_J_m2": 1571306.8051276354,
+        "thickness_max_m": 0.037331137416470775,
+        "mass_cap_kg_m2": 52.083759193307095,
+        "superheat_limit_K": 12.723765977743792
+      },
+      "problem_statement": "Target system: Modular Classroom Envelope Thermal Buffer Board\nRequired function: passively buffer the interior against an intense daytime solar heat load by absorbing and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface temperature rise small, and releasing it later.\nEnvironment / operating conditions:\n- absorbed heat flux on the exposed face: 102.7 W/m^2 (constant)\n- charging duration: 4.57 h\n- energy that must be stored per unit area: 1.571 MJ/m^2\nHard constraints:\n- layer thickness <= 37.3 mm\n- areal mass <= 52.1 kg/m^2\n- end-of-charge surface temperature rise above the storage transition temperature <= 12.7 K\n",
+      "certified_design": {
+        "thickness_m": 0.014665164943110634,
+        "k_eff_W_mK": 1.1501464037718383,
+        "matrix_volume_fraction": 0.000339522975734724,
+        "matrix_density_kg_m3": 4858.145997369112,
+        "matrix_specific_heat_J_kgK": 407.9814571668793,
+        "pcm_density_kg_m3": 1186.7069801788894,
+        "pcm_latent_heat_J_kg": 255937.3485299226,
+        "pcm_specific_heat_J_kgK": 2764.5281008577663
+      },
+      "certified_min_margin": 0.607159973445492,
+      "trivial_pass_rate": 0.31,
+      "candidate_index": 11
+    },
+    {
+      "instance_id": "V10-F_HX-001",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Avionics Liquid-Liquid Coolant Heat Recovery Core",
+      "env": {
+        "required_duty_W": 2535.112547000051,
+        "T_cold_in_degC": 18.803472815340083,
+        "T_hot_in_degC": 41.252011741418656,
+        "max_pressure_drop_Pa": 181.12022467485139,
+        "length_cap_m": 1.2272965470883153
+      },
+      "problem_statement": "Target system: Avionics Liquid-Liquid Coolant Heat Recovery Core\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 41.3 degC\n- cold stream inlet temperature: 18.8 degC\n- required heat transfer duty: 2535.1 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 181.1 Pa\n- core/channel length <= 1.227 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.07505828205383079,
+        "m_dot_cold_kg_s": 0.1532272028441113,
+        "overall_U_W_m2K": 762.0596439835778,
+        "heat_transfer_area_m2": 1.0776081569610738,
+        "length_m": 0.05000022408405408,
+        "hydraulic_diameter_m": 0.027766057546527535,
+        "wall_conductivity_W_mK": 4.903437791180375,
+        "wall_cross_section_m2": 0.0001383192139380952
+      },
+      "certified_min_margin": 0.9592598673868378,
+      "trivial_pass_rate": 0.02,
+      "candidate_index": 0
+    },
+    {
+      "instance_id": "V10-F_HX-002",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Data-Centre Rack Liquid Loop Heat Recuperator",
+      "env": {
+        "required_duty_W": 282.9642323250379,
+        "T_cold_in_degC": 21.42089498121374,
+        "T_hot_in_degC": 45.24103251756391,
+        "max_pressure_drop_Pa": 203.3623129772557,
+        "length_cap_m": 1.3190858102571792
+      },
+      "problem_statement": "Target system: Data-Centre Rack Liquid Loop Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 45.2 degC\n- cold stream inlet temperature: 21.4 degC\n- required heat transfer duty: 283.0 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 203.4 Pa\n- core/channel length <= 1.319 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.014943427466089506,
+        "m_dot_cold_kg_s": 0.007217324228139074,
+        "overall_U_W_m2K": 302.29821725956134,
+        "heat_transfer_area_m2": 1.242591866334182,
+        "length_m": 0.050000065396551316,
+        "hydraulic_diameter_m": 0.01860434126282829,
+        "wall_conductivity_W_mK": 77.12304014922775,
+        "wall_cross_section_m2": 0.00034513896813782814
+      },
+      "certified_min_margin": 0.9620949107269959,
+      "trivial_pass_rate": 0.25,
+      "candidate_index": 1
+    },
+    {
+      "instance_id": "V10-F_HX-003",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Laboratory Chiller Return-Loop Heat Recovery Unit",
+      "env": {
+        "required_duty_W": 1169.6079920109235,
+        "T_cold_in_degC": 20.419805293741412,
+        "T_hot_in_degC": 43.43129891876842,
+        "max_pressure_drop_Pa": 328.89868970272244,
+        "length_cap_m": 1.1244135949897789
+      },
+      "problem_statement": "Target system: Laboratory Chiller Return-Loop Heat Recovery Unit\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 43.4 degC\n- cold stream inlet temperature: 20.4 degC\n- required heat transfer duty: 1169.6 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 328.9 Pa\n- core/channel length <= 1.124 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.07139981606910527,
+        "m_dot_cold_kg_s": 0.16737656619105637,
+        "overall_U_W_m2K": 499.0975237414391,
+        "heat_transfer_area_m2": 1.6486011579475814,
+        "length_m": 0.05000011147314413,
+        "hydraulic_diameter_m": 0.028597164309606814,
+        "wall_conductivity_W_mK": 1.328555196353015,
+        "wall_cross_section_m2": 0.00019606285617096328
+      },
+      "certified_min_margin": 0.9555322777170809,
+      "trivial_pass_rate": 0.08,
+      "candidate_index": 2
+    },
+    {
+      "instance_id": "V10-F_HX-004",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Marine Engine-Room Water-to-Water Heat Recuperator",
+      "env": {
+        "required_duty_W": 3632.9017028757607,
+        "T_cold_in_degC": 12.185131697243172,
+        "T_hot_in_degC": 47.02583144874324,
+        "max_pressure_drop_Pa": 1381.7952105837162,
+        "length_cap_m": 1.1500841777180342
+      },
+      "problem_statement": "Target system: Marine Engine-Room Water-to-Water Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 47.0 degC\n- cold stream inlet temperature: 12.2 degC\n- required heat transfer duty: 3632.9 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 1381.8 Pa\n- core/channel length <= 1.150 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.05667937414745335,
+        "m_dot_cold_kg_s": 0.09206488526305304,
+        "overall_U_W_m2K": 971.7956780299273,
+        "heat_transfer_area_m2": 1.4426093244808502,
+        "length_m": 0.05000004448959092,
+        "hydraulic_diameter_m": 0.014913052269169438,
+        "wall_conductivity_W_mK": 33.568414867487604,
+        "wall_cross_section_m2": 2.888940385209078e-05
+      },
+      "certified_min_margin": 0.9565248827361492,
+      "trivial_pass_rate": 0.045,
+      "candidate_index": 3
+    },
+    {
+      "instance_id": "V10-F_HX-005",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Avionics Liquid-Liquid Coolant Heat Recovery Core",
+      "env": {
+        "required_duty_W": 743.3405339953824,
+        "T_cold_in_degC": 7.2498920453779885,
+        "T_hot_in_degC": 29.966685030963745,
+        "max_pressure_drop_Pa": 773.8162157774191,
+        "length_cap_m": 0.6575563947993396
+      },
+      "problem_statement": "Target system: Avionics Liquid-Liquid Coolant Heat Recovery Core\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 30.0 degC\n- cold stream inlet temperature: 7.2 degC\n- required heat transfer duty: 743.3 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 773.8 Pa\n- core/channel length <= 0.658 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.12957213368669496,
+        "m_dot_cold_kg_s": 0.0844602667926271,
+        "overall_U_W_m2K": 1151.3104274745644,
+        "heat_transfer_area_m2": 2.6056009521222094,
+        "length_m": 0.05000008046081643,
+        "hydraulic_diameter_m": 0.035848750911508014,
+        "wall_conductivity_W_mK": 11.836828863494585,
+        "wall_cross_section_m2": 3.02751852260017e-05
+      },
+      "certified_min_margin": 0.9239607722527367,
+      "trivial_pass_rate": 0.085,
+      "candidate_index": 4
+    },
+    {
+      "instance_id": "V10-F_HX-006",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Data-Centre Rack Liquid Loop Heat Recuperator",
+      "env": {
+        "required_duty_W": 1470.4776474965981,
+        "T_cold_in_degC": 24.946749894893408,
+        "T_hot_in_degC": 56.46471130821665,
+        "max_pressure_drop_Pa": 338.2425293516073,
+        "length_cap_m": 1.274238698494611
+      },
+      "problem_statement": "Target system: Data-Centre Rack Liquid Loop Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 56.5 degC\n- cold stream inlet temperature: 24.9 degC\n- required heat transfer duty: 1470.5 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 338.2 Pa\n- core/channel length <= 1.274 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.15351126053403172,
+        "m_dot_cold_kg_s": 0.05105040246204453,
+        "overall_U_W_m2K": 1301.1547462757699,
+        "heat_transfer_area_m2": 0.19514911264320475,
+        "length_m": 0.05000025827880776,
+        "hydraulic_diameter_m": 0.01346774843742434,
+        "wall_conductivity_W_mK": 1.3505871085725694,
+        "wall_cross_section_m2": 8.38516735979829e-06
+      },
+      "certified_min_margin": 0.9607606813873427,
+      "trivial_pass_rate": 0.055,
+      "candidate_index": 5
+    },
+    {
+      "instance_id": "V10-F_HX-007",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Laboratory Chiller Return-Loop Heat Recovery Unit",
+      "env": {
+        "required_duty_W": 2107.1498912590905,
+        "T_cold_in_degC": 20.66454825923886,
+        "T_hot_in_degC": 57.56681321316799,
+        "max_pressure_drop_Pa": 675.3170780075731,
+        "length_cap_m": 0.600864423544568
+      },
+      "problem_statement": "Target system: Laboratory Chiller Return-Loop Heat Recovery Unit\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 57.6 degC\n- cold stream inlet temperature: 20.7 degC\n- required heat transfer duty: 2107.1 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 675.3 Pa\n- core/channel length <= 0.601 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.058564797494937135,
+        "m_dot_cold_kg_s": 0.058050250809812604,
+        "overall_U_W_m2K": 4076.1461997621423,
+        "heat_transfer_area_m2": 2.564495766608618,
+        "length_m": 0.05000000643903764,
+        "hydraulic_diameter_m": 0.028814576431240118,
+        "wall_conductivity_W_mK": 0.5272413788550404,
+        "wall_cross_section_m2": 4.806803411202882e-06
+      },
+      "certified_min_margin": 0.9167865420553909,
+      "trivial_pass_rate": 0.05,
+      "candidate_index": 6
+    },
+    {
+      "instance_id": "V10-F_HX-008",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Marine Engine-Room Water-to-Water Heat Recuperator",
+      "env": {
+        "required_duty_W": 1135.6408999104237,
+        "T_cold_in_degC": 12.131814993295842,
+        "T_hot_in_degC": 37.42453353047418,
+        "max_pressure_drop_Pa": 318.269366211347,
+        "length_cap_m": 1.3664447058481775
+      },
+      "problem_statement": "Target system: Marine Engine-Room Water-to-Water Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 37.4 degC\n- cold stream inlet temperature: 12.1 degC\n- required heat transfer duty: 1135.6 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 318.3 Pa\n- core/channel length <= 1.366 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.02365500867063809,
+        "m_dot_cold_kg_s": 0.029603007152588758,
+        "overall_U_W_m2K": 1164.3889230335158,
+        "heat_transfer_area_m2": 0.8899015501388627,
+        "length_m": 0.050000456208241215,
+        "hydraulic_diameter_m": 0.014789795458272388,
+        "wall_conductivity_W_mK": 7.200366554979331,
+        "wall_cross_section_m2": 9.056260978486376e-05
+      },
+      "certified_min_margin": 0.9634083574737808,
+      "trivial_pass_rate": 0.06,
+      "candidate_index": 7
+    },
+    {
+      "instance_id": "V10-F_HX-009",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Avionics Liquid-Liquid Coolant Heat Recovery Core",
+      "env": {
+        "required_duty_W": 1491.3483573916753,
+        "T_cold_in_degC": 6.524739318194738,
+        "T_hot_in_degC": 45.67840638145507,
+        "max_pressure_drop_Pa": 908.9007925325894,
+        "length_cap_m": 0.5695294220021674
+      },
+      "problem_statement": "Target system: Avionics Liquid-Liquid Coolant Heat Recovery Core\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 45.7 degC\n- cold stream inlet temperature: 6.5 degC\n- required heat transfer duty: 1491.3 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 908.9 Pa\n- core/channel length <= 0.570 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.027005147257945873,
+        "m_dot_cold_kg_s": 0.29491765495788724,
+        "overall_U_W_m2K": 950.6259363961511,
+        "heat_transfer_area_m2": 0.8029602174190525,
+        "length_m": 0.05000007558378606,
+        "hydraulic_diameter_m": 0.025039739473586904,
+        "wall_conductivity_W_mK": 9.934035394119089,
+        "wall_cross_section_m2": 0.0002959396939629937
+      },
+      "certified_min_margin": 0.9122080903072365,
+      "trivial_pass_rate": 0.11,
+      "candidate_index": 8
+    },
+    {
+      "instance_id": "V10-F_HX-010",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Data-Centre Rack Liquid Loop Heat Recuperator",
+      "env": {
+        "required_duty_W": 1127.3011754823315,
+        "T_cold_in_degC": 20.293688065402588,
+        "T_hot_in_degC": 42.49122122350697,
+        "max_pressure_drop_Pa": 281.38937603684394,
+        "length_cap_m": 0.8343431812389545
+      },
+      "problem_statement": "Target system: Data-Centre Rack Liquid Loop Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 42.5 degC\n- cold stream inlet temperature: 20.3 degC\n- required heat transfer duty: 1127.3 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 281.4 Pa\n- core/channel length <= 0.834 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.027355593735313377,
+        "m_dot_cold_kg_s": 0.048897453576435164,
+        "overall_U_W_m2K": 531.6114024479907,
+        "heat_transfer_area_m2": 4.093041579465004,
+        "length_m": 0.050000010012280056,
+        "hydraulic_diameter_m": 0.01741446390670772,
+        "wall_conductivity_W_mK": 21.58100712043385,
+        "wall_cross_section_m2": 7.246094819037938e-05
+      },
+      "certified_min_margin": 0.9400726090455576,
+      "trivial_pass_rate": 0.085,
+      "candidate_index": 9
+    },
+    {
+      "instance_id": "V10-F_HX-011",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Laboratory Chiller Return-Loop Heat Recovery Unit",
+      "env": {
+        "required_duty_W": 2032.2646306038057,
+        "T_cold_in_degC": 13.42959931792568,
+        "T_hot_in_degC": 34.97591194508255,
+        "max_pressure_drop_Pa": 220.51626246216475,
+        "length_cap_m": 0.9886082784144894
+      },
+      "problem_statement": "Target system: Laboratory Chiller Return-Loop Heat Recovery Unit\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 35.0 degC\n- cold stream inlet temperature: 13.4 degC\n- required heat transfer duty: 2032.3 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 220.5 Pa\n- core/channel length <= 0.989 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.20295308945701124,
+        "m_dot_cold_kg_s": 0.17038190728332425,
+        "overall_U_W_m2K": 2290.710361264319,
+        "heat_transfer_area_m2": 0.8699452105594352,
+        "length_m": 0.0500000196719535,
+        "hydraulic_diameter_m": 0.031658492573086214,
+        "wall_conductivity_W_mK": 1.1948508932107904,
+        "wall_cross_section_m2": 0.000371972127010171
+      },
+      "certified_min_margin": 0.949423830688387,
+      "trivial_pass_rate": 0.01,
+      "candidate_index": 10
+    },
+    {
+      "instance_id": "V10-F_HX-012",
+      "family": "F_HX",
+      "template_id": "TPL_08",
+      "dev_cluster": "DEV-M2",
+      "system_name": "Marine Engine-Room Water-to-Water Heat Recuperator",
+      "env": {
+        "required_duty_W": 495.49793255823374,
+        "T_cold_in_degC": 11.058544760928864,
+        "T_hot_in_degC": 36.51812905641562,
+        "max_pressure_drop_Pa": 628.4886948568267,
+        "length_cap_m": 1.2936084826280676
+      },
+      "problem_statement": "Target system: Marine Engine-Room Water-to-Water Heat Recuperator\nRequired function: recover heat from a hot liquid supply loop into a cold liquid return loop (both streams water) inside a compact passive core, delivering the required thermal duty.\nEnvironment / operating conditions:\n- hot stream inlet temperature: 36.5 degC\n- cold stream inlet temperature: 11.1 degC\n- required heat transfer duty: 495.5 W\n- working fluid: liquid water on both sides (cp 4184 J/(kg K), density 1000 kg/m^3, viscosity 1.0e-3 Pa s), circular channels\nHard constraints:\n- channel pressure drop <= 628.5 Pa\n- core/channel length <= 1.294 m\n",
+      "certified_design": {
+        "m_dot_hot_kg_s": 0.018010022858150704,
+        "m_dot_cold_kg_s": 0.012361424794394308,
+        "overall_U_W_m2K": 121.03106794356574,
+        "heat_transfer_area_m2": 3.918337753958764,
+        "length_m": 0.0500000459716546,
+        "hydraulic_diameter_m": 0.03671329222941345,
+        "wall_conductivity_W_mK": 0.6657284961652097,
+        "wall_cross_section_m2": 0.0009837789950266644
+      },
+      "certified_min_margin": 0.9613483935494336,
+      "trivial_pass_rate": 0.25,
+      "candidate_index": 11
+    },
+    {
+      "instance_id": "V10-F_RAD-001",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Telecom Cabinet Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 721.4473065944102,
+        "T_ambient_degC": 46.081507832785796,
+        "T_sky_degC": 11.201612473406342,
+        "T_inner_degC": 42.408947901976354,
+        "h_conv_W_m2K": 7.913791863101838,
+        "max_inner_leakage_W_m2": 58.688382937647084,
+        "required_net_cooling_W_m2": 29.324753641570524,
+        "thickness_max_m": 0.041335067342674926,
+        "mass_cap_kg_m2": 27.20679261512113
+      },
+      "problem_statement": "Target system: Telecom Cabinet Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 721.4 W/m^2\n- ambient air temperature: 46.1 degC\n- effective sky temperature: 11.2 degC\n- interior temperature: 42.4 degC\n- outdoor convective coefficient: 7.9 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 29.3 W/m^2\n- conductive heat leakage into the interior <= 58.7 W/m^2\n- panel/substrate thickness <= 41.3 mm\n- areal mass <= 27.2 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.550345282946617,
+        "solar_absorptivity": 0.04761827221984493,
+        "substrate_thickness_m": 0.0010000000581847168,
+        "substrate_k_W_mK": 0.19463409659212885,
+        "substrate_density_kg_m3": 21.534548076610655
+      },
+      "certified_min_margin": 0.9758074651265344,
+      "trivial_pass_rate": 0.205,
+      "candidate_index": 0
+    },
+    {
+      "instance_id": "V10-F_RAD-002",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Desert Substation Enclosure Cool-Roof Skin",
+      "env": {
+        "solar_irradiance_W_m2": 921.1846007915831,
+        "T_ambient_degC": 40.15445714385394,
+        "T_sky_degC": 7.6495102911051305,
+        "T_inner_degC": 26.530700487395123,
+        "h_conv_W_m2K": 7.564573816684068,
+        "max_inner_leakage_W_m2": 19.884252823504227,
+        "required_net_cooling_W_m2": 7.83309036341957,
+        "thickness_max_m": 0.03678494065607053,
+        "mass_cap_kg_m2": 14.121187903532245
+      },
+      "problem_statement": "Target system: Desert Substation Enclosure Cool-Roof Skin\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 921.2 W/m^2\n- ambient air temperature: 40.2 degC\n- effective sky temperature: 7.6 degC\n- interior temperature: 26.5 degC\n- outdoor convective coefficient: 7.6 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 7.8 W/m^2\n- conductive heat leakage into the interior <= 19.9 W/m^2\n- panel/substrate thickness <= 36.8 mm\n- areal mass <= 14.1 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9792020820789411,
+        "solar_absorptivity": 0.020170790846386285,
+        "substrate_thickness_m": 0.006509326294308931,
+        "substrate_k_W_mK": 0.020423394109963272,
+        "substrate_density_kg_m3": 111.27522906217496
+      },
+      "certified_min_margin": 0.8206087098664168,
+      "trivial_pass_rate": 0.015,
+      "candidate_index": 1
+    },
+    {
+      "instance_id": "V10-F_RAD-003",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Off-Grid Medicine Store Roof Panel",
+      "env": {
+        "solar_irradiance_W_m2": 950.8080901659492,
+        "T_ambient_degC": 39.53612466405938,
+        "T_sky_degC": 9.715139615065016,
+        "T_inner_degC": 32.81172002935496,
+        "h_conv_W_m2K": 9.431457265642926,
+        "max_inner_leakage_W_m2": 16.205252868251705,
+        "required_net_cooling_W_m2": 28.48148649292907,
+        "thickness_max_m": 0.03853129541769434,
+        "mass_cap_kg_m2": 18.15278702570192
+      },
+      "problem_statement": "Target system: Off-Grid Medicine Store Roof Panel\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 950.8 W/m^2\n- ambient air temperature: 39.5 degC\n- effective sky temperature: 9.7 degC\n- interior temperature: 32.8 degC\n- outdoor convective coefficient: 9.4 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 28.5 W/m^2\n- conductive heat leakage into the interior <= 16.2 W/m^2\n- panel/substrate thickness <= 38.5 mm\n- areal mass <= 18.2 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.8945501695978172,
+        "solar_absorptivity": 0.04003596539281286,
+        "substrate_thickness_m": 0.0010000005234437573,
+        "substrate_k_W_mK": 0.36070318574013593,
+        "substrate_density_kg_m3": 216.38028248008595
+      },
+      "certified_min_margin": 0.9740470567469025,
+      "trivial_pass_rate": 0.03,
+      "candidate_index": 2
+    },
+    {
+      "instance_id": "V10-F_RAD-004",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Battery Container Passive Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 786.3324904487343,
+        "T_ambient_degC": 35.6224829658994,
+        "T_sky_degC": 15.065327820511968,
+        "T_inner_degC": 24.531791564719775,
+        "h_conv_W_m2K": 10.694469390476591,
+        "max_inner_leakage_W_m2": 16.345874245423516,
+        "required_net_cooling_W_m2": 41.07036059977491,
+        "thickness_max_m": 0.031120863765660596,
+        "mass_cap_kg_m2": 26.06854378307487
+      },
+      "problem_statement": "Target system: Battery Container Passive Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 786.3 W/m^2\n- ambient air temperature: 35.6 degC\n- effective sky temperature: 15.1 degC\n- interior temperature: 24.5 degC\n- outdoor convective coefficient: 10.7 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 41.1 W/m^2\n- conductive heat leakage into the interior <= 16.3 W/m^2\n- panel/substrate thickness <= 31.1 mm\n- areal mass <= 26.1 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9776791545536251,
+        "solar_absorptivity": 0.020333600175392593,
+        "substrate_thickness_m": 0.01308037169189432,
+        "substrate_k_W_mK": 0.02,
+        "substrate_density_kg_m3": 447.7476827140522
+      },
+      "certified_min_margin": 0.5796912311935122,
+      "trivial_pass_rate": 0.0,
+      "candidate_index": 3
+    },
+    {
+      "instance_id": "V10-F_RAD-005",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Telecom Cabinet Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 968.338635755301,
+        "T_ambient_degC": 41.14527992295217,
+        "T_sky_degC": 18.28589254826575,
+        "T_inner_degC": 32.21695722919057,
+        "h_conv_W_m2K": 8.502370324160701,
+        "max_inner_leakage_W_m2": 22.757744656383785,
+        "required_net_cooling_W_m2": 31.564584485034498,
+        "thickness_max_m": 0.05816440918732923,
+        "mass_cap_kg_m2": 26.596048802299276
+      },
+      "problem_statement": "Target system: Telecom Cabinet Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 968.3 W/m^2\n- ambient air temperature: 41.1 degC\n- effective sky temperature: 18.3 degC\n- interior temperature: 32.2 degC\n- outdoor convective coefficient: 8.5 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 31.6 W/m^2\n- conductive heat leakage into the interior <= 22.8 W/m^2\n- panel/substrate thickness <= 58.2 mm\n- areal mass <= 26.6 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9797716356393361,
+        "solar_absorptivity": 0.02026314864767655,
+        "substrate_thickness_m": 0.006186635546201155,
+        "substrate_k_W_mK": 0.02048797168758338,
+        "substrate_density_kg_m3": 250.16014551497614
+      },
+      "certified_min_margin": 0.8936353754359311,
+      "trivial_pass_rate": 0.015,
+      "candidate_index": 4
+    },
+    {
+      "instance_id": "V10-F_RAD-006",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Desert Substation Enclosure Cool-Roof Skin",
+      "env": {
+        "solar_irradiance_W_m2": 771.2938732949425,
+        "T_ambient_degC": 33.17027683834164,
+        "T_sky_degC": -1.3662581171576562,
+        "T_inner_degC": 27.324310110923832,
+        "h_conv_W_m2K": 9.913365522922945,
+        "max_inner_leakage_W_m2": 59.825194805253574,
+        "required_net_cooling_W_m2": 45.74683637838083,
+        "thickness_max_m": 0.04350988933058208,
+        "mass_cap_kg_m2": 11.291248965404826
+      },
+      "problem_statement": "Target system: Desert Substation Enclosure Cool-Roof Skin\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 771.3 W/m^2\n- ambient air temperature: 33.2 degC\n- effective sky temperature: -1.4 degC\n- interior temperature: 27.3 degC\n- outdoor convective coefficient: 9.9 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 45.7 W/m^2\n- conductive heat leakage into the interior <= 59.8 W/m^2\n- panel/substrate thickness <= 43.5 mm\n- areal mass <= 11.3 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9231643935891684,
+        "solar_absorptivity": 0.05939898608506598,
+        "substrate_thickness_m": 0.0010000101159379166,
+        "substrate_k_W_mK": 0.23688926103400598,
+        "substrate_density_kg_m3": 42.777089916097125
+      },
+      "certified_min_margin": 0.9770164867959104,
+      "trivial_pass_rate": 0.17,
+      "candidate_index": 5
+    },
+    {
+      "instance_id": "V10-F_RAD-007",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Off-Grid Medicine Store Roof Panel",
+      "env": {
+        "solar_irradiance_W_m2": 837.6699726525756,
+        "T_ambient_degC": 34.882318558410084,
+        "T_sky_degC": 8.111870889863471,
+        "T_inner_degC": 29.422316377977992,
+        "h_conv_W_m2K": 10.938038678077401,
+        "max_inner_leakage_W_m2": 50.118114806189375,
+        "required_net_cooling_W_m2": 52.31503820220634,
+        "thickness_max_m": 0.03106506967828678,
+        "mass_cap_kg_m2": 10.735454946265115
+      },
+      "problem_statement": "Target system: Off-Grid Medicine Store Roof Panel\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 837.7 W/m^2\n- ambient air temperature: 34.9 degC\n- effective sky temperature: 8.1 degC\n- interior temperature: 29.4 degC\n- outdoor convective coefficient: 10.9 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 52.3 W/m^2\n- conductive heat leakage into the interior <= 50.1 W/m^2\n- panel/substrate thickness <= 31.1 mm\n- areal mass <= 10.7 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.8482884726288524,
+        "solar_absorptivity": 0.036475311946152916,
+        "substrate_thickness_m": 0.0010000000385127024,
+        "substrate_k_W_mK": 0.03815821394564538,
+        "substrate_density_kg_m3": 191.44338098023323
+      },
+      "certified_min_margin": 0.9678095027994847,
+      "trivial_pass_rate": 0.1,
+      "candidate_index": 6
+    },
+    {
+      "instance_id": "V10-F_RAD-008",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Battery Container Passive Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 771.0094474172419,
+        "T_ambient_degC": 35.71145772623719,
+        "T_sky_degC": 2.975634175211681,
+        "T_inner_degC": 27.472774635482665,
+        "h_conv_W_m2K": 11.785609438537094,
+        "max_inner_leakage_W_m2": 49.10091100847382,
+        "required_net_cooling_W_m2": 9.207103773463974,
+        "thickness_max_m": 0.04169847772919135,
+        "mass_cap_kg_m2": 12.839601980806577
+      },
+      "problem_statement": "Target system: Battery Container Passive Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 771.0 W/m^2\n- ambient air temperature: 35.7 degC\n- effective sky temperature: 3.0 degC\n- interior temperature: 27.5 degC\n- outdoor convective coefficient: 11.8 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 9.2 W/m^2\n- conductive heat leakage into the interior <= 49.1 W/m^2\n- panel/substrate thickness <= 41.7 mm\n- areal mass <= 12.8 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.949836016106035,
+        "solar_absorptivity": 0.0334747865204782,
+        "substrate_thickness_m": 0.0010000226578776388,
+        "substrate_k_W_mK": 0.890631231923674,
+        "substrate_density_kg_m3": 55.746305323227375
+      },
+      "certified_min_margin": 0.9760177658193607,
+      "trivial_pass_rate": 0.085,
+      "candidate_index": 7
+    },
+    {
+      "instance_id": "V10-F_RAD-009",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Telecom Cabinet Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 860.0380849526283,
+        "T_ambient_degC": 30.5180525229597,
+        "T_sky_degC": 10.379084261983643,
+        "T_inner_degC": 19.92972813763828,
+        "h_conv_W_m2K": 8.092606520546608,
+        "max_inner_leakage_W_m2": 34.48967629142536,
+        "required_net_cooling_W_m2": 40.400578445694705,
+        "thickness_max_m": 0.037170301949172514,
+        "mass_cap_kg_m2": 17.479538047018742
+      },
+      "problem_statement": "Target system: Telecom Cabinet Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 860.0 W/m^2\n- ambient air temperature: 30.5 degC\n- effective sky temperature: 10.4 degC\n- interior temperature: 19.9 degC\n- outdoor convective coefficient: 8.1 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 40.4 W/m^2\n- conductive heat leakage into the interior <= 34.5 W/m^2\n- panel/substrate thickness <= 37.2 mm\n- areal mass <= 17.5 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9768919483801896,
+        "solar_absorptivity": 0.02,
+        "substrate_thickness_m": 0.008340868950257355,
+        "substrate_k_W_mK": 0.02,
+        "substrate_density_kg_m3": 22.252172599451818
+      },
+      "certified_min_margin": 0.77560387922791,
+      "trivial_pass_rate": 0.03,
+      "candidate_index": 8
+    },
+    {
+      "instance_id": "V10-F_RAD-010",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Desert Substation Enclosure Cool-Roof Skin",
+      "env": {
+        "solar_irradiance_W_m2": 916.8430622884996,
+        "T_ambient_degC": 30.758789731128388,
+        "T_sky_degC": 8.66307722257552,
+        "T_inner_degC": 27.02533739847181,
+        "h_conv_W_m2K": 11.165295930411665,
+        "max_inner_leakage_W_m2": 17.01667523414705,
+        "required_net_cooling_W_m2": 2.283817140888036,
+        "thickness_max_m": 0.030643791405157345,
+        "mass_cap_kg_m2": 24.354836900275206
+      },
+      "problem_statement": "Target system: Desert Substation Enclosure Cool-Roof Skin\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 916.8 W/m^2\n- ambient air temperature: 30.8 degC\n- effective sky temperature: 8.7 degC\n- interior temperature: 27.0 degC\n- outdoor convective coefficient: 11.2 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 2.3 W/m^2\n- conductive heat leakage into the interior <= 17.0 W/m^2\n- panel/substrate thickness <= 30.6 mm\n- areal mass <= 24.4 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.7858381726887588,
+        "solar_absorptivity": 0.030396194580610245,
+        "substrate_thickness_m": 0.0010000003436534087,
+        "substrate_k_W_mK": 1.0074878648323609,
+        "substrate_density_kg_m3": 323.21360912147605
+      },
+      "certified_min_margin": 0.967366951091923,
+      "trivial_pass_rate": 0.02,
+      "candidate_index": 9
+    },
+    {
+      "instance_id": "V10-F_RAD-011",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Off-Grid Medicine Store Roof Panel",
+      "env": {
+        "solar_irradiance_W_m2": 776.7810254162891,
+        "T_ambient_degC": 41.62408836235425,
+        "T_sky_degC": 17.387806071390543,
+        "T_inner_degC": 36.61876178379379,
+        "h_conv_W_m2K": 11.021131649069677,
+        "max_inner_leakage_W_m2": 47.88842827326524,
+        "required_net_cooling_W_m2": 36.449276127897974,
+        "thickness_max_m": 0.04693749039295817,
+        "mass_cap_kg_m2": 17.864136441157193
+      },
+      "problem_statement": "Target system: Off-Grid Medicine Store Roof Panel\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 776.8 W/m^2\n- ambient air temperature: 41.6 degC\n- effective sky temperature: 17.4 degC\n- interior temperature: 36.6 degC\n- outdoor convective coefficient: 11.0 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 36.4 W/m^2\n- conductive heat leakage into the interior <= 47.9 W/m^2\n- panel/substrate thickness <= 46.9 mm\n- areal mass <= 17.9 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.9244161557891458,
+        "solar_absorptivity": 0.04877090266041175,
+        "substrate_thickness_m": 0.0010000001987983933,
+        "substrate_k_W_mK": 0.9990321583788525,
+        "substrate_density_kg_m3": 43.97503556710869
+      },
+      "certified_min_margin": 0.9786950646396634,
+      "trivial_pass_rate": 0.1,
+      "candidate_index": 10
+    },
+    {
+      "instance_id": "V10-F_RAD-012",
+      "family": "F_RAD",
+      "template_id": "TPL_09",
+      "dev_cluster": "DEV-M3",
+      "system_name": "Battery Container Passive Roof Radiator",
+      "env": {
+        "solar_irradiance_W_m2": 828.7161821311272,
+        "T_ambient_degC": 40.158947353893645,
+        "T_sky_degC": 17.93474278029252,
+        "T_inner_degC": 26.839468186084726,
+        "h_conv_W_m2K": 5.425950022243997,
+        "max_inner_leakage_W_m2": 15.028518588062752,
+        "required_net_cooling_W_m2": 16.679246070438232,
+        "thickness_max_m": 0.049410542055597494,
+        "mass_cap_kg_m2": 15.056254136782023
+      },
+      "problem_statement": "Target system: Battery Container Passive Roof Radiator\nRequired function: keep an enclosure roof skin cool under full sun without consuming power, shedding heat to the cold sky while limiting heat conducted into the interior.\nEnvironment / operating conditions:\n- incident solar irradiance: 828.7 W/m^2\n- ambient air temperature: 40.2 degC\n- effective sky temperature: 17.9 degC\n- interior temperature: 26.8 degC\n- outdoor convective coefficient: 5.4 W/(m^2 K)\nHard constraints:\n- net cooling power at ambient temperature >= 16.7 W/m^2\n- conductive heat leakage into the interior <= 15.0 W/m^2\n- panel/substrate thickness <= 49.4 mm\n- areal mass <= 15.1 kg/m^2\n",
+      "certified_design": {
+        "surface_emissivity": 0.98,
+        "solar_absorptivity": 0.02,
+        "substrate_thickness_m": 0.013837945007893742,
+        "substrate_k_W_mK": 0.02,
+        "substrate_density_kg_m3": 83.66452388517212
+      },
+      "certified_min_margin": 0.7199394116488924,
+      "trivial_pass_rate": 0.005,
+      "candidate_index": 11
+    },
+    {
+      "instance_id": "V10-F_MEM-001",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Submerged Hydrophobic Microporous Membrane Aerator",
+      "env": {
+        "required_flux_mol_m2_s": 0.007872506613139962,
+        "min_pore_diameter_m": 4.765847513179948e-08,
+        "hydrostatic_head_m": 67.66538272532115,
+        "delta_concentration_mol_m3": 7.217122568725378
+      },
+      "problem_statement": "Target system: Submerged Hydrophobic Microporous Membrane Aerator\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 7.22 mol/m^3\n- operating hydrostatic water head: 67.67 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.007873 mol/(m^2 s)\n- pore diameter >= 47.7 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 0.00010258400105031272,
+        "porosity": 0.5494016260073554,
+        "pore_diameter_m": 1.3939295564579576e-07,
+        "tortuosity": 1.4511327725641276,
+        "contact_angle_deg": 159.9995602506241
+      },
+      "certified_min_margin": 1.9248303740374537,
+      "trivial_pass_rate": 0.22,
+      "candidate_index": 1
+    },
+    {
+      "instance_id": "V10-F_MEM-002",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Underwater Sensor Passive Oxygen Gill",
+      "env": {
+        "required_flux_mol_m2_s": 0.0043553158193147335,
+        "min_pore_diameter_m": 1.987279078124844e-08,
+        "hydrostatic_head_m": 57.30612056390333,
+        "delta_concentration_mol_m3": 3.027502226243274
+      },
+      "problem_statement": "Target system: Underwater Sensor Passive Oxygen Gill\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 3.03 mol/m^3\n- operating hydrostatic water head: 57.31 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.004355 mol/(m^2 s)\n- pore diameter >= 19.9 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.1845286579423162e-06,
+        "porosity": 0.3660471879612544,
+        "pore_diameter_m": 9.78083390198834e-08,
+        "tortuosity": 3.2856905765324806,
+        "contact_angle_deg": 159.99727842374023
+      },
+      "certified_min_margin": 3.9217213674977827,
+      "trivial_pass_rate": 0.315,
+      "candidate_index": 9
+    },
+    {
+      "instance_id": "V10-F_MEM-003",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Aquaculture Tank Passive Gas-Exchange Window",
+      "env": {
+        "required_flux_mol_m2_s": 0.006352379309319998,
+        "min_pore_diameter_m": 4.2381624715317075e-08,
+        "hydrostatic_head_m": 83.16772390700402,
+        "delta_concentration_mol_m3": 5.856127644202177
+      },
+      "problem_statement": "Target system: Aquaculture Tank Passive Gas-Exchange Window\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 5.86 mol/m^3\n- operating hydrostatic water head: 83.17 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.006352 mol/(m^2 s)\n- pore diameter >= 42.4 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.5136091297760698e-05,
+        "porosity": 0.3395188061621823,
+        "pore_diameter_m": 1.1856728204884528e-07,
+        "tortuosity": 4.5555912171769295,
+        "contact_angle_deg": 159.99915719134705
+      },
+      "certified_min_margin": 1.797610588203667,
+      "trivial_pass_rate": 0.19,
+      "candidate_index": 10
+    },
+    {
+      "instance_id": "V10-F_MEM-004",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Subsea Instrument Breathing Membrane Patch",
+      "env": {
+        "required_flux_mol_m2_s": 0.010475957634565257,
+        "min_pore_diameter_m": 3.272909642579012e-08,
+        "hydrostatic_head_m": 20.60059005663063,
+        "delta_concentration_mol_m3": 7.225711182668755
+      },
+      "problem_statement": "Target system: Subsea Instrument Breathing Membrane Patch\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 7.23 mol/m^3\n- operating hydrostatic water head: 20.60 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.01048 mol/(m^2 s)\n- pore diameter >= 32.7 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 3.3468139001347523e-06,
+        "porosity": 0.6684240285051495,
+        "pore_diameter_m": 2.093540448916247e-07,
+        "tortuosity": 4.591075124232089,
+        "contact_angle_deg": 159.99966633845202
+      },
+      "certified_min_margin": 5.396572706072518,
+      "trivial_pass_rate": 0.36,
+      "candidate_index": 11
+    },
+    {
+      "instance_id": "V10-F_MEM-005",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Submerged Hydrophobic Microporous Membrane Aerator",
+      "env": {
+        "required_flux_mol_m2_s": 0.011858123337685872,
+        "min_pore_diameter_m": 1.5516755078622403e-08,
+        "hydrostatic_head_m": 55.836947337085626,
+        "delta_concentration_mol_m3": 7.33918827492591
+      },
+      "problem_statement": "Target system: Submerged Hydrophobic Microporous Membrane Aerator\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 7.34 mol/m^3\n- operating hydrostatic water head: 55.84 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.01186 mol/(m^2 s)\n- pore diameter >= 15.5 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 3.590310680422514e-05,
+        "porosity": 0.6875655990248288,
+        "pore_diameter_m": 8.755650189153022e-08,
+        "tortuosity": 2.2814469867559497,
+        "contact_angle_deg": 159.9973830801789
+      },
+      "certified_min_margin": 4.642706960823126,
+      "trivial_pass_rate": 0.385,
+      "candidate_index": 12
+    },
+    {
+      "instance_id": "V10-F_MEM-006",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Underwater Sensor Passive Oxygen Gill",
+      "env": {
+        "required_flux_mol_m2_s": 0.0034941195905965846,
+        "min_pore_diameter_m": 1.9821203956091074e-08,
+        "hydrostatic_head_m": 70.55072480365017,
+        "delta_concentration_mol_m3": 6.903114025993496
+      },
+      "problem_statement": "Target system: Underwater Sensor Passive Oxygen Gill\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 6.90 mol/m^3\n- operating hydrostatic water head: 70.55 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.003494 mol/(m^2 s)\n- pore diameter >= 19.8 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.773739098037983e-05,
+        "porosity": 0.5261160852912101,
+        "pore_diameter_m": 8.803659712898576e-08,
+        "tortuosity": 2.8668227295807482,
+        "contact_angle_deg": 159.995889742673
+      },
+      "certified_min_margin": 3.4415363125271727,
+      "trivial_pass_rate": 0.4,
+      "candidate_index": 14
+    },
+    {
+      "instance_id": "V10-F_MEM-007",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Aquaculture Tank Passive Gas-Exchange Window",
+      "env": {
+        "required_flux_mol_m2_s": 0.01491913641860749,
+        "min_pore_diameter_m": 3.865515950715043e-08,
+        "hydrostatic_head_m": 14.915509612063124,
+        "delta_concentration_mol_m3": 4.788275361394133
+      },
+      "problem_statement": "Target system: Aquaculture Tank Passive Gas-Exchange Window\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 4.79 mol/m^3\n- operating hydrostatic water head: 14.92 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.01492 mol/(m^2 s)\n- pore diameter >= 38.7 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.0099928863505949e-06,
+        "porosity": 0.8960541440827812,
+        "pore_diameter_m": 3.8662655117391767e-07,
+        "tortuosity": 1.0003291521157927,
+        "contact_angle_deg": 159.33993637955172
+      },
+      "certified_min_margin": 3.466800640674033,
+      "trivial_pass_rate": 0.39,
+      "candidate_index": 19
+    },
+    {
+      "instance_id": "V10-F_MEM-008",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Subsea Instrument Breathing Membrane Patch",
+      "env": {
+        "required_flux_mol_m2_s": 0.002536873255994623,
+        "min_pore_diameter_m": 2.0857372724508307e-08,
+        "hydrostatic_head_m": 22.347014351722315,
+        "delta_concentration_mol_m3": 3.6802103550160883
+      },
+      "problem_statement": "Target system: Subsea Instrument Breathing Membrane Patch\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 3.68 mol/m^3\n- operating hydrostatic water head: 22.35 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.002537 mol/(m^2 s)\n- pore diameter >= 20.9 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 0.0004353163178535066,
+        "porosity": 0.4322619355128668,
+        "pore_diameter_m": 1.6046358810013614e-07,
+        "tortuosity": 1.1319222337630555,
+        "contact_angle_deg": 159.99983608268764
+      },
+      "certified_min_margin": 6.693303001881997,
+      "trivial_pass_rate": 0.48,
+      "candidate_index": 27
+    },
+    {
+      "instance_id": "V10-F_MEM-009",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Submerged Hydrophobic Microporous Membrane Aerator",
+      "env": {
+        "required_flux_mol_m2_s": 0.004706282880236849,
+        "min_pore_diameter_m": 4.356866985290229e-08,
+        "hydrostatic_head_m": 117.61016112733547,
+        "delta_concentration_mol_m3": 7.719700643085435
+      },
+      "problem_statement": "Target system: Submerged Hydrophobic Microporous Membrane Aerator\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 7.72 mol/m^3\n- operating hydrostatic water head: 117.61 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.004706 mol/(m^2 s)\n- pore diameter >= 43.6 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 0.0007764363218392412,
+        "porosity": 0.37787740343149334,
+        "pore_diameter_m": 1.0109253985192153e-07,
+        "tortuosity": 1.348068522318726,
+        "contact_angle_deg": 159.99981615078127
+      },
+      "certified_min_margin": 1.3203035620144674,
+      "trivial_pass_rate": 0.135,
+      "candidate_index": 29
+    },
+    {
+      "instance_id": "V10-F_MEM-010",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Underwater Sensor Passive Oxygen Gill",
+      "env": {
+        "required_flux_mol_m2_s": 0.006086054135918996,
+        "min_pore_diameter_m": 2.575751976249817e-08,
+        "hydrostatic_head_m": 23.121790986121525,
+        "delta_concentration_mol_m3": 3.4815367687675733
+      },
+      "problem_statement": "Target system: Underwater Sensor Passive Oxygen Gill\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 3.48 mol/m^3\n- operating hydrostatic water head: 23.12 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.006086 mol/(m^2 s)\n- pore diameter >= 25.8 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.3208444030442634e-05,
+        "porosity": 0.559141636061336,
+        "pore_diameter_m": 1.7530542475097856e-07,
+        "tortuosity": 2.6764954761791606,
+        "contact_angle_deg": 159.99958478442136
+      },
+      "certified_min_margin": 5.805990109584062,
+      "trivial_pass_rate": 0.475,
+      "candidate_index": 30
+    },
+    {
+      "instance_id": "V10-F_MEM-011",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Aquaculture Tank Passive Gas-Exchange Window",
+      "env": {
+        "required_flux_mol_m2_s": 0.003338243545883587,
+        "min_pore_diameter_m": 3.0057027007198583e-08,
+        "hydrostatic_head_m": 50.79462951311685,
+        "delta_concentration_mol_m3": 7.4638902653234585
+      },
+      "problem_statement": "Target system: Aquaculture Tank Passive Gas-Exchange Window\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 7.46 mol/m^3\n- operating hydrostatic water head: 50.79 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.003338 mol/(m^2 s)\n- pore diameter >= 30.1 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 5.325945012731207e-05,
+        "porosity": 0.2780345288557278,
+        "pore_diameter_m": 1.277668233475607e-07,
+        "tortuosity": 4.9287884934434825,
+        "contact_angle_deg": 159.99952933358014
+      },
+      "certified_min_margin": 3.2508137387294114,
+      "trivial_pass_rate": 0.29,
+      "candidate_index": 31
+    },
+    {
+      "instance_id": "V10-F_MEM-012",
+      "family": "F_MEM",
+      "template_id": "TPL_10",
+      "dev_cluster": "DEV-M4",
+      "system_name": "Subsea Instrument Breathing Membrane Patch",
+      "env": {
+        "required_flux_mol_m2_s": 0.011361078819234842,
+        "min_pore_diameter_m": 1.7005031941714656e-08,
+        "hydrostatic_head_m": 36.883464966221105,
+        "delta_concentration_mol_m3": 4.613740628415058
+      },
+      "problem_statement": "Target system: Subsea Instrument Breathing Membrane Patch\nRequired function: passively supply oxygen to a submerged device by gas transport across a stable, non-flooding gas-liquid interface, without pumps.\nEnvironment / operating conditions:\n- species: oxygen (molar mass 0.032 kg/mol, molecular diffusivity in gas 2.0e-5 m^2/s), 25 degC\n- concentration driving difference across the barrier: 4.61 mol/m^3\n- operating hydrostatic water head: 36.88 m\n- external water-side flow ~1 m/s over a 50 mm characteristic length\nHard constraints:\n- delivered molar flux >= 0.01136 mol/(m^2 s)\n- pore diameter >= 17.0 nm (anti-fouling clearance)\n- the interface must not flood (no capillary breakthrough at the operating head)\n",
+      "certified_design": {
+        "membrane_thickness_m": 1.001364959556917e-06,
+        "porosity": 0.8998196903835349,
+        "pore_diameter_m": 1.3068987544673448e-07,
+        "tortuosity": 1.0018733193246776,
+        "contact_angle_deg": 159.6645516223653
+      },
+      "certified_min_margin": 4.648971361632985,
+      "trivial_pass_rate": 0.42,
+      "candidate_index": 32
+    }
+  ],
+  "generation_seconds": 40.0
+}

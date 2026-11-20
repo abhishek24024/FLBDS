@@ -1,0 +1,117 @@
+fatal: not a git repository (or any of the parent directories): .git
+{
+  "git_sha": "unknown",
+  "instances": "/home/abhishek24024/flbds_v10/flbds/v10/instances_v10.json",
+  "instances_sha256": "788426ffe962f1780c034cca07bb2701553c62c50dfa14acb324e5573eec05cc",
+  "n_instances": 48,
+  "args": {
+    "backend": "hf",
+    "model_dir": "/home/abhishek24024/flbds_data/models/Qwen2.5-7B-Instruct",
+    "instances": "/home/abhishek24024/flbds_v10/flbds/v10/instances_v10.json",
+    "output_dir": "/home/abhishek24024/flbds_data/v10_cpu_run1",
+    "seeds": [
+      1,
+      2
+    ],
+    "conditions": [
+      "B0",
+      "OPTONLY",
+      "OPT",
+      "L3",
+      "L3_BIOMATCH",
+      "L3_BIOMISMATCH",
+      "BoN8"
+    ],
+    "temperature": 0.7,
+    "max_tokens": 350,
+    "max_instances": 0,
+    "smoke": 0,
+    "chunk_instances": 24,
+    "log_every": 1,
+    "threads": 96,
+    "batch_size": 48,
+    "max_model_len": 8192,
+    "tp": 1,
+    "gpu_mem": 0.9
+  }
+}
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 12349.15it/s]
+================================================================================
+CONDITION B0: Condition(name='B0', n_samples=1, max_repairs=0, bio='none', optimiser=False, llm=True)
+================================================================================
+  resuming: 24 records present, 36 instances to run
+  [B0] turn 0: 48 active trajectories
+    [hf] batch 1: 48 prompts, max_in 1158 tok, 5850 out tok in 639.9s (9.1 tok/s); total out 5850 tok, elapsed 640s
+  B0 after 72 runs: eval 5/72 (0.069) screen 10 | S&!E 5 !S&E 0 | tmpl_err 32 schema_fail 13 | tokens 8011 | 640.0s
+  [B0] turn 0: 24 active trajectories
+    [hf] batch 2: 24 prompts, max_in 1171 tok, 2340 out tok in 239.6s (9.8 tok/s); total out 8190 tok, elapsed 880s
+  B0 after 96 runs: eval 21/96 (0.219) screen 26 | S&!E 5 !S&E 0 | tmpl_err 32 schema_fail 16 | tokens 10351 | 879.8s
+================================================================================
+CONDITION OPTONLY: Condition(name='OPTONLY', n_samples=0, max_repairs=0, bio='none', optimiser=True, llm=False)
+================================================================================
+  OPTONLY after 48 runs: eval 27/48 (0.562) screen 48 | S&!E 21 !S&E 0 | tmpl_err 0 schema_fail 0 | tokens 0 | 4.6s
+  OPTONLY after 96 runs: eval 65/96 (0.677) screen 96 | S&!E 31 !S&E 0 | tmpl_err 0 schema_fail 0 | tokens 0 | 6.9s
+================================================================================
+CONDITION OPT: Condition(name='OPT', n_samples=1, max_repairs=0, bio='none', optimiser=True, llm=True)
+================================================================================
+  [OPT] turn 0: 48 active trajectories
+    [hf] batch 3: 48 prompts, max_in 1143 tok, 5572 out tok in 678.3s (8.2 tok/s); total out 13762 tok, elapsed 1565s
+  OPT after 48 runs: eval 24/48 (0.500) screen 24 | S&!E 0 !S&E 0 | tmpl_err 24 schema_fail 0 | tokens 5572 | 680.3s
+  [OPT] turn 0: 48 active trajectories
+    [hf] batch 4: 48 prompts, max_in 1171 tok, 4970 out tok in 980.6s (5.1 tok/s); total out 18732 tok, elapsed 2548s
+  OPT after 96 runs: eval 61/96 (0.635) screen 70 | S&!E 9 !S&E 0 | tmpl_err 26 schema_fail 0 | tokens 10542 | 1663.2s
+================================================================================
+CONDITION L3: Condition(name='L3', n_samples=1, max_repairs=3, bio='none', optimiser=False, llm=True)
+================================================================================
+  [L3] turn 0: 48 active trajectories
+    [hf] batch 5: 48 prompts, max_in 1143 tok, 5572 out tok in 641.6s (8.7 tok/s); total out 24304 tok, elapsed 3192s
+  [L3] turn 1: 48 active trajectories
+    [hf] batch 6: 48 prompts, max_in 1562 tok, 6512 out tok in 748.6s (8.7 tok/s); total out 30816 tok, elapsed 3940s
+  [L3] turn 2: 43 active trajectories
+    [hf] batch 7: 43 prompts, max_in 1690 tok, 6160 out tok in 734.1s (8.4 tok/s); total out 36976 tok, elapsed 4674s
+  [L3] turn 3: 42 active trajectories
+    [hf] batch 8: 42 prompts, max_in 1802 tok, 6103 out tok in 779.0s (7.8 tok/s); total out 43079 tok, elapsed 5453s
+  L3 after 48 runs: eval 6/48 (0.125) screen 6 | S&!E 0 !S&E 0 | tmpl_err 0 schema_fail 1 | tokens 24347 | 2904.8s
+  [L3] turn 0: 48 active trajectories
+    [hf] batch 9: 48 prompts, max_in 1171 tok, 4970 out tok in 480.3s (10.3 tok/s); total out 48049 tok, elapsed 5935s
+  [L3] turn 1: 19 active trajectories
+    [hf] batch 10: 19 prompts, max_in 1543 tok, 1800 out tok in 227.9s (7.9 tok/s); total out 49849 tok, elapsed 6163s
+  [L3] turn 2: 12 active trajectories
+    [hf] batch 11: 12 prompts, max_in 1573 tok, 1081 out tok in 51.1s (21.2 tok/s); total out 50930 tok, elapsed 6214s
+  [L3] turn 3: 8 active trajectories
+    [hf] batch 12: 8 prompts, max_in 1567 tok, 693 out tok in 32.9s (21.1 tok/s); total out 51623 tok, elapsed 6247s
+  L3 after 96 runs: eval 39/96 (0.406) screen 48 | S&!E 9 !S&E 0 | tmpl_err 0 schema_fail 2 | tokens 32891 | 3697.2s
+================================================================================
+CONDITION L3_BIOMATCH: Condition(name='L3_BIOMATCH', n_samples=1, max_repairs=3, bio='match', optimiser=False, llm=True)
+================================================================================
+  [L3_BIOMATCH] turn 0: 48 active trajectories
+    [hf] batch 13: 48 prompts, max_in 1267 tok, 6327 out tok in 688.0s (9.2 tok/s); total out 57950 tok, elapsed 6935s
+  [L3_BIOMATCH] turn 1: 46 active trajectories
+    [hf] batch 14: 46 prompts, max_in 1774 tok, 6250 out tok in 804.3s (7.8 tok/s); total out 64200 tok, elapsed 7739s
+  [L3_BIOMATCH] turn 2: 45 active trajectories
+    [hf] batch 15: 45 prompts, max_in 1909 tok, 6277 out tok in 878.7s (7.1 tok/s); total out 70477 tok, elapsed 8618s
+  [L3_BIOMATCH] turn 3: 44 active trajectories
+    [hf] batch 16: 44 prompts, max_in 1911 tok, 6060 out tok in 848.8s (7.1 tok/s); total out 76537 tok, elapsed 9467s
+  L3_BIOMATCH after 48 runs: eval 6/48 (0.125) screen 6 | S&!E 0 !S&E 0 | tmpl_err 1 schema_fail 9 | tokens 24914 | 3221.3s
+  [L3_BIOMATCH] turn 0: 48 active trajectories
+    [hf] batch 17: 48 prompts, max_in 1292 tok, 5227 out tok in 597.6s (8.7 tok/s); total out 81764 tok, elapsed 10066s
+  [L3_BIOMATCH] turn 1: 32 active trajectories
+    [hf] batch 18: 32 prompts, max_in 1664 tok, 2848 out tok in 398.3s (7.1 tok/s); total out 84612 tok, elapsed 10464s
+  [L3_BIOMATCH] turn 2: 18 active trajectories
+    [hf] batch 19: 18 prompts, max_in 1659 tok, 1613 out tok in 239.2s (6.7 tok/s); total out 86225 tok, elapsed 10704s
+  [L3_BIOMATCH] turn 3: 12 active trajectories
+    [hf] batch 20: 12 prompts, max_in 1656 tok, 1064 out tok in 52.9s (20.1 tok/s); total out 87289 tok, elapsed 10757s
+  L3_BIOMATCH after 96 runs: eval 37/96 (0.385) screen 46 | S&!E 9 !S&E 0 | tmpl_err 1 schema_fail 15 | tokens 35666 | 4509.6s
+================================================================================
+CONDITION L3_BIOMISMATCH: Condition(name='L3_BIOMISMATCH', n_samples=1, max_repairs=3, bio='mismatch', optimiser=False, llm=True)
+================================================================================
+  [L3_BIOMISMATCH] turn 0: 48 active trajectories
+    [hf] batch 21: 48 prompts, max_in 1265 tok, 6795 out tok in 691.3s (9.8 tok/s); total out 94084 tok, elapsed 11448s
+  [L3_BIOMISMATCH] turn 1: 48 active trajectories
+    [hf] batch 22: 48 prompts, max_in 1681 tok, 6369 out tok in 813.1s (7.8 tok/s); total out 100453 tok, elapsed 12261s
+  [L3_BIOMISMATCH] turn 2: 45 active trajectories
+    [hf] batch 23: 45 prompts, max_in 1810 tok, 5769 out tok in 830.8s (6.9 tok/s); total out 106222 tok, elapsed 13092s
+  [L3_BIOMISMATCH] turn 3: 44 active trajectories
+    [hf] batch 24: 44 prompts, max_in 1933 tok, 6170 out tok in 897.9s (6.9 tok/s); total out 112392 tok, elapsed 13990s
+  L3_BIOMISMATCH after 48 runs: eval 6/48 (0.125) screen 6 | S&!E 0 !S&E 0 | tmpl_err 4 schema_fail 0 | tokens 25103 | 3234.6s
+  [L3_BIOMISMATCH] turn 0: 48 active trajectories

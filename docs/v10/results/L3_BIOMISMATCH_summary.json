@@ -1,0 +1,38 @@
+{
+  "condition": "L3_BIOMISMATCH",
+  "n_runs": 96,
+  "eval_passes": 39,
+  "pass_rate": 0.40625,
+  "wilson_ci": [
+    0.31345302166501676,
+    0.5062611510582975
+  ],
+  "screen_passes": 46,
+  "screen_pass_rate": 0.4791666666666667,
+  "screen_pass_eval_fail": 7,
+  "screen_fail_eval_pass": 0,
+  "template_choice_errors": 8,
+  "schema_failure_final": 3,
+  "parse_failures_total": 0,
+  "tokens_total": 33923,
+  "tokens_mean_per_run": 353.3645833333333,
+  "per_family": {
+    "F_HX": {
+      "n": 24,
+      "pass_rate": 0.0
+    },
+    "F_MEM": {
+      "n": 24,
+      "pass_rate": 1.0
+    },
+    "F_PCM": {
+      "n": 24,
+      "pass_rate": 0.25
+    },
+    "F_RAD": {
+      "n": 24,
+      "pass_rate": 0.375
+    }
+  },
+  "elapsed_seconds_this_invocation": 4130.3
+}

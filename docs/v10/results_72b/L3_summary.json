@@ -1,0 +1,38 @@
+{
+  "condition": "L3",
+  "n_runs": 144,
+  "eval_passes": 79,
+  "pass_rate": 0.5486111111111112,
+  "wilson_ci": [
+    0.46712268302595106,
+    0.6275733522518093
+  ],
+  "screen_passes": 88,
+  "screen_pass_rate": 0.6111111111111112,
+  "screen_pass_eval_fail": 9,
+  "screen_fail_eval_pass": 0,
+  "template_choice_errors": 0,
+  "schema_failure_final": 0,
+  "parse_failures_total": 0,
+  "tokens_total": 55329,
+  "tokens_mean_per_run": 384.2291666666667,
+  "per_family": {
+    "F_HX": {
+      "n": 36,
+      "pass_rate": 0.1388888888888889
+    },
+    "F_MEM": {
+      "n": 36,
+      "pass_rate": 1.0
+    },
+    "F_PCM": {
+      "n": 36,
+      "pass_rate": 0.25
+    },
+    "F_RAD": {
+      "n": 36,
+      "pass_rate": 0.8055555555555556
+    }
+  },
+  "elapsed_seconds_this_invocation": 47.2
+}

@@ -1,0 +1,230 @@
+{
+  "B0": {
+    "condition": "B0",
+    "n_runs": 96,
+    "eval_passes": 21,
+    "pass_rate": 0.21875,
+    "wilson_ci": [
+      0.14776345080877545,
+      0.31137906736116716
+    ],
+    "screen_passes": 26,
+    "screen_pass_rate": 0.2708333333333333,
+    "screen_pass_eval_fail": 5,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 32,
+    "schema_failure_final": 16,
+    "parse_failures_total": 0,
+    "tokens_total": 10351,
+    "tokens_mean_per_run": 107.82291666666667,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 0.6666666666666666
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.20833333333333334
+      }
+    },
+    "elapsed_seconds_this_invocation": 879.8
+  },
+  "OPTONLY": {
+    "condition": "OPTONLY",
+    "n_runs": 96,
+    "eval_passes": 65,
+    "pass_rate": 0.6770833333333334,
+    "wilson_ci": [
+      0.5782983099894397,
+      0.7622415859776339
+    ],
+    "screen_passes": 96,
+    "screen_pass_rate": 1.0,
+    "screen_pass_eval_fail": 31,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 0,
+    "tokens_mean_per_run": 0.0,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 1.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.125
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.5833333333333334
+      }
+    },
+    "elapsed_seconds_this_invocation": 6.9
+  },
+  "OPT": {
+    "condition": "OPT",
+    "n_runs": 96,
+    "eval_passes": 61,
+    "pass_rate": 0.6354166666666666,
+    "wilson_ci": [
+      0.5356522624736236,
+      0.7247605991482561
+    ],
+    "screen_passes": 70,
+    "screen_pass_rate": 0.7291666666666666,
+    "screen_pass_eval_fail": 9,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 26,
+    "schema_failure_final": 0,
+    "parse_failures_total": 0,
+    "tokens_total": 10542,
+    "tokens_mean_per_run": 109.8125,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 1.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.5416666666666666
+      }
+    },
+    "elapsed_seconds_this_invocation": 1663.2
+  },
+  "L3": {
+    "condition": "L3",
+    "n_runs": 96,
+    "eval_passes": 39,
+    "pass_rate": 0.40625,
+    "wilson_ci": [
+      0.31345302166501676,
+      0.5062611510582975
+    ],
+    "screen_passes": 48,
+    "screen_pass_rate": 0.5,
+    "screen_pass_eval_fail": 9,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 0,
+    "schema_failure_final": 2,
+    "parse_failures_total": 0,
+    "tokens_total": 32891,
+    "tokens_mean_per_run": 342.6145833333333,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 0.9583333333333334
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.25
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.4166666666666667
+      }
+    },
+    "elapsed_seconds_this_invocation": 3697.2
+  },
+  "L3_BIOMATCH": {
+    "condition": "L3_BIOMATCH",
+    "n_runs": 96,
+    "eval_passes": 37,
+    "pass_rate": 0.3854166666666667,
+    "wilson_ci": [
+      0.29425768590940465,
+      0.4853929696413128
+    ],
+    "screen_passes": 46,
+    "screen_pass_rate": 0.4791666666666667,
+    "screen_pass_eval_fail": 9,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 1,
+    "schema_failure_final": 15,
+    "parse_failures_total": 0,
+    "tokens_total": 35666,
+    "tokens_mean_per_run": 371.5208333333333,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 0.875
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.25
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.4166666666666667
+      }
+    },
+    "elapsed_seconds_this_invocation": 4509.6
+  },
+  "L3_BIOMISMATCH": {
+    "condition": "L3_BIOMISMATCH",
+    "n_runs": 96,
+    "eval_passes": 39,
+    "pass_rate": 0.40625,
+    "wilson_ci": [
+      0.31345302166501676,
+      0.5062611510582975
+    ],
+    "screen_passes": 46,
+    "screen_pass_rate": 0.4791666666666667,
+    "screen_pass_eval_fail": 7,
+    "screen_fail_eval_pass": 0,
+    "template_choice_errors": 8,
+    "schema_failure_final": 3,
+    "parse_failures_total": 0,
+    "tokens_total": 33923,
+    "tokens_mean_per_run": 353.3645833333333,
+    "per_family": {
+      "F_HX": {
+        "n": 24,
+        "pass_rate": 0.0
+      },
+      "F_MEM": {
+        "n": 24,
+        "pass_rate": 1.0
+      },
+      "F_PCM": {
+        "n": 24,
+        "pass_rate": 0.25
+      },
+      "F_RAD": {
+        "n": 24,
+        "pass_rate": 0.375
+      }
+    },
+    "elapsed_seconds_this_invocation": 4130.3
+  }
+}
