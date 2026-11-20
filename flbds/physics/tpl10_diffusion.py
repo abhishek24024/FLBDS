@@ -146,7 +146,7 @@ def eval_tpl10(
         gamma = getattr(params, "surface_tension_N_m", 0.072)
         theta_deg = getattr(params, "contact_angle_deg", 110.0)
         theta_rad = np.radians(theta_deg)
-        cos_theta = abs(np.cos(theta_rad))
+        cos_theta = max(0.0, -np.cos(theta_rad))  # V10 fix: hydrophilic gives no barrier
         rho_water = 1000.0  # kg/m^3
         g_acc = 9.81        # m/s^2
         d_pore = params.pore_diameter_m
