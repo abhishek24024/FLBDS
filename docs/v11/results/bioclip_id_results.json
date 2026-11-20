@@ -1,0 +1,269 @@
+{
+ "n_candidates": 54,
+ "results": {
+  "B01": {
+   "gold": "Nelumbo nucifera",
+   "top5": [
+    "Elephas maximus",
+    "Hyla arborea",
+    "Loxodonta africana",
+    "Argyroneta aquatica",
+    "Gekko gecko"
+   ],
+   "top1_ok": false,
+   "top5_ok": false
+  },
+  "B03": {
+   "gold": "Isurus oxyrinchus",
+   "top5": [
+    "Isurus oxyrinchus",
+    "Carcharodon carcharias",
+    "Balaenoptera musculus",
+    "Opuntia microdasys",
+    "Victoria amazonica"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B04": {
+   "gold": "Apis mellifera",
+   "top5": [
+    "Apis mellifera",
+    "Vespa crabro",
+    "Macrotermes michaelseni mound",
+    "Cataglyphis bombycina",
+    "Bombus terrestris"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B05": {
+   "gold": "Aves",
+   "top5": [
+    "Gekko gecko",
+    "Loxodonta africana",
+    "Macrotermes michaelseni mound",
+    "Rana temporaria",
+    "Aves"
+   ],
+   "top1_ok": false,
+   "top5_ok": true
+  },
+  "B06": {
+   "gold": "Morpho menelaus",
+   "top5": [
+    "Morpho menelaus",
+    "Nepenthes alata",
+    "Aves",
+    "Rosa canina",
+    "Papilio machaon"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B07": {
+   "gold": "Stenocara gracilipes",
+   "top5": [
+    "Stenocara gracilipes",
+    "Loxodonta africana",
+    "Macrotermes michaelseni mound",
+    "Cataglyphis bombycina",
+    "Collembola"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B08": {
+   "gold": "Argyroneta aquatica",
+   "top5": [
+    "Argyroneta aquatica",
+    "Nymphaea alba",
+    "Victoria amazonica",
+    "Stenocara gracilipes",
+    "Rana temporaria"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B09": {
+   "gold": "Cataglyphis bombycina",
+   "top5": [
+    "Macrotermes michaelseni mound",
+    "Cataglyphis bombycina",
+    "Stenocara gracilipes",
+    "Formica rufa",
+    "Phrynosoma cornutum"
+   ],
+   "top1_ok": false,
+   "top5_ok": true
+  },
+  "B10": {
+   "gold": "Loxodonta africana",
+   "top5": [
+    "Loxodonta africana",
+    "Elephas maximus",
+    "Macrotermes michaelseni mound",
+    "Balaenoptera musculus",
+    "Nelumbo nucifera"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B11": {
+   "gold": "Ardea cinerea",
+   "top5": [
+    "Ardea cinerea",
+    "Alcedo atthis",
+    "Aves",
+    "Ardea alba",
+    "Rana temporaria"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B12": {
+   "gold": "Phrynosoma cornutum",
+   "top5": [
+    "Phrynosoma cornutum",
+    "Chamaeleo calyptratus",
+    "Iguana iguana",
+    "Aves",
+    "Macrotermes michaelseni mound"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B13": {
+   "gold": "Macrotermes michaelseni mound",
+   "top5": [
+    "Macrotermes michaelseni mound",
+    "e.g. Sequoia sempervirens",
+    "Cataglyphis bombycina",
+    "Formica rufa",
+    "Lucanus cervus"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B14": {
+   "gold": "Alcedo atthis",
+   "top5": [
+    "Alcedo atthis",
+    "Alcedo cristata",
+    "Aves",
+    "Ardea cinerea",
+    "Rana temporaria"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B15": {
+   "gold": "Arctium lappa",
+   "top5": [
+    "Arctium lappa",
+    "Xanthium strumarium",
+    "Sarracenia purpurea",
+    "Nepenthes alata",
+    "Taraxacum officinale"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B17": {
+   "gold": "Collembola",
+   "top5": [
+    "Collembola",
+    "Macrotermes michaelseni mound",
+    "Rana temporaria",
+    "Arctium lappa",
+    "Lepisma saccharinum"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B18": {
+   "gold": "Opuntia microdasys",
+   "top5": [
+    "Opuntia microdasys",
+    "Cataglyphis bombycina",
+    "Camponotus pennsylvanicus",
+    "Collembola",
+    "Macrotermes michaelseni mound"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B19": {
+   "gold": "Chrysochroa fulgidissima",
+   "top5": [
+    "Chrysochroa fulgidissima",
+    "Macrotermes michaelseni mound",
+    "Nepenthes alata",
+    "Chamaeleo calyptratus",
+    "Balaenoptera musculus"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B20": {
+   "gold": "Victoria amazonica",
+   "top5": [
+    "Victoria amazonica",
+    "Nelumbo nucifera",
+    "Nepenthes alata",
+    "Opuntia microdasys",
+    "Nymphaea alba"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B21": {
+   "gold": "Nepenthes alata",
+   "top5": [
+    "Nepenthes alata",
+    "Chamaeleo calyptratus",
+    "Sarracenia purpurea",
+    "Apis mellifera",
+    "Victoria amazonica"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B22": {
+   "gold": "Aptenodytes forsteri",
+   "top5": [
+    "Aptenodytes forsteri",
+    "Spheniscus demersus",
+    "Isurus oxyrinchus",
+    "Aves",
+    "Megaptera novaeangliae"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B23": {
+   "gold": "Mytilus edulis",
+   "top5": [
+    "Mytilus edulis",
+    "Mytilus galloprovincialis",
+    "Balaenoptera musculus",
+    "Carcharodon carcharias",
+    "Megaptera novaeangliae"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  },
+  "B24": {
+   "gold": "e.g. Sequoia sempervirens",
+   "top5": [
+    "e.g. Sequoia sempervirens",
+    "Arctium lappa",
+    "Drosera rotundifolia",
+    "Nelumbo nucifera",
+    "Quercus robur"
+   ],
+   "top1_ok": true,
+   "top5_ok": true
+  }
+ }
+}

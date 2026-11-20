@@ -1,0 +1,519 @@
+{
+  "id": "https://openalex.org/W2260611006",
+  "doi": "https://doi.org/10.1152/jappl.1955.8.3.279",
+  "title": "Counter-Current Vascular Heat Exchange in the Fins of Whales",
+  "display_name": "Counter-Current Vascular Heat Exchange in the Fins of Whales",
+  "publication_year": 1955,
+  "publication_date": "1955-11-01",
+  "ids": {
+    "openalex": "https://openalex.org/W2260611006",
+    "doi": "https://doi.org/10.1152/jappl.1955.8.3.279",
+    "mag": "2260611006",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/13271254"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1152/jappl.1955.8.3.279",
+    "doi": "https://doi.org/10.1152/jappl.1955.8.3.279",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1152/jappl.1955.8.3.279",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S140889577",
+      "display_name": "Journal of Applied Physiology",
+      "issn_l": "0161-7567",
+      "issn": [
+        "0161-7567",
+        "1522-1601",
+        "8750-7587"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [
+        "cwts-core",
+        "dongbi-b",
+        "doyens",
+        "jufo-2",
+        "ki-jl-2",
+        "medline",
+        "norway-2",
+        "poland-100",
+        "russia-white-list-1",
+        "vabb-shw"
+      ],
+      "host_organization": "https://openalex.org/P4310320155",
+      "host_organization_name": "American Physiological Society",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310320155"
+      ],
+      "host_organization_lineage_names": [
+        "American Physiological Society"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Journal of Applied Physiology",
+    "raw_type": "journal-article"
+  },
+  "volume": null,
+  "type": "article",
+  "indexed_in": [
+    "crossref",
+    "pubmed"
+  ],
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5021951329",
+        "display_name": "Per F. Scholander",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "P. F. Scholander",
+      "raw_affiliation_strings": [
+        ""
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "",
+          "institution_ids": []
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5050205686",
+        "display_name": "William Edward Schevill",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "William E. Schevill",
+      "raw_affiliation_strings": [
+        ""
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "",
+          "institution_ids": []
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 0,
+  "institutions_distinct_count": 0,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [],
+  "apc_list": null,
+  "apc_paid": null,
+  "fwci": 15.6663,
+  "has_fulltext": false,
+  "cited_by_count": 198,
+  "citation_normalized_percentile": {
+    "value": 0.9902338,
+    "is_in_top_1_percent": true,
+    "is_in_top_10_percent": true
+  },
+  "cited_by_percentile_year": {
+    "min": 94,
+    "max": 99
+  },
+  "biblio": {
+    "volume": "8",
+    "issue": "3",
+    "first_page": "279",
+    "last_page": "282"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T11056",
+    "display_name": "Physiological and biochemical adaptations",
+    "score": 0.37229999899864197,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2303",
+      "display_name": "Ecology"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/23",
+      "display_name": "Environmental Science"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T11056",
+      "display_name": "Physiological and biochemical adaptations",
+      "score": 0.37229999899864197,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2303",
+        "display_name": "Ecology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11109",
+      "display_name": "Thermoregulation and physiological responses",
+      "score": 0.3118000030517578,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2737",
+        "display_name": "Physiology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/27",
+        "display_name": "Medicine"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/4",
+        "display_name": "Health Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10998",
+      "display_name": "Heat Transfer and Optimization",
+      "score": 0.13940000534057617,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2210",
+        "display_name": "Mechanical Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/countercurrent-heat-exchange",
+      "display_name": "countercurrent heat exchange",
+      "score": 0.9340000152587891
+    },
+    {
+      "id": "https://openalex.org/keywords/blubber",
+      "display_name": "blubber",
+      "score": 0.4880000054836273
+    },
+    {
+      "id": "https://openalex.org/keywords/thermoregulation",
+      "display_name": "thermoregulation",
+      "score": 0.8119999766349792
+    },
+    {
+      "id": "https://openalex.org/keywords/marine-mammals",
+      "display_name": "marine mammals",
+      "score": 0.6140000224113464
+    },
+    {
+      "id": "https://openalex.org/keywords/blood-flow",
+      "display_name": "blood flow",
+      "score": 0.4880000054836273
+    },
+    {
+      "id": "https://openalex.org/keywords/heat-loss",
+      "display_name": "heat loss",
+      "score": 0.46700000762939453
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C86803240",
+      "wikidata": "https://www.wikidata.org/wiki/Q420",
+      "display_name": "Biology",
+      "level": 0,
+      "score": 0.4786195158958435
+    },
+    {
+      "id": "https://openalex.org/C100564792",
+      "wikidata": "https://www.wikidata.org/wiki/Q190259",
+      "display_name": "Thermoregulation",
+      "level": 2,
+      "score": 0.475331574678421
+    },
+    {
+      "id": "https://openalex.org/C42407357",
+      "wikidata": "https://www.wikidata.org/wiki/Q521",
+      "display_name": "Physiology",
+      "level": 1,
+      "score": 0.452604204416275
+    },
+    {
+      "id": "https://openalex.org/C18903297",
+      "wikidata": "https://www.wikidata.org/wiki/Q7150",
+      "display_name": "Ecology",
+      "level": 1,
+      "score": 0.22689488530158997
+    }
+  ],
+  "mesh": [
+    {
+      "descriptor_ui": "D000818",
+      "descriptor_name": "Animals",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D001808",
+      "descriptor_name": "Blood Vessels",
+      "qualifier_ui": "Q000502",
+      "qualifier_name": "physiology",
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D001831",
+      "descriptor_name": "Body Temperature",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D002320",
+      "descriptor_name": "Cardiovascular Physiological Phenomena",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D002591",
+      "descriptor_name": "Cetacea",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D006358",
+      "descriptor_name": "Hot Temperature",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D014907",
+      "descriptor_name": "Whales",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D058500",
+      "descriptor_name": "Animal Fins",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    }
+  ],
+  "locations_count": 2,
+  "locations": [
+    {
+      "id": "doi:10.1152/jappl.1955.8.3.279",
+      "doi": "https://doi.org/10.1152/jappl.1955.8.3.279",
+      "is_oa": false,
+      "landing_page_url": "https://doi.org/10.1152/jappl.1955.8.3.279",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S140889577",
+        "display_name": "Journal of Applied Physiology",
+        "issn_l": "0161-7567",
+        "issn": [
+          "0161-7567",
+          "1522-1601",
+          "8750-7587"
+        ],
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": true,
+        "listed_in": [
+          "cwts-core",
+          "dongbi-b",
+          "doyens",
+          "jufo-2",
+          "ki-jl-2",
+          "medline",
+          "norway-2",
+          "poland-100",
+          "russia-white-list-1",
+          "vabb-shw"
+        ],
+        "host_organization": "https://openalex.org/P4310320155",
+        "host_organization_name": "American Physiological Society",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310320155"
+        ],
+        "host_organization_lineage_names": [
+          "American Physiological Society"
+        ],
+        "type": "journal"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Journal of Applied Physiology",
+      "raw_type": "journal-article"
+    },
+    {
+      "id": "pmid:13271254",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/13271254",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306525036",
+        "display_name": "PubMed",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I1299303238",
+        "host_organization_name": "National Institutes of Health",
+        "host_organization_lineage": [
+          "https://openalex.org/I1299303238"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Journal of applied physiology",
+      "raw_type": "Journal Article"
+    }
+  ],
+  "best_oa_location": null,
+  "sustainable_development_goals": [],
+  "sustainable_development_goals_aurora": [
+    {
+      "display_name": "Life below water",
+      "id": "https://metadata.un.org/sdg/14",
+      "score": 0.8399999737739563
+    }
+  ],
+  "study_designs": [],
+  "awards": [],
+  "funders": [],
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "content_urls": null,
+  "referenced_works_count": 0,
+  "referenced_works": [],
+  "related_works": [
+    "https://openalex.org/W344986228",
+    "https://openalex.org/W7097920346",
+    "https://openalex.org/W2317932543",
+    "https://openalex.org/W21274380",
+    "https://openalex.org/W2059490520",
+    "https://openalex.org/W1974596608",
+    "https://openalex.org/W2029722085",
+    "https://openalex.org/W1982826744",
+    "https://openalex.org/W3214149421",
+    "https://openalex.org/W7216214637"
+  ],
+  "abstract_inverted_index": null,
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 7
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 8
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 4
+    },
+    {
+      "year": 2022,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2021,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2020,
+      "cited_by_count": 5
+    },
+    {
+      "year": 2019,
+      "cited_by_count": 2
+    },
+    {
+      "year": 2018,
+      "cited_by_count": 5
+    },
+    {
+      "year": 2017,
+      "cited_by_count": 4
+    },
+    {
+      "year": 2016,
+      "cited_by_count": 4
+    },
+    {
+      "year": 2015,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2014,
+      "cited_by_count": 2
+    },
+    {
+      "year": 2013,
+      "cited_by_count": 4
+    },
+    {
+      "year": 2012,
+      "cited_by_count": 5
+    }
+  ],
+  "updated_date": "2026-10-31T12:09:11.096373",
+  "created_date": "2016-06-24T00:00:00"
+}

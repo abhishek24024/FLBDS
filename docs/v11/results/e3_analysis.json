@@ -1,0 +1,173 @@
+{
+ "IMG": {
+  "runs": 66,
+  "cases": 22,
+  "pass_rate_runs": 0.24242424242424243,
+  "pass_rate_case_mean": 0.2424242424242424,
+  "ci": [
+   0.10606060606060605,
+   0.3939393939393939
+  ],
+  "first_pass_rate": 0.21212121212121213,
+  "regime_ok_rate": 0.7424242424242424,
+  "card_plausible_for_problem": 0.8636363636363636,
+  "first_card_is_gold_rate": 0.4074074074074074,
+  "mean_turns": 3.106060606060606,
+  "status": {
+   "bad_ids": 9,
+   "fail": 39,
+   "pass": 16,
+   "schema_error": 2
+  },
+  "domains_chosen": {
+   "THM": 14,
+   "WET": 11,
+   "STR": 13,
+   "OPT": 8,
+   "MT-": 9,
+   "ADH": 11
+  },
+  "cards_chosen": {
+   "THM_RADIATIVE_COOLING_WITH_EVAPORATION": 1,
+   "THM_RADIATIVE_COOLING": 12,
+   "WET_SUPERHYDROPHOBIC_STABLE_IMPACT": 1,
+   "STR_LATTICE_TRUSS": 5,
+   "STR_LATTICE_HONEYCOMB": 3,
+   "STR_SANDWICH_HONEYCOMB": 5,
+   "OPT_BRAGG_STRUCTURAL_COLOR": 8,
+   "MT_FOG_HARVEST_MESH": 6,
+   "MT_PLASTRON_MEMBRANE": 3,
+   "ADH_FIBRILLAR": 11,
+   "WET_SUPERHYDROPHOBIC_RAIN_IMPACT": 1,
+   "WET_SUPERHYDROPHOBIC": 7,
+   "WET_SUPERHYDROPHOBIC_ROBUST": 1,
+   "THM_RADIATIVE_COOLING_WITH_INSULATION_AND_THERMAL_MASS": 1,
+   "WET_SUPERHYDROPHOBIC_IMPACT": 1
+  }
+ },
+ "NAME": {
+  "runs": 66,
+  "cases": 22,
+  "pass_rate_runs": 0.3484848484848485,
+  "pass_rate_case_mean": 0.34848484848484845,
+  "ci": [
+   0.19696969696969696,
+   0.5303030303030302
+  ],
+  "first_pass_rate": 0.18181818181818182,
+  "regime_ok_rate": 0.6515151515151515,
+  "card_plausible_for_problem": 0.8787878787878788,
+  "first_card_is_gold_rate": 0.5740740740740741,
+  "mean_turns": 2.9393939393939394,
+  "status": {
+   "fail": 29,
+   "bad_ids": 8,
+   "pass": 23,
+   "schema_error": 6
+  },
+  "domains_chosen": {
+   "WET": 15,
+   "THM": 24,
+   "FLD": 1,
+   "STR": 4,
+   "OPT": 6,
+   "MT-": 10,
+   "ADH": 6
+  },
+  "cards_chosen": {
+   "WET_SUPERHYDROPHOBIC": 13,
+   "WET_SUPERHYDROPHOBIC_IMPACT_RESISTANT": 1,
+   "THM_COUNTERCURRENT_HX": 4,
+   "FLD_RIBLET_DRAG": 1,
+   "THM_RADIATIVE_COOLING": 15,
+   "STR_LATTICE_TRUSS": 4,
+   "OPT_BRAGG_STRUCTURAL_COLOR": 5,
+   "MT_FOG_HARVEST_MESH": 7,
+   "MT_PLASTRON_MEMBRANE": 3,
+   "THM_RADIATIVE_COOLING_WITH_THERMAL_BUFFER": 1,
+   "THM_RADIATIVE_COOLING_WITH_THERMAL_MASS": 1,
+   "THM_LAMINAR_COUNTERCURRENT_HX": 1,
+   "THM_RADIATIVE_COOLING_WITH_PCM": 1,
+   "ADH_FIBRILLAR": 6,
+   "OPT_BRAGG_QUARTERWAVE": 1,
+   "THM_RADIATIVE_COOLING_WITH_PCB": 1,
+   "WET_SUPERHYDROPHOBIC_IMPACT_ROBUST": 1
+  }
+ },
+ "NOBIO": {
+  "runs": 66,
+  "cases": 22,
+  "pass_rate_runs": 0.30303030303030304,
+  "pass_rate_case_mean": 0.303030303030303,
+  "ci": [
+   0.15151515151515152,
+   0.454924242424237
+  ],
+  "first_pass_rate": 0.13636363636363635,
+  "regime_ok_rate": 0.6212121212121212,
+  "card_plausible_for_problem": 0.8636363636363636,
+  "first_card_is_gold_rate": 0.3333333333333333,
+  "mean_turns": 3.0303030303030303,
+  "status": {
+   "fail": 32,
+   "bad_ids": 9,
+   "pass": 20,
+   "schema_error": 5
+  },
+  "domains_chosen": {
+   "THM": 14,
+   "WET": 11,
+   "STR": 13,
+   "OPT": 8,
+   "MT-": 9,
+   "ADH": 11
+  },
+  "cards_chosen": {
+   "THM_RADIATIVE_COOLING": 6,
+   "THM_RADIATIVE_COOLING_WITH_PHASE_CHANGE": 1,
+   "WET_SUPERHYDROPHOBIC": 11,
+   "STR_LATTICE_TRUSS": 6,
+   "STR_SANDWICH_HONEYCOMB": 6,
+   "STR_LATTICE_HONEYCOMB": 1,
+   "OPT_BRAGG_STRUCTURAL_COLOR": 8,
+   "MT_FOG_HARVEST_MESH": 6,
+   "MT_PLASTRON_MEMBRANE": 3,
+   "ADH_FIBRILLAR": 11,
+   "THM_PASSIVE_COOLING_WITH_PCM_AND_RADIATIVE_SURFACE": 1,
+   "THM_RADIATIVE_COOLING_WITH_THERMAL_MASS": 2,
+   "THM_RADIATIVE_COOLING_WITH_INSULATION_AND_THERMAL_MASS": 1,
+   "THM_PASSIVE_COOLING_WITH_PCM_AND_RADIATIVE_COOLING": 1,
+   "THM_PASSIVE_COOLING_WITH_THERMAL_MASS": 1,
+   "THM_PASSIVE_COOLING_WITH_THERMAL_MASS_AND_RADIATIVE_COOLING": 1
+  }
+ },
+ "paired": {
+  "pass:IMG-NOBIO": {
+   "n_cases": 22,
+   "diff": -0.060606060606060615,
+   "ci": [
+    -0.2424242424242424,
+    0.1212121212121212
+   ],
+   "p": 0.6343936560634393
+  },
+  "pass:IMG-NAME": {
+   "n_cases": 22,
+   "diff": -0.10606060606060605,
+   "ci": [
+    -0.27272727272727276,
+    0.07575757575757575
+   ],
+   "p": 0.33675663243367565
+  },
+  "pass:NAME-NOBIO": {
+   "n_cases": 22,
+   "diff": 0.04545454545454545,
+   "ci": [
+    -0.12121212121212123,
+    0.2121212121212121
+   ],
+   "p": 0.7390526094739053
+  }
+ }
+}

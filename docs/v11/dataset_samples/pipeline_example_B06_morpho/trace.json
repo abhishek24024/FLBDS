@@ -1,0 +1,395 @@
+{
+ "stage1_perception": {
+  "organism": {
+   "common": "Morpho and Owl butterflies with pomegranate and caterpillar",
+   "scientific": "Morpho sp. and Caligo sp. (butterflies), Punica granatum (pomegranate), caterpillar (likely from Saturniidae or Nymphalidae family)",
+   "confidence": 0.8
+  },
+  "structures": [
+   {
+    "name": "butterfly wing scales",
+    "description": "Microscopic, overlapping scales covering the wings, responsible for coloration and structural integrity. In the blue Morpho, these are iridescent due to nanostructures; in the Owl butterfly, they contain eye-like patterns for camouflage.",
+    "scale_m_estimate": 1e-06,
+    "visible_in_image": false
+   },
+   {
+    "name": "wing venation",
+    "description": "Network of veins providing structural support and distributing hemolymph, enabling flight and wing durability.",
+    "scale_m_estimate": 0.001,
+    "visible_in_image": true
+   },
+   {
+    "name": "pomegranate arils and pericarp",
+    "description": "Fleshy, seed-containing arils enclosed in a tough, leathery outer rind (pericarp), designed for seed protection and animal dispersal.",
+    "scale_m_estimate": 0.01,
+    "visible_in_image": true
+   },
+   {
+    "name": "caterpillar body segments",
+    "description": "Segmented, soft-bodied larva with prolegs and setae, adapted for crawling and feeding on plant material.",
+    "scale_m_estimate": 0.001,
+    "visible_in_image": true
+   },
+   {
+    "name": "flower petals and stamens",
+    "description": "Brightly colored petals and exposed stamens of the pomegranate flower, adapted for pollination via visual and scent cues.",
+    "scale_m_estimate": 0.01,
+    "visible_in_image": true
+   }
+  ],
+  "functions": [
+   "Flight and thermoregulation (butterflies)",
+   "Camouflage and predator deterrence (butterfly eye spots)",
+   "Seed dispersal via animal consumption (pomegranate)",
+   "Herbivory and growth (caterpillar)",
+   "Pollination attraction (flower)"
+  ],
+  "mechanisms": [
+   {
+    "principle": "Structural coloration via photonic crystals",
+    "physical_effect_tag": "optics",
+    "evidence": "The intense blue color of the Morpho butterfly wing is not due to pigments but to nanostructured scales that interfere with light, producing iridescence. This is visible in the image as a vivid, metallic blue."
+   },
+   {
+    "principle": "Optical camouflage via eye-spot mimicry",
+    "physical_effect_tag": "optics",
+    "evidence": "The Owl butterfly's wing features large, circular eye patterns that mimic eyes of larger animals, deterring predators. These are clearly visible in the image as concentric rings with dark pupils."
+   },
+   {
+    "principle": "Hierarchical structural support via wing venation",
+    "physical_effect_tag": "structures",
+    "evidence": "The butterfly wings show a complex network of veins that distribute stress and prevent buckling during flight. This is visible as a branching pattern across the wings."
+   },
+   {
+    "principle": "Passive mechanical protection via tough pericarp",
+    "physical_effect_tag": "structures",
+    "evidence": "The pomegranate's outer rind is thick and leathery, protecting the arils inside. This is visible as a segmented, reddish-brown outer shell."
+   },
+   {
+    "principle": "Surface tension and wetting control via micro-scales",
+    "physical_effect_tag": "wetting",
+    "evidence": "Butterfly wing scales often repel water, preventing wing damage in rain. While not directly visible, this is a known biological feature of such scales."
+   }
+  ],
+  "applications": [
+   {
+    "application": "Structural color coatings for displays and sensors",
+    "problem": "Traditional pigments fade, require toxic materials, and lack tunable color",
+    "mapping": "Morpho butterfly wing scales -> nanostructured photonic crystals in thin films",
+    "why_it_works": "At micro/nano scale, the periodic structures interfere with light wavelengths to produce vibrant, angle-dependent colors without pigments. This enables energy-efficient, durable, and tunable coloration for anti-counterfeiting, smart windows, and sensors.",
+    "physical_effect_tag": "optics"
+   },
+   {
+    "application": "Bio-inspired camouflage for military and surveillance systems",
+    "problem": "Current camouflage is static and ineffective against dynamic environments",
+    "mapping": "Owl butterfly eye spots -> dynamic optical camouflage using patterned surfaces",
+    "why_it_works": "The large, deceptive eye patterns mimic predators and deter threats. Engineered surfaces with similar patterns and dynamic control can confuse visual tracking systems or hide objects by mimicking threatening or natural patterns.",
+    "physical_effect_tag": "optics"
+   },
+   {
+    "application": "Lightweight, high-strength composite materials for aerospace",
+    "problem": "Traditional composites are heavy or brittle under stress",
+    "mapping": "Butterfly wing venation -> hierarchical reinforced composite structures",
+    "why_it_works": "The branching vein network provides maximum strength-to-weight ratio and distributes load efficiently. At macro scale, this design reduces material use while enhancing durability in wings, drones, or aircraft panels.",
+    "physical_effect_tag": "structures"
+   },
+   {
+    "application": "Self-cleaning and anti-icing surfaces for outdoor equipment",
+    "problem": "Water and ice accumulation reduce efficiency and safety in vehicles and infrastructure",
+    "mapping": "Butterfly wing micro-scales -> superhydrophobic surfaces",
+    "why_it_works": "The micro- and nano-scale structures create air pockets that repel water, preventing adhesion. At micro scale, this reduces drag and ice nucleation, ideal for aircraft wings or solar panels.",
+    "physical_effect_tag": "wetting"
+   },
+   {
+    "application": "Biodegradable, protective packaging for food and agriculture",
+    "problem": "Plastic packaging is non-biodegradable and polluting",
+    "mapping": "Pomegranate pericarp -> natural, tough, biodegradable barriers",
+    "why_it_works": "The leathery outer rind provides physical protection and moisture control. At macro scale, engineered biopolymer composites mimicking this structure can replace plastic in food packaging, offering durability and sustainability.",
+    "physical_effect_tag": "structures"
+   }
+  ]
+ },
+ "stage3_4_modeB_run": {
+  "problem_id": "P-OPT-02",
+  "first_card": "OPT_BRAGG_STRUCTURAL_COLOR",
+  "final_card": "OPT_BRAGG_STRUCTURAL_COLOR",
+  "gold_card": "OPT_BRAGG_STRUCTURAL_COLOR",
+  "passed": false,
+  "turns": 4,
+  "history": [
+   {
+    "design": {
+     "problem_id": "P-OPT-02",
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "bio_mapping": [
+      {
+       "biological_feature": "butterfly wing scales (Morpho)",
+       "engineering_feature": "nanostructured photonic crystal coating",
+       "scale_change": "microscopic scales (1e-6 m) \u2192 thin-film multilayer (1e-7 to 1e-6 m)"
+      }
+     ],
+     "rationale": "The Morpho butterfly's iridescent blue color arises from nanostructured photonic crystals that produce structural color via light interference, without pigments. This mechanism enables a durable, fade-proof, thin-film blue coating ideal for outdoor applications.",
+     "design": {
+      "n_layer1": 1.5,
+      "thickness_layer1_m": 3e-08,
+      "n_layer2": 2.0,
+      "thickness_layer2_m": 2e-08,
+      "n_pairs": 15
+     }
+    },
+    "check": [
+     false,
+     true,
+     -10.0,
+     "fail"
+    ]
+   },
+   {
+    "design": {
+     "problem_id": "P-OPT-02",
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "bio_mapping": [
+      {
+       "biological_feature": "butterfly wing scales (Morpho)",
+       "engineering_feature": "nanostructured photonic crystal coating",
+       "scale_change": "microscopic scales (1e-6 m) \u2192 thin-film multilayer (1e-7 to 1e-6 m)"
+      }
+     ],
+     "rationale": "The Morpho butterfly's iridescent blue color arises from nanostructured photonic crystals that produce structural color via light interference, without pigments. This mechanism enables a durable, fade-proof, thin-film blue coating ideal for outdoor applications.",
+     "design": {
+      "n_layer1": 1.5,
+      "thickness_layer1_m": 3e-08,
+      "n_layer2": 2.0,
+      "thickness_layer2_m": 3e-08,
+      "n_pairs": 15
+     }
+    },
+    "check": [
+     false,
+     false,
+     -10.0,
+     "fail"
+    ]
+   },
+   {
+    "design": {
+     "problem_id": "P-OPT-02",
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "bio_mapping": [
+      {
+       "biological_feature": "butterfly wing scales (Morpho)",
+       "engineering_feature": "nanostructured photonic crystal coating",
+       "scale_change": "microscopic scales (1e-6 m) \u2192 thin-film multilayer (1e-7 to 1e-6 m)"
+      }
+     ],
+     "rationale": "The Morpho butterfly's iridescent blue color arises from nanostructured photonic crystals that produce structural color via light interference, without pigments. This mechanism enables a durable, fade-proof, thin-film blue coating ideal for outdoor applications.",
+     "design": {
+      "n_layer1": 1.45,
+      "thickness_layer1_m": 3.9e-08,
+      "n_layer2": 2.0,
+      "thickness_layer2_m": 3.6e-08,
+      "n_pairs": 15
+     }
+    },
+    "check": [
+     false,
+     false,
+     -10.0,
+     "fail"
+    ]
+   },
+   {
+    "design": {
+     "problem_id": "P-OPT-02",
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "bio_mapping": [
+      {
+       "biological_feature": "butterfly wing scales (Morpho)",
+       "engineering_feature": "nanostructured photonic crystal coating",
+       "scale_change": "microscopic scales (1e-6 m) \u2192 thin-film multilayer (1e-7 to 1e-6 m)"
+      }
+     ],
+     "rationale": "The Morpho butterfly's iridescent blue color arises from nanostructured photonic crystals that produce structural color via light interference, without pigments. This mechanism enables a durable, fade-proof, thin-film blue coating ideal for outdoor applications.",
+     "design": {
+      "n_layer1": 1.5,
+      "thickness_layer1_m": 3.8e-08,
+      "n_layer2": 2.0,
+      "thickness_layer2_m": 3.7e-08,
+      "n_pairs": 15
+     }
+    },
+    "check": [
+     false,
+     false,
+     -10.0,
+     "fail"
+    ]
+   },
+   {
+    "design": {
+     "problem_id": "P-OPT-02",
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "bio_mapping": [
+      {
+       "biological_feature": "butterfly wing scales (Morpho)",
+       "engineering_feature": "nanostructured photonic crystal coating",
+       "scale_change": "microscopic scales (1e-6 m) \u2192 thin-film multilayer (1e-7 to 1e-6 m)"
+      }
+     ],
+     "rationale": "The Morpho butterfly's iridescent blue color arises from nanostructured photonic crystals that produce structural color via light interference, without pigments. This mechanism enables a durable, fade-proof, thin-film blue coating ideal for outdoor applications.",
+     "design": {
+      "n_layer1": 1.5,
+      "thickness_layer1_m": 4.7e-08,
+      "n_layer2": 2.0,
+      "thickness_layer2_m": 4.7e-08,
+      "n_pairs": 15
+     }
+    },
+    "check": [
+     false,
+     false,
+     -10.0,
+     "fail"
+    ]
+   }
+  ]
+ },
+ "stage4_optimiser_polish": {
+  "design": {
+   "n_layer1": 1.92,
+   "thickness_layer1_m": 5.74e-08,
+   "n_layer2": 2.16,
+   "thickness_layer2_m": 5.68e-08,
+   "n_pairs": 11
+  },
+  "screen": {
+   "peak_wavelength_error_m": [
+    4.208e-09,
+    "<= 1e-08",
+    "PASS"
+   ],
+   "peak_reflectance": [
+    0.8188,
+    ">= 0.5",
+    "PASS"
+   ],
+   "total_thickness_m": [
+    1.256e-06,
+    "<= 3e-06",
+    "PASS"
+   ],
+   "stopband_width_m": [
+    3.491e-08,
+    "<= 8e-08",
+    "PASS"
+   ],
+   "min_layer_thickness_m": [
+    5.68e-08,
+    ">= 3e-08",
+    "PASS"
+   ]
+  }
+ },
+ "stage5_pilot_blueprint_llm_only": {
+  "title": "Bio-Inspired Structural Color Coatings for Displays and Sensors",
+  "summary": "This concept leverages the photonic crystal structures found in Morpho butterfly wings to create tunable, non-fading, and non-toxic structural color coatings for displays and sensors. The design maps hierarchical wing venation to a support matrix and incorporates eye-spot mimicry for optical camouflage in specific applications. The nanostructured thin films enable color tuning via refractive index modulation and structural deformation. This approach eliminates traditional pigments, enhancing durability and environmental safety.",
+  "bio_to_engineering_mapping": [
+   {
+    "biological_feature": "Morpho butterfly wing scales with photonic crystal nanostructures",
+    "engineering_feature": "Nanostructured photonic crystal thin films for color generation",
+    "scale_change": "From 100-200 nm biological scales to 100-300 nm engineered periodic structures"
+   },
+   {
+    "biological_feature": "Hierarchical wing venation providing mechanical support",
+    "engineering_feature": "Embedded micro-venation scaffold for mechanical stability and flexibility",
+    "scale_change": "From 5-20 \u03bcm biological veins to 10-50 \u03bcm engineered support channels"
+   },
+   {
+    "biological_feature": "Eye-spot patterns in Owl butterflies for optical camouflage",
+    "engineering_feature": "Patterned micro-features for selective light scattering and anti-reflection",
+    "scale_change": "From 0.5-2 mm natural patterns to 0.2-1 mm engineered optical patterns"
+   }
+  ],
+  "geometry": [
+   {
+    "part": "Photonic crystal layer",
+    "dimension": "Thickness",
+    "value": 200,
+    "unit": "nm"
+   },
+   {
+    "part": "Support scaffold",
+    "dimension": "Channel width",
+    "value": 25,
+    "unit": "\u03bcm"
+   },
+   {
+    "part": "Patterned surface",
+    "dimension": "Feature pitch",
+    "value": 500,
+    "unit": "nm"
+   },
+   {
+    "part": "Coating substrate",
+    "dimension": "Thickness",
+    "value": 50,
+    "unit": "\u03bcm"
+   }
+  ],
+  "materials": [
+   {
+    "part": "Photonic crystal layer",
+    "material": "Silica (SiO\u2082) or titania (TiO\u2082) nanospheres in polymer matrix",
+    "reason": "High refractive index contrast for strong structural color, biocompatible, and tunable via deposition method"
+   },
+   {
+    "part": "Support scaffold",
+    "material": "Polycarbonate (PC) or polyimide (PI)",
+    "reason": "Mechanical flexibility, thermal stability, and compatibility with microfabrication"
+   },
+   {
+    "part": "Substrate",
+    "material": "Flexible PET or PEN film",
+    "reason": "Transparent, lightweight, and suitable for roll-to-roll manufacturing"
+   }
+  ],
+  "manufacturing_steps": [
+   "Design and simulate photonic crystal lattice using finite-difference time-domain (FDTD) modeling",
+   "Fabricate micro-venation scaffold via soft lithography or laser ablation on flexible substrate",
+   "Deposit nanostructured photonic crystal layer via self-assembly of colloidal nanoparticles or nanoimprint lithography",
+   "Pattern optical camouflage features using photolithography or inkjet printing",
+   "Integrate with display or sensor interface via conductive adhesives or direct bonding"
+  ],
+  "quick_physics_check": [
+   {
+    "quantity": "Bragg wavelength",
+    "equation": "\u03bb = 2n\u039b",
+    "estimate": 550,
+    "unit": "nm",
+    "requirement": "Visible spectrum coverage (400\u2013700 nm)"
+   },
+   {
+    "quantity": "Refractive index contrast",
+    "equation": "\u0394n = n_high - n_low",
+    "estimate": 1.2,
+    "unit": "unitless",
+    "requirement": "\u0394n > 0.8 for strong structural color"
+   },
+   {
+    "quantity": "Structural deformation tolerance",
+    "equation": "\u03b5 = \u0394L / L",
+    "estimate": 0.05,
+    "unit": "unitless",
+    "requirement": "\u03b5 < 0.1 for stable color under bending"
+   }
+  ],
+  "expected_performance": "Tunable, non-fading structural colors across visible spectrum with >85% reflectance at target wavelengths, flexible and durable coating with <5% color shift under 1000 bending cycles, and potential for integration with sensors via localized optical response.",
+  "limitations_and_risks": [
+   "Scalability of nanoimprint or self-assembly for large-area uniformity",
+   "Long-term stability under UV exposure and humidity",
+   "Cost of high-precision patterning for optical camouflage features",
+   "Potential for micro-cracking in photonic layer under high strain"
+  ],
+  "render_prompt": "Clean technical sketch of a flexible thin-film coating with nanostructured photonic crystal layer, micro-venation scaffold, and patterned optical features, showing cross-section and top view with labeled parts, in monochrome with subtle color highlights for structural color regions"
+ }
+}

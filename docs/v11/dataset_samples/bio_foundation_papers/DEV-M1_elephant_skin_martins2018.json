@@ -1,0 +1,1613 @@
+{
+  "id": "https://openalex.org/W2890480689",
+  "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+  "title": "Locally-curved geometry generates bending cracks in the African elephant skin",
+  "display_name": "Locally-curved geometry generates bending cracks in the African elephant skin",
+  "publication_year": 2018,
+  "publication_date": "2018-09-18",
+  "ids": {
+    "openalex": "https://openalex.org/W2890480689",
+    "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+    "mag": "2890480689",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/30279508",
+    "pmcid": "https://www.ncbi.nlm.nih.gov/pmc/articles/6168576"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1038/s41467-018-06257-3",
+    "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1038/s41467-018-06257-3",
+    "pdf_url": "https://www.nature.com/articles/s41467-018-06257-3.pdf",
+    "source": {
+      "id": "https://openalex.org/S64187185",
+      "display_name": "Nature Communications",
+      "issn_l": "2041-1723",
+      "issn": [
+        "2041-1723"
+      ],
+      "is_oa": true,
+      "is_in_doaj": true,
+      "is_core": true,
+      "listed_in": [
+        "anvur-class-a",
+        "anvur-scientific",
+        "cwts-core",
+        "doaj",
+        "dongbi-a",
+        "doyens",
+        "jufo-3",
+        "ki-jl-3",
+        "medline",
+        "norway-2",
+        "oarl",
+        "poland-200",
+        "russia-white-list-1",
+        "vabb-shw"
+      ],
+      "host_organization": "https://openalex.org/P4310319908",
+      "host_organization_name": "Nature Portfolio",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310319908",
+        "https://openalex.org/P4310319965"
+      ],
+      "host_organization_lineage_names": [
+        "Nature Portfolio",
+        "Springer Nature"
+      ],
+      "type": "journal"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Nature Communications",
+    "raw_type": "journal-article"
+  },
+  "volume": null,
+  "type": "article",
+  "indexed_in": [
+    "crossref",
+    "doaj",
+    "pubmed"
+  ],
+  "open_access": {
+    "is_oa": true,
+    "oa_status": "gold",
+    "oa_url": "https://www.nature.com/articles/s41467-018-06257-3.pdf",
+    "any_repository_has_fulltext": true
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5074892207",
+        "display_name": "Ant\u00f3nio F. Martins",
+        "orcid": "https://orcid.org/0000-0002-5561-1226",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-5561-1226"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I114457229",
+          "display_name": "University of Geneva",
+          "ror": "https://ror.org/01swzsf04",
+          "country_code": "CH",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I114457229"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I12708293",
+          "display_name": "SIB Swiss Institute of Bioinformatics",
+          "ror": "https://ror.org/002n09z45",
+          "country_code": "CH",
+          "type": "nonprofit",
+          "lineage": [
+            "https://openalex.org/I12708293"
+          ]
+        }
+      ],
+      "countries": [
+        "CH"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Ant\u00f3nio F. Martins",
+      "raw_affiliation_strings": [
+        "Laboratory of Artificial & Natural Evolution (LANE), Department of Genetics & Evolution, University of Geneva, Geneva, 1211, Switzerland",
+        "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-5561-1226",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Laboratory of Artificial & Natural Evolution (LANE), Department of Genetics & Evolution, University of Geneva, Geneva, 1211, Switzerland",
+          "institution_ids": [
+            "https://openalex.org/I114457229"
+          ]
+        },
+        {
+          "raw_affiliation_string": "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland",
+          "institution_ids": [
+            "https://openalex.org/I12708293"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5045390769",
+        "display_name": "Nigel C. Bennett",
+        "orcid": "https://orcid.org/0000-0001-9748-2947",
+        "observed_orcids": [
+          "https://orcid.org/0000-0001-9748-2947"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I69552723",
+          "display_name": "University of Pretoria",
+          "ror": "https://ror.org/00g0p6g84",
+          "country_code": "ZA",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I69552723"
+          ]
+        }
+      ],
+      "countries": [
+        "ZA"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Nigel C. Bennett",
+      "raw_affiliation_strings": [
+        "Mammal Research Institute, University of Pretoria, Hatfield, 0028, South Africa"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Mammal Research Institute, University of Pretoria, Hatfield, 0028, South Africa",
+          "institution_ids": [
+            "https://openalex.org/I69552723"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5023427179",
+        "display_name": "Sylvie Clavel",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "Sylvie Clavel",
+      "raw_affiliation_strings": [
+        "Zoo African Safari, Plaisance du Touch, 31830, France"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Zoo African Safari, Plaisance du Touch, 31830, France",
+          "institution_ids": []
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5001073088",
+        "display_name": "Hermanus B. Groenewald",
+        "orcid": "https://orcid.org/0000-0002-5227-9563",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-5227-9563"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I69552723",
+          "display_name": "University of Pretoria",
+          "ror": "https://ror.org/00g0p6g84",
+          "country_code": "ZA",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I69552723"
+          ]
+        }
+      ],
+      "countries": [
+        "ZA"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Herman Groenewald",
+      "raw_affiliation_strings": [
+        "Department of Anatomy & Physiology, University of Pretoria, Hatfield, 0028, South Africa"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Anatomy & Physiology, University of Pretoria, Hatfield, 0028, South Africa",
+          "institution_ids": [
+            "https://openalex.org/I69552723"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5084116088",
+        "display_name": "Sean Hensman",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "Sean Hensman",
+      "raw_affiliation_strings": [
+        "Adventures with Elephants, Bela Bela, D1000 LP, South Africa"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Adventures with Elephants, Bela Bela, D1000 LP, South Africa",
+          "institution_ids": []
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5034034217",
+        "display_name": "Stefan Hoby",
+        "orcid": "https://orcid.org/0000-0002-3278-6787",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-3278-6787",
+          "https://orcid.org/0009-0006-0724-5264"
+        ]
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "Stefan Hoby",
+      "raw_affiliation_strings": [
+        "Zoo Basel, Basel, 4054, Switzerland"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Zoo Basel, Basel, 4054, Switzerland",
+          "institution_ids": []
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5008996967",
+        "display_name": "A. M. Bertrand Joris",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [],
+      "countries": [],
+      "is_corresponding": false,
+      "raw_author_name": "Antoine Joris",
+      "raw_affiliation_strings": [
+        "R\u00e9serve Africaine, Sigean, 11130, France"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "R\u00e9serve Africaine, Sigean, 11130, France",
+          "institution_ids": []
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5070556660",
+        "display_name": "Paul R. Manger",
+        "orcid": "https://orcid.org/0000-0002-1881-2854",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-1881-2854"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I192619145",
+          "display_name": "University of the Witwatersrand",
+          "ror": "https://ror.org/03rp50x72",
+          "country_code": "ZA",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I192619145"
+          ]
+        }
+      ],
+      "countries": [
+        "ZA"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Paul R. Manger",
+      "raw_affiliation_strings": [
+        "School of Anatomical Sciences, University of the Witwatersrand, Johannesburg, Braamfontein, 2000, South Africa"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "School of Anatomical Sciences, University of the Witwatersrand, Johannesburg, Braamfontein, 2000, South Africa",
+          "institution_ids": [
+            "https://openalex.org/I192619145"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5053385433",
+        "display_name": "Michel C. Milinkovitch",
+        "orcid": "https://orcid.org/0000-0002-2553-0724",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-2553-0724"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I114457229",
+          "display_name": "University of Geneva",
+          "ror": "https://ror.org/01swzsf04",
+          "country_code": "CH",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I114457229"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I12708293",
+          "display_name": "SIB Swiss Institute of Bioinformatics",
+          "ror": "https://ror.org/002n09z45",
+          "country_code": "CH",
+          "type": "nonprofit",
+          "lineage": [
+            "https://openalex.org/I12708293"
+          ]
+        }
+      ],
+      "countries": [
+        "CH"
+      ],
+      "is_corresponding": true,
+      "raw_author_name": "Michel C. Milinkovitch",
+      "raw_affiliation_strings": [
+        "Laboratory of Artificial & Natural Evolution (LANE), Department of Genetics & Evolution, University of Geneva, Geneva, 1211, Switzerland. Michel.Milinkovitch@unige.ch",
+        "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland. Michel.Milinkovitch@unige.ch",
+        "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Laboratory of Artificial & Natural Evolution (LANE), Department of Genetics & Evolution, University of Geneva, Geneva, 1211, Switzerland. Michel.Milinkovitch@unige.ch",
+          "institution_ids": [
+            "https://openalex.org/I114457229"
+          ]
+        },
+        {
+          "raw_affiliation_string": "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland. Michel.Milinkovitch@unige.ch",
+          "institution_ids": [
+            "https://openalex.org/I12708293"
+          ]
+        },
+        {
+          "raw_affiliation_string": "SIB Swiss Institute of Bioinformatics, Geneva, 1211, Switzerland",
+          "institution_ids": [
+            "https://openalex.org/I12708293"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 2,
+  "institutions_distinct_count": 4,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5053385433"
+  ],
+  "corresponding_institution_ids": [
+    "https://openalex.org/I114457229",
+    "https://openalex.org/I12708293"
+  ],
+  "apc_list": {
+    "value": 6990,
+    "currency": "USD",
+    "value_usd": 6990
+  },
+  "apc_paid": {
+    "value": 4136,
+    "currency": "EUR",
+    "value_usd": 4460
+  },
+  "fwci": 2.5541,
+  "has_fulltext": true,
+  "cited_by_count": 49,
+  "citation_normalized_percentile": {
+    "value": 0.88532436,
+    "is_in_top_1_percent": false,
+    "is_in_top_10_percent": false
+  },
+  "cited_by_percentile_year": {
+    "min": 96,
+    "max": 99
+  },
+  "biblio": {
+    "volume": "9",
+    "issue": "1",
+    "first_page": "3865",
+    "last_page": "3865"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T11737",
+    "display_name": "Advanced Materials and Mechanics",
+    "score": 0.9487000107765198,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2210",
+      "display_name": "Mechanical Engineering"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/22",
+      "display_name": "Engineering"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T11737",
+      "display_name": "Advanced Materials and Mechanics",
+      "score": 0.9487000107765198,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2210",
+        "display_name": "Mechanical Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11366",
+      "display_name": "Elasticity and Material Modeling",
+      "score": 0.007600000128149986,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2204",
+        "display_name": "Biomedical Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13100",
+      "display_name": "Comparative Animal Anatomy Studies",
+      "score": 0.0035000001080334187,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2748",
+        "display_name": "Urology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/27",
+        "display_name": "Medicine"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/4",
+        "display_name": "Health Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/african-bush-elephant",
+      "display_name": "African bush elephant",
+      "score": 0.7570000290870667
+    },
+    {
+      "id": "https://openalex.org/keywords/african-elephant",
+      "display_name": "Loxodonta africana",
+      "score": 0.9520000219345093
+    },
+    {
+      "id": "https://openalex.org/keywords/stratum-corneum",
+      "display_name": "stratum corneum",
+      "score": 0.8420000076293945
+    },
+    {
+      "id": "https://openalex.org/keywords/brittle-fracture",
+      "display_name": "brittle fracture",
+      "score": 0.7350000143051147
+    },
+    {
+      "id": "https://openalex.org/keywords/bending-cracks",
+      "display_name": "bending cracks",
+      "score": 0.7260000109672546
+    },
+    {
+      "id": "https://openalex.org/keywords/local-curvature",
+      "display_name": "local curvature",
+      "score": 0.5649999976158142
+    },
+    {
+      "id": "https://openalex.org/keywords/lattice-model",
+      "display_name": "lattice model",
+      "score": 0.6759999990463257
+    },
+    {
+      "id": "https://openalex.org/keywords/thermal-regulation",
+      "display_name": "temperature regulation",
+      "score": 0.7570000290870667
+    },
+    {
+      "id": "https://openalex.org/keywords/skin-morphology",
+      "display_name": "skin morphology",
+      "score": 0.3009999990463257
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C2778370115",
+      "wikidata": "https://www.wikidata.org/wiki/Q2038676",
+      "display_name": "Stratum corneum",
+      "level": 2,
+      "score": 0.7144335508346558
+    },
+    {
+      "id": "https://openalex.org/C136478896",
+      "wikidata": "https://www.wikidata.org/wiki/Q898288",
+      "display_name": "Brittleness",
+      "level": 2,
+      "score": 0.6237068176269531
+    },
+    {
+      "id": "https://openalex.org/C2779559920",
+      "wikidata": "https://www.wikidata.org/wiki/Q911138",
+      "display_name": "Thickening",
+      "level": 2,
+      "score": 0.5718158483505249
+    },
+    {
+      "id": "https://openalex.org/C192562407",
+      "wikidata": "https://www.wikidata.org/wiki/Q228736",
+      "display_name": "Materials science",
+      "level": 0,
+      "score": 0.5431274175643921
+    },
+    {
+      "id": "https://openalex.org/C2776003677",
+      "wikidata": "https://www.wikidata.org/wiki/Q2738617",
+      "display_name": "Desquamation",
+      "level": 2,
+      "score": 0.5422545075416565
+    },
+    {
+      "id": "https://openalex.org/C87210426",
+      "wikidata": "https://www.wikidata.org/wiki/Q1072476",
+      "display_name": "Bending",
+      "level": 2,
+      "score": 0.5200569033622742
+    },
+    {
+      "id": "https://openalex.org/C2781204021",
+      "wikidata": "https://www.wikidata.org/wiki/Q6497091",
+      "display_name": "Lattice (music)",
+      "level": 2,
+      "score": 0.4673521816730499
+    },
+    {
+      "id": "https://openalex.org/C159985019",
+      "wikidata": "https://www.wikidata.org/wiki/Q181790",
+      "display_name": "Composite material",
+      "level": 1,
+      "score": 0.4539667069911957
+    },
+    {
+      "id": "https://openalex.org/C58396970",
+      "wikidata": "https://www.wikidata.org/wiki/Q212749",
+      "display_name": "Cracking",
+      "level": 2,
+      "score": 0.4509560167789459
+    },
+    {
+      "id": "https://openalex.org/C105702510",
+      "wikidata": "https://www.wikidata.org/wiki/Q514",
+      "display_name": "Anatomy",
+      "level": 1,
+      "score": 0.32435140013694763
+    },
+    {
+      "id": "https://openalex.org/C121332964",
+      "wikidata": "https://www.wikidata.org/wiki/Q413",
+      "display_name": "Physics",
+      "level": 0,
+      "score": 0.22109076380729675
+    },
+    {
+      "id": "https://openalex.org/C86803240",
+      "wikidata": "https://www.wikidata.org/wiki/Q420",
+      "display_name": "Biology",
+      "level": 0,
+      "score": 0.19589316844940186
+    },
+    {
+      "id": "https://openalex.org/C142724271",
+      "wikidata": "https://www.wikidata.org/wiki/Q7208",
+      "display_name": "Pathology",
+      "level": 1,
+      "score": 0.12094539403915405
+    },
+    {
+      "id": "https://openalex.org/C71924100",
+      "wikidata": "https://www.wikidata.org/wiki/Q11190",
+      "display_name": "Medicine",
+      "level": 0,
+      "score": 0.09838968515396118
+    },
+    {
+      "id": "https://openalex.org/C126348684",
+      "wikidata": "https://www.wikidata.org/wiki/Q3456979",
+      "display_name": "Polymer science",
+      "level": 1,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C24890656",
+      "wikidata": "https://www.wikidata.org/wiki/Q82811",
+      "display_name": "Acoustics",
+      "level": 1,
+      "score": 0.0
+    }
+  ],
+  "mesh": [
+    {
+      "descriptor_ui": "D000818",
+      "descriptor_name": "Animals",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D004606",
+      "descriptor_name": "Elephants",
+      "qualifier_ui": "Q000033",
+      "qualifier_name": "anatomy & histology",
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D004606",
+      "descriptor_name": "Elephants",
+      "qualifier_ui": "Q000502",
+      "qualifier_name": "physiology",
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D012867",
+      "descriptor_name": "Skin",
+      "qualifier_ui": "Q000033",
+      "qualifier_name": "anatomy & histology",
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D012879",
+      "descriptor_name": "Skin Physiological Phenomena",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    }
+  ],
+  "locations_count": 10,
+  "locations": [
+    {
+      "id": "doi:10.1038/s41467-018-06257-3",
+      "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.1038/s41467-018-06257-3",
+      "pdf_url": "https://www.nature.com/articles/s41467-018-06257-3.pdf",
+      "source": {
+        "id": "https://openalex.org/S64187185",
+        "display_name": "Nature Communications",
+        "issn_l": "2041-1723",
+        "issn": [
+          "2041-1723"
+        ],
+        "is_oa": true,
+        "is_in_doaj": true,
+        "is_core": true,
+        "listed_in": [
+          "anvur-class-a",
+          "anvur-scientific",
+          "cwts-core",
+          "doaj",
+          "dongbi-a",
+          "doyens",
+          "jufo-3",
+          "ki-jl-3",
+          "medline",
+          "norway-2",
+          "oarl",
+          "poland-200",
+          "russia-white-list-1",
+          "vabb-shw"
+        ],
+        "host_organization": "https://openalex.org/P4310319908",
+        "host_organization_name": "Nature Portfolio",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310319908",
+          "https://openalex.org/P4310319965"
+        ],
+        "host_organization_lineage_names": [
+          "Nature Portfolio",
+          "Springer Nature"
+        ],
+        "type": "journal"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Nature Communications",
+      "raw_type": "journal-article"
+    },
+    {
+      "id": "pmh:oai:europepmc.org:5117614",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6168576",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400806",
+        "display_name": "Europe PMC (PubMed Central)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I1303153112",
+        "host_organization_name": "European Bioinformatics Institute",
+        "host_organization_lineage": [
+          "https://openalex.org/I1303153112"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": null,
+      "raw_type": "Text"
+    },
+    {
+      "id": "pmh:oai:pubmedcentral.nih.gov:6168576",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6168576",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S2764455111",
+        "display_name": "PubMed Central",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I1299303238",
+        "host_organization_name": "National Institutes of Health",
+        "host_organization_lineage": [
+          "https://openalex.org/I1299303238"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Nat Commun",
+      "raw_type": "Text"
+    },
+    {
+      "id": "pmid:30279508",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/30279508",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306525036",
+        "display_name": "PubMed",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I1299303238",
+        "host_organization_name": "National Institutes of Health",
+        "host_organization_lineage": [
+          "https://openalex.org/I1299303238"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Nature communications",
+      "raw_type": "Journal Article"
+    },
+    {
+      "id": "pmh:oai:unige.ch:aou:unige:131209",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "https://archive-ouverte.unige.ch/unige:131209",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306402259",
+        "display_name": "Archive ouverte UNIGE (University of Geneva)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I114457229",
+        "host_organization_name": "University of Geneva",
+        "host_organization_lineage": [
+          "https://openalex.org/I114457229"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "other-oa",
+      "license_id": "https://openalex.org/licenses/other-oa",
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "ISSN: 2041-1723",
+      "raw_type": "info:eu-repo/semantics/article"
+    },
+    {
+      "id": "pmh:oai:RePEc:nat:natcom:v:9:y:2018:i:1:d:10.1038_s41467-018-06257-3",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://www.nature.com/articles/s41467-018-06257-3",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401271",
+        "display_name": "RePEc: Research Papers in Economics",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I77793887",
+        "host_organization_name": "Federal Reserve Bank of St. Louis",
+        "host_organization_lineage": [
+          "https://openalex.org/I77793887"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    {
+      "id": "pmh:oai:doaj.org/article:358451733a03440482d52fb7a10fc152",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "https://doaj.org/article/358451733a03440482d52fb7a10fc152",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401280",
+        "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": null,
+        "host_organization_name": null,
+        "host_organization_lineage": [],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by-sa",
+      "license_id": "https://openalex.org/licenses/cc-by-sa",
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": "Nature Communications, Vol 9, Iss 1, Pp 1-8 (2018)",
+      "raw_type": "article"
+    },
+    {
+      "id": "pmh:oai:doaj.org/article:51ef89981a2b4545a2c7e9c37a0f91a2",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://doaj.org/article/51ef89981a2b4545a2c7e9c37a0f91a2",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401280",
+        "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": null,
+        "host_organization_name": null,
+        "host_organization_lineage": [],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": "Nature Communications, Vol 9, Iss 1, Pp 1-8 (2018)",
+      "raw_type": "article"
+    },
+    {
+      "id": "pmh:oai:repository.up.ac.za:2263/68437",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "http://hdl.handle.net/2263/68437",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401870",
+        "display_name": "UpSpace Institutional Repository (University of Pretoria)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I69552723",
+        "host_organization_name": "University of Pretoria",
+        "host_organization_lineage": [
+          "https://openalex.org/I69552723"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": "",
+      "raw_type": "Article"
+    },
+    {
+      "id": "pmh:oai:unige.ch:unige:131209",
+      "doi": null,
+      "is_oa": true,
+      "landing_page_url": "https://archive-ouverte.unige.ch/unige:131209",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306402259",
+        "display_name": "Archive ouverte UNIGE (University of Geneva)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I114457229",
+        "host_organization_name": "University of Geneva",
+        "host_organization_lineage": [
+          "https://openalex.org/I114457229"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": "ISSN: 2041-1723",
+      "raw_type": "info:eu-repo/semantics/article"
+    }
+  ],
+  "best_oa_location": {
+    "id": "doi:10.1038/s41467-018-06257-3",
+    "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1038/s41467-018-06257-3",
+    "pdf_url": "https://www.nature.com/articles/s41467-018-06257-3.pdf",
+    "source": {
+      "id": "https://openalex.org/S64187185",
+      "display_name": "Nature Communications",
+      "issn_l": "2041-1723",
+      "issn": [
+        "2041-1723"
+      ],
+      "is_oa": true,
+      "is_in_doaj": true,
+      "is_core": true,
+      "listed_in": [
+        "anvur-class-a",
+        "anvur-scientific",
+        "cwts-core",
+        "doaj",
+        "dongbi-a",
+        "doyens",
+        "jufo-3",
+        "ki-jl-3",
+        "medline",
+        "norway-2",
+        "oarl",
+        "poland-200",
+        "russia-white-list-1",
+        "vabb-shw"
+      ],
+      "host_organization": "https://openalex.org/P4310319908",
+      "host_organization_name": "Nature Portfolio",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310319908",
+        "https://openalex.org/P4310319965"
+      ],
+      "host_organization_lineage_names": [
+        "Nature Portfolio",
+        "Springer Nature"
+      ],
+      "type": "journal"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Nature Communications",
+    "raw_type": "journal-article"
+  },
+  "sustainable_development_goals": [],
+  "sustainable_development_goals_aurora": [
+    {
+      "score": 0.550000011920929,
+      "display_name": "Clean water and sanitation",
+      "id": "https://metadata.un.org/sdg/6"
+    }
+  ],
+  "study_designs": [],
+  "awards": [
+    {
+      "id": "https://openalex.org/G4575199289",
+      "display_name": "UNITED LIVING COLOURS \u201cdot CH\u201d: Integrating Evolutionary Developmental Genetics, 3D Computer Graphics, and Natural Photonics for deciphering variation & complexity in reptilian colour traits",
+      "funder_award_id": "132430",
+      "funder_id": "https://openalex.org/F4320320924",
+      "funder_display_name": "Schweizerischer Nationalfonds zur F\u00f6rderung der Wissenschaftlichen Forschung"
+    },
+    {
+      "id": "https://openalex.org/G5182162041",
+      "display_name": "Evolutionary developmental genetics of ?phenotypic novelties and convergences",
+      "funder_award_id": "140785",
+      "funder_id": "https://openalex.org/F4320320924",
+      "funder_display_name": "Schweizerischer Nationalfonds zur F\u00f6rderung der Wissenschaftlichen Forschung"
+    }
+  ],
+  "funders": [
+    {
+      "id": "https://openalex.org/F4320306076",
+      "display_name": "National Science Foundation",
+      "ror": "https://ror.org/021nxhr62"
+    },
+    {
+      "id": "https://openalex.org/F4320320924",
+      "display_name": "Schweizerischer Nationalfonds zur F\u00f6rderung der Wissenschaftlichen Forschung",
+      "ror": "https://ror.org/00yjd3n13"
+    },
+    {
+      "id": "https://openalex.org/F4320323830",
+      "display_name": "Universit\u00e9 de Gen\u00e8ve",
+      "ror": "https://ror.org/01swzsf04"
+    },
+    {
+      "id": "https://openalex.org/F4320327577",
+      "display_name": "SystemsX.ch",
+      "ror": "https://ror.org/02s09gf16"
+    }
+  ],
+  "has_content": {
+    "grobid_xml": true,
+    "pdf": true
+  },
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W2890480689.pdf",
+    "grobid_xml": "https://content.openalex.org/works/W2890480689.grobid-xml"
+  },
+  "referenced_works_count": 38,
+  "referenced_works": [
+    "https://openalex.org/W33120252",
+    "https://openalex.org/W1497272095",
+    "https://openalex.org/W1548500395",
+    "https://openalex.org/W1963881005",
+    "https://openalex.org/W1968178267",
+    "https://openalex.org/W1969357685",
+    "https://openalex.org/W1969689206",
+    "https://openalex.org/W1980220299",
+    "https://openalex.org/W1980550311",
+    "https://openalex.org/W1980661496",
+    "https://openalex.org/W1982347978",
+    "https://openalex.org/W1988469304",
+    "https://openalex.org/W1992963104",
+    "https://openalex.org/W2010934797",
+    "https://openalex.org/W2016350172",
+    "https://openalex.org/W2025861764",
+    "https://openalex.org/W2026936806",
+    "https://openalex.org/W2027795748",
+    "https://openalex.org/W2036547869",
+    "https://openalex.org/W2043943094",
+    "https://openalex.org/W2044528153",
+    "https://openalex.org/W2058575149",
+    "https://openalex.org/W2063301362",
+    "https://openalex.org/W2078513629",
+    "https://openalex.org/W2080855334",
+    "https://openalex.org/W2081128785",
+    "https://openalex.org/W2084408083",
+    "https://openalex.org/W2094412389",
+    "https://openalex.org/W2099530148",
+    "https://openalex.org/W2100961073",
+    "https://openalex.org/W2124348415",
+    "https://openalex.org/W2143087867",
+    "https://openalex.org/W2161113514",
+    "https://openalex.org/W2268066624",
+    "https://openalex.org/W2305944345",
+    "https://openalex.org/W2342660098",
+    "https://openalex.org/W2606368840",
+    "https://openalex.org/W4255737108"
+  ],
+  "related_works": [
+    "https://openalex.org/W4407219969",
+    "https://openalex.org/W4235688051",
+    "https://openalex.org/W4285730896",
+    "https://openalex.org/W4406178203",
+    "https://openalex.org/W4409663724",
+    "https://openalex.org/W4385433411",
+    "https://openalex.org/W2342660098",
+    "https://openalex.org/W4403222078",
+    "https://openalex.org/W2782256519",
+    "https://openalex.org/W2955035851"
+  ],
+  "abstract_inverted_index": {
+    "An": [
+      0
+    ],
+    "intricate": [
+      1
+    ],
+    "network": [
+      2
+    ],
+    "of": [
+      3,
+      9,
+      22,
+      45,
+      78,
+      93,
+      110,
+      113,
+      127
+    ],
+    "crevices": [
+      4
+    ],
+    "adorns": [
+      5
+    ],
+    "the": [
+      6,
+      10,
+      20,
+      42,
+      79,
+      90,
+      94,
+      108
+    ],
+    "skin": [
+      7,
+      74,
+      84,
+      114,
+      120
+    ],
+    "surface": [
+      8
+    ],
+    "African": [
+      11,
+      72,
+      118
+    ],
+    "bush": [
+      12
+    ],
+    "elephant,": [
+      13
+    ],
+    "Loxodonta": [
+      14
+    ],
+    "africana.": [
+      15
+    ],
+    "These": [
+      16
+    ],
+    "micrometre-wide": [
+      17
+    ],
+    "channels": [
+      18,
+      75,
+      121
+    ],
+    "enhance": [
+      19
+    ],
+    "effectiveness": [
+      21
+    ],
+    "thermal": [
+      23
+    ],
+    "regulation": [
+      24
+    ],
+    "(by": [
+      25,
+      38
+    ],
+    "water": [
+      26
+    ],
+    "retention)": [
+      27
+    ],
+    "as": [
+      28,
+      30
+    ],
+    "well": [
+      29,
+      49
+    ],
+    "protection": [
+      31
+    ],
+    "against": [
+      32
+    ],
+    "parasites": [
+      33
+    ],
+    "and": [
+      34,
+      54,
+      63,
+      82
+    ],
+    "intense": [
+      35
+    ],
+    "solar": [
+      36
+    ],
+    "radiation": [
+      37
+    ],
+    "mud": [
+      39
+    ],
+    "adherence).": [
+      40
+    ],
+    "While": [
+      41
+    ],
+    "adaptive": [
+      43
+    ],
+    "value": [
+      44
+    ],
+    "these": [
+      46
+    ],
+    "structures": [
+      47
+    ],
+    "is": [
+      48
+    ],
+    "established,": [
+      50
+    ],
+    "their": [
+      51
+    ],
+    "morphological": [
+      52
+    ],
+    "characterisation": [
+      53
+    ],
+    "generative": [
+      55
+    ],
+    "mechanism": [
+      56
+    ],
+    "are": [
+      57,
+      76,
+      122
+    ],
+    "unknown.": [
+      58
+    ],
+    "Using": [
+      59
+    ],
+    "microscopy,": [
+      60
+    ],
+    "computed": [
+      61
+    ],
+    "tomography": [
+      62
+    ],
+    "a": [
+      64,
+      111,
+      128,
+      132,
+      138
+    ],
+    "custom": [
+      65
+    ],
+    "physics-based": [
+      66
+    ],
+    "lattice": [
+      67,
+      112
+    ],
+    "model,": [
+      68
+    ],
+    "we": [
+      69
+    ],
+    "show": [
+      70
+    ],
+    "that": [
+      71,
+      89
+    ],
+    "elephant": [
+      73,
+      119
+    ],
+    "fractures": [
+      77
+    ],
+    "animal": [
+      80
+    ],
+    "brittle": [
+      81,
+      129
+    ],
+    "desquamation-deficient": [
+      83
+    ],
+    "outermost": [
+      85
+    ],
+    "layer.": [
+      86
+    ],
+    "We": [
+      87
+    ],
+    "suggest": [
+      88
+    ],
+    "progressive": [
+      91
+    ],
+    "thickening": [
+      92,
+      126
+    ],
+    "hyperkeratinised": [
+      95
+    ],
+    "stratum": [
+      96
+    ],
+    "corneum": [
+      97
+    ],
+    "causes": [
+      98
+    ],
+    "its": [
+      99
+    ],
+    "fracture": [
+      100
+    ],
+    "due": [
+      101
+    ],
+    "to": [
+      102
+    ],
+    "local": [
+      103
+    ],
+    "bending": [
+      104
+    ],
+    "mechanical": [
+      105
+    ],
+    "stress": [
+      106
+    ],
+    "in": [
+      107
+    ],
+    "troughs": [
+      109
+    ],
+    "millimetric": [
+      115
+    ],
+    "elevations.": [
+      116
+    ],
+    "The": [
+      117
+    ],
+    "therefore": [
+      123
+    ],
+    "generated": [
+      124
+    ],
+    "by": [
+      125,
+      137,
+      144
+    ],
+    "material": [
+      130
+    ],
+    "on": [
+      131
+    ],
+    "locally-curved": [
+      133
+    ],
+    "substrate": [
+      134
+    ],
+    "rather": [
+      135
+    ],
+    "than": [
+      136
+    ],
+    "canonical": [
+      139
+    ],
+    "tensile": [
+      140
+    ],
+    "cracking": [
+      141
+    ],
+    "process": [
+      142
+    ],
+    "caused": [
+      143
+    ],
+    "frustrated": [
+      145
+    ],
+    "shrinkage.": [
+      146
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 9
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 5
+    },
+    {
+      "year": 2022,
+      "cited_by_count": 7
+    },
+    {
+      "year": 2021,
+      "cited_by_count": 7
+    },
+    {
+      "year": 2020,
+      "cited_by_count": 6
+    },
+    {
+      "year": 2019,
+      "cited_by_count": 3
+    }
+  ],
+  "updated_date": "2026-10-31T12:09:11.096373",
+  "created_date": "2018-09-27T00:00:00"
+}

@@ -1,0 +1,130 @@
+{
+ "IMG": {
+  "llm_loop_pass": "16/66",
+  "after_polish": "48/66",
+  "status": {
+   "ok": 57,
+   "invalid_ids": 9,
+   "card_problem_mismatch": 0
+  },
+  "by_domain(llm, polished, n)": {
+   "ADH": [
+    0,
+    3,
+    11
+   ],
+   "MT-": [
+    3,
+    9,
+    9
+   ],
+   "OPT": [
+    1,
+    8,
+    8
+   ],
+   "STR": [
+    1,
+    10,
+    13
+   ],
+   "THM": [
+    11,
+    11,
+    14
+   ],
+   "WET": [
+    0,
+    7,
+    11
+   ]
+  }
+ },
+ "NAME": {
+  "llm_loop_pass": "23/66",
+  "after_polish": "54/66",
+  "status": {
+   "ok": 58,
+   "invalid_ids": 8,
+   "card_problem_mismatch": 0
+  },
+  "by_domain(llm, polished, n)": {
+   "ADH": [
+    0,
+    2,
+    6
+   ],
+   "FLD": [
+    1,
+    1,
+    1
+   ],
+   "MT-": [
+    3,
+    10,
+    10
+   ],
+   "OPT": [
+    0,
+    5,
+    6
+   ],
+   "STR": [
+    0,
+    4,
+    4
+   ],
+   "THM": [
+    18,
+    19,
+    24
+   ],
+   "WET": [
+    1,
+    13,
+    15
+   ]
+  }
+ },
+ "NOBIO": {
+  "llm_loop_pass": "20/66",
+  "after_polish": "48/66",
+  "status": {
+   "ok": 57,
+   "invalid_ids": 9,
+   "card_problem_mismatch": 0
+  },
+  "by_domain(llm, polished, n)": {
+   "ADH": [
+    0,
+    3,
+    11
+   ],
+   "MT-": [
+    4,
+    9,
+    9
+   ],
+   "OPT": [
+    0,
+    8,
+    8
+   ],
+   "STR": [
+    0,
+    12,
+    13
+   ],
+   "THM": [
+    5,
+    5,
+    14
+   ],
+   "WET": [
+    11,
+    11,
+    11
+   ]
+  }
+ }
+}
