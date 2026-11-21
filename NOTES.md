@@ -1,119 +1,115 @@
-# FLBDS Project Notes & Decision Register
+# FLBDS research notes and decision register
 
-## 1. Project Scope & Architecture Boundaries (v9.0 Realignment)
-* **Authoritative Reference**: `docs/flbds_v9.md` (Version 9.0, 30 October 2026).
-* **Hardware & Quota**: 1 × NVIDIA H200 (141 GB HBM3e), 90 H200-hours/week, 26-week solo BTech project scope.
-* **Core Paradigm (Principle P4 Prompted-First)**:
-  * Models are deployed in inference-only mode first (prompted VLMs, prompted 72B teacher, prompted 32B critic, prompted 7B extractor/filter, prompted coders for SVG/CAD).
-  * Fine-tuning (LoRA SFT, offline DPO, contrastive InfoNCE) is restricted to explicit quantitative gates (e.g., 8B extractor must match teacher within 3 F1 points with >= 0.90 grounding; functional embedding must beat BM25/bge-large with <= 10% leakage).
-* **Superseded Earlier Decisions**:
-  * *Vision & Multimodal Input (M1/M2)*: Previously scoped out; now **IN SCOPE**. M1 (BioCLIP + VLM tagger + hybrid retrieval) and M2 (VLM Target Problem Card extraction) are evaluated under prompted baseline first.
-  * *Thesaurus Graph & Multimodal Embeddings (M3)*: Previously scoped out; now **IN SCOPE** with 3-vector representation (purpose L4, mechanism L3, effect L2), canonical physical effects, and community detection.
-  * *Transformation Operators*: Expanded from T1-T4 to full set **T1 to T5** (plus demonstrated T6 material substitution and optional T7 hybridization).
-  * *Physics Verifier (M5)*: Dual-tier verification architecture **IN SCOPE** across all 10 templates (TPL-01 to TPL-10):
-    * **M5-Screen**: Lumped-parameter closed-form checks guiding generator search.
-    * **M5-Eval**: Coupled, held-out numerical solvers (e.g. 1D Stefan enthalpy method, 24h Robin boundary outdoor cycle, coupled boundary-layer mass transfer) evaluating candidate validity.
-  * *Prior-Art Novelty Gate (M6)*: Now **IN SCOPE** (L2/L3 abstraction-level distance + judge model).
-  * *Concept Package Outputs (M7)*: Now **IN SCOPE** (SVG schematic, CadQuery 3D solid/STEP/STL, concept image).
-* **Grounding & Integrity Rules**:
-  * All citations, release dates, and numbers from earlier drafts are unverified claims until checked.
-  * No fabrication of data, gold labels, citations, or metrics.
-  * Teacher-model output is strictly classified as "silver". Gold cards are human-authored.
-  * Every milestone must conclude with executable, passing test suites.
+This file records the working rules, the decisions taken so far and why, what we have learned, and what is still open. For what the system is and how to run it, see [README.md](README.md). Full results are in [`docs/v11/findings_v11.md`](docs/v11/findings_v11.md) and [`docs/v10/findings_log.md`](docs/v10/findings_log.md). The paper draft is [`docs/v11/paper/paper.pdf`](docs/v11/paper/paper.pdf).
 
-## 2. Infrastructure & Server Baseline (Step 0 Reconnaissance)
-* **Server Hostname**: `hcd-dept-h200` (IP: `192.168.2.69` via IIIT FortiClient VPN).
-* **GPUs**:
-  * 4 x NVIDIA H200 SXM (143,771 MiB / ~141 GB HBM3e each).
-  * Direct NVML is restricted; access is managed via the broker (`gpurun`).
-  * In a test job on GPU 2: 143,149 MiB free memory available.
-* **Disk & Storage**:
-  * Filesystem `/dev/sda2`: 21 TB total, 4.0 TB used, 16 TB available (21% system usage).
-  * User quota (`abhishek24024`): 28.7 GB used out of 900 GB soft quota / 1024 GB hard limit (~871.3 GB free quota).
-* **Software Toolchain**:
-  * OS / Python: Ubuntu / Python 3.12.3 (`/usr/bin/python3`).
-  * CUDA Driver & Compiler: CUDA 13.3 (`/usr/local/cuda-13.3/bin/nvcc`, V13.3.33).
-  * vLLM Status: Installed in `flbds_env` (`vllm 0.32.0`).
-* **Virtual Environment Setup**:
-  * Dedicated venv at `/home/abhishek24024/flbds_env`.
-  * Verified libraries: `pydantic 2.14.1`, `pytest 9.1.1`, `pint 0.26.2`, `sympy 1.14.0`, `scipy 1.18.1`, `numpy 2.5.4`, `vllm 0.32.0`.
+## 1. Standing rules
 
-## 3. Remote Git History Status (Rule 7)
-* Remote repository: `git@github.com:abhishek24024/FLBDS.git`
-* Default branch: `main`
-* Cloned on server into `/home/abhishek24024/flbds`.
-* Local repository initialized and linked to origin/main.
-* `.gitignore` configured to prevent committing credentials (`ssh_details.md`), venvs, and datasets/weights (`flbds_data/`).
+**Scope**
 
-## 4. Compute Budget, GPU Broker Rules & Accounting
-* **Broker Mechanics (`gpurun`)**:
-  * Broker binary: `/usr/local/bin/gpurun` communicating over UNIX socket `/run/gpu-broker/broker.sock`.
-  * Default allocation: 1 GPU (`-g 1`), supports multi-GPU with `-g N` if available.
-  * Quota accounting: 1 GPU-hour = 1 physical H200 GPU running for 1 wall-clock hour.
-  * Server Weekly Allotment: 90.0 H200-hours / week (reset weekly).
-* **Budget Guardrails**:
-  1. Pilot budget cap: The entire pilot (~1,000 documents) strictly <= 20.0 H200-hours.
-  2. If any stage approaches or exceeds **80%** of its pre-run estimate, execution must **STOP** immediately and report.
-  3. No scaling beyond the pilot without explicit user approval and a measured throughput calibration table.
-  4. Spare weekly hours are NOT a justification to scale up; human quality review of the pilot cards comes first.
-* **Weekly Consumption Log (Week Starting 2026-10-26)**:
-  * Weekly Allotment: 90.00 h
-  * Cumulative Pilot Consumption: **0.318 H200-hours**
-    - Step 0 Broker Recon & Calibration: ~0.05 h
-    - Step 5 Smoke Test (40 docs): 0.0676 h
-    - Step 5 Full Pilot (1,000 docs): 0.2004 h
-  * Remaining Quota: **89.682 H200-hours**
+- Mode B is primary: photo only, and the system chooses the problem. Mode A, with a given problem, is supported.
+- The bias is toward biological inspiration. Domains go beyond thermal-fluids; there are currently six.
+- Output is a blueprint: a JSON spec, a dimensioned schematic and an illustrative render.
 
-## 5. Pilot Corpus & Extraction Audit Findings (Step A.3 Audit)
-* **Corpus License Breakdown & Non-Commercial Reconcile**:
-  * 500 PMC Biology Papers:
-    - CC BY: 341 papers (68.2%)
-    - CC0: 2 papers (0.4%)
-    - Non-Commercial variants: 157 papers (31.4%: 112 CC BY-NC-ND, 43 CC BY-NC, 2 CC BY-NC-SA).
-    - *Reconciliation*: Exactly matches the ~31% non-commercial figure noted in v9 §6.1. These non-commercial articles are retained for internal private research; only CC BY and CC0 articles will be distributed in open releases.
-  * 500 Engineering Patents (BigPatent HF CPC sections F and E):
-    - 500 documents (100.0% US Patent Public Domain).
-  * Committed Git Samples (`data/sample/`):
-    - `bio_sample.jsonl`: 5 papers, 100% CC BY.
-    - `eng_sample.jsonl`: 5 patents, 100% Public Domain.
-* **Stage 1 Filter Audit (30 Sampled Rejected Docs: 15 Bio, 15 Eng)**:
-  * 27/30 (>90%) were legitimately off-domain: oncology therapies, clinical warming blankets, genetic syndromes, animal grooming ethology, mechanical pump bearings, fuel cell catalysts.
-  * 2-3/30 (~7-10%) were borderline false rejections: tree xylem sapwood hydraulic conductance (bio) and ceramic tube heat exchanger geometry (eng).
-  * Conclusion: Filter is high-precision with minimal false rejection of actionable thermodynamic mechanisms.
-* **Stage 5 Causal Entailment Critic Audit (20 Sampled Dropped Cards)**:
-  * 15/20 (75%) were legitimate rejections of teacher hallucinations: conflating comfortable hours percentage with enthalpy of vaporization; claiming positive cooling in failed experiments; attributing heat pipe performance to raw casing material.
-  * 5/20 (25%) were overly strict rejections of complex phenomena: spontaneous evaporative freezing in high vacuum; laser-textured micro-groove radiative cooling.
-  * Conclusion: Critic strictly preserves precision over recall, ensuring silver cards are causally grounded.
-* **Inter-Sample Agreement Metric (67.7% Mean Field Agreement)**:
-  * Measures generation consistency of unconstrained Qwen2.5-72B teacher across 298 repeated runs at $T=0.7$ (seed 42 vs seed 43) across 5 core SAPPhIRE fields:
-    - State Variable: 82.3% agreement
-    - Action Verb: 80.5% agreement
-    - Subject: 67.1% agreement
-    - Physical Effect: 64.3% agreement
-    - Phenomenon: 44.2% agreement
-  * Reflects natural linguistic variation in free-form generation and motivates schema-constrained guided decoding.
-* **Purged Quantity Units (127 Purged)**:
-  * ~65-70% were Pint syntax and formatting failures: unescaped periods in percentage strings (`vol.%`, `wt.%`), unicode minus signs (`−` vs `-` in `J g−1`), and unparenthesized multi-division expressions (`g/m2/h`).
-  * ~30-35% were genuine non-dimensional or non-physical tokens (`fold`, `times`, `relative ratio`).
-* **Yield & Scaling to 8,000 Silver Mechanism Cards**:
-  * Net yield: Bio = 118 cards / 500 docs = 0.236 cards/doc; Eng = 151 cards / 500 docs = 0.302 cards/doc. Overall = 0.269 cards/doc.
-  * To obtain 8,000 silver cards: need ~29,740 documents (~16,950 bio, ~13,245 eng).
-  * Compute requirement: At 0.2004 GPU-hours per 1,000 docs on H200, processing 30,000 docs requires **~6.0 to 8.0 H200-hours** (well within Phase 1 budget of 30 planned / 45 cap).
-* **16 Benchmark Organism Representation in Pilot Bio Silver Cards (118 Cards)**:
-  * **Present (4/16)**:
-    1. Elephant (`DEV-M1`): 3 cards (thermoregulation, mud wallowing, ear vasodilation).
-    2. Saharan silver ant (`DEV-M3`): 1 card (prismatic hair radiative cooling).
-    3. Tuna (`TEST-M06`): 2 cards (countercurrent retia mirabilia).
-    4. Camel (`TEST-M07`): 1 card (nasal turbinate moisture/heat sorption).
-  * **Missing from Pilot (12/16)**:
-    - Penguin (`DEV-M2`), Aquatic insect (`DEV-M4`), Termite (`TEST-M01`), Namib beetle (`TEST-M02`), Cactus (`TEST-M03`), Polar bear (`TEST-M04`), Jackrabbit (`TEST-M05`), Xylem (`TEST-M08`), Leaf (`TEST-M09`), Desert snail (`TEST-M10`), Prairie dog (`TEST-M11`), Toucan (`TEST-M12`).
-  * *Resolution*: Targeted queries in Phase 1 corpus harvesting will acquire dedicated literature for all missing benchmark organisms.
+**Models and evaluation**
 
-## 6. Implementation & Verification Progress
-* [2026-10-26] Step 1: Core Pydantic v2 schemas (`flbds/schema/`) passing 15 tests.
-* [2026-10-26] Step 2: Source register verified live on server (`docs/source_register.md`).
-* [2026-10-26] Step 3: Harvested 1,000-doc pilot corpus on server.
-* [2026-10-26] Step 4: Installed vLLM, downloaded Qwen2.5 72B/32B/7B, calibrated throughput.
-* [2026-10-26] Step 5 & 6: Autonomous pilot pipeline completed (269 silver cards produced, tools built).
-* [2026-11-01] Step A.1: Updated NOTES.md to align with FLBDS v9.0 architecture.
-* [2026-11-01] Step A.2: Extended Pydantic v2 schemas per v9 §4.3 (`enums.py`, `templates.py`, `ground_truth_eval.py`, `role_binding.py`, `mechanism_card.py`, `problem_card.py`). 28 tests passing on server.
+- Only open-weight models are used, for inference. Fine-tuning happens only if a measured gate says the prompted pipeline has plateaued.
+- There are no human raters, because this is a solo project. All evaluation is automatic: physics checks, rediscovery against a gold set, and controls.
+- The judge is a different model from the generator. Pairwise judgments are run in both orders.
+
+**Integrity**
+
+- Nothing is fabricated: no data, gold labels, citations or metrics.
+- LLM-extracted cards are *silver*. *Gold* cards are hand-authored and labelled as such.
+- Every benchmark instance needs a solver-generated feasible design (a certificate) before it is used. No design is admitted on hand-typed numbers.
+- Prompts must not contain the answer. Each benchmark run blocks the papers and patents that describe that case's transfer.
+- The test set is run once, after code freeze. Anything changed afterwards is reported as post hoc.
+
+**Data licensing**
+
+- PMC papers: all licences are used internally, but only CC BY and CC0 papers are redistributed. 31% of the pilot corpus is non-commercial.
+- USPTO patents are public domain.
+- AskNature is excluded, because its terms forbid data mining.
+- Images: only CC BY, CC BY-SA and public-domain images, each with a manifest entry giving attribution.
+
+**Repository**
+
+- Never commit credentials, connection details, datasets or model weights. `.gitignore` covers them.
+- Keep the repo free of machine-specific paths, so paths are passed as script arguments.
+
+## 2. Experiment conventions
+
+- **Unit of inference.** The organism (V11) or the instance (V10), never the individual run.
+- **Tests.** Paired sign-flip permutation tests with bootstrap 95% CIs. Holm correction applies across confirmatory comparisons only; exploratory comparisons are labelled as such.
+- **Seeds.** At least 3 seeds per condition. Log the config, data hash and model for every run (`run_meta.json`).
+- **Baselines.** Every experiment has a trivial or no-biology baseline: B0 single attempt, best-of-N, NOBIO, a mismatched organism.
+- **Look at outputs.** Before trusting a metric, read a sample of transcripts, and check that a blank or degenerate design fails.
+
+## 3. Decision register
+
+| # | Decision | Why | Status |
+|---|---|---|---|
+| V10-1 | The benchmark is generated by a parametric generator and certified by a solver (48 thermal instances). | Hand-built cases leaked answers and admitted trivially passing designs. | Done |
+| V10-2 | Design loop: 3 samples × up to 7 physics-feedback repair turns. | It passed 70.8% of instances vs 41.0% for 24 independent samples, at the same budget of 24 attempts. | Adopted |
+| V10-3 | The screen must be a true relaxation of the full evaluator. | A design that passes the screen but fails evaluation misleads the repair loop. | Adopted |
+| D1 | Less-famous organisms and micrographs are the primary image benchmark. The canonical 24 are kept as a contamination reference. | On famous organisms the name alone already unlocks the model's memory, so the photo adds nothing measurable. | Decided; revisit |
+| D2 | Novelty is measured as distance from prior art (patents and papers); the judge is secondary. | The judge marks textbook biomimicry as "less novel" because it is already standard practice. | Decided; revisit |
+| D3 | The LLM chooses the mechanism, problem and physics card; a differential-evolution optimiser sets the numbers. | E3b: physics pass went from 24% to 73% (photo arm). | Adopted |
+| D4 | The mechanism-card store with verbatim evidence is primary. A knowledge graph is only a later ablation. | No published measurement shows knowledge graphs improve bio-inspired design; the card store is simpler to audit. | Adopted |
+| D5 | The per-card parametric SVG schematic is the authoritative design image; the diffusion render is illustrative. | Only 3 of 7 renders were on target; a schematic is drawn from the verified numbers. | Adopted |
+| D6 | Reframed image claim: the image is an entry point and gives structure-to-function cues. "Image beats name" is claimed only where the model's memory is weak, and only if the data support it. | E1: name 100% vs photo 64% identification on famous organisms. | Adopted |
+| D7 | Venue still open (ICED, DCC, IDETC, Design Science or JMD class); target about April 2027. | Depends on the RQ4 results. | Open |
+
+## 4. What we have learned
+
+**From the V11 pilot (22 organisms × 3 seeds)**
+
+- Identification is the image bottleneck. Open-ended identification from the photo was 64%. BioCLIP 2 on a closed list of 54 names ranked the right answer first 86% of the time and in the top 5 95% of the time. A wrong identification usually derails the mechanism, but in 42% of those runs the right application was still recovered.
+- The LLM is good at choosing and bad at numbers. Without the optimiser, it rarely satisfies the new-domain cards: adhesion 0%, structures ≤ 8%, optics ≤ 13%.
+- Biology steers the choice. The first card chosen was the organism's own mechanism 41% (photo) and 57% (name) of the time, against 33% without biology.
+- The physics check catches look-alike transfers. Lotus-scale textures failed the rain-impact robustness check: wetting passed 0/11 with biology and 11/11 without.
+- About 13% of runs invented card IDs that do not exist. The fix is a constrained choice in structured output.
+- Judge order-consistency is low for implementability (0.51) and overall (0.59). Treat those two scores as weak evidence.
+
+**From V10**
+
+- Physics feedback helps a lot: +30.6 points over a single attempt (Qwen2.5-72B, p = 3×10⁻⁵).
+- A matched biology card made no difference (+2.8, p = 0.56), because each problem family had only one workable mechanism. That is why problems must become *choice-sensitive*.
+
+**From the V9 extraction pilot (500 PMC papers + 500 patents)**
+
+- A keyword-built corpus is noisy. 51 of 53 "biology" cards described engineered materials, not organisms. Retrieval must target taxon and function.
+- Free-form 72B drafting agreed with itself on only 67.7% of fields, and the "phenomenon" field on only 44%. This motivated schema-constrained decoding.
+- The entailment critic is precision-first. 75% of the cards it dropped were real hallucinations; 25% were over-strict rejections.
+- Most unit-parsing failures (about two thirds of 127) were formatting problems such as `wt.%`, Unicode minus signs and `g/m2/h`, not real errors. Normalise before Pint.
+- Yield is about 0.27 cards per document, so 8,000 silver cards need roughly 30,000 documents.
+
+## 5. Known issues
+
+- [ ] `OPT_BRAGG_STRUCTURAL_COLOR`: `n_pairs` is continuous in the optimiser and should be an integer. The polished morpho design gives 10.54; rounding to 11 passes.
+- [ ] The 7 cards new in V11 have not yet been audited against reference cases. Pass rates are upper bounds until they are.
+- [ ] Constrain `card_id` and `problem_id` to valid values in structured output.
+- [ ] The adhesion card has a narrow feasible window (fibril collapse vs pull-off pressure). Check whether that is physical or a modelling artefact.
+- [ ] Only 6 of 23 problems are choice-sensitive, and only 2 discriminate between cards (`python -m flbds.v11.certify`). RQ4 needs many more.
+
+## 6. Open questions
+
+- How should Mode B rank candidate problems for a mechanism: fit, physics feasibility, or distance from prior art?
+- What image evidence does the full study need: field photos, micrographs or multiple views?
+- Is CAD output (CadQuery) needed beyond SVG schematics? Should designs combine more than one organism?
+- Should there be a learned proposer (for example GRPO-trained)? Only if the prompted pipeline plateaus.
+
+## 7. Next steps (to about April 2027)
+
+1. Make cards and problems choice-sensitive, and audit the 7 new cards.
+2. Put BioCLIP 2 in front of perception. Build 60–150 mechanism cards from PMC open-access papers.
+3. Run the RQ4 choice experiments on about 100 instances.
+4. Build the parametric schematics and the prior-art index.
+5. Scale up to about 100 less-famous organisms with several photos each, plus micrographs.
+6. Write up.
+
+## 8. Timeline
+
+- **Oct 2026: V9.** Pydantic schemas, the extraction pipeline (filter → draft → agreement → evidence check → critic → units → dedup), and the SAPPhIRE graph operators T1–T5.
+- **Oct–Nov 2026: audit rounds 5–11.** The V9 headline result was traced to answer leakage and trivially passing designs.
+- **Nov 2026: V10.** Certified parametric benchmark, design-loop study, paper.
+- **20 Nov 2026: V11.** Image-driven pipeline, 11 cards, 23 problems, pilot E1–E3b, decisions D1–D7, paper draft.
