@@ -1,0 +1,90 @@
+[
+  {
+    "packet_id": "BLIND-B3-R11-01",
+    "case_id": "DEV-M3-S1",
+    "seed": 3,
+    "true_verdict": "PASS",
+    "applied_operator": null,
+    "screen_verdict": "PASS",
+    "screen_reason": "Screen constraints satisfied: Screen net cooling flux and mass/thickness constraints met",
+    "eval_verdict": "PASS",
+    "eval_reason": "Equilibrium reached: T_surf=39.17 degC (sub-ambient cooling: 5.83 K)"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-02",
+    "case_id": "DEV-M1-S1",
+    "seed": 2,
+    "true_verdict": "FAIL",
+    "applied_operator": null,
+    "screen_verdict": "FAIL",
+    "screen_reason": "Screen check failed: Closed-form superheat 11.02 K exceeds limit 10.00 K",
+    "eval_verdict": "FAIL",
+    "eval_reason": "Physics check failed: Numerical surface superheat 10.28 K exceeds limit 10.00 K"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-03",
+    "case_id": "DEV-M1-S3",
+    "seed": 3,
+    "true_verdict": "PASS",
+    "applied_operator": "T1",
+    "screen_verdict": "PASS",
+    "screen_reason": "Screen constraints satisfied: All lumped-parameter screen constraints satisfied",
+    "eval_verdict": "PASS",
+    "eval_reason": "All coupled 1D Stefan numerical constraints satisfied"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-04",
+    "case_id": "DEV-M3-S1",
+    "seed": 2,
+    "true_verdict": "PASS",
+    "applied_operator": null,
+    "screen_verdict": "PASS",
+    "screen_reason": "Screen constraints satisfied: Screen net cooling flux and mass/thickness constraints met",
+    "eval_verdict": "PASS",
+    "eval_reason": "Equilibrium reached: T_surf=39.10 degC (sub-ambient cooling: 5.90 K)"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-05",
+    "case_id": "DEV-M3-S1",
+    "seed": 5,
+    "true_verdict": "PASS",
+    "applied_operator": null,
+    "screen_verdict": "PASS",
+    "screen_reason": "Screen constraints satisfied: Screen net cooling flux and mass/thickness constraints met",
+    "eval_verdict": "PASS",
+    "eval_reason": "Equilibrium reached: T_surf=39.10 degC (sub-ambient cooling: 5.90 K)"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-06",
+    "case_id": "DEV-M1-S1",
+    "seed": 4,
+    "true_verdict": "FAIL",
+    "applied_operator": null,
+    "screen_verdict": "FAIL",
+    "screen_reason": "Screen check failed: Closed-form superheat 11.02 K exceeds limit 10.00 K",
+    "eval_verdict": "FAIL",
+    "eval_reason": "Physics check failed: Numerical surface superheat 10.07 K exceeds limit 10.00 K"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-07",
+    "case_id": "DEV-M4-S3",
+    "seed": 3,
+    "true_verdict": "FAIL",
+    "applied_operator": null,
+    "screen_verdict": "FAIL",
+    "screen_reason": "Screen check failed: Mass Fourier number Fo_m=0.103 below minimum 1.0",
+    "eval_verdict": "FAIL",
+    "eval_reason": "Physics check failed: Hydrostatic head 6.0 m exceeds capillary breakthrough limit 0.0 m (wetting breakthrough floods pore plastron; d_pore=4552345000.0 nm)"
+  },
+  {
+    "packet_id": "BLIND-B3-R11-08",
+    "case_id": "DEV-M4-S1",
+    "seed": 3,
+    "true_verdict": "FAIL",
+    "applied_operator": null,
+    "screen_verdict": "FAIL",
+    "screen_reason": "Hydrostatic head 10.0 m exceeds capillary breakthrough limit 0.0 m (d_pore=2500000000.0 nm)",
+    "eval_verdict": "FAIL",
+    "eval_reason": "Physics check failed: Hydrostatic head 10.0 m exceeds capillary breakthrough limit 0.0 m (wetting breakthrough floods pore plastron; d_pore=2500000000.0 nm)"
+  }
+]

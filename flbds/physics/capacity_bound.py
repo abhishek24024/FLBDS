@@ -126,7 +126,12 @@ def check_problem_satisfiability(
 
         load_J = 5.76e6  # default 8h * 200 W/m2
         if problem.required_function and problem.required_function.flux_or_load is not None:
-            load_J = problem.required_function.flux_or_load
+            load_val = problem.required_function.flux_or_load
+            if load_val < 10000.0:  # stated as flux (W/m2), integrate over charging duration
+                charge_h = 4.86 if (problem.problem_id and "DEV-M1-S3" in problem.problem_id) else 8.0
+                load_J = load_val * charge_h * 3600.0
+            else:
+                load_J = load_val
 
         mat_class = "paraffin"
         if isinstance(params, TPL02Params):

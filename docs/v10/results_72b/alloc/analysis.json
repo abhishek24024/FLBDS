@@ -1,0 +1,81 @@
+{
+  "per_condition": {
+    "A24x1": {
+      "condition": "A24x1",
+      "n_runs": 144,
+      "eval_passes": 59,
+      "pass_rate": 0.4097222222222222,
+      "wilson_ci": [
+        0.3327606967189344,
+        0.49137523776522496
+      ],
+      "screen_passes": 69,
+      "screen_pass_rate": 0.4791666666666667,
+      "screen_pass_eval_fail": 10,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 469175,
+      "tokens_mean_per_run": 3258.159722222222
+    },
+    "A3x8": {
+      "condition": "A3x8",
+      "n_runs": 144,
+      "eval_passes": 102,
+      "pass_rate": 0.7083333333333334,
+      "wilson_ci": [
+        0.6294527317183394,
+        0.7763874194720621
+      ],
+      "screen_passes": 118,
+      "screen_pass_rate": 0.8194444444444444,
+      "screen_pass_eval_fail": 16,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 262012,
+      "tokens_mean_per_run": 1819.5277777777778
+    },
+    "A8x3": {
+      "condition": "A8x3",
+      "n_runs": 144,
+      "eval_passes": 96,
+      "pass_rate": 0.6666666666666666,
+      "wilson_ci": [
+        0.5862249854783737,
+        0.7384471354739475
+      ],
+      "screen_passes": 104,
+      "screen_pass_rate": 0.7222222222222222,
+      "screen_pass_eval_fail": 8,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 365434,
+      "tokens_mean_per_run": 2537.7361111111113
+    },
+    "V10": {
+      "condition": "V10",
+      "n_runs": 144,
+      "eval_passes": 102,
+      "pass_rate": 0.7083333333333334,
+      "wilson_ci": [
+        0.6294527317183394,
+        0.7763874194720621
+      ],
+      "screen_passes": 113,
+      "screen_pass_rate": 0.7847222222222222,
+      "screen_pass_eval_fail": 11,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 445817,
+      "tokens_mean_per_run": 3095.9513888888887
+    }
+  },
+  "pairs": []
+}

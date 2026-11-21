@@ -128,8 +128,9 @@ def eval_tpl10(
     params: TPL10Params,
     external_velocity_m_s: float = 1.0,
     char_length_m: float = 0.05,
+    hydrostatic_head_m: float | None = None,
 ) -> PhysicsCheck:
-    """M5-Eval: Coupled Bosanquet diffusion + external boundary-layer resistance + fouling clearance."""
+    """M5-Eval: Coupled Bosanquet diffusion + external boundary-layer resistance + pore fouling clearance + wetting breakthrough ceiling."""
     # 1. Fouling clearance check
     if params.pore_diameter_m < params.min_pore_diameter_m:
         return PhysicsCheck(
@@ -138,6 +139,36 @@ def eval_tpl10(
             reason=f"Pore diameter {params.pore_diameter_m*1e9:.1f} nm below minimum fouling limit {params.min_pore_diameter_m*1e9:.1f} nm",
             metrics={"pore_diameter_m": params.pore_diameter_m, "min_pore_diameter_m": params.min_pore_diameter_m},
         )
+
+    # 2. Wetting breakthrough check (Laplace capillary breakthrough ceiling)
+    head = params.hydrostatic_head_m if params.hydrostatic_head_m is not None else hydrostatic_head_m
+    if head is not None and head > 0:
+        gamma = getattr(params, "surface_tension_N_m", 0.072)
+        theta_deg = getattr(params, "contact_angle_deg", 110.0)
+        theta_rad = np.radians(theta_deg)
+        cos_theta = max(0.0, -np.cos(theta_rad))  # V10 fix: hydrophilic gives no barrier
+        rho_water = 1000.0  # kg/m^3
+        g_acc = 9.81        # m/s^2
+        d_pore = params.pore_diameter_m
+
+        delta_P_breakthrough = (4.0 * gamma * cos_theta) / d_pore
+        H_breakthrough = delta_P_breakthrough / (rho_water * g_acc)
+
+        if head > H_breakthrough:
+            return PhysicsCheck(
+                name="TPL10_M5_Eval",
+                passed=False,
+                reason=(
+                    f"Hydrostatic head {head:.1f} m exceeds capillary breakthrough limit {H_breakthrough:.1f} m "
+                    f"(wetting breakthrough floods pore plastron; d_pore={d_pore*1e9:.1f} nm)"
+                ),
+                metrics={
+                    "hydrostatic_head_m": head,
+                    "breakthrough_head_m": H_breakthrough,
+                    "delta_P_breakthrough_Pa": delta_P_breakthrough,
+                    "d_pore_m": d_pore,
+                },
+            )
 
     T_K = params.temperature_degC + 273.15
     D_kn = compute_knudsen_diffusivity(params.pore_diameter_m, T_K, params.molar_mass_kg_mol)

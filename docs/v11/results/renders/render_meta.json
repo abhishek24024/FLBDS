@@ -1,0 +1,30 @@
+{
+ "B01": {
+  "title": "Bio-inspired Tree Frog Adhesive Pads for Robotic Climbing",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-inspired Tree Frog Adhesive Pads for Robotic Climbing. Clean technical concept sketch of a robotic climbing pad with micro-pillar array, hydration reservoir, and structural color coating, shown in cross-section with water meniscus formation at contact interface, labeled dimensions, and surface tension vectors Key parts: Adhesive pad Diameter 25 mm; Micro-pillar Height 50 \u03bcm; Micro-pillar Diameter 10 \u03bcm; Micro-pillar array Pitch 20 \u03bcm; Hydration reservoir Depth 100 \u03bcm."
+ },
+ "B03": {
+  "title": "Bio-Inspired Coral-Lattice Structural Composite for Aerospace/Automotive Applications",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-Inspired Coral-Lattice Structural Composite for Aerospace/Automotive Applications. Clean technical concept sketch of a lightweight 3D lattice composite structure inspired by coral corallites, featuring interlocking hexagonal and tetragonal unit cells with curved walls, rendered in isometric view with transparent cutaway to show internal geometry, using monochrome gray-scale with light shading for depth Key parts: Unit cell edge_length 5 mm; Unit cell wall_thickness 0.3 mm; Lattice layer_thickness 2 mm; Lattice overall_size 200 mm."
+ },
+ "B04": {
+  "title": "Bio-Inspired Hexagonal Honeycomb Core Composite Panel for Aerospace and Automotive Applications",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-Inspired Hexagonal Honeycomb Core Composite Panel for Aerospace and Automotive Applications. Clean technical sketch of a hexagonal honeycomb core composite panel with 5 mm cell diameter, 0.2 mm wall thickness, sandwiched between 1 mm carbon fiber face sheets, showing resin infusion flow paths and cross-section view with material labels Key parts: Core cell Cell diameter 5 mm; Core cell Cell wall thickness 0.2 mm; Panel Thickness (core + face sheets) 10 mm; Panel Face sheet thickness 1 mm."
+ },
+ "B06": {
+  "title": "Bio-Inspired Structural Color Coatings for Displays and Sensors",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-Inspired Structural Color Coatings for Displays and Sensors. Clean technical sketch of a flexible thin-film coating with nanostructured photonic crystal layer, micro-venation scaffold, and patterned optical features, showing cross-section and top view with labeled parts, in monochrome with subtle color highlights for structural color regions Key parts: Photonic crystal layer Thickness 200 nm; Support scaffold Channel width 25 \u03bcm; Patterned surface Feature pitch 500 nm; Coating substrate Thickness 50 \u03bcm."
+ },
+ "B07": {
+  "title": "Bio-Inspired Fog Harvesting Mesh for Arid Environments",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-Inspired Fog Harvesting Mesh for Arid Environments. Technical concept sketch of a rectangular fog-harvesting mesh mounted on a lightweight aluminum frame with visible micro-patterned hydrophilic/hydrophobic zones and integrated micro-channels, set in a desert landscape with fog, rendered in clean line art with labeled components. Key parts: Fog-harvesting mesh Length 2 m; Fog-harvesting mesh Width 1 m; Micro-patterned surface Pattern pitch 0.5 mm; Micro-channel Width 0.3 mm; Micro-channel Depth 0.1 mm."
+ },
+ "B09": {
+  "title": "Micro-Robotic Forager: Ant-Inspired Hazardous Material Retrieval Unit",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Micro-Robotic Forager: Ant-Inspired Hazardous Material Retrieval Unit. Clean technical concept sketch of a 30mm-long micro-robotic forager with articulated lever-grippers, microfluidic containment channel, and wireless antenna, inspired by fire ant anatomy, shown navigating debris in a disaster zone. Key parts: Main body chassis length 30 mm; Main body chassis width 15 mm; Main body chassis height 8 mm; Gripper jaws span 3 mm; Gripper jaws thickness 0.5 mm."
+ },
+ "B11": {
+  "title": "Bio-inspired Stealthy Aquatic Drone: HeronStalk-1",
+  "prompt": "Clean engineering concept sketch, blueprint style, white background, thin dark-blue linework, isometric view with one cut-away detail and short English labels. Device: Bio-inspired Stealthy Aquatic Drone: HeronStalk-1. Clean technical sketch of a sleek, teardrop-shaped aquatic drone with retractable sensor arms, floating low in shallow water, featuring hydrophobic surface texture and minimal wake, inspired by the Grey Heron\u2019s stalking posture. Key parts: Hull length L 1.2 m; Hull diameter D 0.25 m; Sensor arm extended length L_arm 0.8 m; Draft (hull depth below water) h_draft 0.15 m."
+ }
+}

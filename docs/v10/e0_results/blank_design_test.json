@@ -1,0 +1,94 @@
+{
+ "DEV-M1-S1": [
+  [
+   "TPL_02",
+   "needs fields"
+  ],
+  [
+   "TPL_03",
+   "screen=True eval=False"
+  ],
+  [
+   "TPL_05",
+   "needs fields"
+  ]
+ ],
+ "DEV-M1-S2": [
+  [
+   "TPL_02",
+   "needs fields"
+  ],
+  [
+   "TPL_04",
+   "needs fields"
+  ]
+ ],
+ "DEV-M1-S3": [
+  [
+   "TPL_02",
+   "needs fields"
+  ],
+  [
+   "TPL_04",
+   "needs fields"
+  ]
+ ],
+ "DEV-M2-S1": [
+  [
+   "TPL_08",
+   "screen=True eval=True"
+  ]
+ ],
+ "DEV-M2-S2": [
+  [
+   "TPL_08",
+   "screen=True eval=True"
+  ]
+ ],
+ "DEV-M2-S3": [
+  [
+   "TPL_08",
+   "screen=False eval=False"
+  ]
+ ],
+ "DEV-M3-S1": [
+  [
+   "TPL_09",
+   "screen=True eval=True"
+  ],
+  [
+   "TPL_07",
+   "needs fields"
+  ]
+ ],
+ "DEV-M3-S2": [
+  [
+   "TPL_09",
+   "screen=True eval=True"
+  ]
+ ],
+ "DEV-M3-S3": [
+  [
+   "TPL_09",
+   "screen=True eval=True"
+  ]
+ ],
+ "DEV-M4-S1": [
+  [
+   "TPL_10",
+   "needs fields"
+  ]
+ ],
+ "DEV-M4-S2": [
+  [
+   "TPL_10",
+   "needs fields"
+  ]
+ ],
+ "DEV-M4-S3": [
+  [
+   "TPL_10",
+   "needs fields"
+  ]
+ ]
+}

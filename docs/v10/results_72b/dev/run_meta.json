@@ -1,0 +1,36 @@
+{
+  "git_sha": "unknown",
+  "instances": "dev",
+  "instances_sha256": "dev",
+  "n_instances": 12,
+  "args": {
+    "backend": "vllm",
+    "model_dir": "/home/abhishek24024/flbds_data/models/Qwen2.5-72B-Instruct-FP8",
+    "instances": "dev",
+    "output_dir": "/home/abhishek24024/flbds_data/v10_gpu72b_dev",
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "conditions": [
+      "B0",
+      "L3",
+      "OPT",
+      "OPTONLY"
+    ],
+    "temperature": 0.7,
+    "max_tokens": 350,
+    "max_instances": 0,
+    "smoke": 0,
+    "chunk_instances": 12,
+    "log_every": 1,
+    "threads": 96,
+    "batch_size": 48,
+    "max_model_len": 8192,
+    "tp": 1,
+    "gpu_mem": 0.9
+  }
+}

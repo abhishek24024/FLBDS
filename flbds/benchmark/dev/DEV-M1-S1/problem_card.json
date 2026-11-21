@@ -31,7 +31,7 @@
     "target_change": "damp thermal swings under intense daytime solar irradiation",
     "target_direction": "stabilise",
     "boundary_type": "BC_FLUX",
-    "flux_or_load": 4000000.0
+    "flux_or_load": 150.0
   },
   "time_pattern": {
     "cycle_type": "cyclic",
@@ -41,10 +41,10 @@
   },
   "constraints": [],
   "hard_constraints": {
-    "max_thickness_m": null,
-    "max_mass_kg_m2": null,
+    "max_thickness_m": 0.05,
+    "max_mass_kg_m2": 45.0,
     "max_pressure_drop_Pa": null,
-    "max_surface_superheat_K": null,
+    "max_surface_superheat_K": 10.0,
     "min_pore_diameter_m": null,
     "min_cop": null,
     "max_envelope_height_m": null

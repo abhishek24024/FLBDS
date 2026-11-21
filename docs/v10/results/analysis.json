@@ -1,0 +1,438 @@
+{
+  "per_condition": {
+    "B0": {
+      "condition": "B0",
+      "n_runs": 96,
+      "eval_passes": 21,
+      "pass_rate": 0.21875,
+      "wilson_ci": [
+        0.14776345080877545,
+        0.31137906736116716
+      ],
+      "screen_passes": 26,
+      "screen_pass_rate": 0.2708333333333333,
+      "screen_pass_eval_fail": 5,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 32,
+      "schema_failure_final": 16,
+      "parse_failures_total": 0,
+      "tokens_total": 10351,
+      "tokens_mean_per_run": 107.82291666666667
+    },
+    "L3": {
+      "condition": "L3",
+      "n_runs": 96,
+      "eval_passes": 39,
+      "pass_rate": 0.40625,
+      "wilson_ci": [
+        0.31345302166501676,
+        0.5062611510582975
+      ],
+      "screen_passes": 48,
+      "screen_pass_rate": 0.5,
+      "screen_pass_eval_fail": 9,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 2,
+      "parse_failures_total": 0,
+      "tokens_total": 32891,
+      "tokens_mean_per_run": 342.6145833333333
+    },
+    "L3_BIOMATCH": {
+      "condition": "L3_BIOMATCH",
+      "n_runs": 96,
+      "eval_passes": 37,
+      "pass_rate": 0.3854166666666667,
+      "wilson_ci": [
+        0.29425768590940465,
+        0.4853929696413128
+      ],
+      "screen_passes": 46,
+      "screen_pass_rate": 0.4791666666666667,
+      "screen_pass_eval_fail": 9,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 1,
+      "schema_failure_final": 15,
+      "parse_failures_total": 0,
+      "tokens_total": 35666,
+      "tokens_mean_per_run": 371.5208333333333
+    },
+    "L3_BIOMISMATCH": {
+      "condition": "L3_BIOMISMATCH",
+      "n_runs": 96,
+      "eval_passes": 39,
+      "pass_rate": 0.40625,
+      "wilson_ci": [
+        0.31345302166501676,
+        0.5062611510582975
+      ],
+      "screen_passes": 46,
+      "screen_pass_rate": 0.4791666666666667,
+      "screen_pass_eval_fail": 7,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 8,
+      "schema_failure_final": 3,
+      "parse_failures_total": 0,
+      "tokens_total": 33923,
+      "tokens_mean_per_run": 353.3645833333333
+    },
+    "OPT": {
+      "condition": "OPT",
+      "n_runs": 96,
+      "eval_passes": 61,
+      "pass_rate": 0.6354166666666666,
+      "wilson_ci": [
+        0.5356522624736236,
+        0.7247605991482561
+      ],
+      "screen_passes": 70,
+      "screen_pass_rate": 0.7291666666666666,
+      "screen_pass_eval_fail": 9,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 26,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 10542,
+      "tokens_mean_per_run": 109.8125
+    },
+    "OPTONLY": {
+      "condition": "OPTONLY",
+      "n_runs": 96,
+      "eval_passes": 65,
+      "pass_rate": 0.6770833333333334,
+      "wilson_ci": [
+        0.5782983099894397,
+        0.7622415859776339
+      ],
+      "screen_passes": 96,
+      "screen_pass_rate": 1.0,
+      "screen_pass_eval_fail": 31,
+      "screen_fail_eval_pass": 0,
+      "template_choice_errors": 0,
+      "schema_failure_final": 0,
+      "parse_failures_total": 0,
+      "tokens_total": 0,
+      "tokens_mean_per_run": 0.0
+    }
+  },
+  "pairs": [
+    {
+      "a": "L3",
+      "b": "B0",
+      "metric": "eval_pass",
+      "n_instances": 48,
+      "mean_a": 0.40625,
+      "mean_b": 0.21875,
+      "mean_diff": 0.1875,
+      "sd_diff": 0.33620219346937197,
+      "ci95_bootstrap": [
+        0.10416666666666667,
+        0.2916666666666667
+      ],
+      "p_sign_flip": 0.000244140625,
+      "per_family": {
+        "F_HX": {
+          "n": 12,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_MEM": {
+          "n": 12,
+          "mean_a": 0.9583333333333334,
+          "mean_b": 0.6666666666666666,
+          "mean_diff": 0.2916666666666667,
+          "ci95_bootstrap": [
+            0.125,
+            0.4583333333333333
+          ],
+          "p_sign_flip": 0.03125
+        },
+        "F_PCM": {
+          "n": 12,
+          "mean_a": 0.25,
+          "mean_b": 0.0,
+          "mean_diff": 0.25,
+          "ci95_bootstrap": [
+            0.041666666666666664,
+            0.4583333333333333
+          ],
+          "p_sign_flip": 0.125
+        },
+        "F_RAD": {
+          "n": 12,
+          "mean_a": 0.4166666666666667,
+          "mean_b": 0.20833333333333334,
+          "mean_diff": 0.20833333333333334,
+          "ci95_bootstrap": [
+            0.0,
+            0.4583333333333333
+          ],
+          "p_sign_flip": 0.25
+        }
+      },
+      "pair": "L3:B0",
+      "margin_secondary": null,
+      "p_holm": 0.000732421875
+    },
+    {
+      "a": "OPT",
+      "b": "L3",
+      "metric": "eval_pass",
+      "n_instances": 48,
+      "mean_a": 0.6354166666666666,
+      "mean_b": 0.40625,
+      "mean_diff": 0.22916666666666666,
+      "sd_diff": 0.5453705877787914,
+      "ci95_bootstrap": [
+        0.07291666666666667,
+        0.3854166666666667
+      ],
+      "p_sign_flip": 0.008809911900880991,
+      "per_family": {
+        "F_HX": {
+          "n": 12,
+          "mean_a": 1.0,
+          "mean_b": 0.0,
+          "mean_diff": 1.0,
+          "ci95_bootstrap": [
+            1.0,
+            1.0
+          ],
+          "p_sign_flip": 0.00048828125
+        },
+        "F_MEM": {
+          "n": 12,
+          "mean_a": 1.0,
+          "mean_b": 0.9583333333333334,
+          "mean_diff": 0.041666666666666664,
+          "ci95_bootstrap": [
+            0.0,
+            0.125
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_PCM": {
+          "n": 12,
+          "mean_a": 0.0,
+          "mean_b": 0.25,
+          "mean_diff": -0.25,
+          "ci95_bootstrap": [
+            -0.4583333333333333,
+            -0.041666666666666664
+          ],
+          "p_sign_flip": 0.125
+        },
+        "F_RAD": {
+          "n": 12,
+          "mean_a": 0.5416666666666666,
+          "mean_b": 0.4166666666666667,
+          "mean_diff": 0.125,
+          "ci95_bootstrap": [
+            -0.08333333333333333,
+            0.3333333333333333
+          ],
+          "p_sign_flip": 0.5
+        }
+      },
+      "pair": "OPT:L3",
+      "margin_secondary": null,
+      "p_holm": 0.017619823801761983
+    },
+    {
+      "a": "OPTONLY",
+      "b": "OPT",
+      "metric": "eval_pass",
+      "n_instances": 48,
+      "mean_a": 0.6770833333333334,
+      "mean_b": 0.6354166666666666,
+      "mean_diff": 0.041666666666666664,
+      "sd_diff": 0.17361406616870423,
+      "ci95_bootstrap": [
+        0.0,
+        0.09375
+      ],
+      "p_sign_flip": 0.21875,
+      "per_family": {
+        "F_HX": {
+          "n": 12,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_MEM": {
+          "n": 12,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_PCM": {
+          "n": 12,
+          "mean_a": 0.125,
+          "mean_b": 0.0,
+          "mean_diff": 0.125,
+          "ci95_bootstrap": [
+            0.0,
+            0.25
+          ],
+          "p_sign_flip": 0.25
+        },
+        "F_RAD": {
+          "n": 12,
+          "mean_a": 0.5833333333333334,
+          "mean_b": 0.5416666666666666,
+          "mean_diff": 0.041666666666666664,
+          "ci95_bootstrap": [
+            -0.08333333333333333,
+            0.16666666666666666
+          ],
+          "p_sign_flip": 1.0
+        }
+      },
+      "pair": "OPTONLY:OPT",
+      "margin_secondary": null
+    },
+    {
+      "a": "L3_BIOMATCH",
+      "b": "L3_BIOMISMATCH",
+      "metric": "eval_pass",
+      "n_instances": 48,
+      "mean_a": 0.3854166666666667,
+      "mean_b": 0.40625,
+      "mean_diff": -0.020833333333333332,
+      "sd_diff": 0.25176680643542954,
+      "ci95_bootstrap": [
+        -0.09375,
+        0.052083333333333336
+      ],
+      "p_sign_flip": 0.7744140625,
+      "per_family": {
+        "F_HX": {
+          "n": 12,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_MEM": {
+          "n": 12,
+          "mean_a": 0.875,
+          "mean_b": 1.0,
+          "mean_diff": -0.125,
+          "ci95_bootstrap": [
+            -0.25,
+            0.0
+          ],
+          "p_sign_flip": 0.25
+        },
+        "F_PCM": {
+          "n": 12,
+          "mean_a": 0.25,
+          "mean_b": 0.25,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            -0.16666666666666666,
+            0.16666666666666666
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_RAD": {
+          "n": 12,
+          "mean_a": 0.4166666666666667,
+          "mean_b": 0.375,
+          "mean_diff": 0.041666666666666664,
+          "ci95_bootstrap": [
+            -0.125,
+            0.20833333333333334
+          ],
+          "p_sign_flip": 1.0
+        }
+      },
+      "pair": "L3_BIOMATCH:L3_BIOMISMATCH",
+      "margin_secondary": null,
+      "p_holm": 0.7744140625
+    },
+    {
+      "a": "L3_BIOMATCH",
+      "b": "L3",
+      "metric": "eval_pass",
+      "n_instances": 48,
+      "mean_a": 0.3854166666666667,
+      "mean_b": 0.40625,
+      "mean_diff": -0.020833333333333332,
+      "sd_diff": 0.27207503137009004,
+      "ci95_bootstrap": [
+        -0.09375,
+        0.0625
+      ],
+      "p_sign_flip": 0.794921875,
+      "per_family": {
+        "F_HX": {
+          "n": 12,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_MEM": {
+          "n": 12,
+          "mean_a": 0.875,
+          "mean_b": 0.9583333333333334,
+          "mean_diff": -0.08333333333333333,
+          "ci95_bootstrap": [
+            -0.25,
+            0.08333333333333333
+          ],
+          "p_sign_flip": 0.625
+        },
+        "F_PCM": {
+          "n": 12,
+          "mean_a": 0.25,
+          "mean_b": 0.25,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            -0.125,
+            0.125
+          ],
+          "p_sign_flip": 1.0
+        },
+        "F_RAD": {
+          "n": 12,
+          "mean_a": 0.4166666666666667,
+          "mean_b": 0.4166666666666667,
+          "mean_diff": 0.0,
+          "ci95_bootstrap": [
+            -0.20833333333333334,
+            0.25
+          ],
+          "p_sign_flip": 1.0
+        }
+      },
+      "pair": "L3_BIOMATCH:L3",
+      "margin_secondary": null
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "DEV-M1_elephant_skin_martins2018",
+    "title": "Locally-curved geometry generates bending cracks in the African elephant skin",
+    "category": "Benchmark Foundation (DEV-M1)",
+    "organism": "Loxodonta africana (African Elephant)",
+    "mechanism": "Skin cracking & mud-wallowing for evaporation and thermal buffering",
+    "year_venue": "2018 (Nature Communications)",
+    "doi": "https://doi.org/10.1038/s41467-018-06257-3",
+    "md_file": "DEV-M1_elephant_skin_martins2018.md",
+    "json_file": "DEV-M1_elephant_skin_martins2018.json"
+  },
+  {
+    "id": "DEV-M2_countercurrent_bundle_scholander1955",
+    "title": "Counter-Current Vascular Heat Exchange in the Fins of Whales",
+    "category": "Benchmark Foundation (DEV-M2)",
+    "organism": "Aptenodytes forsteri / Cetaceans (Penguin / Whale extremity)",
+    "mechanism": "Appendicular countercurrent vascular rete (artery surrounded by venous channels)",
+    "year_venue": "1955 (Journal of Applied Physiology)",
+    "doi": "https://doi.org/10.1152/jappl.1955.8.3.279",
+    "md_file": "DEV-M2_countercurrent_bundle_scholander1955.md",
+    "json_file": "DEV-M2_countercurrent_bundle_scholander1955.json"
+  },
+  {
+    "id": "DEV-M3_silver_ant_cooling_shi2015",
+    "title": "Keeping cool: Enhanced optical reflection and radiative heat dissipation in Saharan silver ants",
+    "category": "Benchmark Foundation (DEV-M3)",
+    "organism": "Cataglyphis bombycina (Saharan Silver Ant)",
+    "mechanism": "Triangular cross-section hair arrays for solar reflection & mid-IR passive radiative cooling",
+    "year_venue": "2015 (Science)",
+    "doi": "https://doi.org/10.1126/science.aab3564",
+    "md_file": "DEV-M3_silver_ant_cooling_shi2015.md",
+    "json_file": "DEV-M3_silver_ant_cooling_shi2015.json"
+  },
+  {
+    "id": "DEV-M4_underwater_plastron_flynn2008",
+    "title": "Underwater breathing: the mechanics of plastron respiration",
+    "category": "Benchmark Foundation (DEV-M4)",
+    "organism": "Aphelocheirus aestivalis (Plastron Insect)",
+    "mechanism": "Hydrophobic micro-pore plastron gill for underwater diffusive gas exchange",
+    "year_venue": "2008 (Journal of Fluid Mechanics)",
+    "doi": "https://doi.org/10.1017/s0022112008002048",
+    "md_file": "DEV-M4_underwater_plastron_flynn2008.md",
+    "json_file": "DEV-M4_underwater_plastron_flynn2008.json"
+  },
+  {
+    "id": "DEV-M4_superhydrophobic_plastron_shirtcliffe2006",
+    "title": "Plastron properties of a superhydrophobic surface",
+    "category": "Benchmark Foundation (DEV-M4)",
+    "organism": "Submerged Arthropods / Bio-inspired Plastron",
+    "mechanism": "Capillary breakthrough pressure and Laplace retention in porous plastrons",
+    "year_venue": "2006 (Applied Physics Letters)",
+    "doi": "https://doi.org/10.1063/1.2347266",
+    "md_file": "DEV-M4_superhydrophobic_plastron_shirtcliffe2006.md",
+    "json_file": "DEV-M4_superhydrophobic_plastron_shirtcliffe2006.json"
+  },
+  {
+    "id": "PMC13658535",
+    "title": "TRP channel activation and cholinergic signaling in insect thermoregulation: evidence from the American cockroach",
+    "category": "Corpus Paper (Insect Thermoregulation)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "TRP channel activation and cholinergic signaling in American cockroach thermoregulation",
+    "year_venue": "PubMed Central",
+    "doi": "10.1007/s00360-026-01699-4",
+    "md_file": "PMC13658535.md",
+    "json_file": "PMC13658535.json"
+  },
+  {
+    "id": "PMC13348343",
+    "title": "Adaptive and Highly Efficient Thermoregulation Based on Multi\u2010Dimensional Janus Film",
+    "category": "Corpus Paper (Janus Film Thermoregulation)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Adaptive and highly efficient thermoregulation based on multi-dimensional Janus film",
+    "year_venue": "PubMed Central",
+    "doi": "10.1002/advs.76462",
+    "md_file": "PMC13348343.md",
+    "json_file": "PMC13348343.json"
+  },
+  {
+    "id": "PMC13632099",
+    "title": "Experimental evidence for behavioural cooling as a response to virus infection in an ectothermic vertebrate",
+    "category": "Corpus Paper (Ectotherm Behavioural Cooling)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Experimental evidence for behavioural cooling in response to thermal stress",
+    "year_venue": "PubMed Central",
+    "doi": "10.1186/s12915-026-02669-6",
+    "md_file": "PMC13632099.md",
+    "json_file": "PMC13632099.json"
+  },
+  {
+    "id": "PMC13574850",
+    "title": "Morphophysiological profiles associated with thermoregulation in dark-coated North Tinerfe\u00f1a goats and Can\u00e1ria de Pelo sheep in the Canary Islands",
+    "category": "Corpus Paper (Coat-Mediated Thermoregulation)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Morphophysiological profiles and thermal regulation in dark-coated sheep",
+    "year_venue": "PubMed Central",
+    "doi": "10.1007/s00484-026-03324-z",
+    "md_file": "PMC13574850.md",
+    "json_file": "PMC13574850.json"
+  },
+  {
+    "id": "PMC13336401",
+    "title": "Intrinsic Coupling of Radiative Cooling and Triboelectric Responses in Dual\u2010Function ZrO2 Nanocomposites for Adaptive Thermoregulation",
+    "category": "Corpus Paper (Passive Radiative Cooling)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Intrinsic coupling of radiative surface cooling and triboelectric response",
+    "year_venue": "PubMed Central",
+    "doi": "10.1002/advs.76121",
+    "md_file": "PMC13336401.md",
+    "json_file": "PMC13336401.json"
+  },
+  {
+    "id": "PMC13547889",
+    "title": "Thermal Ecology and Thermoregulatory Behavior of the Invasive Turtle, Trachemys scripta elegans, in the Mediterranean Basin",
+    "category": "Corpus Paper (Ectotherm Thermal Ecology)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Thermal ecology and basking/cooling thermoregulatory behavior in invasive turtles",
+    "year_venue": "PubMed Central",
+    "doi": "10.1002/jez.70117",
+    "md_file": "PMC13547889.md",
+    "json_file": "PMC13547889.json"
+  },
+  {
+    "id": "PMC13508986",
+    "title": "Bioenergetic Dynamics of Heat Exchange in Japanese Quail Under Heat Stress with Gracilaria birdiae Supplementation",
+    "category": "Corpus Paper (Avian Heat Exchange)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Bioenergetic dynamics of convective and evaporative heat exchange in Japanese quail",
+    "year_venue": "PubMed Central",
+    "doi": "10.3390/ani16162547",
+    "md_file": "PMC13508986.md",
+    "json_file": "PMC13508986.json"
+  },
+  {
+    "id": "PMC13488905",
+    "title": "Perspiration vapor lightens near-skin air, but hinders human evaporative cooling in arid heat",
+    "category": "Corpus Paper (Evaporative Cooling in Arid Heat)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Perspiration vapor dynamics and human evaporative cooling limitations in arid climates",
+    "year_venue": "PubMed Central",
+    "doi": "10.1126/sciadv.aee4703",
+    "md_file": "PMC13488905.md",
+    "json_file": "PMC13488905.json"
+  },
+  {
+    "id": "PMC8531342",
+    "title": "Integrated cooling (i-Cool) textile of heat conduction and sweat transportation for personal perspiration management",
+    "category": "Corpus Paper (Personal Perspiration & Conduction)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "i-Cool textile coupling heat conduction and sweat transportation",
+    "year_venue": "PubMed Central",
+    "doi": "10.1038/s41467-021-26384-8",
+    "md_file": "PMC8531342.md",
+    "json_file": "PMC8531342.json"
+  },
+  {
+    "id": "PMC8593863",
+    "title": "Bicomponent Cellulose Fibrils and Minerals Afford Wicking Channels Stencil-Printed on Paper for Rapid and Reliable Fluidic Platforms",
+    "category": "Corpus Paper (Wicking & Microfluidics)",
+    "organism": "Biological System / Biomimetic Mechanism",
+    "mechanism": "Bicomponent cellulose fibrils and mineral wicking channels for fluid transport",
+    "year_venue": "PubMed Central",
+    "doi": "10.1021/acsapm.1c00856",
+    "md_file": "PMC8593863.md",
+    "json_file": "PMC8593863.json"
+  }
+]

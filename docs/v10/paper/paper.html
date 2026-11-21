@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLBDS V10 Research Proposal</title>
+<style>
+  :root {
+    --ink: #111;
+    --muted: #555;
+    --rule: #bbb;
+    --accent: #0072B2;
+    --paper: #fff;
+  }
+  @page { size: A4; margin: 18mm 17mm 20mm 17mm; }
+  html { background: var(--paper); }
+  body {
+    font-family: "Charter", "Bitstream Charter", "Georgia", "Times New Roman", serif;
+    font-size: 10.4pt; line-height: 1.42; color: var(--ink); background: var(--paper);
+    max-width: 176mm; margin: 0 auto; padding: 8mm 0;
+    hyphens: auto; -webkit-hyphens: auto; text-align: justify;
+  }
+  @media print { body { padding: 0; max-width: none; } }
+  h1.title { font-size: 17pt; line-height: 1.22; text-align: center; margin: 0 0 4mm; font-weight: 700; }
+  .subtitle { text-align: center; font-style: italic; color: var(--muted); margin: 0 0 3mm; }
+  .author { text-align: center; font-size: 11pt; margin: 0; }
+  .date { text-align: center; color: var(--muted); margin: 1mm 0 6mm; }
+  .abstract { margin: 0 8mm 6mm; font-size: 9.6pt; }
+  .abstract h2 { font-size: 10pt; text-align: center; margin: 0 0 1.5mm; letter-spacing: 0.04em; text-transform: uppercase; }
+  .keywords { font-size: 9pt; margin: 2mm 8mm 6mm; color: var(--muted); }
+  h2 { font-size: 12.5pt; margin: 7mm 0 2mm; page-break-after: avoid; break-after: avoid; }
+  h3 { font-size: 10.8pt; margin: 4.5mm 0 1.5mm; page-break-after: avoid; break-after: avoid; }
+  p { margin: 0 0 2.2mm; orphans: 3; widows: 3; }
+  ul, ol { margin: 0 0 2.4mm; padding-left: 6mm; }
+  li { margin-bottom: 0.8mm; }
+  code, .mono { font-family: "Menlo", "DejaVu Sans Mono", "Consolas", monospace; font-size: 8.4pt; }
+  pre { font-family: "Menlo", "DejaVu Sans Mono", monospace; font-size: 7.9pt; line-height: 1.32; background: #f5f5f5;
+        border: 0.5pt solid #ddd; padding: 2mm 3mm; white-space: pre-wrap; word-break: break-word; text-align: left;
+        page-break-inside: avoid; break-inside: avoid; margin: 0 0 3mm; }
+  figure { margin: 4mm 0 4.5mm; page-break-inside: avoid; break-inside: avoid; text-align: center; }
+  figure img { max-width: 100%; }
+  figure svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+  figcaption { font-size: 9pt; text-align: justify; margin-top: 1.8mm; color: #222; }
+  figcaption b, .tcap b { font-weight: 700; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.5pt; line-height: 1.28; margin: 1mm 0 4mm; text-align: left; }
+  thead { display: table-header-group; }
+  tr { page-break-inside: avoid; break-inside: avoid; }
+  th, td { padding: 0.9mm 1.4mm; vertical-align: top; border-bottom: 0.4pt solid #ddd; }
+  thead th { border-top: 1pt solid #000; border-bottom: 0.7pt solid #000; font-weight: 700; }
+  tbody tr:last-child td { border-bottom: 1pt solid #000; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .tcap { font-size: 9pt; margin: 4mm 0 1mm; text-align: justify; page-break-after: avoid; break-after: avoid; }
+  .tablewrap { page-break-inside: auto; }
+  .keep { page-break-inside: avoid; break-inside: avoid; }
+  .box { border: 0.6pt solid #999; border-left: 2.2pt solid var(--accent); padding: 2mm 3mm; margin: 2mm 0 3.5mm; background: #fafafa; page-break-inside: avoid; break-inside: avoid; }
+  .box p:last-child { margin-bottom: 0; }
+  .tag { font-size: 7.6pt; font-family: "Helvetica Neue", Arial, sans-serif; border: 0.5pt solid #777; border-radius: 2pt; padding: 0 1.2mm; white-space: nowrap; }
+  .tag.m { border-color: var(--accent); color: var(--accent); }
+  .tag.p { border-color: #777; color: #555; }
+  .refs { font-size: 8.6pt; line-height: 1.3; padding-left: 7mm; }
+  .refs li { margin-bottom: 1mm; text-align: left; word-break: break-word; }
+  .refs a { color: #003a66; text-decoration: none; word-break: break-all; }
+  a { color: #003a66; }
+  .pagebreak { page-break-before: always; break-before: page; }
+  .pending { border: 0.6pt dashed #888; padding: 1.5mm 3mm; color: #444; font-style: italic; }
+  .small { font-size: 9pt; }
+  .toc { font-size: 9.4pt; columns: 2; column-gap: 8mm; margin: 0 8mm 5mm; }
+  .toc div { break-inside: avoid; }
+  sup.r { font-size: 7.5pt; }
+</style>
+</head>
+<body>
+
+<h1 class="title">Physics-Verified Bio-Inspired Concept Generation, Revisited: A Leakage-Audited Benchmark and a Simplified Verifier-in-the-Loop Architecture</h1>
+<p class="subtitle">Revised research proposal (FLBDS V10). Supersedes “Physics-Verified Bio-Inspired Concept Generation from Biological Images”.</p>
+<p class="author">Abhishek Tripathi</p>
+<p class="date">20 November 2026</p>
+
+<div class="abstract">
+<h2>Abstract</h2>
+<p>The original proposal asked whether typed TRIZ-style operators and a biological source add value to a large language model (LLM) that proposes thermal, fluid and porous-media (TFP) designs checked by hand-written physics code. Its motivating pilot reported that feeding back physics-check failures roughly doubled the pass rate of Qwen2.5-72B on 12 hand-authored development cases (18/60 to 34/60). This revision reports an audit of that system and a re-design. The audit found twelve defects, including two routes by which the hidden list of acceptable templates reached the model, schema defaults that filled omitted design fields, and a case scored against a specification its own reference design fails. Rescoring the stored runs shows that a design containing nothing but the template identifier passes the hidden scorer on 5 of the 12 cases; on the 7 remaining cases feedback adds +2.9 points (11/35 vs 12/35; sign-flip p = 1.0). The pilot gain was therefore an artefact of template selection on trivially passable cases; re-measured on the same cases with the corrected harness, feedback does help (+35 points, Holm p = 0.016). We then built V10: a sealed generator of 48 solver-certified, non-trivial instances in four families; a screen that returns per-constraint margins and never sees the answer; a single hidden-scorer submission per run; and a classical optimiser arm. A pilot with Qwen2.5-72B (48 instances × 3 seeds, GPU), with Qwen2.5-7B (2 seeds, CPU) as a scale contrast, gives four findings. Screen feedback helps (+30.6 points over a single shot at 72B, Holm p = 3×10⁻⁵; +18.8 at 7B). Seeding a classical optimiser with the LLM's design adds a further +11.1 points at 72B (not significant, Holm p = 0.37) and +22.9 at 7B (Holm p = 0.018): the optimiser matters more when the LLM is weaker. The same optimiser told the correct template and given no LLM at all does as well as either model (65/96, against 95/144 for the 72B LLM-seeded arm; paired difference +1.7 points, p = 0.44). A matched biology card shows no effect (+2.8 points over a mismatched card at 72B, Holm p = 0.56). The optimiser also exposes that the screen is not a relaxation of the scorer: it passes every design on the screen, but 31 of 96 (no LLM) and 49 of 144 (72B-seeded) fail the hidden scorer. We conclude that once the template is given these problems are parameter-fitting problems that do not need an LLM. The research question therefore moves to mechanism and template <em>choice</em> on choice-sensitive instances, which only an LLM or a biological source could inform. The paper states five preregisterable research questions, the methodology to answer them, and a plan to April 2027.</p>
+</div>
+<p class="keywords"><b>Keywords:</b> bio-inspired design; LLM; verifier feedback; benchmark leakage; parametric benchmark generation; multi-fidelity verification; preregistration.</p>
+
+<div class="toc">
+<div>1 Introduction</div><div>2 Background and related work</div><div>3 The V9 system and what the audit found</div><div>4 Design decisions</div><div>5 The V10 architecture</div><div>6 Research questions and hypotheses</div><div>7 Methodology</div><div>8 Preliminary results</div><div>9 Plan</div><div>10 Threats to validity and limitations</div><div>11 Conclusion</div><div>References · Appendices A–B</div>
+</div>
+
+<div class="box small">
+<p><b>Status labels.</b> Throughout, <span class="tag m">measured</span> marks a number computed from stored results tonight or earlier; <span class="tag p">planned</span> marks work that has not been run. Every number in this paper is taken from the project's result files, the V10 findings log, or the literature notes named in Appendix B. “Physics-verified” is used only in the narrow sense of <em>passes hand-written lumped and 1-D TFP code checks within declared validity regimes</em>; it is code verification, not validation against experiment [34].</p>
+</div>
+
+<!-- ===================================================================== -->
+<h2>1 Introduction</h2>
+
+<h3>1.1 Problem</h3>
+<p>Bio-inspired design (BID) transfers a mechanism observed in an organism to an engineering problem. LLMs have made it cheap to propose such transfers, and recent systems report more and more novel ideas. They do not report whether those ideas work. BioSpark, the best-evidenced LLM BID system, raised expert-rated novelty but <em>lowered</em> rated feasibility (5.7 vs 6.8) [1], and Zhu et al. name “infeasible numbers from the engineering perspective” as a core failure of GPT-based BID [2]. None of the LLM BID systems surveyed for this proposal checks physics before accepting a concept [1–4]. A physics check matters for two reasons. It is the only cheap way to reject transfers that look right but cannot work at the target scale: the dimensionless group that makes an organism's mechanism work often changes regime at engineering scale [35–37]. It also gives a gradable outcome, so that claims about what helps generation can be tested rather than rated.</p>
+
+<h3>1.2 What the original proposal aimed at</h3>
+<p>The original proposal (19 pages; referred to as V9) had two goals: a visual biology-to-engineering thesaurus of SAPPhIRE-style mechanism cards, and a concept generator producing 3–5 physics-verified concepts. It defined two modes. Mode A took a biological image plus a problem; Mode B took a biological image alone and selected a problem. The pipeline had eight modules: M1 biology grounding (BioCLIP, VLM tagger, retrieval, extractor), M2 problem-card extraction, M3 knowledge graph, M4 analogy and transformation engine (role binder, conflict detector, operators T1–T5), M5 physics verifier (a lumped screen in the loop and a coupled evaluator for hidden scoring), M6 novelty gate, M7 outputs (SVG, CAD, sketches) and M8 user interface. It asked four research questions: do operators plus an in-loop physics check beat simpler methods (RQ1); does the biological source help compared with a mismatched or missing one (RQ2); does function-based search beat text search (RQ3); and can Mode B pick and solve a suitable problem (RQ4). Its key pilot observation was an “attribution gap”: plain prompting passed 17/60 runs (28.3%), and feeding back evaluator failures raised this to 33/60 (55.0%) “with no biology and no operators”, while in 0 of 8 reviewed transcripts did the model change mechanism.</p>
+
+<h3>1.3 What changed and why</h3>
+<p>Between the proposal and today the project ran Rounds 9–11 on the 12 development cases, and tonight it audited them. The audit (Section 3) shows that the pilot's central number was produced by a measurement apparatus that leaked the answer and rewarded empty designs. That changes the proposal in three ways. First, the benchmark is replaced: twelve hand-tuned cases cannot support any claim, so instances are now generated parametrically and certified satisfiable by an optimiser against the hidden scorer. Second, the architecture is cut to the parts with evidence: an LLM proposer, a physics screen with numeric feedback, a hidden scorer and a classical optimiser. Operators, the knowledge graph, Mode B, the image front end and the output modules are dropped or deferred behind explicit gates. Third, the research questions are rewritten. The pilot on certified instances shows that an optimiser that knows the correct template needs no LLM, so the question that remains open is whether an LLM, with or without biology, chooses the right <em>mechanism</em>. Table 1 summarises the changes.</p>
+
+<p class="tcap"><b>Table 1.</b> Original proposal elements and their status in this revision.</p>
+<table>
+<thead><tr><th>Original element</th><th>Status in V10</th><th>Reason (section)</th></tr></thead>
+<tbody>
+<tr><td>Pilot claim: feedback raises pass rate 28% → 55%</td><td>Withdrawn</td><td>Explained by template selection on blank-passable cases (§3.3–3.4)</td></tr>
+<tr><td>12 dev cases + 36 hand-authored test cases</td><td>Dev frozen as regression set; test replaced by sealed generator</td><td>Leakage, post-hoc edits, 4 clusters cannot reach p &lt; 0.05 (§3, §7.1)</td></tr>
+<tr><td>M4 operators T1–T5, conflict detector</td><td>Dropped; regime check folded into screen</td><td>Fired on 2/12 cases; B3 30/60 &lt; screen loop 34/60 (§3.1, §4)</td></tr>
+<tr><td>RQ1 (operators + check vs simpler)</td><td>Replaced by RQ1 (feedback) and RQ2 (optimiser and choice)</td><td>Operators have no route to an effect (§6)</td></tr>
+<tr><td>RQ2 (does biology help)</td><td>Kept as RQ3, moved to choice-sensitive instances</td><td>Only template choice is left for biology to influence (§6)</td></tr>
+<tr><td>RQ3 function search, RQ4 Mode B</td><td>Out of scope</td><td>No retrieval or Mode B exists; no preliminary evidence (§4)</td></tr>
+<tr><td>Title promise “from biological images”</td><td>Image path deferred behind a gate</td><td>No image path exists; VLM mechanism claims unreliable (§2.7, §5.9)</td></tr>
+<tr><td>“Physics-verified”</td><td>Narrowed to code verification within declared regimes</td><td>No template has a validation data set (§10)</td></tr>
+</tbody>
+</table>
+
+<h3>1.4 Contributions</h3>
+<ol>
+<li><b>An audit and a negative result.</b> We document twelve defects in the V9 measurement apparatus with file and line locations, rescore the stored Qwen2.5-72B runs, and show that the reported feedback effect vanishes on the cases a blank design cannot pass (Section 3). <span class="tag m">measured</span></li>
+<li><b>A sealed, certified parametric benchmark generator.</b> Four families mirroring the dev clusters; each instance is certified satisfiable by differential evolution against the hidden scorer and rejected if more than half of 200 random designs pass. 48 instances, SHA-256 sealed with a canary string, generated in 40 s on CPU (Sections 5 and 7). <span class="tag m">measured</span></li>
+<li><b>The V10 architecture.</b> A verifier-in-the-loop design with an information firewall between the in-loop screen and the hidden scorer, strict all-fields-required parsing, per-constraint numeric feedback, and an optimiser arm (Section 5). Implemented in <code>flbds/v10/</code>; 45 test cases (24 test functions with parametrisation) reported passing on the server.</li>
+<li><b>Pilot evidence on certified instances.</b> A pilot with Qwen2.5-72B (GPU) and Qwen2.5-7B (CPU) that separates three effects: verifier feedback, optimiser, and LLM template choice. It also gives the first evidence on the biology card (Section 8). <span class="tag m">measured</span></li>
+<li><b>A preregisterable plan.</b> Five research questions with metrics, tests and go/no-go criteria, a power analysis, a compute budget and a risk register (Sections 6, 7 and 9). <span class="tag p">planned</span></li>
+</ol>
+
+<!-- ===================================================================== -->
+<h2>2 Background and related work</h2>
+
+<h3>2.1 Bio-inspired design with LLMs</h3>
+<p>BioSpark expands a seed set of AskNature mechanisms with GPT-4 across a tree of life and offers designers short transfer prompts (“Sparks”), trade-off tables and question answering. In a within-subjects study with 12 participants it beat an AskNature-plus-ChatGPT baseline on expert-rated quality (6.5 vs 4.5) but lowered rated feasibility (5.7 vs 6.8). Its clustering feature was rated least useful (4.1 of 7) [1]. Zhu, Zhang and Luo fine-tuned GPT-3 generators and relevance evaluators for BID. Over half of their retrieved analogies for a flying car were birds, which they read as surface-similarity retrieval, and they report infeasible numbers [2]. AskNatureGPT [3] and NASA's BIDARA with retrieval [4] report feasibility or quality gains, mostly without numbers that could be checked. Across this literature, every component with a reported gain is either retrieval of real examples or a cheap LLM transfer prompt. No system reports a verifiable engineering outcome, so no published result tells us which component improves <em>verified</em> designs. LLM-generated design ideas are also measurably less diverse than human ones [38].</p>
+
+<h3>2.2 TRIZ and structured intermediate representations</h3>
+<p>Published TRIZ-plus-LLM systems are small case studies without a plain-LLM baseline. AutoTRIZ matched or half-matched the textbook analysis on 7 of 10 cases and states that there is no objective mechanism to evaluate its solutions [5]. TRIZ Agents studied one gantry-crane case at 150k–250k tokens per run [6]. The one benchmark, TRIZBench, finds that TRIZ structure helps <em>principle prediction</em>, a classification task, not design quality [7]. The original proposal's operators were a deterministic graph-rewrite form of this idea; neither the literature nor the project's own data (Section 3) supports them.</p>
+
+<h3>2.3 Verifier feedback and self-correction</h3>
+<p>Intrinsic self-correction does not reliably help. Huang et al. found it lowered GSM8K accuracy (Llama-2 from 62.0% to 36.5%), while oracle correctness labels raised it, so the bottleneck is judging correctness rather than producing fixes [8]. Kamoi et al.'s survey concludes that self-correction works where reliable external feedback exists, that no prior work shows success with feedback from prompted LLMs on general tasks, and that many positive results came from evaluations that used information unavailable at deployment [9]. Olausson et al. show that at matched compute, self-repair gains are modest and that budget is better spent on a diverse set of initial samples [10]. Self-Debug shows repair pays when feedback is informative, such as unit tests [50]. In simulator-grounded design, SciDesignBench's 520 tasks, which include heat exchangers and reactors, show feedback doubling to tripling single-shot success before plateauing at about 67–76% for frontier models; giving the model a starting design lowered scores for all seven models [11]. Eureka [12] and AlphaEvolve [13] keep a population with score-based selection and an evaluation cascade from cheap to expensive checks. With an automatic verifier, coverage from repeated sampling grows roughly log-linearly and turns directly into accuracy [14].</p>
+
+<h3>2.4 LLM plus classical optimiser</h3>
+<p>The evidence consistently favours hybrids in which the LLM supplies structure and a classical optimiser fits numbers. In a 2026 hyperparameter benchmark, pure-LLM agents lost to TPE and CMA-ES, while a hybrid in which a 0.8B LLM proposed 30% of CMA-ES trials beat every classical and pure-LLM method; giving the LLM 80% of trials collapsed performance [15]. LLM-SR has the LLM propose equation skeletons and fits constants with BFGS [16]. ADO-LLM uses LLM starting points inside Bayesian optimisation for analog circuits [17]. In constrained inverse design, a BoTorch baseline reached the ceiling where the best LLM did not [18]. No published study compares LLM float-tuning against LLM-choice-plus-optimiser on lumped thermal design; Section 8 provides a first, small one.</p>
+
+<h3>2.5 Multi-fidelity verification and reward hacking</h3>
+<p>A cheap screen is safe to use for feedback only if it is a necessary condition of the expensive scorer, so that screen failure implies scorer failure; in the multi-fidelity taxonomy of Peherstorfer et al. the screen is a <em>filter</em> [19]. Feedback loops drive models to optimise the proxy rather than the target (“in-context reward hacking”), and the effect is not removed by prompting or scale [25]. Frontier models exploit scorer bugs and reference answers when they can reach them [26]. Scientific code without test oracles is best checked with metamorphic and property tests [33]. LLM agents can now make finite-element and CAE code run, but “runs” overstates “physically correct” by about 20 points [45], and repeated-trial consistency is well below best-of-k [44]; we therefore keep templates and scorers hand-written.</p>
+
+<h3>2.6 Benchmark statistics and parametric generation</h3>
+<p>Miller's guidance for evaluations is that the independent question is the unit of inference, that clustered standard errors can exceed naive ones by more than three times, and that more questions beat more resamples [20]. Bowyer et al. show that CLT intervals badly underestimate uncertainty below a few hundred items and recommend Wilson or Beta-Bernoulli intervals [21]; Card et al. show most NLP comparisons are underpowered [39]. Templated generation scales the number of instances, as in GSM-Symbolic [30], but a 2026 re-analysis showed that GSM-Symbolic's own sampling distribution confounded its comparison [31], so the sampling specification must be fixed before the test seed is drawn. EngDesign scores engineering design by executable checks and reports the fraction of tasks passed in all trials as a robustness ratio [32].</p>
+
+<h3>2.7 Vision grounding</h3>
+<p>For species identification a specialist encoder dominates. BioCLIP 2 reaches 55.6% mean zero-shot top-1 over ten species benchmarks and is MIT-licensed [22]; a general VLM such as Qwen2.5-VL-7B is far weaker on open-vocabulary naming, and its best use is re-ranking a specialist's top-5 [49]. VLMs follow leading hints [23], and open models score about 47–50% on expert microscopy questions, with half of errors being perception errors [24]. A VLM should therefore never be asked for the mechanism, and its prompt must not contain the hypothesised taxon.</p>
+
+<!-- ===================================================================== -->
+<h2>3 The V9 system and what the audit found</h2>
+
+<h3>3.1 The system as built</h3>
+<p>What existed at the end of Round 11 was much smaller than the proposal. Ten hand-written TFP templates (TPL_01–TPL_10), each with a lumped <code>screen_*</code> and a coupled <code>eval_*</code> function, totalled 2,442 lines in <code>flbds/physics/</code>. There were 12 hand-authored dev cases (four mechanism clusters × three splits), a runner in which Qwen2.5-72B-FP8 proposed typed parameters, and a skeleton of the M4 operator layer. The biology path did not exist: no image path, no retrieval, no gold cards, no test set and no Mode B. The “biological source” in every full-pipeline (B3) run was one of four hand-written fixture cards. The Round 11 ledger (60 runs per condition: 12 cases × 5 seeds, T = 0.7) was B0 self-critique 18/60 (30.0%, Wilson 19.9–42.5), screen-feedback loop 34/60 (56.7%, 44.1–68.4), coupled-oracle feedback 33/60 (55.0%) and B3 with operators 30/60 (50.0%). Operator T1 fired on 2 of 12 cases and no other operator fired. On those two cases B3 scored 6/10 against 9/10 for the plain screen loop. The rewritten graph an operator produced was never shown to the model.</p>
+
+<h3>3.2 Twelve defects</h3>
+<p>Table 2 lists the defects found by reading code and data. Several are classic test-leakage and reward-hacking patterns [9, 25, 26].</p>
+<p class="tcap"><b>Table 2.</b> Defects in the V9 measurement apparatus. Paths are relative to the repository root; <code>runner11</code> is <code>scripts/run_round11_benchmarks.py</code>.</p>
+<table>
+<thead><tr><th>#</th><th>Defect</th><th>Location</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>B3 prompt's “Target Verifier Template” read from hidden ground truth when no operator fires</td><td><code>runner11:713</code></td><td>B3 used the ground-truth template in 50/60 runs; explains “100% template preservation”</td></tr>
+<tr><td>2</td><td>Screen checks membership in <code>gt.acceptable_templates</code> and echoes the list as feedback</td><td><code>flbds/physics/screen.py:21, 62–74</code></td><td>7/60 Screen and 7/60 Oracle runs saw the list; 6 of each then passed</td></tr>
+<tr><td>3</td><td>Scorer specs in a second hard-coded table overwrite model fields before screen and eval</td><td><code>runner11:72–85</code>, <code>:99–109</code></td><td>Model-chosen values silently replaced</td></tr>
+<tr><td>4</td><td>DEV-M4-S1 scored at 10.0 m head; card and reference design say 2.5 m</td><td><code>runner11:82</code></td><td>Case unsatisfiable as scored (2.4 µm pore breaks through near 4.2 m)</td></tr>
+<tr><td>5</td><td>Pydantic defaults fill omitted design variables</td><td><code>flbds/schema/templates.py:165–187</code></td><td>A three-field B3 output on DEV-M3-S1 passed</td></tr>
+<tr><td>6</td><td>Screen invents caps when the card is silent</td><td><code>screen.py:77–84, 136, 140, 155</code></td><td>Limits nobody stated are checked</td></tr>
+<tr><td>7</td><td>Case-specific hack in shared code (<code>charge_h = 4.86</code> for DEV-M1-S3)</td><td><code>flbds/physics/capacity_bound.py:131</code></td><td>Gate tuned to one case</td></tr>
+<tr><td>8</td><td>Laplace breakthrough uses <code>abs(cos θ)</code></td><td><code>tpl10_diffusion.py:149</code>, <code>screen.py:193</code></td><td>Hydrophilic pores treated as hydrophobic in both tiers</td></tr>
+<tr><td>9</td><td>Screen and eval share helpers</td><td><code>tpl08_countercurrent.py:52, 171</code>; <code>tpl06_porous_flow.py:14, 49, 88</code></td><td>Tier agreement is not independent evidence</td></tr>
+<tr><td>10</td><td>Screen is not a relaxation of the eval</td><td><code>screen.py:142–151</code></td><td>B3 screen-pass 25/60 &lt; eval-pass 30/60</td></tr>
+<tr><td>11</td><td>32/60 B3 first turns malformed; prompt never shows field names; union schema; 4,096-token context</td><td><code>runner11:745–768, 312–314, 335</code></td><td>B3 spent its first of three turns on format errors</td></tr>
+<tr><td>12</td><td>Agent-written transcript review reports parameters absent from the raw JSON</td><td><code>docs/audit/b3_round11_transcript_review.md:40–50, 109</code></td><td>“Operator T1 proved causally effective” is unsupported</td></tr>
+</tbody>
+</table>
+
+<h3>3.3 E0: rescoring the Round 11 runs</h3>
+<p>E0 rescored all 240 stored Round 11 runs (B0, Screen, Oracle, B3; 60 each) on CPU with the scorer fixes that can be applied after the fact: the DEV-M4-S1 head set to the card's 2.5 m and the contact-angle sign corrected <span class="tag m">measured</span>. These fixes change no outcome: 18/34/33/30 of 60 for B0/Screen/Oracle/B3, as before. Two further facts emerged. Every stored pass relied on at least one designer field filled by a schema default (59–60 of 60 runs per condition omitted at least one such field), so a strict no-defaults rule would give zero passes in every condition. And B3 took its template from hidden ground truth in 50 of 60 runs.</p>
+
+<figure>
+<img src="fig/fig_e0.png" alt="Grouped bar chart of hidden-eval pass rates for B0, Screen, Oracle and B3 on trivially passable versus non-trivial dev cases">
+<figcaption><b>Figure 1.</b> E0 rescoring of the stored Round 11 Qwen2.5-72B runs (5 seeds per case), split by whether a blank design passes the hidden scorer. Error bars are Wilson 95% intervals over runs; they treat seeds as independent and so understate uncertainty. On the 5 trivially passable cases any feedback condition succeeds; on the 7 non-trivial cases no condition beats B0. Source: <code>docs/v10/e0_results/e0_nontrivial.json</code>.</figcaption>
+</figure>
+
+<h3>3.4 The blank-design test</h3>
+<p>To ask what the loop was actually achieving, we submitted to the hidden scorer a design containing only <code>template_id</code>, with every other field left to schema defaults and the environment taken from the scorer's own table. This blank design passes on 5 of the 12 dev cases (DEV-M2-S1, M2-S2, M3-S1, M3-S2, M3-S3) <span class="tag m">measured</span>. On these 5 cases, passing requires only naming the right template, and feedback that names the acceptable templates supplies exactly that. Figure 1 shows the consequence. On the trivially passable cases B0 passes 7/25 while Screen, Oracle and B3 pass 22/25, 22/25 and 23/25. On the 7 non-trivial cases B0 passes 11/35, Screen 12/35, Oracle 11/35 and B3 7/35. The Screen − B0 difference is +2.9 points (per-case sign-flip p = 1.0, n = 7 cases) and B3 − Screen is −14.3 points (p = 0.25). Across all 12 cases, Screen − B0 is +26.7 points but even then not significant (p = 0.080 over cases, 0.25 over the four clusters). The Round 11 claim that the feedback loop doubles the pass rate is explained by template selection on cases a blank design already passes. There is no measured physical-design benefit on the dev cases.</p>
+
+<h3>3.5 Relaxation audit of the V10 screen</h3>
+<p>The V10 families (Section 5) wrap the same templates with an explicit per-constraint screen and the existing hidden evaluator. A screen is safe for feedback only if screen failure implies scorer failure [19]. We tested this on 2,000 designs per family: half uniform over the design space and half Gaussian perturbations (σ = 0.15 in the unit cube) of the certified designs, to populate the feasibility boundary <span class="tag m">measured</span>. Figure 2 shows the result. HX and MEM are close to relaxations: zero false rejections, and 3 and 7 false assurances. PCM has 7 false rejections and 112 false assurances; all 112 are designs that violate a paraffin latent-capacity bound the hidden eval enforces and the screen lacks. RAD is worse and qualitatively different, with 91 false rejections and 105 false assurances: the existing TPL_09 hidden eval checks inner heat leakage but not the required net cooling, while the screen checks cooling but not leakage, so the two tiers test different constraints and neither is a relaxation of the other.</p>
+
+<figure>
+<img src="fig/fig_relax.png" alt="Stacked bar chart of screen and hidden-eval agreement per family">
+<figcaption><b>Figure 2.</b> Screen versus hidden-eval agreement on 2,000 designs per family. FR = false rejection (screen fails, eval passes; must be 0 for a relaxation); FA = false assurance (screen passes, eval fails). PCM and RAD are not relaxations. Source: <code>flbds/v10/relaxation_audit.json</code>.</figcaption>
+</figure>
+
+<h3>3.6 Solver bugs</h3>
+<p>Two bugs in the existing physics layer were found tonight. (i) The TPL_02 one-dimensional enthalpy (Stefan) solver is explicit, uses 100 mesh cells with a 30,000-step clamp and a mesh floor of 10, and therefore violates its own stability condition when the effective Fourier number α·t/d² exceeds 0.45 × 30,000 / 10² = 135. It then returns NaN or garbage that can still pass. About 31% of uniformly random PCM designs fall in this region. V10 wraps it with a “model validity” constraint Fo ≤ 135 in both screen and hidden eval; <code>flbds/physics</code> itself is not yet patched. (ii) The TPL_09 hidden eval ignores the required net cooling, as described above. Both bugs would have let a loop that optimises against the scorer report passes that are physically meaningless.</p>
+
+<h3>3.7 Claims withdrawn</h3>
+<ul>
+<li><b>“Feedback roughly doubles the pass rate” (28% → 55%, and 30% → 56.7% in Round 11).</b> Withdrawn. The effect is template selection on blank-passable cases (§3.4).</li>
+<li><b>“100% template preservation” for B3.</b> Withdrawn. B3 read the template from hidden ground truth (defect 1).</li>
+<li><b>“Operator T1 proved causally effective.”</b> Withdrawn. The supporting review quoted parameters that are not in the raw outputs (defect 12); on the two cases where T1 fired, B3 scored 6/10 against 9/10 without operators.</li>
+<li><b>Operators as a contribution.</b> Withdrawn. The surviving idea, a deterministic dimensionless-group regime check, is kept but untested (§5.6).</li>
+<li><b>“From biological images” and Mode B.</b> Relabelled future work; neither exists.</li>
+</ul>
+
+<!-- ===================================================================== -->
+<h2>4 Design decisions</h2>
+<p>The decisions follow one rule: keep a module only if a measurement or a strong literature result says it pays for itself, and defer everything else behind an experiment that would justify building it. Figure 3 contrasts the two pipelines; Table 3 records each decision.</p>
+
+<figure>
+<svg viewBox="0 0 680 455" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="V9 pipeline versus V10 pipeline">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0072B2"/></marker>
+  </defs>
+  <text x="165" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">V9 (original proposal)</text>
+  <text x="510" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">V10 (this revision)</text>
+  <line x1="340" y1="8" x2="340" y2="445" stroke="#bbb" stroke-width="1"/>
+  <!-- V9 column -->
+  <g font-size="11">
+    <rect x="20" y="32" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="49" fill="#888">M1 bio grounding: BioCLIP, VLM, RAG</text>
+    <text x="314" y="49" fill="#888" text-anchor="end" font-size="10">deferred</text>
+    <rect x="20" y="62" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="79" fill="#888">M2 problem-card extractor (VLM / text)</text>
+    <text x="314" y="79" fill="#888" text-anchor="end" font-size="10">replaced</text>
+    <rect x="20" y="92" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="109" fill="#888">Mode B selector + problem pool</text>
+    <text x="314" y="109" fill="#888" text-anchor="end" font-size="10">dropped</text>
+    <rect x="20" y="122" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="139" fill="#888">M3 knowledge graph, 3-head encoder, reranker</text>
+    <text x="314" y="139" fill="#888" text-anchor="end" font-size="10">dropped</text>
+    <rect x="20" y="152" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="169" fill="#888">M4 role binder · conflict detector · T1–T5</text>
+    <text x="314" y="169" fill="#888" text-anchor="end" font-size="10">dropped</text>
+    <rect x="20" y="186" width="300" height="30" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="30" y="205" fill="#111">LLM proposes typed parameters (guided JSON)</text>
+    <rect x="20" y="226" width="300" height="30" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="30" y="245" fill="#111">M5-Screen (lumped) · feedback ≤ 3 turns</text>
+    <rect x="20" y="266" width="300" height="30" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="30" y="285" fill="#111">M5-Eval (coupled), hidden scoring</text>
+    <rect x="20" y="304" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="321" fill="#888">M6 novelty gate (LLM judge, 4 classes)</text>
+    <text x="314" y="321" fill="#888" text-anchor="end" font-size="10">deferred</text>
+    <rect x="20" y="334" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="351" fill="#888">M7 SVG / CAD / sketches · M8 UI</text>
+    <text x="314" y="351" fill="#888" text-anchor="end" font-size="10">deferred / dropped</text>
+    <rect x="20" y="364" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="381" fill="#888">Silver-card factory (7 stages, 3 LLMs)</text>
+    <text x="314" y="381" fill="#888" text-anchor="end" font-size="10">frozen</text>
+    <rect x="20" y="394" width="300" height="26" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="30" y="411" fill="#888">12 hand-authored dev cases + 36 test cases</text>
+    <text x="314" y="411" fill="#888" text-anchor="end" font-size="10">dev frozen</text>
+    <line x1="170" y1="216" x2="170" y2="225" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="170" y1="256" x2="170" y2="265" stroke="#333" marker-end="url(#ah)"/>
+    <text x="20" y="440" font-size="10.5" fill="#555">Solid: kept in some form. Dashed grey: dropped, deferred or frozen.</text>
+  </g>
+  <!-- V10 column -->
+  <g font-size="11">
+    <rect x="355" y="32" width="310" height="40" rx="3" fill="#e8f2f9" stroke="#0072B2" stroke-width="1.3"/>
+    <text x="365" y="49" fill="#111" font-weight="bold">Sealed parametric generator (new)</text>
+    <text x="365" y="64" fill="#111">env sampled · DE certificate vs hidden eval · sha256</text>
+    <rect x="355" y="82" width="310" height="40" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="365" y="99" fill="#111">Template-free problem statement</text>
+    <text x="365" y="114" fill="#111">+ catalogue of all 10 templates (no answer list)</text>
+    <rect x="355" y="132" width="310" height="40" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="365" y="149" fill="#111">LLM: template choice + flat design JSON</text>
+    <text x="365" y="164" fill="#111">all fields required · strict bounds · no defaults</text>
+    <rect x="355" y="182" width="310" height="40" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="365" y="199" fill="#111">Screen: per-constraint achieved / limit /</text>
+    <text x="365" y="214" fill="#111">normalised margin · validity regime</text>
+    <rect x="355" y="232" width="148" height="40" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="365" y="249" fill="#111">Repair ≤ 3 turns</text>
+    <text x="365" y="264" fill="#111">top-k shown</text>
+    <rect x="517" y="232" width="148" height="40" rx="3" fill="#e8f2f9" stroke="#0072B2" stroke-width="1.3"/>
+    <text x="527" y="249" fill="#111" font-weight="bold">Optimiser arm (new)</text>
+    <text x="527" y="264" fill="#111">DE + L-BFGS-B on screen</text>
+    <rect x="355" y="282" width="310" height="28" rx="3" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <text x="365" y="300" fill="#111">One final design per run → hidden eval, once</text>
+    <rect x="355" y="320" width="310" height="40" rx="3" fill="#fff" stroke="#111" stroke-width="1.2" stroke-dasharray="6 3"/>
+    <text x="365" y="337" fill="#111">Biology card arm: matched / mismatched / none</text>
+    <text x="365" y="352" fill="#555">fixtures now; 16 hand-written gold cards planned</text>
+    <rect x="355" y="370" width="310" height="40" rx="3" fill="#f2f2f2" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="365" y="387" fill="#888">Thin M1 (BioCLIP 2 closed list → taxon-keyed</text>
+    <text x="365" y="402" fill="#888">PMC retrieval → extractor); built only if RQ3 = go</text>
+    <line x1="510" y1="72" x2="510" y2="81" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="510" y1="122" x2="510" y2="131" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="510" y1="172" x2="510" y2="181" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="430" y1="222" x2="430" y2="231" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="590" y1="222" x2="590" y2="231" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="430" y1="272" x2="430" y2="281" stroke="#333" marker-end="url(#ah)"/>
+    <line x1="590" y1="272" x2="590" y2="281" stroke="#333" marker-end="url(#ah)"/>
+    <text x="355" y="440" font-size="10.5" fill="#555">Blue: new in V10. Dashed: optional arm or gated module.</text>
+  </g>
+</svg>
+<figcaption><b>Figure 3.</b> V9 pipeline (left) and V10 pipeline (right). V10 keeps the LLM proposer, the screen and the hidden evaluator, replaces the hand-authored cases with a certified generator, adds an optimiser arm, and moves biology to an optional card arm with a gated image front end.</figcaption>
+</figure>
+
+<p class="tcap"><b>Table 3.</b> Module-by-module decisions. Evidence pointers refer to sections of this paper or to references.</p>
+<table>
+<thead><tr><th style="width:22%">V9 module</th><th style="width:14%">Decision</th><th>Rationale</th><th style="width:13%">Evidence</th></tr></thead>
+<tbody>
+<tr><td>G1 visual thesaurus</td><td>Defer</td><td>No downstream gain shown anywhere; useful only as provenance and navigation, which no hypothesis needs.</td><td>[1], §2.1</td></tr>
+<tr><td>M1 bio grounding (image → cards)</td><td>Defer behind RQ3 gate</td><td>Unbuilt; the photo is not the bottleneck; if built, a thin closed-list path only.</td><td>§5.9, [22–24]</td></tr>
+<tr><td>M2 problem-card extractor</td><td>Replace</td><td>The parametric generator produces cards and renders template-free text.</td><td>§5, §7.1</td></tr>
+<tr><td>Mode B selector and pool</td><td>Drop</td><td>Not implemented; depends on M1 and M3; no preliminary evidence.</td><td>§1.2</td></tr>
+<tr><td>M3 graph, 3-head encoder, Leiden, reranker</td><td>Drop</td><td>Proposal's own pilot: cross- vs within-domain cosine 0.764 vs 0.775; KGs validated only by single cases.</td><td>[1, 2], §2.1</td></tr>
+<tr><td>M4 role binder</td><td>Drop</td><td>Never called (defined but unused in runner11:697).</td><td>§3.1</td></tr>
+<tr><td>M4 conflict detector</td><td>Simplify into regime check</td><td>The deterministic, physically grounded part survives as validity regimes.</td><td>§5.6, [35–37]</td></tr>
+<tr><td>M4 operators T1–T5</td><td>Drop</td><td>Fired on 2/12 cases; B3 30/60 &lt; screen 34/60; no literature support for TRIZ guidance improving verified designs.</td><td>§3.1, [5–7]</td></tr>
+<tr><td>LLM parameter proposer</td><td>Keep, simplify</td><td>Single JSON object per turn, all fields required and bounded, strict parsing, one free re-sample on parse failure.</td><td>§5.3, [28, 29]</td></tr>
+<tr><td>Numeric optimiser</td><td>Add</td><td>Fixes the dominant numeric failures; also a certificate and an oracle-template baseline.</td><td>§8, [15–18]</td></tr>
+<tr><td>M5-Screen</td><td>Keep, rewrite</td><td>Only component with a plausible measured gain; must lose ground-truth access and become a relaxation.</td><td>§3.5, [19]</td></tr>
+<tr><td>M5-Eval</td><td>Keep, harden</td><td>Card-only specs, abs(cos) fix, Fo validity wrap, independent implementation still to do.</td><td>§3.6, [34]</td></tr>
+<tr><td>Capacity-bound gate</td><td>Replace</td><td>Case-specific hack replaced by an optimiser certificate per instance.</td><td>Table 2 #7</td></tr>
+<tr><td>M6 novelty gate</td><td>Defer</td><td>LLM-judge agreement is metric-dependent and weak for feasibility.</td><td>[46]</td></tr>
+<tr><td>M7 outputs, M8 UI</td><td>Defer / drop</td><td>No hypothesis depends on them; output a parameter table and text.</td><td>—</td></tr>
+<tr><td>Silver-card factory</td><td>Freeze</td><td>About 13% yield; 51 of 53 bio cards describe materials, not organisms; unused by any condition.</td><td>§1.2</td></tr>
+<tr><td>B4 DPO proposer</td><td>Replace with GRPO on screen reward, deferred</td><td>RL from simulator reward gave +11 to +17 points on 7–8B models.</td><td>[11, 27]</td></tr>
+<tr><td>Human evaluation (3 packets)</td><td>Narrow</td><td>Binary verifier audit with two raters is feasible; agent-written reviews never count as evidence.</td><td>Table 2 #12</td></tr>
+</tbody>
+</table>
+
+<!-- ===================================================================== -->
+<h2>5 The V10 architecture</h2>
+
+<h3>5.1 Overview</h3>
+<p>V10 separates two jobs that V9 merged: choosing <em>which physical mechanism and template</em> to use, and finding <em>parameter values</em> that satisfy the physics. Figure 4 shows the generation–verification loop as implemented in <code>flbds/v10/runner.py</code>. For each run (one instance × one seed), the LLM receives a template-free problem statement and the catalogue of all ten templates. It returns one JSON object containing a short rationale, a template identifier and a flat design. A condition draws N samples; each is screened. If the screen fails and repair turns remain, the model sees its last attempt, the screen's per-constraint table and the top-2 designs so far, and tries again. In the optimiser arm, the LLM's first design seeds a differential-evolution search against the screen. Selection across samples and turns uses only the screen. Exactly one final design per run goes to the hidden evaluator, once.</p>
+
+<figure>
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="V10 generation-verification loop with information firewall">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="a2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0072B2"/></marker>
+  </defs>
+  <text x="235" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#111">Generation side (sees problem text + screen only)</text>
+  <text x="590" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#111">Scoring side</text>
+  <!-- inputs -->
+  <rect x="10" y="30" width="150" height="58" rx="3" fill="#fff" stroke="#111"/>
+  <text x="18" y="47" font-size="11" fill="#111">Problem statement</text>
+  <text x="18" y="62" font-size="11" fill="#111">(env + hard limits)</text>
+  <text x="18" y="77" font-size="11" fill="#111">+ 10-template catalogue</text>
+  <rect x="10" y="98" width="150" height="40" rx="3" fill="#fff" stroke="#111" stroke-dasharray="5 3"/>
+  <text x="18" y="114" font-size="11" fill="#111">Biology card (optional:</text>
+  <text x="18" y="129" font-size="11" fill="#111">match / mismatch)</text>
+  <!-- LLM -->
+  <rect x="190" y="30" width="170" height="70" rx="3" fill="#fff" stroke="#111" stroke-width="1.4"/>
+  <text x="200" y="48" font-size="11.5" font-weight="bold" fill="#111">LLM (1 call / turn)</text>
+  <text x="200" y="64" font-size="11" fill="#111">rationale → template_id →</text>
+  <text x="200" y="79" font-size="11" fill="#111">flat design JSON</text>
+  <text x="200" y="94" font-size="10.5" fill="#555">N samples (1, 8, 24 …)</text>
+  <line x1="160" y1="60" x2="189" y2="60" stroke="#333" marker-end="url(#a2)"/>
+  <line x1="160" y1="118" x2="200" y2="101" stroke="#333" marker-end="url(#a2)"/>
+  <!-- parse -->
+  <rect x="190" y="120" width="170" height="44" rx="3" fill="#fff" stroke="#111"/>
+  <text x="200" y="137" font-size="11" fill="#111">Strict parse: every field,</text>
+  <text x="200" y="152" font-size="11" fill="#111">in bounds; else schema fail</text>
+  <line x1="275" y1="100" x2="275" y2="119" stroke="#333" marker-end="url(#a2)"/>
+  <!-- screen -->
+  <rect x="190" y="186" width="170" height="62" rx="3" fill="#e8f2f9" stroke="#0072B2" stroke-width="1.4"/>
+  <text x="200" y="204" font-size="11.5" font-weight="bold" fill="#111">Screen</text>
+  <text x="200" y="220" font-size="11" fill="#111">per constraint: achieved,</text>
+  <text x="200" y="235" font-size="11" fill="#111">limit, margin, PASS/MISS</text>
+  <line x1="275" y1="164" x2="275" y2="185" stroke="#333" marker-end="url(#a2)"/>
+  <!-- feedback loop -->
+  <path d="M190,217 C150,217 150,140 175,95 L189,82" fill="none" stroke="#0072B2" stroke-width="1.3" marker-end="url(#a2b)"/>
+  <text x="70" y="190" font-size="10.5" fill="#0072B2">repair ≤ 3 turns:</text>
+  <text x="70" y="204" font-size="10.5" fill="#0072B2">last attempt + table</text>
+  <text x="70" y="218" font-size="10.5" fill="#0072B2">+ top-2 designs</text>
+  <!-- optimiser -->
+  <rect x="190" y="270" width="170" height="44" rx="3" fill="#fff" stroke="#111"/>
+  <text x="200" y="287" font-size="11" fill="#111">Optimiser arm: DE + L-BFGS-B</text>
+  <text x="200" y="302" font-size="11" fill="#111">max min-margin on screen</text>
+  <line x1="290" y1="248" x2="290" y2="269" stroke="#333" marker-end="url(#a2)"/>
+  <path d="M190,292 C165,292 165,240 189,232" fill="none" stroke="#333" stroke-dasharray="3 2" marker-end="url(#a2)"/>
+  <!-- select -->
+  <rect x="385" y="186" width="120" height="62" rx="3" fill="#fff" stroke="#111"/>
+  <text x="393" y="204" font-size="11" fill="#111">Select by screen</text>
+  <text x="393" y="219" font-size="11" fill="#111">(pass, min margin)</text>
+  <text x="393" y="236" font-size="11" fill="#111">→ 1 design / run</text>
+  <line x1="360" y1="217" x2="384" y2="217" stroke="#333" marker-end="url(#a2)"/>
+  <line x1="360" y1="292" x2="420" y2="292" stroke="#333"/>
+  <line x1="420" y1="292" x2="420" y2="249" stroke="#333" marker-end="url(#a2)"/>
+  <!-- firewall -->
+  <line x1="525" y1="26" x2="525" y2="340" stroke="#111" stroke-width="2.2" stroke-dasharray="7 4"/>
+  <text x="519" y="335" font-size="10.5" fill="#111" text-anchor="end">information firewall</text>
+  <text x="519" y="349" font-size="10" fill="#555" text-anchor="end">nothing crosses right → left</text>
+  <!-- hidden eval -->
+  <rect x="545" y="170" width="125" height="94" rx="3" fill="#fff" stroke="#111" stroke-width="1.4"/>
+  <text x="553" y="188" font-size="11.5" font-weight="bold" fill="#111">Hidden eval</text>
+  <text x="553" y="204" font-size="11" fill="#111">template check</text>
+  <text x="553" y="219" font-size="11" fill="#111">capacity bound</text>
+  <text x="553" y="234" font-size="11" fill="#111">coupled solvers</text>
+  <text x="553" y="249" font-size="11" fill="#111">called once / run</text>
+  <line x1="505" y1="217" x2="544" y2="217" stroke="#333" marker-end="url(#a2)"/>
+  <rect x="545" y="40" width="125" height="58" rx="3" fill="#f2f2f2" stroke="#111"/>
+  <text x="553" y="57" font-size="11" fill="#111">Sealed instance:</text>
+  <text x="553" y="72" font-size="11" fill="#111">template_id, env,</text>
+  <text x="553" y="87" font-size="11" fill="#111">certified design</text>
+  <line x1="607" y1="98" x2="607" y2="169" stroke="#333" marker-end="url(#a2)"/>
+  <rect x="545" y="282" width="125" height="40" rx="3" fill="#fff" stroke="#111"/>
+  <text x="553" y="299" font-size="11" fill="#111">Record: pass, margins,</text>
+  <text x="553" y="314" font-size="11" fill="#111">failure type, tokens</text>
+  <line x1="607" y1="264" x2="607" y2="281" stroke="#333" marker-end="url(#a2)"/>
+</svg>
+<figcaption><b>Figure 4.</b> The V10 generation–verification loop. Everything left of the firewall sees only the problem text, the template catalogue, an optional biology card and the screen's per-constraint output. The sealed instance's template identifier, the certified design and the hidden evaluator's constraints are used only on the right. The only message about a wrong template is the fixed sentence “The chosen template's physics cannot deliver the required function.”</figcaption>
+</figure>
+
+<h3>5.2 Families</h3>
+<p>Four families mirror the four dev clusters so that dev results remain interpretable (Table 4). Each family declares an environment space (sampled per instance and never taken from model output), a design space of bounded continuous parameters (log-uniform where the range spans decades), fixed documented constants, a screen and a hidden evaluator. Every field of the existing Pydantic parameter class is set explicitly, so no schema default can enter a design.</p>
+<p class="tcap"><b>Table 4.</b> The four V10 families (from <code>flbds/v10/families.py</code>).</p>
+<table>
+<thead><tr><th>Family</th><th>Template</th><th>Dev cluster</th><th>Environment (sampled)</th><th>Design variables</th><th>Hidden-eval checks</th></tr></thead>
+<tbody>
+<tr><td>F_PCM</td><td>TPL_02 phase-change storage</td><td>DEV-M1</td><td>heat flux, charge hours, required energy, thickness cap, mass cap, superheat limit (6)</td><td>thickness, k_eff, matrix fraction, matrix ρ and c<sub>p</sub>, PCM ρ, latent heat, c<sub>p</sub> (8)</td><td>paraffin capacity bound, mass, thickness, Fo ≤ 135, 1-D Stefan superheat and melt depth</td></tr>
+<tr><td>F_HX</td><td>TPL_08 countercurrent exchanger (circular duct, water)</td><td>DEV-M2</td><td>duty, cold and hot inlet T, ΔP cap, length cap (5)</td><td>two mass flows, U, area, length, hydraulic diameter, wall k, wall section (8)</td><td>length, duty after axial-conduction degradation, pressure drop</td></tr>
+<tr><td>F_RAD</td><td>TPL_09 radiative cooling</td><td>DEV-M3</td><td>solar, ambient, sky and inner T, h<sub>conv</sub>, leakage cap, required cooling, thickness and mass caps (9)</td><td>emissivity, solar absorptivity, substrate thickness, k, ρ (5)</td><td>thickness, mass, inner leakage (net cooling not checked; §3.6)</td></tr>
+<tr><td>F_MEM</td><td>TPL_10 plastron membrane gas diffusion</td><td>DEV-M4</td><td>required flux, minimum pore size, hydrostatic head, Δc (4)</td><td>thickness, porosity, pore diameter, tortuosity, contact angle (5)</td><td>pore size, capillary breakthrough head, coupled flux</td></tr>
+</tbody>
+</table>
+
+<h3>5.3 Prompt and output format</h3>
+<p>Prompts are chat messages, so vLLM and HF transformers back-ends see identical conversations. Each turn is a single call whose output must be one JSON object: <code>{"rationale", "template_id", "design"}</code>. The planned two-call pattern (free-text reasoning, then a constrained choice, then a schema-constrained design) [28, 29, 48] is <em>not</em> implemented: the CPU back-end has no constrained decoding, and for parity the vLLM adapter does not use it either. Parsing is strict. A missing, non-numeric, non-finite or out-of-bounds design field is a schema failure; nothing is clamped or defaulted. An unparseable output gets one free re-sample that does not consume a repair turn. Environment values and limits are fixed by the problem and must not be emitted. Appendix A gives the exact instruction and feedback text.</p>
+
+<h3>5.4 Screen feedback</h3>
+<p>The screen returns, for every constraint of the family, the achieved value, the stated limit, a signed normalised margin and PASS/MISS. For an upper limit the margin is (limit − achieved)/scale, and for a lower limit (achieved − required)/scale, with scale = |limit| unless a family sets it; a margin ≥ 0 means satisfied. Solver exceptions and non-finite values receive a floor margin of −10. Feedback is rendered as a small table (Appendix A) with the attempt's design and its minimum margin. A wrong template receives only the fixed sentence in Figure 4; the screen never names templates, never shows the acceptable set and never reports hidden-eval values. The fixed template-derived sensitivity hints proposed in the architecture report (for example, “superheat falls with k_eff”) are not implemented.</p>
+
+<h3>5.5 The information firewall</h3>
+<p>The firewall is enforced by data flow and tests, not by convention. The instance's <code>template_id</code> is a scorer-only field: <code>prompts.py</code> renders the problem statement, the catalogue and, optionally, a biology card, and a runner test asserts that template-error feedback is non-leaky. The hidden evaluator is called only in <code>runner.hidden_score</code>, once per run, after selection. The optimiser arm refuses any objective other than the screen (<code>use != "screen"</code> raises). Two leaks remain and are listed in Section 10: the catalogue shows numeric bounds only for the four live templates, and some HX system names contain the word “countercurrent”. Two planned controls are not yet in code: an import-graph test that only the scorer may read ground truth, and a regex scan of every prompt and feedback string for template identifiers and hidden values.</p>
+
+<h3>5.6 Validity regimes</h3>
+<p>Each template should declare the dimensionless groups within which its model is valid, and both tiers should refuse to score outside them (verdict <code>invalid_regime</code>). This is also the deterministic form of the “looks alike ≠ works alike” check the operators were meant to provide: riblets reduce drag only near s<sup>+</sup> ≈ 10–20 wall units and increase it beyond [36], termite-mound ventilation is driven by diurnal thermal oscillation rather than wind [37], and pad-based adhesion does not scale beyond gecko size [35]. So far one regime is implemented, the PCM solver's Fo ≤ 135 (§3.6). Others proposed in the architecture report (Bi &lt; 0.1 for fins, laminar Re for TPL_08, θ &gt; 90° and a Knudsen window for TPL_10, a Stefan-number window for TPL_02) are planned.</p>
+
+<h3>5.7 The optimiser arm</h3>
+<p><code>optimise_from</code> maximises the minimum normalised screen margin with SciPy differential evolution in the unit cube (30 iterations, population 10 × dimension, seeded Latin hypercube, L-BFGS-B polish). In condition OPT the LLM's design is clipped to bounds and inserted as the first member of the initial population; if the LLM chose the wrong template the optimiser is not run and the run fails. In OPTONLY there is no LLM: the optimiser starts from a random population on the instance's own family, so it is an oracle-template baseline. The optimiser never sees the hidden evaluator.</p>
+
+<h3>5.8 Biology-card interface</h3>
+<p>A biology card is a short text block (organism, mechanism, structure, physical effect, biological function) appended to the prompt. In the current code the cards are the four V9 dev fixtures (<code>flbds/m4/fixtures.py</code>), one per cluster. “Mismatch” rotates deterministically to the next family's card. The matched PCM card is a weak test: it describes an elephant's mud-wallowing, i.e. evaporative cooling, rather than latent-heat storage. The plan replaces fixtures with 16 hand-written gold cards from PMC open-access primary papers, with AskNature used only as a manual pointer because its terms forbid automated mining [40, 41].</p>
+
+<h3>5.9 What M1 would be, and the gate that triggers it</h3>
+<p>If built, the image front end would be deliberately thin: BioCLIP 2 zero-shot over a <em>closed</em> candidate list with abstention [22], optional VLM re-ranking of its top-5 [49], taxon-keyed retrieval from PMC open access with an off-the-shelf embedder such as Qwen3-Embedding [43], and the existing extractor with a verbatim-span check and a ChatExtract-style value-verification turn [42]. The VLM would never be asked for the mechanism. The gate is RQ3 (Section 6): M1 is built for performance only if a matched gold card beats a mismatched card by at least 10 points on choice-sensitive instances. If RQ3 is null, biology is reported as supplying explanation and provenance, not performance, and the image path stays future work.</p>
+
+<!-- ===================================================================== -->
+<h2>6 Research questions and hypotheses</h2>
+<p>The pilot (Section 8) reshaped these questions. On the current families, once the template is known, a classical optimiser on the screen needs no LLM. The LLM, and any biological source, can therefore matter only through the <em>choice</em> of mechanism. RQ1 and RQ5 concern the measurement apparatus and the loop; RQ2 and RQ3 concern choice; RQ4 concerns compute. The smallest effect of interest is 10 points throughout. The unit of inference is the instance, with seeds averaged within instance. Confirmatory tests use a paired exact (or Monte-Carlo) sign-flip permutation test with Holm correction across RQ1–RQ3 only.</p>
+
+<div class="box">
+<p><b>RQ1 — Verifier feedback.</b> Does screen feedback improve the hidden-verified pass rate on certified non-trivial instances compared with a single shot?</p>
+<p><i>Hypothesis H1:</i> L3 (one sample, ≤ 3 screen repairs) &gt; B0 (one sample, no feedback). <i>Primary metric:</i> per-instance hidden-eval pass fraction. <i>Test:</i> paired sign-flip; bootstrap CI over instances. <i>Go/no-go:</i> go if Holm-adjusted p &lt; 0.01 and the CI lower bound exceeds +10 points; otherwise the headline claim fails and is reported as such. <i>Pilot (not preregistered):</i> 72B +30.6 points, CI [+20.8, +41.0], Holm p = 3×10⁻⁵; 7B +18.8 points, CI [+10.4, +29.2], Holm p = 0.0007. <i>Preregistration note:</i> analysed on the choice-sensitive test set with Qwen2.5-72B; the pilot sets variance inputs only.</p>
+</div>
+
+<div class="box">
+<p><b>RQ2 — Choice versus numbers.</b> When the template must be chosen, does LLM template choice followed by a classical optimiser beat (a) LLM-only repair at matched tokens and (b) a no-LLM optimiser that enumerates every template and keeps the best screen margin (OPT-ENUM), and how far is it from the oracle-template bound (OPTONLY)?</p>
+<p><i>Hypotheses:</i> H2a OPT &gt; L3; H2b OPT &gt; OPT-ENUM. <i>Primary metric:</i> hidden-eval pass fraction; secondary: feasible-template-choice rate. <i>Test:</i> paired sign-flip, Holm. <i>Go/no-go:</i> if OPT-ENUM is within 5 points of OPT, the LLM contributes no measurable choice value on that benchmark and the claim is restricted to admissibility constraints stated only in text. <i>Pilot:</i> OPT − L3 = +11.1 points at 72B (CI [−4.2, +26.4], Holm p = 0.37) and +22.9 at 7B (Holm p = 0.018); OPTONLY − OPT = +1.7 (72B, p = 0.44) and +4.2 (7B, p = 0.22). On single-template families the LLM adds nothing over the oracle optimiser. <i>Preregistration note:</i> OPT-ENUM is new code; with ten templates and millisecond screens, enumeration is cheap, so it is the honest no-LLM baseline.</p>
+</div>
+
+<div class="box">
+<p><b>RQ3 — Biology.</b> On choice-sensitive instances, does a matched biological mechanism card raise the feasible-template-choice rate and the hidden-eval pass rate compared with a mechanism-mismatched card, and is “no card” equivalent within ±10 points?</p>
+<p><i>Hypothesis H3:</i> Bio &gt; WrongBio. <i>Primary metric:</i> feasible-template-choice rate on the first turn; secondary: pass rate in the LLM-only and OPT arms. <i>Test:</i> paired sign-flip, Holm; NoBio vs Bio by two one-sided tests at ±10 points. <i>Go/no-go:</i> build M1 only if Bio − WrongBio ≥ +10 points and significant; otherwise narrow the biology claim to explanation and provenance. <i>Pilot:</i> at 72B, L3_BIOMATCH − L3_BIOMISMATCH = +2.8 points (CI [−4.2, +9.7], Holm p = 0.56) and L3_BIOMATCH − L3 = −2.8 (p = 0.58); at 7B, L3_BIOMATCH − L3 = −2.1 (p = 0.79), with the mismatch arm incomplete. <i>Preregistration note:</i> requires 16 hand-written gold cards and a WrongBio pairing table fixed before the seed is drawn.</p>
+</div>
+
+<div class="box">
+<p><b>RQ4 — Compute allocation.</b> At matched generated tokens, is it better to spend budget on more independent samples or on deeper repair (24 × 1, 8 × 3, 3 × 8 samples × turns)?</p>
+<p><i>Hypothesis H4 (secondary):</i> 8 × 3 is within 5 points of the best, following [10, 11]. <i>Metric:</i> pass rate and pass@k against tokens. <i>Decision:</i> adopt the cheapest allocation within 5 points of the best. <i>Pilot:</i> at 72B, best-of-8 without feedback (BoN8) passes 55/144 against 79/144 for one sample with three repairs (L3), at about 2.8× the tokens per run (1,084 vs 384). Conditions A24x1, A8x3 and A3x8 exist in <code>runner.py</code> and are running at 72B.</p>
+</div>
+
+<div class="box">
+<p><b>RQ5 — Screen–scorer fidelity.</b> How often does the screen pass designs the scorer fails (false assurance), and fail designs the scorer passes (false rejection), on sampled designs and on the designs each condition actually submits?</p>
+<p><i>Hypothesis H5 (gate):</i> after the rewrite, false rejection = 0 in 10<sup>4</sup> designs per template. <i>Metric:</i> 2 × 2 agreement table per family; screen-pass − eval-pass per condition; fraction of passes with a parameter at a bound. <i>Decision:</i> no confirmatory run starts until H5 holds. <i>Pilot:</i> audit FR 7/0/91/0 and FA 112/3/105/7 (PCM/HX/RAD/MEM); OPTONLY passes the screen 96/96 and the hidden eval 65/96; the 72B-seeded OPT arm passes the screen 144/144 and the hidden eval 95/144.</p>
+</div>
+
+<!-- ===================================================================== -->
+<h2>7 Methodology</h2>
+
+<h3>7.1 Benchmark generator and certification</h3>
+<p>Figure 5 shows the generator (<code>flbds/v10/generator.py</code>). For each family, environment vectors are drawn from a generator seeded with (20261119, family index). For each candidate, differential evolution (40 iterations, population 15, Latin-hypercube initialisation, polish) maximises the minimum hidden-eval margin over the design space. For PCM, whose 1-D Stefan solver costs about 0.15 s per call, it optimises a closed-form surrogate and then verifies with the real evaluator. The best member and four best population members are tried against the hidden evaluator; the instance is <b>certified</b> if one passes. It is then rejected as <b>too easy</b> if more than 50% of 200 uniform random designs pass. Kept instances are rendered into a template-free problem statement using a rotating list of system names. The set is sealed by a SHA-256 over the canonical JSON plus a canary string; <code>load_instances</code> refuses a file whose hash does not match.</p>
+
+<figure>
+<svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Sealed benchmark generator and certification pipeline">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <rect x="8" y="30" width="118" height="70" rx="3" fill="#fff" stroke="#111"/>
+  <text x="16" y="48" font-size="11" font-weight="bold" fill="#111">Family spec</text>
+  <text x="16" y="64" font-size="10.5" fill="#111">env_space</text>
+  <text x="16" y="78" font-size="10.5" fill="#111">design_space</text>
+  <text x="16" y="92" font-size="10.5" fill="#111">constants</text>
+  <rect x="146" y="30" width="108" height="70" rx="3" fill="#fff" stroke="#111"/>
+  <text x="154" y="48" font-size="11" font-weight="bold" fill="#111">Sample env</text>
+  <text x="154" y="64" font-size="10.5" fill="#111">seed 20261119</text>
+  <text x="154" y="78" font-size="10.5" fill="#111">per family</text>
+  <rect x="274" y="30" width="128" height="70" rx="3" fill="#e8f2f9" stroke="#0072B2" stroke-width="1.4"/>
+  <text x="282" y="48" font-size="11" font-weight="bold" fill="#111">Certify</text>
+  <text x="282" y="64" font-size="10.5" fill="#111">DE max min-margin</text>
+  <text x="282" y="78" font-size="10.5" fill="#111">vs hidden eval</text>
+  <text x="282" y="92" font-size="10.5" fill="#111">(PCM: surrogate)</text>
+  <rect x="422" y="30" width="118" height="70" rx="3" fill="#e8f2f9" stroke="#0072B2" stroke-width="1.4"/>
+  <text x="430" y="48" font-size="11" font-weight="bold" fill="#111">Difficulty test</text>
+  <text x="430" y="64" font-size="10.5" fill="#111">200 random designs</text>
+  <text x="430" y="78" font-size="10.5" fill="#111">reject if &gt; 50%</text>
+  <text x="430" y="92" font-size="10.5" fill="#111">pass</text>
+  <rect x="560" y="30" width="112" height="70" rx="3" fill="#fff" stroke="#111"/>
+  <text x="568" y="48" font-size="11" font-weight="bold" fill="#111">Render</text>
+  <text x="568" y="64" font-size="10.5" fill="#111">template-free</text>
+  <text x="568" y="78" font-size="10.5" fill="#111">problem text</text>
+  <line x1="126" y1="65" x2="145" y2="65" stroke="#333" marker-end="url(#a3)"/>
+  <line x1="254" y1="65" x2="273" y2="65" stroke="#333" marker-end="url(#a3)"/>
+  <line x1="402" y1="65" x2="421" y2="65" stroke="#333" marker-end="url(#a3)"/>
+  <line x1="540" y1="65" x2="559" y2="65" stroke="#333" marker-end="url(#a3)"/>
+  <!-- rejects -->
+  <rect x="290" y="128" width="96" height="30" rx="3" fill="#f2f2f2" stroke="#999" stroke-dasharray="4 3"/>
+  <text x="300" y="147" font-size="10.5" fill="#555">unsatisfiable</text>
+  <line x1="338" y1="100" x2="338" y2="127" stroke="#999" marker-end="url(#a3)"/>
+  <rect x="433" y="128" width="96" height="30" rx="3" fill="#f2f2f2" stroke="#999" stroke-dasharray="4 3"/>
+  <text x="446" y="147" font-size="10.5" fill="#555">too easy</text>
+  <line x1="481" y1="100" x2="481" y2="127" stroke="#999" marker-end="url(#a3)"/>
+  <path d="M290,143 C200,143 200,110 200,101" fill="none" stroke="#999" stroke-dasharray="4 3" marker-end="url(#a3)"/>
+  <text x="150" y="160" font-size="10" fill="#555">draw next candidate</text>
+  <text x="150" y="173" font-size="10" fill="#555">(≤ 60 per family)</text>
+  <!-- seal -->
+  <rect x="545" y="128" width="127" height="58" rx="3" fill="#fff" stroke="#111" stroke-width="1.4"/>
+  <text x="553" y="146" font-size="11" font-weight="bold" fill="#111">Seal</text>
+  <text x="553" y="162" font-size="10.5" fill="#111">sha256(JSON + canary)</text>
+  <text x="553" y="177" font-size="10.5" fill="#111">48 instances, 40 s CPU</text>
+  <line x1="616" y1="100" x2="616" y2="127" stroke="#333" marker-end="url(#a3)"/>
+  <rect x="300" y="200" width="372" height="40" rx="3" fill="#fff" stroke="#111"/>
+  <text x="308" y="216" font-size="10.5" fill="#111">Instance = id, family, template_id (scorer-only), env, statement,</text>
+  <text x="308" y="231" font-size="10.5" fill="#111">certified design + min margin, trivial-pass rate</text>
+  <line x1="616" y1="186" x2="616" y2="199" stroke="#333" marker-end="url(#a3)"/>
+  <rect x="8" y="200" width="270" height="40" rx="3" fill="#fff" stroke="#111" stroke-dasharray="5 3"/>
+  <text x="16" y="216" font-size="10.5" fill="#111">Relaxation audit: 2,000 designs / family,</text>
+  <text x="16" y="231" font-size="10.5" fill="#111">screen vs hidden eval 2 × 2 table (§3.5)</text>
+  <line x1="299" y1="220" x2="279" y2="220" stroke="#333" marker-end="url(#a3)"/>
+  <text x="8" y="18" font-size="11" fill="#555">Planned additions: margin band, choice-sensitivity check over all templates, held-out test seed drawn after PREREG.md.</text>
+</svg>
+<figcaption><b>Figure 5.</b> The sealed benchmark generator. Blue boxes are the two acceptance tests. The certificate is a constructive proof of satisfiability under the hidden evaluator; a failure to find a feasible design is recorded as “not found feasible under budget”, not as proof of infeasibility.</figcaption>
+</figure>
+
+<p>The current set has 48 instances, 12 per family (Figure 6). PCM, HX and RAD accepted 12 of 12 candidates; MEM accepted 12 of 33, rejecting 21 as too easy. The mean random-design pass rate of kept instances is 7% (PCM), 9% (HX), 6% (RAD) and 34% (MEM). No candidate was unsatisfiable. Certified minimum margins span 0.014–0.607 (PCM), 0.912–0.963 (HX), 0.580–0.979 (RAD) and 1.32–6.69 (MEM). The margin band of about 1.05–1.5× proposed in the architecture report is not enforced, so the MEM instances in particular are loose. These 48 instances are a development and pilot set: they were generated before a preregistration and have been used in the pilot, so they cannot serve as the sealed test set.</p>
+
+<figure>
+<img src="fig/fig_generator.png" alt="Generator acceptance per family and trivial pass rates of kept instances">
+<figcaption><b>Figure 6.</b> (a) Candidates drawn, kept and rejected as too easy per family. (b) Random-design pass rate of each kept instance (dots) with the family mean (bar) and the 0.5 rejection threshold. Source: <code>flbds/v10/instances_v10.json</code> (metadata and per-instance trivial rates only).</figcaption>
+</figure>
+
+<p><b>Choice-sensitive instances</b> <span class="tag p">planned</span>. In the current families each instance has exactly one feasible template, by construction. The test set will add families whose required function admits at least two plausible templates (for example sensible storage TPL_01, latent storage TPL_02 and sorption TPL_04 for thermal buffering; radiative cooling TPL_09 and fins TPL_07 for passive heat rejection; evaporative cooling TPL_03 where water is available). Each candidate is certified against <em>every</em> plausible template; it is kept only if at least one is certified feasible and at least one is not found feasible, preferably by a closed-form bound (first law, ε ≤ 1). Qualitative admissibility, such as “no liquid water supply”, is stated in the text and enforced by the scorer's template preconditions. At least 48 of roughly 80 test instances should be choice-sensitive.</p>
+
+<h3>7.2 Instance counts, power and sealing</h3>
+<p>Sample sizes follow Miller's paired formula [20] with per-case difference SDs estimated from Round 11 (0.44 for dissimilar conditions such as B0 vs a feedback loop; 0.20 for close variants, cross-condition r = 0.90), checked by a logit random-effects simulation (Table 5). The simulation, with three cases per cluster and 50% shared variance, gives 80% power for a 15-point gain at N ≈ 30–36 (α = 0.05) or N ≈ 42–54 (α = 0.01); the 12-case dev set had 21–37% power for that effect. Instances from one template are correlated, so counts are inflated by the design effect 1 + (m − 1)ρ. With about 8 instances per template, N = 80 at K = 5 seeds covers a 25-point effect at α = 0.01 for an intra-template correlation of paired differences up to about 0.2. The pilot's paired SDs and the intra-template correlation will be re-estimated from the 72B pilot, and the preregistration fixes N by re-running the simulation, capped at 120. Temperature stays at 0.7 and K at 5; more instances buy more than more seeds [20].</p>
+<p class="tcap"><b>Table 5.</b> Independent instances needed for 80% power (two-sided; α = 0.05 / 0.01), from the literature notes.</p>
+<table>
+<thead><tr><th>Comparison type</th><th class="num">SD of per-instance difference</th><th class="num">δ = 15 pt</th><th class="num">δ = 20 pt</th><th class="num">δ = 25 pt</th></tr></thead>
+<tbody>
+<tr><td>Close variants (e.g. Bio vs WrongBio)</td><td class="num">≈ 0.19</td><td class="num">13 / 19</td><td class="num">8 / 11</td><td class="num">5 / 7</td></tr>
+<tr><td>Intermediate</td><td class="num">≈ 0.30</td><td class="num">32 / 47</td><td class="num">18 / 27</td><td class="num">12 / 17</td></tr>
+<tr><td>Dissimilar (e.g. B0 vs loop)</td><td class="num">≈ 0.43</td><td class="num">65 / 96</td><td class="num">37 / 54</td><td class="num">24 / 35</td></tr>
+</tbody>
+</table>
+<p>Sealing protocol <span class="tag p">planned</span>: a dated <code>PREREG.md</code> (git SHA, hypotheses, N, K, T, analysis script, exclusion and stopping rules) is committed before the test seed is drawn; the test set is generated from a held-out seed, hashed with the canary and stored off the public repository; any later change to generator, templates, scorer or prompts requires a new preregistration version and a new seed.</p>
+
+<h3>7.3 Conditions</h3>
+<p class="tcap"><b>Table 6.</b> Conditions. “Code” means implemented in <code>runner.CONDITIONS</code>; “planned” means not yet written.</p>
+<table>
+<thead><tr><th>Condition</th><th class="num">Samples</th><th class="num">Repairs</th><th>Optimiser</th><th>LLM</th><th>Biology</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>B0 single shot</td><td class="num">1</td><td class="num">0</td><td>no</td><td>yes</td><td>none</td><td>code; piloted</td></tr>
+<tr><td>L3 screen repair</td><td class="num">1</td><td class="num">3</td><td>no</td><td>yes</td><td>none</td><td>code; piloted</td></tr>
+<tr><td>BoN8 best-of-8 by screen</td><td class="num">8</td><td class="num">0</td><td>no</td><td>yes</td><td>none</td><td>code; running</td></tr>
+<tr><td>V10 core (8 × 3)</td><td class="num">8</td><td class="num">3</td><td>no</td><td>yes</td><td>none</td><td>code</td></tr>
+<tr><td>OPT (LLM choice + seed, then DE)</td><td class="num">1</td><td class="num">0</td><td>yes</td><td>yes</td><td>none</td><td>code; piloted</td></tr>
+<tr><td>OPTONLY (oracle template, no LLM)</td><td class="num">0</td><td class="num">0</td><td>yes</td><td>no</td><td>none</td><td>code; piloted</td></tr>
+<tr><td>OPT-ENUM (all templates, no LLM)</td><td class="num">0</td><td class="num">0</td><td>yes</td><td>no</td><td>none</td><td>planned</td></tr>
+<tr><td>L3_BIOMATCH / L3_BIOMISMATCH</td><td class="num">1</td><td class="num">3</td><td>no</td><td>yes</td><td>match / mismatch</td><td>code; piloted (mismatch partial)</td></tr>
+<tr><td>OPT_BIO{MATCH, MISMATCH, NONE}</td><td class="num">1</td><td class="num">0</td><td>yes</td><td>yes</td><td>all three</td><td>planned</td></tr>
+<tr><td>A24x1 / A8x3 / A3x8</td><td class="num">24 / 8 / 3</td><td class="num">0 / 2 / 7</td><td>no</td><td>yes</td><td>none</td><td>code</td></tr>
+<tr><td>B2-Code (model writes its own checks)</td><td class="num">1</td><td class="num">3</td><td>no</td><td>yes</td><td>none</td><td>planned (secondary)</td></tr>
+</tbody>
+</table>
+
+<h3>7.4 Metrics</h3>
+<ul>
+<li><b>Primary:</b> hidden-eval pass (binary per run; averaged over seeds within instance). A run passes only if the chosen template is the instance's template and the hidden evaluator passes the design.</li>
+<li><b>Choice:</b> feasible-template-choice rate on the first turn and at the final design; template-choice errors.</li>
+<li><b>Fidelity and gaming:</b> screen-pass &amp; eval-fail and screen-fail &amp; eval-pass counts per condition; fraction of passes with any parameter at a bound; pass rate by turn [25].</li>
+<li><b>Quality:</b> minimum hidden-eval normalised margin (continuous; more power than binary pass).</li>
+<li><b>Robustness:</b> fraction of instances passed in all K seeds over those passed in at least one [32].</li>
+<li><b>Cost:</b> generated tokens per run, screen evaluations, wall time.</li>
+</ul>
+
+<h3>7.5 Statistics</h3>
+<p>The stack is fixed in <code>flbds/v10/stats.py</code> and <code>scripts/analyse_v10.py</code>. (1) Primary: a two-sided paired sign-flip permutation test on per-instance mean differences, exact when there are at most 20 non-zero differences and Monte Carlo with 100,000 draws and the +1 correction otherwise. (2) Effect size: the mean paired difference with a 10,000-resample percentile bootstrap over instances, plus Wilson intervals per condition [21]. (3) Holm correction across the confirmatory pairs only. (4) Family-level robustness: the same test within each family, reported but not used for decisions. (5) Planned: a template-level permutation once at least ten templates appear in the test set (minimum two-sided p = 2/1024, which clears Holm thresholds), and a binomial GLMM <code>pass ~ condition + (1 | instance)</code> as a secondary model. McNemar on run pairs is not used: seeds are not independent units [20].</p>
+
+<h3>7.6 Leakage controls</h3>
+<p>Implemented: template identifiers never rendered; fixed template-error sentence; strict parsing without defaults or clamping; environment only from the instance; one hidden-eval call per run after screen-only selection; optimiser restricted to the screen; hash-checked instance loading with a canary. Planned: import-graph firewall test; prompt and feedback regex scan; off-repo storage of the test set; preregistration and re-seeding rule; independent re-implementation of the hidden evaluators so that screen and eval stop sharing helpers (defect 9 is still present, because both tiers in <code>families.py</code> call the same <code>flbds/physics</code> modules).</p>
+
+<h3>7.7 Models and compute</h3>
+<p>The planned model is Qwen2.5-72B-Instruct-FP8 served by vLLM on one H200, as in all earlier rounds, plus one newer open model as a replication (proposal requirement). Tonight no GPU was usable: GPU 2 on the shared server reported a MIG “GPU requires reset” state with about 86 GB stuck, GPU 3 failed CUDA initialisation, GPUs 0 and 1 belonged to other users, and container pulls failed. The pilot was therefore run on CPU with Qwen2.5-7B-Instruct through HF transformers (bf16, 96 threads, batch ≤ 48, T = 0.7, top-p 0.9, 350 output tokens). Logged aggregate decode rates were mostly about 7–10 output tokens/s per batch; an L3 condition (96 runs) took 3,697 s and OPTONLY 6.9 s. GPU 1 later became available and the pilot was replicated with Qwen2.5-72B-Instruct-FP8 under vLLM (3 seeds, 144 runs per condition); a full 144-run condition took 19–51 s of logged wall time. OPTONLY needs no LLM and was reused from the CPU run. The GPU budget for the full plan, anchored on the Round 11 measurement of about 5 s per run (0.79 GPU-h for four 60-run conditions), is about 30–45 H200 GPU-hours with 1.5× contingency, against a quota of 90 GPU-h per week (Section 9). Certification, relaxation audits and optimiser arms run on CPU.</p>
+
+<!-- ===================================================================== -->
+<h2>8 Preliminary results</h2>
+
+<h3>8.1 E0 and the dev set</h3>
+<p>Summarised in Section 3: the scorer fixes change no stored outcome; the blank design passes 5 of 12 dev cases; on the 7 non-trivial cases feedback adds +2.9 points (p = 1.0) and B3 is lower still. The original dev-set gain was an artefact <span class="tag m">measured</span>. Re-run on the same 12 cases with the V10 harness and Qwen2.5-72B (5 seeds, 60 runs per arm): B0 18/60 (30.0%), L3 39/60 (65.0%), OPT 41/60 (68.3%), OPTONLY 39/60 (65.0%); L3 − B0 = +35.0 points [+18.3, +53.3], Holm p = 0.016 over 12 cases. Once blank designs cannot pass and nothing leaks, the loop’s benefit appears on the dev cases too <span class="tag m">measured</span>.</p>
+
+<h3>8.2 Relaxation audit and generator</h3>
+<p>The screen is close to a relaxation for HX and MEM and is not one for PCM (112 false assurances from a missing capacity bound) or RAD (the two tiers check different constraints) (Figure 2). The generator certifies every candidate it draws and keeps 48 instances whose random-design pass rate averages 6–9% for three families and 34% for MEM (Figure 6) <span class="tag m">measured</span>.</p>
+
+<h3>8.3 Pilot on certified instances (Qwen2.5-72B on GPU; Qwen2.5-7B on CPU)</h3>
+<p>Setup: the 48 development instances of §7.1; one final design per run, scored once by the hidden evaluator; T = 0.7; not preregistered. Qwen2.5-72B-Instruct-FP8 (vLLM, 3 seeds, 144 runs per condition) is the primary pilot. Qwen2.5-7B-Instruct (HF transformers on CPU, 2 seeds, 96 runs per condition) is a scale contrast; it was run first, while no GPU was usable. OPTONLY involves no LLM and is the same 96 runs in both. Numbers are from <code>docs/v10/results_72b/analysis.md</code> and <code>docs/v10/results/analysis.md</code> <span class="tag m">measured</span>.</p>
+
+<p class="tcap"><b>Table 7.</b> Pilot per-condition results. Wilson intervals are over runs and understate uncertainty; paired tests (Table 8) use the instance as the unit. S&amp;!E = screen pass and eval fail. “—” = not run.</p>
+<table>
+<thead><tr><th rowspan="2">Condition</th><th colspan="4" style="text-align:center">Qwen2.5-72B (144 runs)</th><th colspan="3" style="text-align:center">Qwen2.5-7B (96 runs)</th></tr>
+<tr><th class="num">Eval pass [Wilson 95%]</th><th class="num">S&amp;!E</th><th class="num">Tmpl err</th><th class="num">Tok/run</th><th class="num">Eval pass [Wilson 95%]</th><th class="num">S&amp;!E</th><th class="num">Tmpl err</th></tr></thead>
+<tbody>
+<tr><td>B0</td><td class="num">35 (24.3%) [18.0, 31.9]</td><td class="num">3</td><td class="num">0</td><td class="num">135</td><td class="num">21 (21.9%) [14.8, 31.1]</td><td class="num">5</td><td class="num">32</td></tr>
+<tr><td>L3</td><td class="num">79 (54.9%) [46.7, 62.8]</td><td class="num">9</td><td class="num">0</td><td class="num">384</td><td class="num">39 (40.6%) [31.3, 50.6]</td><td class="num">9</td><td class="num">0</td></tr>
+<tr><td>BoN8</td><td class="num">55 (38.2%) [30.7, 46.3]</td><td class="num">7</td><td class="num">0</td><td class="num">1,084</td><td class="num">—</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>OPT</td><td class="num">95 (66.0%) [57.9, 73.2]</td><td class="num">49</td><td class="num">0</td><td class="num">135</td><td class="num">61 (63.5%) [53.6, 72.5]</td><td class="num">9</td><td class="num">26</td></tr>
+<tr><td>OPTONLY (no LLM; 96 runs)</td><td class="num">65 (67.7%) [57.8, 76.2]</td><td class="num">31</td><td class="num">0</td><td class="num">0</td><td class="num">same runs</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>L3_BIOMATCH</td><td class="num">75 (52.1%) [44.0, 60.1]</td><td class="num">9</td><td class="num">0</td><td class="num">372</td><td class="num">37 (38.5%) [29.4, 48.5]</td><td class="num">9</td><td class="num">1</td></tr>
+<tr><td>L3_BIOMISMATCH</td><td class="num">71 (49.3%) [41.3, 57.4]</td><td class="num">8</td><td class="num">0</td><td class="num">383</td><td class="num">39 (40.6%) [31.3, 50.6]</td><td class="num">7</td><td class="num">8</td></tr>
+</tbody>
+</table>
+
+<p class="tcap"><b>Table 8.</b> Paired instance-level comparisons (N = 48 instances; per-instance pass fraction over seeds; two-sided sign-flip test; 95% bootstrap CI over instances). Holm correction across the three confirmatory pairs only, per model.</p>
+<table>
+<thead><tr><th>A − B</th><th class="num">72B diff [95% CI]</th><th class="num">72B p (Holm)</th><th class="num">7B diff [95% CI]</th><th class="num">7B p (Holm)</th></tr></thead>
+<tbody>
+<tr><td>L3 − B0 (confirmatory)</td><td class="num">+0.306 [+0.208, +0.410]</td><td class="num">1×10⁻⁵ (3×10⁻⁵)</td><td class="num">+0.188 [+0.104, +0.292]</td><td class="num">0.00024 (0.0007)</td></tr>
+<tr><td>OPT − L3 (confirmatory)</td><td class="num">+0.111 [−0.042, +0.264]</td><td class="num">0.19 (0.37)</td><td class="num">+0.229 [+0.073, +0.385]</td><td class="num">0.0088 (0.018)</td></tr>
+<tr><td>L3_BIOMATCH − L3_BIOMISMATCH (confirmatory)</td><td class="num">+0.028 [−0.042, +0.097]</td><td class="num">0.56 (0.56)</td><td class="num">−0.021 [−0.094, +0.052]</td><td class="num">0.77 (0.77)</td></tr>
+<tr><td>BoN8 − B0 (exploratory)</td><td class="num">+0.139 [+0.062, +0.222]</td><td class="num">0.002</td><td class="num">—</td><td class="num">—</td></tr>
+<tr><td>OPTONLY − OPT (exploratory)</td><td class="num">+0.017 [−0.017, +0.056]</td><td class="num">0.44</td><td class="num">+0.042 [0.000, +0.094]</td><td class="num">0.22</td></tr>
+<tr><td>L3_BIOMATCH − L3 (exploratory)</td><td class="num">−0.028 [−0.097, +0.042]</td><td class="num">0.58</td><td class="num">−0.021 [−0.094, +0.062]</td><td class="num">0.79</td></tr>
+</tbody>
+</table>
+
+<figure>
+<img src="fig/fig_v10_results.png" alt="Pilot pass rates per condition for both models, per family, and paired contrasts">
+<figcaption><b>Figure 7.</b> Pilot on 48 certified instances. (a) Hidden-eval pass rate per condition, Qwen2.5-72B (solid, 3 seeds) and Qwen2.5-7B (hatched, 2 seeds), with Wilson 95% intervals over runs. OPTONLY uses no LLM, so its two bars are the same runs. (b, c) Per-family pass rate for each model. (d) Paired per-instance differences with instance-bootstrap 95% intervals; Holm-adjusted p for confirmatory pairs. * = incomplete arm. Generated by <code>make_figures.py</code> from <code>docs/v10/results_72b/</code> and <code>docs/v10/results/</code>.</figcaption>
+</figure>
+
+<p><b>Feedback helps on certified instances.</b> Unlike the dev set, screen repair beats a single shot by +30.6 points at 72B (Holm p = 3×10⁻⁵) and +18.8 at 7B (Holm p = 0.0007); both CIs exclude +10 points. At 72B the gain is +58.3 points on RAD (p = 0.002 within family), +33.3 on MEM, +16.7 on PCM and +13.9 on HX. Part of the 7B gain is template correction: 7B B0 ends with a wrong template in 32 of 96 runs and L3 in none. The 72B model makes no final template errors in any condition. Since every family has one template and the catalogue gives numeric bounds only for the four live templates, this is an easy choice (§10). Sampling without feedback is the weaker use of compute: at 72B, best-of-8 selected by the screen (BoN8) gains +13.9 points over B0 at about eight times B0's tokens, while three repair turns (L3) gain +30.6 at under three times.</p>
+
+<p><b>An optimiser helps, more so for the weaker model.</b> Seeding differential evolution with the LLM's single design (OPT) beats three turns of LLM repair by +22.9 points at 7B (Holm p = 0.018) and by +11.1 points at 72B (Holm p = 0.37, not significant). The family breakdown explains the difference. On HX the optimiser turns a family the LLMs cannot size (L3: 0% at 7B, 13.9% at 72B) into 100%. On PCM and RAD it does worse than 72B repair (PCM 2.8% vs 25.0%; RAD 61.1% vs 80.6%), because it drives designs into the region the screen wrongly passes. A stronger LLM gains less from the optimiser on the families where the screen is faithful, and loses more on those where it is not.</p>
+
+<p><b>The LLM adds nothing once the template is given.</b> The optimiser alone, told the family's template and given no LLM, passes 65/96. That is the same as the 72B-seeded optimiser (95/144; paired +1.7 points, p = 0.44) and the 7B-seeded one (61/96; +4.2, p = 0.22). It reaches 100% on HX and MEM and is limited only by the screen's infidelity on PCM (3/24) and RAD (14/24). On these four families, then, the instances are easy as parameter problems, and an LLM's value cannot show up in parameter fitting. It can only show up in choosing the mechanism and template.</p>
+
+<p><b>The screen is not a relaxation, in practice.</b> OPTONLY passes the screen in 96 of 96 runs but the hidden evaluator in only 65; the 72B-seeded OPT arm passes the screen in 144 of 144 and the evaluator in 95. All misses are false assurances in PCM and RAD (OPTONLY: 21 and 10; 72B OPT: 35 and 14), the two families flagged by the audit. This is in-context proxy optimisation [25] at small scale: the harder a method optimises the screen, the more it exploits the gap. LLM-only conditions show far fewer such misses (3–9 per condition) because they optimise less hard. Until the screen is a relaxation, optimiser-arm pass rates on PCM and RAD measure screen fidelity as much as design skill.</p>
+
+<p><b>No biology effect.</b> At 72B the matched fixture card is 2.8 points above the mismatched card (Holm p = 0.56) and 2.8 points below no card (p = 0.58); at 7B it is 2.1 points below both no card (p = 0.79) and the mismatched card (Holm p = 0.77). Per family at 72B, match and mismatch are identical on MEM and RAD and differ by 2.8 points (HX) and 8.3 points (PCM). This is a weak test, as designed: single-template families where biology cannot change the mechanism, fixture cards rather than gold cards, and a PCM card that describes evaporation rather than latent storage.</p>
+
+<p><b>Not run at 7B.</b> BoN8 at 7B was stopped unfinished: on CPU its first chunk (384 trajectories) had not completed after more than an hour, and the 72B arm already answers the question it addresses (RQ4, §8.4).</p>
+
+<h3>8.4 Compute allocation at 72B</h3>
+<p>Setup as in §8.3 (Qwen2.5-72B, 48 instances × 3 seeds, 144 runs per arm). Each arm is (samples × maximum repair turns); the best design by minimum screen margin is submitted once. Numbers from <code>docs/v10/results_72b/alloc/</code> <span class="tag m">measured</span>; paired tests use the instance as the unit (sign-flip, 2×10⁵ draws; bootstrap CI); all are exploratory.</p>
+<p class="tcap"><b>Table 8a.</b> Compute allocation at 72B. L3 (1 × 3) and BoN8 (8 × 0) from Table 7 are repeated for reference.</p>
+<table>
+<thead><tr><th>Arm (samples × repairs)</th><th class="num">Eval pass [Wilson 95%]</th><th class="num">S&amp;!E</th><th class="num">Tokens/run</th></tr></thead>
+<tbody>
+<tr><td>L3 (1 × 3)</td><td class="num">79 (54.9%) [46.7, 62.8]</td><td class="num">9</td><td class="num">384</td></tr>
+<tr><td>BoN8 (8 × 0)</td><td class="num">55 (38.2%) [30.7, 46.3]</td><td class="num">7</td><td class="num">1,084</td></tr>
+<tr><td>A24x1 (24 × 0)</td><td class="num">59 (41.0%) [33.3, 49.1]</td><td class="num">10</td><td class="num">3,258</td></tr>
+<tr><td>A8x3 (8 × 2)</td><td class="num">96 (66.7%) [58.6, 73.8]</td><td class="num">8</td><td class="num">2,538</td></tr>
+<tr><td>A3x8 (3 × 7)</td><td class="num">102 (70.8%) [62.9, 77.6]</td><td class="num">16</td><td class="num">1,820</td></tr>
+<tr><td>V10 (8 × 3)</td><td class="num">102 (70.8%) [62.9, 77.6]</td><td class="num">11</td><td class="num">3,096</td></tr>
+</tbody>
+</table>
+<p class="tcap"><b>Table 8b.</b> Paired allocation contrasts at 72B (N = 48 instances).</p>
+<table>
+<thead><tr><th>A − B</th><th class="num">diff [95% CI]</th><th class="num">p</th></tr></thead>
+<tbody>
+<tr><td>A3x8 − A24x1</td><td class="num">+0.299 [+0.194, +0.410]</td><td class="num">5×10⁻⁶</td></tr>
+<tr><td>A8x3 − A24x1</td><td class="num">+0.257 [+0.153, +0.368]</td><td class="num">2×10⁻⁵</td></tr>
+<tr><td>A3x8 − A8x3</td><td class="num">+0.042 [−0.014, +0.097]</td><td class="num">0.24</td></tr>
+<tr><td>V10 − A3x8</td><td class="num">0.000 [−0.049, +0.042]</td><td class="num">1.0</td></tr>
+<tr><td>A3x8 − L3</td><td class="num">+0.160 [+0.069, +0.250]</td><td class="num">0.0014</td></tr>
+<tr><td>V10 − L3</td><td class="num">+0.160 [+0.069, +0.257]</td><td class="num">0.002</td></tr>
+</tbody>
+</table>
+<figure>
+<img src="fig/fig_alloc.png" alt="Pass rate versus tokens per run for allocation arms">
+<figcaption><b>Figure 7b.</b> Compute allocation at 72B: hidden-eval pass rate (Wilson 95%) against mean generated tokens per run. Arms with screen repair (blue) dominate sampling-only arms (orange) at every budget. Generated by <code>make_fig_alloc.py</code>.</figcaption>
+</figure>
+<p><b>Depth beats breadth.</b> With margin feedback, repair turns are worth far more than independent samples: 24 samples without repair (41.0%, 3,258 tokens/run) are no better than 8 (38.2%), while 3 samples with up to 7 repairs reach 70.8% at 56% of the tokens (+29.9 points over A24x1, p = 5×10⁻⁶). Beyond about 2–3 repair turns, more samples or more turns add little (A3x8 vs A8x3 +4.2, p = 0.24; V10 = A3x8). This is the opposite of the code-repair result that favours diverse first attempts [10]: when the verifier returns signed per-constraint margins rather than a pass/fail bit, the model can follow them. The best LLM-only allocation (70.8%) matches the optimiser arms (OPT 66.0%, OPTONLY 67.7%) on these single-template families. It also shows more screen false-assurance (16) than L3 (9), the same proxy-optimisation pressure seen in §8.3. For the full study, V10's default allocation should move from 8 × 3 to 3 × 7 (same pass rate, 41% fewer tokens).</p>
+
+<h3>8.5 What the preliminary results imply</h3>
+<ol>
+<li><b>The original dev-set measurement was an artefact</b> of template selection on blank-passable cases (§3.4). Re-measured on the same 12 cases with the corrected V10 harness (no defaults, no leaks, 72B, 5 seeds), feedback does help: L3 65.0% vs B0 30.0% (+35.0 points, Holm p = 0.016, N = 12; <code>docs/v10/results_72b/dev/</code>). The effect is real; the old number did not measure it.</li>
+<li><b>On certified instances, verifier feedback helps, an optimiser helps more (significantly so only for the weaker model), and the LLM's marginal value over the optimiser is about zero when the template is given</b> (§8.3).</li>
+<li><b>The biology card shows no effect</b> at either scale, under conditions where it could hardly have one.</li>
+<li><b>Therefore the research focus moves</b> to choice-sensitive instances, where mechanism and template selection, possibly informed by biology, decides the outcome, and to making the screen a true relaxation so that optimiser results mean what they claim (RQ2, RQ3, RQ5).</li>
+</ol>
+
+<!-- ===================================================================== -->
+<h2>9 Plan</h2>
+<p>The original 26-week plan was dated 30 October 2026; this plan keeps its end date (30 April 2027) and assumes one researcher, with a second person for gold cards and the verifier audit if available. Figure 8 shows the phases; Table 9 gives exit criteria and deliverables.</p>
+
+<figure>
+<svg viewBox="0 0 680 270" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Phased roadmap Gantt chart from November 2026 to April 2027">
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0072B2" stroke-width="1.6"/></pattern>
+  </defs>
+  <!-- month grid: day0 = 16 Nov 2026, 3.3 px/day, x0 = 110 -->
+  <g stroke="#ccc" stroke-width="0.8">
+    <line x1="159.5" y1="34" x2="159.5" y2="232"/><line x1="261.8" y1="34" x2="261.8" y2="232"/>
+    <line x1="364.1" y1="34" x2="364.1" y2="232"/><line x1="456.5" y1="34" x2="456.5" y2="232"/>
+    <line x1="558.8" y1="34" x2="558.8" y2="232"/><line x1="664.4" y1="34" x2="664.4" y2="232"/>
+  </g>
+  <g font-size="11" fill="#333" text-anchor="middle">
+    <text x="135" y="26">Nov</text><text x="210" y="26">Dec 2026</text><text x="313" y="26">Jan 2027</text>
+    <text x="410" y="26">Feb</text><text x="507" y="26">Mar</text><text x="611" y="26">Apr</text>
+  </g>
+  <line x1="123.2" y1="30" x2="123.2" y2="236" stroke="#D55E00" stroke-width="1.4"/>
+  <text x="123.2" y="248" font-size="10" fill="#D55E00" text-anchor="middle">today 20 Nov</text>
+  <g font-size="11" fill="#111">
+    <text x="6" y="51">A Close-out</text>
+    <text x="6" y="83">B Rebuild</text>
+    <text x="6" y="115">C Confirm</text>
+    <text x="6" y="147">D Biology</text>
+    <text x="6" y="179">E Gated</text>
+    <text x="6" y="211">F Audit, write</text>
+  </g>
+  <!-- A: 20 Nov - 4 Dec -->
+  <rect x="123.2" y="38" width="46.2" height="20" fill="#0072B2"/>
+  <!-- B: 7 Dec - 15 Jan -->
+  <rect x="179.3" y="70" width="128.7" height="20" fill="#0072B2"/>
+  <!-- C: 18 Jan - 5 Feb -->
+  <rect x="317.9" y="102" width="59.4" height="20" fill="#0072B2"/>
+  <!-- D: 7 Dec - 19 Feb -->
+  <rect x="179.3" y="134" width="244.2" height="20" fill="#fff" stroke="#0072B2" stroke-width="1.5"/>
+  <!-- E: 22 Feb - 2 Apr (conditional) -->
+  <rect x="433.4" y="166" width="128.7" height="20" fill="url(#hatch)" stroke="#0072B2" stroke-width="1.2"/>
+  <!-- F: 5 Apr - 30 Apr -->
+  <rect x="572" y="198" width="82.5" height="20" fill="#0072B2"/>
+  <!-- milestones -->
+  <g font-size="10" fill="#111">
+    <path d="M308,62 l5,6 l-5,6 l-5,-6 z" fill="#111"/><text x="314" y="72" text-anchor="start">PREREG + seal</text>
+    <path d="M377.3,94 l5,6 l-5,6 l-5,-6 z" fill="#111"/><text x="384" y="104">RQ1, RQ2, RQ4, RQ5</text>
+    <path d="M423.5,126 l5,6 l-5,6 l-5,-6 z" fill="#111"/><text x="430" y="136">RQ3 decided</text>
+    <path d="M654.5,190 l5,6 l-5,6 l-5,-6 z" fill="#111"/><text x="652" y="186" text-anchor="end">paper 30 Apr</text>
+    <text x="176" y="51">fixes, leak tests, allocation arms</text>
+    <text x="300" y="246" fill="#555">E runs only if RQ3 = go (thin M1); else GRPO proposer or more templates</text>
+  </g>
+  <g font-size="10" fill="#555">
+    <rect x="110" y="256" width="12" height="9" fill="#0072B2"/><text x="126" y="264">compute / code</text>
+    <rect x="220" y="256" width="12" height="9" fill="#fff" stroke="#0072B2"/><text x="236" y="264">human effort (gold cards)</text>
+    <rect x="380" y="256" width="12" height="9" fill="url(#hatch)" stroke="#0072B2"/><text x="396" y="264">conditional</text>
+  </g>
+</svg>
+<figcaption><b>Figure 8.</b> Phased plan, 20 November 2026 to 30 April 2027. Diamonds mark decision points. Phase D runs in parallel with B and C because it needs human effort, not GPUs.</figcaption>
+</figure>
+
+<p class="tcap"><b>Table 9.</b> Phases, deliverables and exit criteria.</p>
+<table>
+<thead><tr><th style="width:17%">Phase (dates)</th><th>Work</th><th style="width:30%">Exit criterion / deliverable</th></tr></thead>
+<tbody>
+<tr><td>A Close-out<br>20 Nov – 4 Dec 2026</td><td>Finish 7B BoN8 and BIOMISMATCH on CPU and the 72B compute-allocation arms; commit and tag Rounds 9–11 and V10 (all untracked today); patch the Fo bug and the TPL_09 net-cooling omission in <code>flbds/physics</code>; import-graph and prompt-scan leak tests; move instance files off the public repository.</td><td>Pilot report at 7B and 72B; all leak tests green; tagged commit.</td></tr>
+<tr><td>B Rebuild<br>7 Dec 2026 – 15 Jan 2027</td><td>Rewrite screens as necessary-condition bounds with validity blocks and <code>invalid_regime</code>; independent hidden-eval implementations; Hypothesis property and metamorphic tests; choice-sensitive families and multi-template certification; OPT-ENUM baseline; margin band; E1 pilot to estimate paired SD and intra-template correlation; power simulation.</td><td>Relaxation test: 0 false rejections and FA reported in 10<sup>4</sup> designs per template; <code>PREREG.md</code> committed; test seed drawn and sealed (≈ 80 instances, ≥ 48 choice-sensitive).</td></tr>
+<tr><td>C Confirm<br>18 Jan – 5 Feb 2027</td><td>Run RQ1, RQ2, RQ4, RQ5 once on the sealed set with the preregistered script (72B; newer open model as replication).</td><td>RQ1 and RQ2 decided; RQ4 allocation chosen; RQ5 reported.</td></tr>
+<tr><td>D Biology<br>7 Dec 2026 – 19 Feb 2027</td><td>16 gold cards hand-written from PMC OA primary papers; WrongBio pairing table; RQ3 run in LLM-only and OPT arms.</td><td>RQ3 decided; go/no-go for M1.</td></tr>
+<tr><td>E Gated<br>22 Feb – 2 Apr 2027</td><td>If RQ3 = go: thin M1 evaluated on about 48 photos of the 16 organisms against the gold cards. Otherwise: GRPO proposer on screen reward, or a deeper TFP template set.</td><td>M1 card precision on 50–100 hand-checked values before any end-to-end claim.</td></tr>
+<tr><td>F Audit and writing<br>5 – 30 Apr 2027</td><td>Verifier audit Packet A with two raters (Cohen's κ) if raters exist; paper; release of the generator specification (not the sealed instances).</td><td>Claims limited to what RQ1–RQ5 decided.</td></tr>
+</tbody>
+</table>
+
+<h3>9.1 Compute estimate</h3>
+<p class="tcap"><b>Table 10.</b> GPU estimate (H200 GPU-hours, unbatched runner; from the architecture report, extended with the pilot replication).</p>
+<table>
+<thead><tr><th>Item</th><th class="num">Runs</th><th class="num">GPU-h</th></tr></thead>
+<tbody>
+<tr><td>72B pilot (6 LLM conditions × 144 runs; done, under 5 min logged wall time)</td><td class="num">864</td><td class="num">&lt; 0.5</td></tr>
+<tr><td>E1 pilot on choice-sensitive development instances</td><td class="num">200</td><td class="num">0.5–1</td></tr>
+<tr><td>RQ1 B0 + L3 + V10 core (80 × 5)</td><td class="num">≈ 1,200</td><td class="num">≈ 5</td></tr>
+<tr><td>RQ2 optimiser arms (LLM only for choice and seed)</td><td class="num">400</td><td class="num">≈ 1.5</td></tr>
+<tr><td>RQ4 allocation arms</td><td class="num">800</td><td class="num">≈ 9</td></tr>
+<tr><td>RQ3 biology (≥ 48 × 5 × 3 cards × 2 arms)</td><td class="num">≈ 1,440</td><td class="num">≈ 9</td></tr>
+<tr><td>B2-Code (secondary)</td><td class="num">400</td><td class="num">≈ 2</td></tr>
+<tr><td>Newer-model replication of RQ1–RQ2 key arms</td><td class="num">≈ 1,200</td><td class="num">5–6</td></tr>
+<tr><td><b>Total with 1.5× contingency</b></td><td></td><td class="num"><b>≈ 45–50</b></td></tr>
+</tbody>
+</table>
+<p>This is about half of one week's 90 GPU-h quota; all rounds to date used under 2 GPU-h. The deferred GRPO proposer is the only expensive item (published recipes used 4–8 GPUs for 800 steps [11] or about 3,000 simulations [27]) and should be treated as a multi-day 4-GPU job scheduled only after RQ1–RQ3. The binding constraints are GPU <em>availability</em>, which failed tonight, and human time.</p>
+
+<h3>9.2 Risk register</h3>
+<p class="tcap"><b>Table 11.</b> Risks.</p>
+<table>
+<thead><tr><th style="width:19%">Risk</th><th style="width:10%">Likelihood / impact</th><th>Mitigation</th><th style="width:22%">Trigger</th></tr></thead>
+<tbody>
+<tr><td>GPU unavailable (shared broker; MIG reset; other users)</td><td>High / medium</td><td>Runner is back-end neutral and resumable; CPU 7B path proven; batch all turns; book GPU windows early; admin ticket for the GPU 2 reset.</td><td>No GPU for 5 working days</td></tr>
+<tr><td>Further solver bugs in templates</td><td>High / high</td><td>Property and metamorphic tests; validity regimes; finite-output checks; independent eval implementations; scikit-fem audit subset [47].</td><td>Any relaxation-test failure or non-finite pass</td></tr>
+<tr><td>Benchmark validity (too easy as parameter problems; single-template families; catalogue hint)</td><td>Certain today / high</td><td>Choice-sensitive families; OPT-ENUM and OPTONLY baselines; uniform catalogue; margin band; difficulty strata reported.</td><td>OPTONLY ≥ best LLM arm on the test set</td></tr>
+<tr><td>Biology card quality</td><td>Medium / high</td><td>16 gold cards from primary papers, second reader, verbatim spans; WrongBio pairing fixed in advance.</td><td>Second reader disagrees on mechanism for &gt; 2 cards</td></tr>
+<tr><td>Rater availability</td><td>High / medium</td><td>Only Packet A (binary verifier audit) depends on raters; no claim rests on agent-written reviews.</td><td>No two raters by 1 Mar 2027</td></tr>
+<tr><td>Forking paths after seeing results</td><td>Medium / high</td><td>PREREG.md before the seed; re-seeding rule; analysis script frozen.</td><td>Any change to generator, scorer or prompts</td></tr>
+<tr><td>Single researcher bandwidth</td><td>High / medium</td><td>Phase E is conditional; drop B2-Code and RQ4 first if late.</td><td>Phase B slips past 22 Jan 2027</td></tr>
+</tbody>
+</table>
+
+<!-- ===================================================================== -->
+<h2>10 Threats to validity and limitations</h2>
+<ul>
+<li><b>Four families are four template clusters.</b> Instances within a family share a template and its bugs, so their outcomes are correlated. Family-level results in the pilot rest on 12 instances each, and the HX result (0% for every LLM-only arm) is a property of one template and one model.</li>
+<li><b>Model scale changes some conclusions.</b> OPT − L3 is significant at 7B and not at 72B, and HX goes from 0% (7B) to 13.9% (72B) under repair. A newer or larger model may close the LLM-only gap further, so conclusions about the optimiser's value are model-specific; both scales are reported.</li>
+<li><b>The pilot is not a test.</b> It used the development instances, was not preregistered, had two or three seeds, and the 7B mismatch arm is incomplete. Its role is to set directions and variance inputs.</li>
+<li><b>Catalogue hint.</b> The catalogue shows numeric bounds only for the four benchmark templates, which tells the model which templates are live and inflates template-choice accuracy after feedback. Some HX system names contain “countercurrent”.</li>
+<li><b>PCM card mismatch.</b> The matched PCM biology card describes evaporative cooling, not latent storage, so the PCM “match” arm is mislabelled.</li>
+<li><b>The screen is not yet a relaxation.</b> PCM and RAD fail the relaxation audit; optimiser-arm results on those families partly measure screen infidelity.</li>
+<li><b>Shared code between tiers.</b> Screen and hidden eval still call the same <code>flbds/physics</code> modules, so common-mode bugs are invisible to agreement metrics.</li>
+<li><b>No human raters and no image path.</b> No expert rating exists; analogical validity is unmeasured; the image front end does not exist.</li>
+<li><b>Scope.</b> Results concern hand-written lumped and 1-D TFP models within declared regimes. They do not carry over to structural colour, adhesion or aerodynamic shape, and they are not validation against experiment [34].</li>
+<li><b>Enumeration can beat choice.</b> With ten templates and millisecond screens, enumerating all templates is cheap. The LLM's choice value may be confined to admissibility stated in text, which narrows any positive claim.</li>
+<li><b>Reproducibility gaps today.</b> All Round 9–11 and V10 code is untracked in git, and the server copy that ran the pilot is not a git repository (<code>git_sha</code> “unknown” in <code>run_meta.json</code>). The V10 unit tests were reported passing on the server but could not be re-run in the environment used to write this paper.</li>
+</ul>
+
+<!-- ===================================================================== -->
+<h2>11 Conclusion</h2>
+<p>The original proposal's headline, that feedback alone doubles the pass rate, did not survive its own audit. It came from template selection on cases a blank design passes, read through a scorer that leaked the answer and filled empty fields. Rebuilding the measurement apparatus first was therefore the right order of work. On 48 solver-certified, non-trivial instances, a small pilot at two model scales already separates three effects the dev set confounded. Verifier feedback helps (+30.6 points at 72B). A classical optimiser helps further, more so for the weaker model. And when the template is given, the LLM contributes nothing that the optimiser alone does not. The biology card showed no effect at either scale. These results make the project's real question precise for the first time: does an LLM, informed by a biological mechanism, choose a mechanism that works when the choice matters and enumeration over a catalogue cannot settle it? The plan answers that on a preregistered, sealed, choice-sensitive benchmark with a screen that is provably a relaxation of its scorer. A positive answer would justify the biology front end; a null answer is publishable and costs a few GPU-hours and sixteen hand-written cards to obtain.</p>
+
+<!-- ===================================================================== -->
+<h2>References</h2>
+<ol class="refs">
+<li>Kang, Lin, Martelaro, Kittur et al. BioSpark. CHI 2025. <a href="https://arxiv.org/html/2503.09838v1">https://arxiv.org/html/2503.09838v1</a></li>
+<li>Zhu, Zhang &amp; Luo. Biologically inspired design concept generation using generative pre-trained transformers. J. Mech. Design 145(4), 2023. <a href="https://arxiv.org/pdf/2212.13196">https://arxiv.org/pdf/2212.13196</a></li>
+<li>AskNatureGPT. J. Engineering Design, 2025. <a href="https://www.tandfonline.com/doi/full/10.1080/09544828.2025.2481536">https://www.tandfonline.com/doi/full/10.1080/09544828.2025.2481536</a></li>
+<li>Toukmaji &amp; Tee. Retrieval-augmented BIDARA. AAAI Spring Symposium 2024. <a href="https://ojs.aaai.org/index.php/AAAI-SS/article/view/31210">https://ojs.aaai.org/index.php/AAAI-SS/article/view/31210</a></li>
+<li>Jiang &amp; Luo. AutoTRIZ. arXiv 2403.13002. <a href="https://arxiv.org/html/2403.13002v2">https://arxiv.org/html/2403.13002v2</a></li>
+<li>Szczepanik &amp; Chudziak. TRIZ Agents. ICAART 2025. <a href="https://arxiv.org/html/2506.18783v1">https://arxiv.org/html/2506.18783v1</a></li>
+<li>Wang &amp; Uzzi. TRIZBench. Findings of ACL 2026. <a href="https://aclanthology.org/2026.findings-acl.1798/">https://aclanthology.org/2026.findings-acl.1798/</a></li>
+<li>Huang et al. Large language models cannot self-correct reasoning yet. ICLR 2024. <a href="https://arxiv.org/abs/2310.01798">https://arxiv.org/abs/2310.01798</a></li>
+<li>Kamoi et al. When can LLMs actually correct their own mistakes? TACL 12, 2024. <a href="https://aclanthology.org/2024.tacl-1.78">https://aclanthology.org/2024.tacl-1.78</a></li>
+<li>Olausson et al. Is self-repair a silver bullet for code generation? ICLR 2024. <a href="https://arxiv.org/abs/2306.09896v4">https://arxiv.org/abs/2306.09896v4</a></li>
+<li>SciDesignBench. arXiv 2603.12724, 2026. <a href="https://arxiv.org/html/2603.12724">https://arxiv.org/html/2603.12724</a></li>
+<li>Ma et al. Eureka: human-level reward design via coding LLMs. <a href="https://arxiv.org/abs/2310.12931">https://arxiv.org/abs/2310.12931</a></li>
+<li>Google. AlphaEvolve harness: logical architecture. <a href="https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/logical-architecture">https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/logical-architecture</a></li>
+<li>Brown et al. Large Language Monkeys: scaling inference compute with repeated sampling. 2024. <a href="https://arxiv.org/abs/2407.21787v3">https://arxiv.org/abs/2407.21787v3</a></li>
+<li>Centaur hyperparameter-optimisation benchmark. arXiv 2603.24647, 2026. <a href="https://arxiv.org/html/2603.24647v5">https://arxiv.org/html/2603.24647v5</a></li>
+<li>LLM-SR: scientific equation discovery via programming with LLMs. ICLR 2025. <a href="https://arxiv.org/html/2404.18400v3">https://arxiv.org/html/2404.18400v3</a></li>
+<li>ADO-LLM: analog design Bayesian optimisation with in-context learning of LLMs. <a href="https://arxiv.org/abs/2406.18770">https://arxiv.org/abs/2406.18770</a></li>
+<li>Constrained multi-objective inverse design with LLMs vs BoTorch. arXiv 2511.00070. <a href="https://arxiv.org/pdf/2511.00070">https://arxiv.org/pdf/2511.00070</a></li>
+<li>Peherstorfer, Willcox &amp; Gunzburger. Survey of multifidelity methods. SIAM Review 2018. <a href="https://arxiv.org/pdf/1806.10761">https://arxiv.org/pdf/1806.10761</a></li>
+<li>Miller. Adding error bars to evals. 2024. <a href="https://arxiv.org/abs/2411.00640">https://arxiv.org/abs/2411.00640</a></li>
+<li>Bowyer, Aitchison &amp; Ivanova. Position: don't use the CLT in LLM evals with fewer than a few hundred datapoints. ICML 2025. <a href="https://arxiv.org/pdf/2503.01747">https://arxiv.org/pdf/2503.01747</a></li>
+<li>BioCLIP 2. NeurIPS 2025. <a href="https://arxiv.org/html/2505.23883v2">https://arxiv.org/html/2505.23883v2</a></li>
+<li>VLM4Bio. <a href="https://arxiv.org/html/2408.16176v1">https://arxiv.org/html/2408.16176v1</a></li>
+<li>MicroVQA. CVPR 2025. <a href="https://arxiv.org/html/2503.13399v1">https://arxiv.org/html/2503.13399v1</a></li>
+<li>Pan et al. Feedback loops with language models drive in-context reward hacking. ICML 2024. <a href="https://proceedings.mlr.press/v235/pan24d.html">https://proceedings.mlr.press/v235/pan24d.html</a></li>
+<li>METR. Recent frontier models are reward hacking. 2025. <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking">https://metr.org/blog/2025-06-05-recent-reward-hacking</a></li>
+<li>RocketBench. arXiv 2504.19394, 2025. <a href="https://arxiv.org/html/2504.19394v1">https://arxiv.org/html/2504.19394v1</a></li>
+<li>Tam et al. Let me speak freely? Format restrictions and LLM performance. EMNLP 2024 Industry. <a href="https://aclanthology.org/2024.emnlp-industry.91">https://aclanthology.org/2024.emnlp-industry.91</a></li>
+<li>Geng et al. JSONSchemaBench. ICML 2025. <a href="https://arxiv.org/html/2501.10868v3">https://arxiv.org/html/2501.10868v3</a></li>
+<li>Mirzadeh et al. GSM-Symbolic. ICLR 2025. <a href="https://arxiv.org/html/2410.05229">https://arxiv.org/html/2410.05229</a></li>
+<li>Re-analysis of GSM-Symbolic's sampling distribution. arXiv 2605.28700. <a href="https://arxiv.org/html/2605.28700">https://arxiv.org/html/2605.28700</a></li>
+<li>EngDesign. NeurIPS 2025 Datasets and Benchmarks. <a href="https://arxiv.org/html/2509.16204v2">https://arxiv.org/html/2509.16204v2</a></li>
+<li>Kanewala &amp; Chen. Metamorphic testing for scientific software. <a href="https://par.nsf.gov/servlets/purl/10085974">https://par.nsf.gov/servlets/purl/10085974</a></li>
+<li>Coleman. ASME V&amp;V 20 overview. <a href="https://maretec.tecnico.ulisboa.pt/~maretec.daemon/html_files/CFD_workshops/html_files_2008/papers/COLEMAN.pdf">https://maretec.tecnico.ulisboa.pt/~maretec.daemon/html_files/CFD_workshops/html_files_2008/papers/COLEMAN.pdf</a></li>
+<li>Labonte et al. Extreme positive allometry of animal adhesive pads. PNAS 2016. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4747726">https://pmc.ncbi.nlm.nih.gov/articles/PMC4747726</a></li>
+<li>García-Mayoral &amp; Jiménez. Riblet drag reduction. <a href="https://torroja.dmt.upm.es/congresos/katnet09/pdf/Wednesday/Session%20Wed%202/RGM_JJ.pdf">https://torroja.dmt.upm.es/congresos/katnet09/pdf/Wednesday/Session%20Wed%202/RGM_JJ.pdf</a></li>
+<li>King, Ocko &amp; Mahadevan. Termite mounds harness diurnal temperature oscillations for ventilation. PNAS 2015. <a href="https://dash.harvard.edu/bitstream/handle/1/23603185/MahadevanTermite2015.pdf?sequence=1">https://dash.harvard.edu/bitstream/handle/1/23603185/MahadevanTermite2015.pdf?sequence=1</a></li>
+<li>Ma et al. Diversity of LLM-generated design solutions. ASME JCISE 25(2), 2025. <a href="https://codesign.berkeley.edu/pdfs/papers/ma-llmdiverse-jcise.pdf">https://codesign.berkeley.edu/pdfs/papers/ma-llmdiverse-jcise.pdf</a></li>
+<li>Card et al. With little power comes great responsibility. EMNLP 2020. <a href="https://web.stanford.edu/~jurafsky/pubs/2020.emnlp-main.745.pdf">https://web.stanford.edu/~jurafsky/pubs/2020.emnlp-main.745.pdf</a></li>
+<li>Biomimicry Institute. Terms of use. <a href="https://biomimicry.org/terms/">https://biomimicry.org/terms/</a></li>
+<li>PMC text-mining and open-access subset. <a href="https://pmc.ncbi.nlm.nih.gov/tools/textmining/">https://pmc.ncbi.nlm.nih.gov/tools/textmining/</a></li>
+<li>ChatExtract. Nature Communications 2024. <a href="https://nature.com/articles/s41467-024-45914-8.pdf">https://nature.com/articles/s41467-024-45914-8.pdf</a></li>
+<li>Qwen3 Embedding. <a href="https://arxiv.org/html/2506.05176v3">https://arxiv.org/html/2506.05176v3</a></li>
+<li>FEM-Bench. <a href="https://arxiv.org/html/2512.20732">https://arxiv.org/html/2512.20732</a></li>
+<li>CAE agent harness study. 2026. <a href="https://arxiv.org/html/2609.03718">https://arxiv.org/html/2609.03718</a></li>
+<li>Edwards, Tehranchi, Miller &amp; Ahmed. AI judges in design. 2025. <a href="https://arxiv.org/abs/2504.00938">https://arxiv.org/abs/2504.00938</a></li>
+<li>scikit-fem. JOSS. <a href="https://joss.theoj.org/papers/10.21105/joss.02369">https://joss.theoj.org/papers/10.21105/joss.02369</a></li>
+<li>vLLM structured outputs documentation. <a href="https://docs.vllm.ai/en/latest/features/structured_outputs.html">https://docs.vllm.ai/en/latest/features/structured_outputs.html</a></li>
+<li>Specialist encoder plus VLM re-ranking for species identification. arXiv 2512.15748. <a href="https://arxiv.org/html/2512.15748v1">https://arxiv.org/html/2512.15748v1</a></li>
+<li>Chen et al. Teaching large language models to self-debug. ICLR 2024. <a href="https://arxiv.org/abs/2304.05128">https://arxiv.org/abs/2304.05128</a></li>
+</ol>
+
+<!-- ===================================================================== -->
+<h2 class="pagebreak">Appendix A — Example instance and exact prompt and feedback format</h2>
+<p><b>A.1 Example problem statement</b> (instance <code>V10-F_PCM-001</code>, rendered exactly as the model sees it; certified minimum margin 0.53, random-design pass rate 0.15).</p>
+<pre>Target system: Biomimetic Architectural Thermal Buffer Facade Panel
+Required function: passively buffer the interior against an intense daytime solar heat load by absorbing
+and storing the incident heat in a thin wall layer during the charging period, keeping the exposed surface
+temperature rise small, and releasing it later.
+Environment / operating conditions:
+- absorbed heat flux on the exposed face: 113.7 W/m^2 (constant)
+- charging duration: 5.45 h
+- energy that must be stored per unit area: 2.136 MJ/m^2
+Hard constraints:
+- layer thickness &lt;= 41.0 mm
+- areal mass &lt;= 39.1 kg/m^2
+- end-of-charge surface temperature rise above the storage transition temperature &lt;= 10.6 K</pre>
+<p>The statement is followed by the ten-template catalogue (one line per template plus its design fields; numeric bounds appear only for TPL_02, TPL_08, TPL_09 and TPL_10) and, in biology conditions, by a block headed “Biological mechanism card (a biological system that may be relevant as inspiration):”.</p>
+
+<p><b>A.2 Output instruction</b> (appended to every turn; from <code>flbds/v10/prompts.py</code>).</p>
+<pre>Respond with ONLY one JSON object, no other text:
+{"rationale": "&lt;1-2 sentences&gt;", "template_id": "TPL_XX", "design": {&lt;every design field of the chosen
+template as a number in SI units, within the stated bounds&gt;}}
+Environment/operating values and hard-constraint limits are fixed by the problem; do not include them.</pre>
+
+<p><b>A.3 Feedback format.</b> After a failed attempt the next prompt contains the block below. Angle brackets are placeholders filled per attempt; constraint names, units and limits are the family's screen constraints (for F_PCM: <code>areal_mass_kg_m2</code>, <code>thickness_m</code>, <code>latent_capacity_J_m2</code>, <code>effective_fourier_number</code>, <code>closed_form_surface_superheat_K</code>, <code>eval_model_validity_fourier_number</code>).</p>
+<pre>Your previous attempt and the screening verifier's result:
+Chosen template: &lt;TPL_XX&gt;
+Design: {"&lt;field&gt;": &lt;value, 4 s.f.&gt;, ...}
+Screen verdict: FAIL (min normalised margin &lt;±m.mmm&gt;)
+| constraint | achieved | limit | normalised margin | status |
+|---|---|---|---|---|
+| &lt;name&gt; (&lt;unit&gt;) | &lt;achieved&gt; | &lt;= or &gt;= &lt;limit&gt; | &lt;±m.mmm&gt; | &lt;PASS or MISS&gt; |
+...
+
+Best 2 designs so far (by minimum screen margin):
+1. &lt;TPL_XX&gt; {...} -&gt; min margin &lt;±m.mmm&gt;
+2. ...
+
+Task: fix the failure (you may switch template) so that every screen constraint passes.</pre>
+<p>Special cases (verbatim): a wrong template yields “Screen verdict: FAIL. The chosen template's physics cannot deliver the required function.”; invalid fields yield “Screen verdict: FAIL. Invalid design fields: &lt;field&gt; missing or not a number; &lt;field&gt;=&lt;v&gt; outside bounds [&lt;lo&gt;, &lt;hi&gt;]”; an unparseable reply yields “Screen verdict: FAIL. The response could not be parsed as the required JSON object.”</p>
+
+<h2>Appendix B — Reproducibility</h2>
+<p class="tcap"><b>Table B1.</b> Artefacts and identifiers.</p>
+<table>
+<thead><tr><th style="width:32%">Item</th><th>Value / path</th></tr></thead>
+<tbody>
+<tr><td>Instance set (pilot/development)</td><td><code>flbds/v10/instances_v10.json</code>; 48 instances; seed 20261119; DE maxiter 40, popsize 15; 200 random designs; trivial threshold 0.5; ≤ 60 candidates per family</td></tr>
+<tr><td>Instance SHA-256 (JSON + canary)</td><td><code>788426ffe962f1780c034cca07bb2701553c62c50dfa14acb324e5573eec05cc</code></td></tr>
+<tr><td>Canary string</td><td><code>FLBDS-V10-SEALED-CANARY-7f3c9a1e: do not train on or publish this benchmark</code></td></tr>
+<tr><td>Relaxation audit</td><td><code>flbds/v10/relaxation_audit.json</code> (2,000 designs per family, near fraction 0.5, 79.3 s)</td></tr>
+<tr><td>E0 rescoring</td><td><code>docs/v10/e0_results/</code> (<code>e0_rescore_summary.json</code>, <code>e0_nontrivial.json</code>, <code>blank_design_test.json</code>); script <code>scripts/v10_e0_rescore.py</code></td></tr>
+<tr><td>CPU pilot</td><td><code>docs/v10/results/</code> (<code>summary_all.json</code>, <code>analysis.json</code>, <code>analysis.md</code>, <code>run_meta.json</code>, logs); server <code>/home/abhishek24024/flbds_data/v10_cpu_run1/</code></td></tr>
+<tr><td>GPU pilot</td><td><code>docs/v10/results_72b/</code> (<code>summary_all.json</code>, <code>analysis.json</code>, <code>analysis.md</code>, <code>run_meta.json</code>); server <code>/home/abhishek24024/flbds_data/v10_gpu72b/</code></td></tr>
+<tr><td>Models</td><td>Qwen2.5-72B-Instruct-FP8 (vLLM, GPU; seeds 1–3); Qwen2.5-7B-Instruct (HF transformers, CPU; seeds 1–2)</td></tr>
+<tr><td>Code</td><td><code>flbds/v10/</code> (families, generator, prompts, runner, optimizer_arm, stats, hf_backend, gen); <code>scripts/run_v10.py</code>; <code>scripts/analyse_v10.py</code>; tests <code>tests/test_v10_*.py</code></td></tr>
+<tr><td>Git state</td><td>Local HEAD <code>97db903</code> (Round 8); all Round 9–11 and V10 files untracked; pilot <code>git_sha</code> recorded as “unknown”. Tagging is Phase A work.</td></tr>
+</tbody>
+</table>
+<p class="tcap"><b>Commands</b> (run from the repository root).</p>
+<pre># regenerate and seal the instance set (~40 s CPU)
+python -m flbds.v10.generator --out flbds/v10/instances_v10.json
+
+# screen-vs-eval relaxation audit
+python -m flbds.v10.stats --instances flbds/v10/instances_v10.json --n 2000 --out flbds/v10/relaxation_audit.json
+
+# pilot conditions on CPU (resumable; writes &lt;COND&gt;.jsonl, &lt;COND&gt;_summary.json, summary_all.json)
+python scripts/run_v10.py --backend hf --model-dir &lt;models&gt;/Qwen2.5-7B-Instruct \
+    --output-dir &lt;run-dir&gt; --seeds 1 2 \
+    --conditions B0 OPTONLY OPT L3 L3_BIOMATCH L3_BIOMISMATCH BoN8
+
+# same on GPU
+python scripts/run_v10.py --backend vllm --model-dir &lt;models&gt;/Qwen2.5-72B-Instruct-FP8 --output-dir &lt;run-dir&gt;
+
+# paired analysis (Holm over the confirmatory pairs)
+python scripts/analyse_v10.py --run-dir &lt;run-dir&gt; \
+    --pairs L3:B0 BoN8:B0 OPT:L3 OPTONLY:OPT L3_BIOMATCH:L3_BIOMISMATCH L3_BIOMATCH:L3 \
+    --confirmatory L3:B0 OPT:L3 L3_BIOMATCH:L3_BIOMISMATCH
+
+# figures and PDF
+python3 docs/v10/paper/make_figures.py
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+    --no-pdf-header-footer --print-to-pdf=docs/v10/paper/paper.pdf file://$PWD/docs/v10/paper/paper.html</pre>
+
+</body>
+</html>

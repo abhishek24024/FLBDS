@@ -40,11 +40,11 @@
   "hard_constraints": {
     "max_thickness_m": null,
     "max_mass_kg_m2": null,
-    "max_pressure_drop_Pa": null,
+    "max_pressure_drop_Pa": 800.0,
     "max_surface_superheat_K": null,
     "min_pore_diameter_m": null,
     "min_cop": null,
-    "max_envelope_height_m": null
+    "max_envelope_height_m": 1.0
   },
   "contradictions": [],
   "evidence": [],

@@ -1,0 +1,1192 @@
+{
+  "id": "https://openalex.org/W2100766608",
+  "doi": "https://doi.org/10.1017/s0022112008002048",
+  "title": "Underwater breathing: the mechanics of plastron respiration",
+  "display_name": "Underwater breathing: the mechanics of plastron respiration",
+  "publication_year": 2008,
+  "publication_date": "2008-07-11",
+  "ids": {
+    "openalex": "https://openalex.org/W2100766608",
+    "doi": "https://doi.org/10.1017/s0022112008002048",
+    "mag": "2100766608"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1017/s0022112008002048",
+    "doi": "https://doi.org/10.1017/s0022112008002048",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1017/s0022112008002048",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S152000018",
+      "display_name": "Journal of Fluid Mechanics",
+      "issn_l": "0022-1120",
+      "issn": [
+        "0022-1120",
+        "1469-7645",
+        "1750-6859"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [
+        "cwts-core",
+        "dongbi-a",
+        "jufo-3",
+        "norway-2",
+        "poland-140",
+        "russia-white-list-1"
+      ],
+      "host_organization": "https://openalex.org/P4310311721",
+      "host_organization_name": "Cambridge University Press",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310311721",
+        "https://openalex.org/P4310311702"
+      ],
+      "host_organization_lineage_names": [
+        "Cambridge University Press",
+        "University of Cambridge"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Journal of Fluid Mechanics",
+    "raw_type": "journal-article"
+  },
+  "volume": null,
+  "type": "article",
+  "indexed_in": [
+    "crossref"
+  ],
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5035336800",
+        "display_name": "M. R. Flynn",
+        "orcid": "https://orcid.org/0000-0002-7559-9463",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-7559-9463"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I63966007",
+          "display_name": "Massachusetts Institute of Technology",
+          "ror": "https://ror.org/042nb2s44",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I63966007"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "M. R. FLYNN",
+      "raw_affiliation_strings": [
+        "Department of Mathematics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139-4307, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Mathematics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139-4307, USA",
+          "institution_ids": [
+            "https://openalex.org/I63966007"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5067813676",
+        "display_name": "John W. M. Bush",
+        "orcid": "https://orcid.org/0000-0002-7936-7256",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-7936-7256"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I63966007",
+          "display_name": "Massachusetts Institute of Technology",
+          "ror": "https://ror.org/042nb2s44",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I63966007"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "JOHN W. M. BUSH",
+      "raw_affiliation_strings": [
+        "Department of Mathematics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139-4307, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Mathematics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139-4307, USA",
+          "institution_ids": [
+            "https://openalex.org/I63966007"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 1,
+  "institutions_distinct_count": 1,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [
+    "https://openalex.org/I63966007"
+  ],
+  "apc_list": {
+    "value": 3550,
+    "currency": "USD",
+    "value_usd": 3550
+  },
+  "apc_paid": null,
+  "fwci": 6.5876,
+  "has_fulltext": false,
+  "cited_by_count": 195,
+  "citation_normalized_percentile": {
+    "value": 0.9606248,
+    "is_in_top_1_percent": false,
+    "is_in_top_10_percent": true
+  },
+  "cited_by_percentile_year": {
+    "min": 98,
+    "max": 100
+  },
+  "biblio": {
+    "volume": "608",
+    "issue": null,
+    "first_page": "275",
+    "last_page": "296"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T11401",
+    "display_name": "Minerals Flotation and Separation Techniques",
+    "score": 0.2703000009059906,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2312",
+      "display_name": "Water Science and Technology"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/23",
+      "display_name": "Environmental Science"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T11401",
+      "display_name": "Minerals Flotation and Separation Techniques",
+      "score": 0.2703000009059906,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2312",
+        "display_name": "Water Science and Technology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11170",
+      "display_name": "Biomimetic flight and propulsion mechanisms",
+      "score": 0.24120000004768372,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2202",
+        "display_name": "Aerospace Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10313",
+      "display_name": "Surface Modification and Superhydrophobicity",
+      "score": 0.15309999883174896,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2508",
+        "display_name": "Surfaces, Coatings and Films"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/25",
+        "display_name": "Materials Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/underwater-breathing",
+      "display_name": "underwater breathing",
+      "score": 0.8429999947547913
+    },
+    {
+      "id": "https://openalex.org/keywords/insect-respiration",
+      "display_name": "insect respiration",
+      "score": 0.5569999814033508
+    },
+    {
+      "id": "https://openalex.org/keywords/spider-respiration",
+      "display_name": "spider respiration",
+      "score": 0.6830000281333923
+    },
+    {
+      "id": "https://openalex.org/keywords/air-bubbles",
+      "display_name": "air bubbles",
+      "score": 0.45899999141693115
+    },
+    {
+      "id": "https://openalex.org/keywords/surface-tension",
+      "display_name": "surface tension",
+      "score": 0.5519999861717224
+    },
+    {
+      "id": "https://openalex.org/keywords/oxygen-diffusion",
+      "display_name": "oxygen diffusion",
+      "score": 0.6589999794960022
+    },
+    {
+      "id": "https://openalex.org/keywords/co2-flux",
+      "display_name": "CO2 flux",
+      "score": 0.6700000166893005
+    },
+    {
+      "id": "https://openalex.org/keywords/mass-transfer",
+      "display_name": "mass transfer",
+      "score": 0.546999990940094
+    },
+    {
+      "id": "https://openalex.org/keywords/dive-depth",
+      "display_name": "dive depth",
+      "score": 0.49000000953674316
+    },
+    {
+      "id": "https://openalex.org/keywords/ventilation",
+      "display_name": "ventilation",
+      "score": 0.42500001192092896
+    },
+    {
+      "id": "https://openalex.org/keywords/biomimetics",
+      "display_name": "biomimetics",
+      "score": 0.8330000042915344
+    },
+    {
+      "id": "https://openalex.org/keywords/water-repellent-surfaces",
+      "display_name": "water-repellent surfaces",
+      "score": 0.7049999833106995
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C98083399",
+      "wikidata": "https://www.wikidata.org/wiki/Q3246517",
+      "display_name": "Underwater",
+      "level": 2,
+      "score": 0.6044383645057678
+    },
+    {
+      "id": "https://openalex.org/C157915830",
+      "wikidata": "https://www.wikidata.org/wiki/Q2928001",
+      "display_name": "Bubble",
+      "level": 2,
+      "score": 0.535338282585144
+    },
+    {
+      "id": "https://openalex.org/C182215343",
+      "wikidata": "https://www.wikidata.org/wiki/Q472287",
+      "display_name": "Respiration",
+      "level": 2,
+      "score": 0.5013434886932373
+    },
+    {
+      "id": "https://openalex.org/C143895478",
+      "wikidata": "https://www.wikidata.org/wiki/Q789775",
+      "display_name": "Ambient pressure",
+      "level": 2,
+      "score": 0.4322740435600281
+    },
+    {
+      "id": "https://openalex.org/C38349280",
+      "wikidata": "https://www.wikidata.org/wiki/Q1434290",
+      "display_name": "Flow (mathematics)",
+      "level": 2,
+      "score": 0.4230573773384094
+    },
+    {
+      "id": "https://openalex.org/C2780444116",
+      "wikidata": "https://www.wikidata.org/wiki/Q6057443",
+      "display_name": "Flapping",
+      "level": 3,
+      "score": 0.41727474331855774
+    },
+    {
+      "id": "https://openalex.org/C39432304",
+      "wikidata": "https://www.wikidata.org/wiki/Q188847",
+      "display_name": "Environmental science",
+      "level": 0,
+      "score": 0.4166763424873352
+    },
+    {
+      "id": "https://openalex.org/C57879066",
+      "wikidata": "https://www.wikidata.org/wiki/Q41217",
+      "display_name": "Mechanics",
+      "level": 1,
+      "score": 0.41423851251602173
+    },
+    {
+      "id": "https://openalex.org/C195065555",
+      "wikidata": "https://www.wikidata.org/wiki/Q214881",
+      "display_name": "Curvature",
+      "level": 2,
+      "score": 0.4124913215637207
+    },
+    {
+      "id": "https://openalex.org/C200457457",
+      "wikidata": "https://www.wikidata.org/wiki/Q584049",
+      "display_name": "Ventilation (architecture)",
+      "level": 2,
+      "score": 0.41111502051353455
+    },
+    {
+      "id": "https://openalex.org/C192562407",
+      "wikidata": "https://www.wikidata.org/wiki/Q228736",
+      "display_name": "Materials science",
+      "level": 0,
+      "score": 0.3706548810005188
+    },
+    {
+      "id": "https://openalex.org/C86803240",
+      "wikidata": "https://www.wikidata.org/wiki/Q420",
+      "display_name": "Biology",
+      "level": 0,
+      "score": 0.20654046535491943
+    },
+    {
+      "id": "https://openalex.org/C105702510",
+      "wikidata": "https://www.wikidata.org/wiki/Q514",
+      "display_name": "Anatomy",
+      "level": 1,
+      "score": 0.20458576083183289
+    },
+    {
+      "id": "https://openalex.org/C121332964",
+      "wikidata": "https://www.wikidata.org/wiki/Q413",
+      "display_name": "Physics",
+      "level": 0,
+      "score": 0.19589900970458984
+    },
+    {
+      "id": "https://openalex.org/C127313418",
+      "wikidata": "https://www.wikidata.org/wiki/Q1069",
+      "display_name": "Geology",
+      "level": 0,
+      "score": 0.18092915415763855
+    },
+    {
+      "id": "https://openalex.org/C153294291",
+      "wikidata": "https://www.wikidata.org/wiki/Q25261",
+      "display_name": "Meteorology",
+      "level": 1,
+      "score": 0.10634183883666992
+    },
+    {
+      "id": "https://openalex.org/C97355855",
+      "wikidata": "https://www.wikidata.org/wiki/Q11473",
+      "display_name": "Thermodynamics",
+      "level": 1,
+      "score": 0.10022714734077454
+    },
+    {
+      "id": "https://openalex.org/C111368507",
+      "wikidata": "https://www.wikidata.org/wiki/Q43518",
+      "display_name": "Oceanography",
+      "level": 1,
+      "score": 0.09360229969024658
+    },
+    {
+      "id": "https://openalex.org/C97257150",
+      "wikidata": "https://www.wikidata.org/wiki/Q161358",
+      "display_name": "Wing",
+      "level": 2,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C33923547",
+      "wikidata": "https://www.wikidata.org/wiki/Q395",
+      "display_name": "Mathematics",
+      "level": 0,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C2524010",
+      "wikidata": "https://www.wikidata.org/wiki/Q8087",
+      "display_name": "Geometry",
+      "level": 1,
+      "score": 0.0
+    }
+  ],
+  "mesh": [],
+  "locations_count": 1,
+  "locations": [
+    {
+      "id": "doi:10.1017/s0022112008002048",
+      "doi": "https://doi.org/10.1017/s0022112008002048",
+      "is_oa": false,
+      "landing_page_url": "https://doi.org/10.1017/s0022112008002048",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S152000018",
+        "display_name": "Journal of Fluid Mechanics",
+        "issn_l": "0022-1120",
+        "issn": [
+          "0022-1120",
+          "1469-7645",
+          "1750-6859"
+        ],
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": true,
+        "listed_in": [
+          "cwts-core",
+          "dongbi-a",
+          "jufo-3",
+          "norway-2",
+          "poland-140",
+          "russia-white-list-1"
+        ],
+        "host_organization": "https://openalex.org/P4310311721",
+        "host_organization_name": "Cambridge University Press",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310311721",
+          "https://openalex.org/P4310311702"
+        ],
+        "host_organization_lineage_names": [
+          "Cambridge University Press",
+          "University of Cambridge"
+        ],
+        "type": "journal"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Journal of Fluid Mechanics",
+      "raw_type": "journal-article"
+    }
+  ],
+  "best_oa_location": null,
+  "sustainable_development_goals": [
+    {
+      "score": 0.5769000053405762,
+      "display_name": "Life below water",
+      "id": "https://metadata.un.org/sdg/14"
+    }
+  ],
+  "sustainable_development_goals_aurora": [
+    {
+      "score": 0.699999988079071,
+      "display_name": "Life below water",
+      "id": "https://metadata.un.org/sdg/14"
+    }
+  ],
+  "study_designs": [],
+  "awards": [],
+  "funders": [],
+  "has_content": {
+    "pdf": false,
+    "grobid_xml": false
+  },
+  "content_urls": null,
+  "referenced_works_count": 59,
+  "referenced_works": [
+    "https://openalex.org/W18927404",
+    "https://openalex.org/W118308745",
+    "https://openalex.org/W198539570",
+    "https://openalex.org/W1506688592",
+    "https://openalex.org/W1520318096",
+    "https://openalex.org/W1534857865",
+    "https://openalex.org/W1535624928",
+    "https://openalex.org/W1555162375",
+    "https://openalex.org/W1577806554",
+    "https://openalex.org/W1591224334",
+    "https://openalex.org/W1642248471",
+    "https://openalex.org/W1881045119",
+    "https://openalex.org/W1917014780",
+    "https://openalex.org/W1965829397",
+    "https://openalex.org/W1970802183",
+    "https://openalex.org/W1975140804",
+    "https://openalex.org/W1975322389",
+    "https://openalex.org/W1983084194",
+    "https://openalex.org/W1987201539",
+    "https://openalex.org/W2004298370",
+    "https://openalex.org/W2016485222",
+    "https://openalex.org/W2021194738",
+    "https://openalex.org/W2022550044",
+    "https://openalex.org/W2022785712",
+    "https://openalex.org/W2028078745",
+    "https://openalex.org/W2042431181",
+    "https://openalex.org/W2044309806",
+    "https://openalex.org/W2047086134",
+    "https://openalex.org/W2057703748",
+    "https://openalex.org/W2063822786",
+    "https://openalex.org/W2082765822",
+    "https://openalex.org/W2083695856",
+    "https://openalex.org/W2087390540",
+    "https://openalex.org/W2105922092",
+    "https://openalex.org/W2108827313",
+    "https://openalex.org/W2114157430",
+    "https://openalex.org/W2118166595",
+    "https://openalex.org/W2122125541",
+    "https://openalex.org/W2141746530",
+    "https://openalex.org/W2142117965",
+    "https://openalex.org/W2148857421",
+    "https://openalex.org/W2152123134",
+    "https://openalex.org/W2161260381",
+    "https://openalex.org/W2177172665",
+    "https://openalex.org/W2267750417",
+    "https://openalex.org/W2303996996",
+    "https://openalex.org/W2316791985",
+    "https://openalex.org/W2321461329",
+    "https://openalex.org/W2331459185",
+    "https://openalex.org/W2338956911",
+    "https://openalex.org/W2409979224",
+    "https://openalex.org/W2411991466",
+    "https://openalex.org/W2575495146",
+    "https://openalex.org/W2765221434",
+    "https://openalex.org/W3149214722",
+    "https://openalex.org/W4240607492",
+    "https://openalex.org/W4242824942",
+    "https://openalex.org/W4247190749",
+    "https://openalex.org/W4285719527"
+  ],
+  "related_works": [
+    "https://openalex.org/W7099187216",
+    "https://openalex.org/W198539570",
+    "https://openalex.org/W2979801116",
+    "https://openalex.org/W4253809233",
+    "https://openalex.org/W2033883629",
+    "https://openalex.org/W2018050798",
+    "https://openalex.org/W7045299622",
+    "https://openalex.org/W2016485222",
+    "https://openalex.org/W2133574016",
+    "https://openalex.org/W1984438777"
+  ],
+  "abstract_inverted_index": {
+    "The": [
+      0,
+      33,
+      133
+    ],
+    "rough,": [
+      1
+    ],
+    "hairy": [
+      2
+    ],
+    "surfaces": [
+      3
+    ],
+    "of": [
+      4,
+      24,
+      35,
+      64,
+      86,
+      94,
+      121,
+      135,
+      206
+    ],
+    "many": [
+      5,
+      17
+    ],
+    "insects": [
+      6
+    ],
+    "and": [
+      7,
+      54,
+      79,
+      107,
+      116,
+      124,
+      155,
+      169
+    ],
+    "spiders": [
+      8
+    ],
+    "serve": [
+      9
+    ],
+    "to": [
+      10,
+      20,
+      46,
+      59,
+      89,
+      97
+    ],
+    "render": [
+      11
+    ],
+    "them": [
+      12
+    ],
+    "water-repellent;": [
+      13
+    ],
+    "consequently,": [
+      14
+    ],
+    "when": [
+      15
+    ],
+    "submerged,": [
+      16
+    ],
+    "are": [
+      18,
+      161,
+      209
+    ],
+    "able": [
+      19
+    ],
+    "survive": [
+      21
+    ],
+    "by": [
+      22,
+      198
+    ],
+    "virtue": [
+      23
+    ],
+    "a": [
+      25,
+      49,
+      182
+    ],
+    "thin": [
+      26
+    ],
+    "air": [
+      27
+    ],
+    "layer": [
+      28,
+      45
+    ],
+    "trapped": [
+      29
+    ],
+    "along": [
+      30
+    ],
+    "their": [
+      31,
+      200
+    ],
+    "exteriors.": [
+      32
+    ],
+    "diffusion": [
+      34
+    ],
+    "dissolved": [
+      36
+    ],
+    "oxygen": [
+      37
+    ],
+    "from": [
+      38
+    ],
+    "the": [
+      39,
+      65,
+      69,
+      73,
+      77,
+      91,
+      103,
+      119,
+      175,
+      185,
+      190
+    ],
+    "ambient": [
+      40
+    ],
+    "water": [
+      41
+    ],
+    "may": [
+      42,
+      147
+    ],
+    "allow": [
+      43
+    ],
+    "this": [
+      44,
+      179
+    ],
+    "function": [
+      47
+    ],
+    "as": [
+      48
+    ],
+    "respiratory": [
+      50
+    ],
+    "bubble": [
+      51,
+      104
+    ],
+    "or": [
+      52,
+      202
+    ],
+    "\u2018plastron\u2019,": [
+      53
+    ],
+    "so": [
+      55,
+      170
+    ],
+    "enable": [
+      56
+    ],
+    "certain": [
+      57
+    ],
+    "species": [
+      58
+    ],
+    "remain": [
+      60
+    ],
+    "underwater": [
+      61
+    ],
+    "indefinitely.": [
+      62
+    ],
+    "Maintenance": [
+      63
+    ],
+    "plastron": [
+      66,
+      78,
+      114,
+      129,
+      140,
+      176,
+      196
+    ],
+    "requires": [
+      67
+    ],
+    "that": [
+      68
+    ],
+    "curvature": [
+      70
+    ],
+    "pressure": [
+      71,
+      74,
+      146
+    ],
+    "balance": [
+      72
+    ],
+    "difference": [
+      75
+    ],
+    "between": [
+      76
+    ],
+    "ambient.": [
+      80
+    ],
+    "Moreover,": [
+      81,
+      158
+    ],
+    "viable": [
+      82
+    ],
+    "plastrons": [
+      83
+    ],
+    "must": [
+      84
+    ],
+    "be": [
+      85
+    ],
+    "sufficient": [
+      87
+    ],
+    "area": [
+      88
+    ],
+    "accommodate": [
+      90
+    ],
+    "interfacial": [
+      92
+    ],
+    "exchange": [
+      93
+    ],
+    "O2and": [
+      95
+    ],
+    "CO2necessary": [
+      96
+    ],
+    "meet": [
+      98
+    ],
+    "metabolic": [
+      99
+    ],
+    "demands.": [
+      100
+    ],
+    "By": [
+      101
+    ],
+    "coupling": [
+      102
+    ],
+    "mechanics,": [
+      105
+    ],
+    "surface": [
+      106
+    ],
+    "gas-phase": [
+      108
+    ],
+    "chemistry,": [
+      109
+    ],
+    "we": [
+      110
+    ],
+    "enumerate": [
+      111
+    ],
+    "criteria": [
+      112
+    ],
+    "for": [
+      113,
+      150,
+      184
+    ],
+    "viability": [
+      115
+    ],
+    "thereby": [
+      117
+    ],
+    "deduce": [
+      118
+    ],
+    "range": [
+      120
+    ],
+    "environmental": [
+      122
+    ],
+    "conditions": [
+      123
+    ],
+    "dive": [
+      125
+    ],
+    "depths": [
+      126
+    ],
+    "over": [
+      127
+    ],
+    "which": [
+      128
+    ],
+    "breathers": [
+      130
+    ],
+    "can": [
+      131
+    ],
+    "survive.": [
+      132
+    ],
+    "influence": [
+      134
+    ],
+    "an": [
+      136
+    ],
+    "external": [
+      137
+    ],
+    "flow": [
+      138,
+      159
+    ],
+    "on": [
+      139
+    ],
+    "breathing": [
+      141
+    ],
+    "is": [
+      142
+    ],
+    "also": [
+      143
+    ],
+    "examined.": [
+      144
+    ],
+    "Dynamic": [
+      145
+    ],
+    "become": [
+      148
+    ],
+    "significant": [
+      149,
+      163
+    ],
+    "respiration": [
+      151,
+      197
+    ],
+    "in": [
+      152,
+      189
+    ],
+    "fast-flowing,": [
+      153
+    ],
+    "shallow": [
+      154
+    ],
+    "well-aerated": [
+      156
+    ],
+    "streams.": [
+      157
+    ],
+    "effects": [
+      160
+    ],
+    "generally": [
+      162
+    ],
+    "because": [
+      164
+    ],
+    "they": [
+      165
+    ],
+    "sharpen": [
+      166
+    ],
+    "chemical": [
+      167
+    ],
+    "gradients": [
+      168
+    ],
+    "enhance": [
+      171,
+      195
+    ],
+    "mass": [
+      172
+    ],
+    "transfer": [
+      173
+    ],
+    "across": [
+      174
+    ],
+    "interface.": [
+      177
+    ],
+    "Modelling": [
+      178
+    ],
+    "process": [
+      180
+    ],
+    "provides": [
+      181
+    ],
+    "rationale": [
+      183
+    ],
+    "ventilation": [
+      186
+    ],
+    "movements": [
+      187
+    ],
+    "documented": [
+      188
+    ],
+    "biology": [
+      191
+    ],
+    "literature,": [
+      192
+    ],
+    "whereby": [
+      193
+    ],
+    "arthropods": [
+      194
+    ],
+    "flapping": [
+      199
+    ],
+    "limbs": [
+      201
+    ],
+    "antennae.": [
+      203
+    ],
+    "Biomimetic": [
+      204
+    ],
+    "implications": [
+      205
+    ],
+    "our": [
+      207
+    ],
+    "results": [
+      208
+    ],
+    "discussed.": [
+      210
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 4
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 10
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 15
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 10
+    },
+    {
+      "year": 2022,
+      "cited_by_count": 7
+    },
+    {
+      "year": 2021,
+      "cited_by_count": 14
+    },
+    {
+      "year": 2020,
+      "cited_by_count": 14
+    },
+    {
+      "year": 2019,
+      "cited_by_count": 12
+    },
+    {
+      "year": 2018,
+      "cited_by_count": 15
+    },
+    {
+      "year": 2017,
+      "cited_by_count": 11
+    },
+    {
+      "year": 2016,
+      "cited_by_count": 10
+    },
+    {
+      "year": 2015,
+      "cited_by_count": 17
+    },
+    {
+      "year": 2014,
+      "cited_by_count": 19
+    },
+    {
+      "year": 2013,
+      "cited_by_count": 11
+    },
+    {
+      "year": 2012,
+      "cited_by_count": 8
+    }
+  ],
+  "updated_date": "2026-10-30T12:39:25.321706",
+  "created_date": "2016-06-24T00:00:00"
+}

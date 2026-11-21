@@ -1,0 +1,45 @@
+fatal: not a git repository (or any of the parent directories): .git
+{
+  "git_sha": "unknown",
+  "instances": "/home/abhishek24024/flbds_v10/flbds/v10/instances_v10.json",
+  "instances_sha256": "788426ffe962f1780c034cca07bb2701553c62c50dfa14acb324e5573eec05cc",
+  "n_instances": 48,
+  "args": {
+    "backend": "hf",
+    "model_dir": "/home/abhishek24024/flbds_data/models/Qwen2.5-7B-Instruct",
+    "instances": "/home/abhishek24024/flbds_v10/flbds/v10/instances_v10.json",
+    "output_dir": "/home/abhishek24024/flbds_data/v10_cpu_run1",
+    "seeds": [
+      1,
+      2
+    ],
+    "conditions": [
+      "B0",
+      "L3",
+      "BoN8",
+      "OPT",
+      "OPTONLY",
+      "L3_BIOMATCH",
+      "L3_BIOMISMATCH"
+    ],
+    "temperature": 0.7,
+    "max_tokens": 350,
+    "max_instances": 0,
+    "smoke": 0,
+    "chunk_instances": 12,
+    "log_every": 1,
+    "threads": 96,
+    "batch_size": 48,
+    "max_model_len": 8192,
+    "tp": 1,
+    "gpu_mem": 0.9
+  }
+}
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 12472.10it/s]
+================================================================================
+CONDITION B0: Condition(name='B0', n_samples=1, max_repairs=0, bio='none', optimiser=False, llm=True)
+================================================================================
+  [B0] turn 0: 24 active trajectories
+    [hf] batch 1: 24 prompts, max_in 1137 tok, 2161 out tok in 220.8s (9.8 tok/s); total out 2161 tok, elapsed 221s
+  B0 after 24 runs: eval 0/24 (0.000) screen 0 | S&!E 0 !S&E 0 | tmpl_err 24 schema_fail 0 | tokens 2161 | 220.8s
+  [B0] turn 0: 24 active trajectories

@@ -1,0 +1,80 @@
+# FLBDS Dev Case & Evaluator Freeze Hashes (SHA-256)
+# Generated for Audit Round 10 Freeze
+
+## 1. Dev Case Benchmark Files (12 Cases x 3 Files = 36 Files)
+
+### DEV-M1-S1
+ebb273d6eb59d7405133ceee6d4e270c9c22ab3333a9413b17dcb719b0c2860e  flbds/benchmark/dev/DEV-M1-S1/problem_card.json
+aefc2c024a0d37bbdd2e8dfcdb68ccd4db97eeac17bcda886beb315e756ebe38  flbds/benchmark/dev/DEV-M1-S1/ground_truth_eval.json
+e687b2fcf75da5950a75bb8cad632c3ee7fc61268373716cffd6aa1dbb004376  flbds/benchmark/dev/DEV-M1-S1/reference_design.json
+
+### DEV-M1-S2
+45feba544c65fc6ba52ef4533d7c4103f8c83230955244e8b15f7ea3c4dc24e1  flbds/benchmark/dev/DEV-M1-S2/problem_card.json
+fcef5188de1cd18d2aa1016aaeedf53350b58702343bf3b5f15fa2643db6590e  flbds/benchmark/dev/DEV-M1-S2/ground_truth_eval.json
+107897e2e19c4fea33072089bca65cf64f167317f5ca27de1c1205328c4ca84d  flbds/benchmark/dev/DEV-M1-S2/reference_design.json
+
+### DEV-M1-S3
+bfa57d9853859025b877bb3ce7765daf1272695ec8d96a22cc53aeb2f929f75b  flbds/benchmark/dev/DEV-M1-S3/problem_card.json
+7b2c507d21d9c26f95729497e546cce365d8dedc2e62218cf05eb0f2c29cec12  flbds/benchmark/dev/DEV-M1-S3/ground_truth_eval.json
+d32124e090400ac8effa4aafe1cad2a1055310ec73e463458822dd8ba05a8b1c  flbds/benchmark/dev/DEV-M1-S3/reference_design.json
+
+### DEV-M2-S1
+abba0071b47b9e46fa627a3d21a3da1c402ec5c7add39f07aaf261d1691af587  flbds/benchmark/dev/DEV-M2-S1/problem_card.json
+7c93a9f14ea7bb630ff63af3d252b843e166e2121871caa5c2b2db8835b4ce18  flbds/benchmark/dev/DEV-M2-S1/ground_truth_eval.json
+25c20bf29c4444cbbc696c82e9bef364ff75a99e881f6d969e4be720559288e4  flbds/benchmark/dev/DEV-M2-S1/reference_design.json
+
+### DEV-M2-S2
+efb0c4b6962e64916c00e1c6afdec5a2c567aec4125ea5ec5e151725379082f5  flbds/benchmark/dev/DEV-M2-S2/problem_card.json
+2ad47d45b03fd8123d21cb0e7d0c65c3ed00cd9a4eca3d04f98e34a97de8f07d  flbds/benchmark/dev/DEV-M2-S2/ground_truth_eval.json
+ad9ba71d76cb942bbdef2c678329bea2d1506b7ab3acb19dfdebf6de52201820  flbds/benchmark/dev/DEV-M2-S2/reference_design.json
+
+### DEV-M2-S3
+634ef8d14ae290c0f2027206694a50133b5f38562fc33e76f0e5ec075a3cdbe5  flbds/benchmark/dev/DEV-M2-S3/problem_card.json
+dc389287a59be5faa7489aad20fa7d26a8599370291ca977dd7c61979cdcd73d  flbds/benchmark/dev/DEV-M2-S3/ground_truth_eval.json
+c12edcbc0ed5a4aa30ca505e26a8e6e3f78aab0fef47c87de835f6aea32e710b  flbds/benchmark/dev/DEV-M2-S3/reference_design.json
+
+### DEV-M3-S1
+0379a2760fab5f86284b307270c021db0b2ae0091899467f78af79fd1ad0bba4  flbds/benchmark/dev/DEV-M3-S1/problem_card.json
+ca3b6040a4218d711605133a6786d0ca27d833c4918839168529d2b569801fd5  flbds/benchmark/dev/DEV-M3-S1/ground_truth_eval.json
+a0778b83d43f63aa62e33747b7a72104035cf18914925e9c6dec004f83588598  flbds/benchmark/dev/DEV-M3-S1/reference_design.json
+
+### DEV-M3-S2
+02d9d56cd0af4a5a7cb884e0251e67afb055bf1de5e9abb89cc07a78bb2bfbbe  flbds/benchmark/dev/DEV-M3-S2/problem_card.json
+520b044e91b7cfd49a63090fc0ba48686140aa56e96e2583993ca5ddaf520bae  flbds/benchmark/dev/DEV-M3-S2/ground_truth_eval.json
+7cf8b276953f9379903cbe4d81bcf9d5ca5d51a33e9f94bc58d414643fa89c88  flbds/benchmark/dev/DEV-M3-S2/reference_design.json
+
+### DEV-M3-S3
+12dc612e0d3ea9668c9fc67c13152e8f0115a7cf18b04bf77928f62497486bc3  flbds/benchmark/dev/DEV-M3-S3/problem_card.json
+36388ed2f085285b7a8738f5e49c45126f3ba4de2fc29a2e110e27ecf4541e0b  flbds/benchmark/dev/DEV-M3-S3/ground_truth_eval.json
+5f1d2115c830ff3b562aa10a01e5bcecfd5269702a79eddea0455e6a26095ae8  flbds/benchmark/dev/DEV-M3-S3/reference_design.json
+
+### DEV-M4-S1
+ca4ce33af36ce496e9990a4d7cc7ec08cfdcd3566d4046f6094b7b1f5467e6e9  flbds/benchmark/dev/DEV-M4-S1/problem_card.json
+1c698956d1040bf4663d311e56e0442ba5b7d329528b28410d1dbf2f4bc1dbf5  flbds/benchmark/dev/DEV-M4-S1/ground_truth_eval.json
+473dffb9f7d9dd4787f4a5590eff18dc0a721c74ab7cfdbccc572919bab5c911  flbds/benchmark/dev/DEV-M4-S1/reference_design.json
+
+### DEV-M4-S2
+6cdd2dc92e5af8aaea5940edabbc295504503e3cc94c331c5ed1a20ff644ad38  flbds/benchmark/dev/DEV-M4-S2/problem_card.json
+ba1b8923c17b8aac1e7daffe2cc99cb4159089e77e8b8fdde51b9a08488b7205  flbds/benchmark/dev/DEV-M4-S2/ground_truth_eval.json
+c6efc1344eb8685ae472bd6606a81b3790999c16e142a4b0517f888d49552abc  flbds/benchmark/dev/DEV-M4-S2/reference_design.json
+
+### DEV-M4-S3
+a43067c8d267bff8abb4a7642cb7a20400266150c159b2f2798b6d86378406db  flbds/benchmark/dev/DEV-M4-S3/problem_card.json
+667532930376b5cdcc12026372a6d17cdc6ce1dcaf9ae4a80d1956312c0d2c9c  flbds/benchmark/dev/DEV-M4-S3/ground_truth_eval.json
+aa84b633c8746183c7bd578850144a91f457cba56448ccf0710bbf8715e72bc9  flbds/benchmark/dev/DEV-M4-S3/reference_design.json
+
+## 2. Physics & Evaluator Code Files
+98b081629f3eef7967707def3ae8ca0cbc03e96807568226204c461fcf99ba0b  flbds/physics/capacity_bound.py
+f4ca39d97a49fb35d56f538a098c07cd18330b6004771065a06a6b9452d9ab32  flbds/physics/tpl01_conduction.py
+576f926434992a140a012ded10a0c95adca5ae323a2d407b95f127527eb91f4e  flbds/physics/tpl02_pcm.py
+30df24d458d15aa0cbd3bf415ffb014bef541ce6ba1aeb950a89d018c100b88d  flbds/physics/tpl03_evaporation.py
+4c70ff10a8334aa15e3e063e4a6c364eb98a0a526c629fc6c358a50b452b3f92  flbds/physics/tpl04_sorption.py
+ce9570d88a68fbf2a9c812887569ed7d4c9820c1355eb01f6a154ce40156add7  flbds/physics/tpl05_wicking.py
+be8234de91024d49b45c3e8d76697e8bf1ba1e153c5dbe042d20ee43635900e0  flbds/physics/tpl06_porous_flow.py
+ac04a97830b83633fbf095288a4f3dad4554ed7c319e6b587d056488d81473a6  flbds/physics/tpl07_fin.py
+9c38c2ccc8eb183161d8cbe24d67f7b95a15588e881d44e2e62db4db27bd6359  flbds/physics/tpl08_countercurrent.py
+c335bac474c23324ab6aa11638d5ec2bdbd142a163f0fe585e7e16f49dd1bf5b  flbds/physics/tpl09_radiative.py
+68835cda660ede663509ffd73a8b66d4a4ccec652d87311a5fd30517322c1e79  flbds/physics/tpl10_diffusion.py
+56e78eb94b955e2c4ac357687f8aa5f9ef5e81fb36570aa1b621889f9faa5745  flbds/schema/templates.py
+2f4e1563bf420e270547b1c79897b5c11c504e3440c6ebb7c0eb684c152375c5  flbds/schema/problem_card.py
+8cbef69ecd0d17275be39099d6dcf8bad7e28b1e836bcded6d0d37a281ad7605  flbds/schema/ground_truth_eval.py

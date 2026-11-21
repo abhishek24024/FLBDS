@@ -45,6 +45,16 @@ class Context(BaseModel):
         default=None,
         description="Operational flow or thermal regime (e.g. natural convection, diurnal thermal cycling)",
     )
+    regime_max_length_m: Optional[float] = Field(
+        default=None,
+        gt=0.0,
+        description="Upper bound on characteristic length for regime validity (e.g. 0.005 m)",
+    )
+    regime_min_length_m: Optional[float] = Field(
+        default=None,
+        gt=0.0,
+        description="Lower bound on characteristic length for regime validity",
+    )
 
 
 class AbstractionLadder(BaseModel):
@@ -137,6 +147,16 @@ class MechanismCard(BaseModel):
     unsupported_fields: list[str] = Field(
         default_factory=list,
         description="List of fields unsupported by cited evidence and deliberately left empty/unfilled",
+    )
+    regime_max_length_m: Optional[float] = Field(
+        default=None,
+        gt=0.0,
+        description="Upper bound on characteristic length for regime validity (meters)",
+    )
+    regime_min_length_m: Optional[float] = Field(
+        default=None,
+        gt=0.0,
+        description="Lower bound on characteristic length for regime validity (meters)",
     )
 
     # v9 Abstraction Ladder & Multimodal Embeddings

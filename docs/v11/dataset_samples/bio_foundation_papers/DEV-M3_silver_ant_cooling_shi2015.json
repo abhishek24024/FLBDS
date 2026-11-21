@@ -1,0 +1,1314 @@
+{
+  "id": "https://openalex.org/W1691917253",
+  "doi": "https://doi.org/10.1126/science.aab3564",
+  "title": "Keeping cool: Enhanced optical reflection and radiative heat dissipation in Saharan silver ants",
+  "display_name": "Keeping cool: Enhanced optical reflection and radiative heat dissipation in Saharan silver ants",
+  "publication_year": 2015,
+  "publication_date": "2015-06-19",
+  "ids": {
+    "openalex": "https://openalex.org/W1691917253",
+    "doi": "https://doi.org/10.1126/science.aab3564",
+    "mag": "1691917253",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/26089358"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1126/science.aab3564",
+    "doi": "https://doi.org/10.1126/science.aab3564",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1126/science.aab3564",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S3880285",
+      "display_name": "Science",
+      "issn_l": "0036-8075",
+      "issn": [
+        "0036-8075",
+        "0193-4511",
+        "1095-9203"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [
+        "anvur-class-a",
+        "anvur-scientific",
+        "cwts-core",
+        "dongbi-a",
+        "doyens",
+        "erih-plus",
+        "jufo-3",
+        "ki-jl-3",
+        "medline",
+        "norway-2",
+        "poland-200",
+        "russia-white-list-1",
+        "vabb-shw"
+      ],
+      "host_organization": "https://openalex.org/P4310315823",
+      "host_organization_name": "American Association for the Advancement of Science",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310315823"
+      ],
+      "host_organization_lineage_names": [
+        "American Association for the Advancement of Science"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Science",
+    "raw_type": "journal-article"
+  },
+  "volume": null,
+  "type": "article",
+  "indexed_in": [
+    "crossref",
+    "datacite",
+    "pubmed"
+  ],
+  "open_access": {
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://doi.org/10.5167/uzh-134354",
+    "any_repository_has_fulltext": true
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5078993257",
+        "display_name": "Norman Nan Shi",
+        "orcid": "https://orcid.org/0000-0002-1559-066X",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-1559-066X"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I78577930",
+          "display_name": "Columbia University",
+          "ror": "https://ror.org/00hj8s172",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Norman Nan Shi",
+      "raw_affiliation_strings": [
+        "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA",
+          "institution_ids": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5058229517",
+        "display_name": "Cheng\u2010Chia Tsai",
+        "orcid": "https://orcid.org/0000-0001-5662-6908",
+        "observed_orcids": [
+          "https://orcid.org/0000-0001-5662-6908"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I78577930",
+          "display_name": "Columbia University",
+          "ror": "https://ror.org/00hj8s172",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Cheng-Chia Tsai",
+      "raw_affiliation_strings": [
+        "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA",
+          "institution_ids": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5024705448",
+        "display_name": "Fernando Camino",
+        "orcid": "https://orcid.org/0000-0003-0575-2976",
+        "observed_orcids": [
+          "https://orcid.org/0000-0003-0575-2976"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I200870766",
+          "display_name": "Brookhaven National Laboratory",
+          "ror": "https://ror.org/02ex6cf31",
+          "country_code": "US",
+          "type": "facility",
+          "lineage": [
+            "https://openalex.org/I1330989302",
+            "https://openalex.org/I200870766",
+            "https://openalex.org/I39565521",
+            "https://openalex.org/I4210142672"
+          ]
+        },
+        {
+          "id": "https://openalex.org/I4390039222",
+          "display_name": "Center for Functional Nanomaterials",
+          "ror": "https://ror.org/035xqz322",
+          "country_code": "US",
+          "type": "facility",
+          "lineage": [
+            "https://openalex.org/I1330989302",
+            "https://openalex.org/I200870766",
+            "https://openalex.org/I39565521",
+            "https://openalex.org/I4210142672",
+            "https://openalex.org/I4390039222"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Fernando Camino",
+      "raw_affiliation_strings": [
+        "Center for Functional Nanomaterials, Brookhaven National Laboratory, Upton, NY, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Center for Functional Nanomaterials, Brookhaven National Laboratory, Upton, NY, USA",
+          "institution_ids": [
+            "https://openalex.org/I200870766",
+            "https://openalex.org/I4390039222"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5087054271",
+        "display_name": "Gary D. Bernard",
+        "orcid": "https://orcid.org/0000-0001-7460-5123",
+        "observed_orcids": [
+          "https://orcid.org/0000-0001-7460-5123"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I201448701",
+          "display_name": "University of Washington",
+          "ror": "https://ror.org/00cvxb145",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I201448701"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Gary D. Bernard",
+      "raw_affiliation_strings": [
+        "Department of Electrical Engineering, University of Washington, Seattle, WA, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Electrical Engineering, University of Washington, Seattle, WA, USA",
+          "institution_ids": [
+            "https://openalex.org/I201448701"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5061270845",
+        "display_name": "Nanfang Yu",
+        "orcid": "https://orcid.org/0000-0002-9462-4724",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-9462-4724"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I78577930",
+          "display_name": "Columbia University",
+          "ror": "https://ror.org/00hj8s172",
+          "country_code": "US",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ],
+      "countries": [
+        "US"
+      ],
+      "is_corresponding": true,
+      "raw_author_name": "Nanfang Yu",
+      "raw_affiliation_strings": [
+        "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY, USA",
+          "institution_ids": [
+            "https://openalex.org/I78577930"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5023074552",
+        "display_name": "R\u00fcdiger Wehner",
+        "orcid": "https://orcid.org/0000-0002-0761-2830",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-0761-2830"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I202697423",
+          "display_name": "University of Zurich",
+          "ror": "https://ror.org/02crff812",
+          "country_code": "CH",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I202697423"
+          ]
+        }
+      ],
+      "countries": [
+        "CH"
+      ],
+      "is_corresponding": true,
+      "raw_author_name": "R\u00fcdiger Wehner",
+      "raw_affiliation_strings": [
+        "Brain Research Institute, University of Z\u00fcrich, Z\u00fcrich, Switzerland"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Brain Research Institute, University of Z\u00fcrich, Z\u00fcrich, Switzerland",
+          "institution_ids": [
+            "https://openalex.org/I202697423"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 2,
+  "institutions_distinct_count": 5,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5023074552",
+    "https://openalex.org/A5061270845"
+  ],
+  "corresponding_institution_ids": [
+    "https://openalex.org/I202697423",
+    "https://openalex.org/I78577930"
+  ],
+  "apc_list": null,
+  "apc_paid": null,
+  "fwci": 44.036,
+  "has_fulltext": false,
+  "cited_by_count": 786,
+  "citation_normalized_percentile": {
+    "value": 0.99945157,
+    "is_in_top_1_percent": true,
+    "is_in_top_10_percent": true
+  },
+  "cited_by_percentile_year": {
+    "min": 89,
+    "max": 100
+  },
+  "biblio": {
+    "volume": "349",
+    "issue": "6245",
+    "first_page": "298",
+    "last_page": "301"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T12442",
+    "display_name": "Thermal Radiation and Cooling Technologies",
+    "score": 1.0,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2205",
+      "display_name": "Civil and Structural Engineering"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/22",
+      "display_name": "Engineering"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T12442",
+      "display_name": "Thermal Radiation and Cooling Technologies",
+      "score": 1.0,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2205",
+        "display_name": "Civil and Structural Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11056",
+      "display_name": "Physiological and biochemical adaptations",
+      "score": 0.0,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2303",
+        "display_name": "Ecology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11737",
+      "display_name": "Advanced Materials and Mechanics",
+      "score": 0.0,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2210",
+        "display_name": "Mechanical Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/thermoregulation",
+      "display_name": "thermoregulation",
+      "score": 0.8360000252723694
+    },
+    {
+      "id": "https://openalex.org/keywords/optical-reflectance",
+      "display_name": "optical reflectivity",
+      "score": 0.5920000076293945
+    },
+    {
+      "id": "https://openalex.org/keywords/emissivity",
+      "display_name": "emissivity",
+      "score": 0.7360000014305115
+    },
+    {
+      "id": "https://openalex.org/keywords/radiative-heat-loss",
+      "display_name": "radiative heat loss",
+      "score": 0.8709999918937683
+    },
+    {
+      "id": "https://openalex.org/keywords/blackbody-radiation",
+      "display_name": "blackbody radiation",
+      "score": 0.628000020980835
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C114834414",
+      "wikidata": "https://www.wikidata.org/wiki/Q15477170",
+      "display_name": "Thermal management of electronic devices and systems",
+      "level": 2,
+      "score": 0.7888485789299011
+    },
+    {
+      "id": "https://openalex.org/C3018944256",
+      "wikidata": "https://www.wikidata.org/wiki/Q192593",
+      "display_name": "Radiant heat",
+      "level": 2,
+      "score": 0.7466084957122803
+    },
+    {
+      "id": "https://openalex.org/C65682993",
+      "wikidata": "https://www.wikidata.org/wiki/Q1056451",
+      "display_name": "Reflection (computer programming)",
+      "level": 2,
+      "score": 0.6574686169624329
+    },
+    {
+      "id": "https://openalex.org/C15908118",
+      "wikidata": "https://www.wikidata.org/wiki/Q2997395",
+      "display_name": "Radiative cooling",
+      "level": 2,
+      "score": 0.5439706444740295
+    },
+    {
+      "id": "https://openalex.org/C74902906",
+      "wikidata": "https://www.wikidata.org/wiki/Q1190858",
+      "display_name": "Radiative transfer",
+      "level": 2,
+      "score": 0.506119430065155
+    },
+    {
+      "id": "https://openalex.org/C26148502",
+      "wikidata": "https://www.wikidata.org/wiki/Q2488752",
+      "display_name": "Earth (classical element)",
+      "level": 2,
+      "score": 0.5030898451805115
+    },
+    {
+      "id": "https://openalex.org/C135402231",
+      "wikidata": "https://www.wikidata.org/wiki/Q898440",
+      "display_name": "Dissipation",
+      "level": 2,
+      "score": 0.4741705656051636
+    },
+    {
+      "id": "https://openalex.org/C89394759",
+      "wikidata": "https://www.wikidata.org/wiki/Q192593",
+      "display_name": "Thermal radiation",
+      "level": 2,
+      "score": 0.4474411904811859
+    },
+    {
+      "id": "https://openalex.org/C87355193",
+      "wikidata": "https://www.wikidata.org/wiki/Q411",
+      "display_name": "Astrobiology",
+      "level": 1,
+      "score": 0.4338231086730957
+    },
+    {
+      "id": "https://openalex.org/C120665830",
+      "wikidata": "https://www.wikidata.org/wiki/Q14620",
+      "display_name": "Optics",
+      "level": 1,
+      "score": 0.38600894808769226
+    },
+    {
+      "id": "https://openalex.org/C192562407",
+      "wikidata": "https://www.wikidata.org/wiki/Q228736",
+      "display_name": "Materials science",
+      "level": 0,
+      "score": 0.3831919729709625
+    },
+    {
+      "id": "https://openalex.org/C121332964",
+      "wikidata": "https://www.wikidata.org/wiki/Q413",
+      "display_name": "Physics",
+      "level": 0,
+      "score": 0.3030449151992798
+    },
+    {
+      "id": "https://openalex.org/C78519656",
+      "wikidata": "https://www.wikidata.org/wiki/Q101333",
+      "display_name": "Mechanical engineering",
+      "level": 1,
+      "score": 0.18396472930908203
+    },
+    {
+      "id": "https://openalex.org/C44870925",
+      "wikidata": "https://www.wikidata.org/wiki/Q37547",
+      "display_name": "Astrophysics",
+      "level": 1,
+      "score": 0.1792672872543335
+    },
+    {
+      "id": "https://openalex.org/C159985019",
+      "wikidata": "https://www.wikidata.org/wiki/Q181790",
+      "display_name": "Composite material",
+      "level": 1,
+      "score": 0.1712895631790161
+    },
+    {
+      "id": "https://openalex.org/C1276947",
+      "wikidata": "https://www.wikidata.org/wiki/Q333",
+      "display_name": "Astronomy",
+      "level": 1,
+      "score": 0.13271725177764893
+    },
+    {
+      "id": "https://openalex.org/C97355855",
+      "wikidata": "https://www.wikidata.org/wiki/Q11473",
+      "display_name": "Thermodynamics",
+      "level": 1,
+      "score": 0.1196235716342926
+    },
+    {
+      "id": "https://openalex.org/C41008148",
+      "wikidata": "https://www.wikidata.org/wiki/Q21198",
+      "display_name": "Computer science",
+      "level": 0,
+      "score": 0.08843430876731873
+    },
+    {
+      "id": "https://openalex.org/C127413603",
+      "wikidata": "https://www.wikidata.org/wiki/Q11023",
+      "display_name": "Engineering",
+      "level": 0,
+      "score": 0.08013403415679932
+    },
+    {
+      "id": "https://openalex.org/C199360897",
+      "wikidata": "https://www.wikidata.org/wiki/Q9143",
+      "display_name": "Programming language",
+      "level": 1,
+      "score": 0.0
+    }
+  ],
+  "mesh": [
+    {
+      "descriptor_ui": "D000352",
+      "descriptor_name": "Africa, Northern",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D000818",
+      "descriptor_name": "Animals",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D001000",
+      "descriptor_name": "Ants",
+      "qualifier_ui": "Q000033",
+      "qualifier_name": "anatomy & histology",
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D001000",
+      "descriptor_name": "Ants",
+      "qualifier_ui": "Q000502",
+      "qualifier_name": "physiology",
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D001000",
+      "descriptor_name": "Ants",
+      "qualifier_ui": "Q000648",
+      "qualifier_name": "ultrastructure",
+      "is_major_topic": false
+    },
+    {
+      "descriptor_ui": "D001833",
+      "descriptor_name": "Body Temperature Regulation",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D003889",
+      "descriptor_name": "Desert Climate",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D006358",
+      "descriptor_name": "Hot Temperature",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": true
+    },
+    {
+      "descriptor_ui": "D013816",
+      "descriptor_name": "Thermodynamics",
+      "qualifier_ui": null,
+      "qualifier_name": null,
+      "is_major_topic": false
+    }
+  ],
+  "locations_count": 5,
+  "locations": [
+    {
+      "id": "doi:10.1126/science.aab3564",
+      "doi": "https://doi.org/10.1126/science.aab3564",
+      "is_oa": false,
+      "landing_page_url": "https://doi.org/10.1126/science.aab3564",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S3880285",
+        "display_name": "Science",
+        "issn_l": "0036-8075",
+        "issn": [
+          "0036-8075",
+          "0193-4511",
+          "1095-9203"
+        ],
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": true,
+        "listed_in": [
+          "anvur-class-a",
+          "anvur-scientific",
+          "cwts-core",
+          "dongbi-a",
+          "doyens",
+          "erih-plus",
+          "jufo-3",
+          "ki-jl-3",
+          "medline",
+          "norway-2",
+          "poland-200",
+          "russia-white-list-1",
+          "vabb-shw"
+        ],
+        "host_organization": "https://openalex.org/P4310315823",
+        "host_organization_name": "American Association for the Advancement of Science",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310315823"
+        ],
+        "host_organization_lineage_names": [
+          "American Association for the Advancement of Science"
+        ],
+        "type": "journal"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Science",
+      "raw_type": "journal-article"
+    },
+    {
+      "id": "pmid:26089358",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/26089358",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306525036",
+        "display_name": "PubMed",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I1299303238",
+        "host_organization_name": "National Institutes of Health",
+        "host_organization_lineage": [
+          "https://openalex.org/I1299303238"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Science (New York, N.Y.)",
+      "raw_type": "Journal Article"
+    },
+    {
+      "id": "pmh:oai:www.zora.uzh.ch:134354",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://www.zora.uzh.ch/id/eprint/134354/1/298.full%281%29.pdf",
+      "pdf_url": "https://www.zora.uzh.ch/id/eprint/134354/1/298.full%281%29.pdf",
+      "source": {
+        "id": "https://openalex.org/S4306401281",
+        "display_name": "Zurich Open Repository and Archive (University of Zurich)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I202697423",
+        "host_organization_name": "University of Zurich",
+        "host_organization_lineage": [
+          "https://openalex.org/I202697423"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "acceptedVersion",
+      "is_accepted": true,
+      "is_published": false,
+      "raw_source_name": "Shi, Norman N; Tsai, Cheng-Chia; Camino, Fernando; Bernard, Gary D; Yu, Nanfang; Wehner, R\u00fcdiger (2015). Keeping cool: Enhanced optical reflection and radiative heat dissipation in Saharan silver ants. Science, 349(6245):298-301.",
+      "raw_type": "info:eu-repo/semantics/article"
+    },
+    {
+      "id": "pmh:oai:www.zora.uzh.ch:20.500.14742/128097",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://www.zora.uzh.ch/handle/20.500.14742/128097",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401281",
+        "display_name": "Zurich Open Repository and Archive (University of Zurich)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I202697423",
+        "host_organization_name": "University of Zurich",
+        "host_organization_lineage": [
+          "https://openalex.org/I202697423"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": "Shi, N. N., Tsai, C.-C., Camino, F., Bernard, G. D., Yu, N., & Wehner, R. (2015). Keeping cool: Enhanced optical reflection and radiative heat dissipation in Saharan silver ants. Science, 349, 298\u2013301. https://doi.org/10.1126/science.aab3564",
+      "raw_type": "Journal Article"
+    },
+    {
+      "id": "doi:10.5167/uzh-134354",
+      "doi": "https://doi.org/10.5167/uzh-134354",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.5167/uzh-134354",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306401281",
+        "display_name": "Zurich Open Repository and Archive (University of Zurich)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I202697423",
+        "host_organization_name": "University of Zurich",
+        "host_organization_lineage": [
+          "https://openalex.org/I202697423"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "JournalArticle"
+    }
+  ],
+  "best_oa_location": {
+    "id": "doi:10.5167/uzh-134354",
+    "doi": "https://doi.org/10.5167/uzh-134354",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.5167/uzh-134354",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S4306401281",
+      "display_name": "Zurich Open Repository and Archive (University of Zurich)",
+      "issn_l": null,
+      "issn": null,
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": false,
+      "listed_in": [],
+      "host_organization": "https://openalex.org/I202697423",
+      "host_organization_name": "University of Zurich",
+      "host_organization_lineage": [
+        "https://openalex.org/I202697423"
+      ],
+      "host_organization_lineage_names": [],
+      "type": "repository"
+    },
+    "license": null,
+    "license_id": null,
+    "version": null,
+    "is_accepted": false,
+    "is_published": false,
+    "raw_source_name": null,
+    "raw_type": "JournalArticle"
+  },
+  "sustainable_development_goals": [],
+  "sustainable_development_goals_aurora": [],
+  "study_designs": [],
+  "awards": [
+    {
+      "id": "https://openalex.org/G4484475047",
+      "display_name": "Collaborative Research: Perception and Use of Infrared Radiation by Insects",
+      "funder_award_id": "1411445",
+      "funder_id": "https://openalex.org/F4320306076",
+      "funder_display_name": "National Science Foundation"
+    },
+    {
+      "id": "https://openalex.org/G6072337038",
+      "display_name": "Reconfigurable flat optics",
+      "funder_award_id": "1307948",
+      "funder_id": "https://openalex.org/F4320306076",
+      "funder_display_name": "National Science Foundation"
+    },
+    {
+      "id": "https://openalex.org/G754017254",
+      "display_name": null,
+      "funder_award_id": "FA9550-14-1-0389",
+      "funder_id": "https://openalex.org/F4320333591",
+      "funder_display_name": "Multidisciplinary University Research Initiative"
+    }
+  ],
+  "funders": [
+    {
+      "id": "https://openalex.org/F4320306076",
+      "display_name": "National Science Foundation",
+      "ror": "https://ror.org/021nxhr62"
+    },
+    {
+      "id": "https://openalex.org/F4320333591",
+      "display_name": "Multidisciplinary University Research Initiative",
+      "ror": null
+    },
+    {
+      "id": "https://openalex.org/F4320338279",
+      "display_name": "Air Force Office of Scientific Research",
+      "ror": "https://ror.org/011e9bt93"
+    }
+  ],
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "content_urls": null,
+  "referenced_works_count": 28,
+  "referenced_works": [
+    "https://openalex.org/W55439375",
+    "https://openalex.org/W1489663593",
+    "https://openalex.org/W1514837587",
+    "https://openalex.org/W1586808449",
+    "https://openalex.org/W1617631354",
+    "https://openalex.org/W1672766972",
+    "https://openalex.org/W1964161256",
+    "https://openalex.org/W1990425799",
+    "https://openalex.org/W2002506515",
+    "https://openalex.org/W2021938974",
+    "https://openalex.org/W2032561324",
+    "https://openalex.org/W2033586642",
+    "https://openalex.org/W2048490541",
+    "https://openalex.org/W2048985624",
+    "https://openalex.org/W2055392594",
+    "https://openalex.org/W2064356003",
+    "https://openalex.org/W2076699264",
+    "https://openalex.org/W2077735967",
+    "https://openalex.org/W2089155741",
+    "https://openalex.org/W2102680086",
+    "https://openalex.org/W2116654172",
+    "https://openalex.org/W2234803023",
+    "https://openalex.org/W2260698285",
+    "https://openalex.org/W2492549579",
+    "https://openalex.org/W2521694932",
+    "https://openalex.org/W2893369644",
+    "https://openalex.org/W3140346569",
+    "https://openalex.org/W4236953601"
+  ],
+  "related_works": [
+    "https://openalex.org/W6948734649",
+    "https://openalex.org/W2494838007",
+    "https://openalex.org/W3011076696",
+    "https://openalex.org/W2804095150",
+    "https://openalex.org/W2340315483",
+    "https://openalex.org/W2606513769",
+    "https://openalex.org/W4400044883",
+    "https://openalex.org/W4403492033",
+    "https://openalex.org/W2990886271",
+    "https://openalex.org/W2942504847"
+  ],
+  "abstract_inverted_index": {
+    "Saharan": [
+      0
+    ],
+    "silver": [
+      1
+    ],
+    "ants,": [
+      2
+    ],
+    "Cataglyphis": [
+      3
+    ],
+    "bombycina,": [
+      4
+    ],
+    "forage": [
+      5
+    ],
+    "under": [
+      6,
+      86
+    ],
+    "extreme": [
+      7
+    ],
+    "temperature": [
+      8
+    ],
+    "conditions": [
+      9
+    ],
+    "in": [
+      10,
+      46,
+      66
+    ],
+    "the": [
+      11,
+      17,
+      39,
+      42,
+      47,
+      53,
+      61,
+      64,
+      67,
+      73,
+      81,
+      100
+    ],
+    "African": [
+      12
+    ],
+    "desert.": [
+      13
+    ],
+    "We": [
+      14
+    ],
+    "show": [
+      15
+    ],
+    "that": [
+      16
+    ],
+    "ants'": [
+      18
+    ],
+    "conspicuous": [
+      19
+    ],
+    "silvery": [
+      20
+    ],
+    "appearance": [
+      21
+    ],
+    "is": [
+      22
+    ],
+    "created": [
+      23
+    ],
+    "by": [
+      24
+    ],
+    "a": [
+      25,
+      94
+    ],
+    "dense": [
+      26
+    ],
+    "array": [
+      27
+    ],
+    "of": [
+      28,
+      41,
+      52,
+      63,
+      102,
+      109
+    ],
+    "triangular": [
+      29
+    ],
+    "hairs": [
+      30
+    ],
+    "with": [
+      31
+    ],
+    "two": [
+      32
+    ],
+    "thermoregulatory": [
+      33,
+      95
+    ],
+    "effects.": [
+      34
+    ],
+    "They": [
+      35
+    ],
+    "enhance": [
+      36
+    ],
+    "not": [
+      37
+    ],
+    "only": [
+      38
+    ],
+    "reflectivity": [
+      40
+    ],
+    "ant's": [
+      43
+    ],
+    "body": [
+      44
+    ],
+    "surface": [
+      45
+    ],
+    "visible": [
+      48
+    ],
+    "and": [
+      49
+    ],
+    "near-infrared": [
+      50
+    ],
+    "range": [
+      51
+    ],
+    "spectrum,": [
+      54
+    ],
+    "where": [
+      55
+    ],
+    "solar": [
+      56
+    ],
+    "radiation": [
+      57,
+      85
+    ],
+    "culminates,": [
+      58
+    ],
+    "but": [
+      59
+    ],
+    "also": [
+      60
+    ],
+    "emissivity": [
+      62
+    ],
+    "ant": [
+      65
+    ],
+    "mid-infrared.": [
+      68
+    ],
+    "The": [
+      69
+    ],
+    "latter": [
+      70
+    ],
+    "effect": [
+      71
+    ],
+    "enables": [
+      72
+    ],
+    "animals": [
+      74
+    ],
+    "to": [
+      75,
+      80,
+      99
+    ],
+    "efficiently": [
+      76
+    ],
+    "dissipate": [
+      77
+    ],
+    "heat": [
+      78
+    ],
+    "back": [
+      79
+    ],
+    "surroundings": [
+      82
+    ],
+    "via": [
+      83
+    ],
+    "blackbody": [
+      84
+    ],
+    "full": [
+      87
+    ],
+    "daylight": [
+      88
+    ],
+    "conditions.": [
+      89
+    ],
+    "This": [
+      90
+    ],
+    "biological": [
+      91
+    ],
+    "solution": [
+      92
+    ],
+    "for": [
+      93,
+      105
+    ],
+    "problem": [
+      96
+    ],
+    "may": [
+      97
+    ],
+    "lead": [
+      98
+    ],
+    "development": [
+      101
+    ],
+    "biomimetic": [
+      103
+    ],
+    "coatings": [
+      104
+    ],
+    "passive": [
+      106
+    ],
+    "radiative": [
+      107
+    ],
+    "cooling": [
+      108
+    ],
+    "objects.": [
+      110
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 62
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 119
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 130
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 115
+    },
+    {
+      "year": 2022,
+      "cited_by_count": 90
+    },
+    {
+      "year": 2021,
+      "cited_by_count": 80
+    },
+    {
+      "year": 2020,
+      "cited_by_count": 66
+    },
+    {
+      "year": 2019,
+      "cited_by_count": 42
+    },
+    {
+      "year": 2018,
+      "cited_by_count": 37
+    },
+    {
+      "year": 2017,
+      "cited_by_count": 22
+    },
+    {
+      "year": 2016,
+      "cited_by_count": 20
+    },
+    {
+      "year": 2015,
+      "cited_by_count": 1
+    }
+  ],
+  "updated_date": "2026-10-31T12:09:11.096373",
+  "created_date": "2016-06-24T00:00:00"
+}

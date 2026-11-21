@@ -154,7 +154,15 @@ def solve_1d_enthalpy_stefan(
     alpha = k / (rho * cp)
 
     dt_cfl = 0.45 * (dx**2) / alpha
-    steps = max(200, int(np.ceil(t_end / dt_cfl)))
+    raw_steps = int(np.ceil(t_end / dt_cfl))
+    if raw_steps > 30000:
+        target_dt = t_end / 30000
+        N = max(10, min(N, int(np.floor(L * np.sqrt(0.45 / (alpha * target_dt))))))
+        dx = L / N
+        dt_cfl = 0.45 * (dx**2) / alpha
+        steps = max(200, min(30000, int(np.ceil(t_end / dt_cfl))))
+    else:
+        steps = max(200, raw_steps)
     dt = t_end / steps
 
     H = np.zeros(N)

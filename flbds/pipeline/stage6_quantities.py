@@ -249,6 +249,7 @@ def run_quantities(
     schema = QuantityList.model_json_schema()
     sampling_params = SamplingParams(
         temperature=0.0,
+        seed=42,
         max_tokens=400,
         structured_outputs=StructuredOutputsParams(json=schema),
     )

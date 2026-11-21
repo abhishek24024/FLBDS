@@ -1,6 +1,6 @@
 {
   "template_id": "TPL_02",
-  "thickness_m": 0.025,
+  "thickness_m": 0.030,
   "pcm_density_kg_m3": 820.0,
   "pcm_latent_heat_J_kg": 210000.0,
   "pcm_specific_heat_J_kgK": 2000.0,

@@ -1,0 +1,799 @@
+{
+ "summary": {
+  "n_problems": 23,
+  "n_choice_sensitive": 6,
+  "n_discriminating": 2,
+  "n_without_feasible_card": 0,
+  "n_pairs": 29,
+  "n_feasible_pairs": 27
+ },
+ "problems": [
+  {
+   "problem_id": "P-THM-01",
+   "domain": "thermal",
+   "title": "Passive roof skin for a desert telecom cabinet",
+   "plausible_cards": [
+    "THM_RADIATIVE_COOLING",
+    "THM_PCM_STORAGE"
+   ],
+   "feasible_cards": [
+    "THM_RADIATIVE_COOLING",
+    "THM_PCM_STORAGE"
+   ],
+   "choice_sensitive": true,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "THM_RADIATIVE_COOLING",
+     "feasible": true,
+     "min_margin": 0.8772186815248088,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "surface_emissivity": 0.9799997222405185,
+      "solar_absorptivity": 0.020000082063437195,
+      "substrate_thickness_m": 0.006139029681706431,
+      "substrate_k_W_mK": 0.02000004751604184,
+      "substrate_density_kg_m3": 120.5609269913391
+     },
+     "binding_constraint": "inner_leakage_W_m2"
+    },
+    {
+     "card_id": "THM_PCM_STORAGE",
+     "feasible": true,
+     "min_margin": 0.25632839514619493,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "thickness_m": 0.010714222990139466,
+      "k_eff_W_mK": 0.8933157222539084,
+      "matrix_volume_fraction": 1.746742486885555e-06,
+      "matrix_density_kg_m3": 1883.0781364769393,
+      "matrix_specific_heat_J_kgK": 653.7530982116992,
+      "pcm_density_kg_m3": 1388.1942581387693,
+      "pcm_latent_heat_J_kg": 259998.04413852628,
+      "pcm_specific_heat_J_kgK": 2007.2145129900903
+     },
+     "binding_constraint": "areal_mass_kg_m2"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-THM-02",
+   "domain": "thermal",
+   "title": "Off-grid vaccine store roof panel",
+   "plausible_cards": [
+    "THM_RADIATIVE_COOLING",
+    "THM_PCM_STORAGE"
+   ],
+   "feasible_cards": [
+    "THM_RADIATIVE_COOLING"
+   ],
+   "choice_sensitive": true,
+   "discriminating": true,
+   "results": [
+    {
+     "card_id": "THM_RADIATIVE_COOLING",
+     "feasible": true,
+     "min_margin": 0.9833333333328468,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "surface_emissivity": 0.9397714557972127,
+      "solar_absorptivity": 0.02816957033907446,
+      "substrate_thickness_m": 0.001000000000029192,
+      "substrate_k_W_mK": 1.7495181338776196,
+      "substrate_density_kg_m3": 19.390536991729473
+     },
+     "binding_constraint": "substrate_thickness_m"
+    },
+    {
+     "card_id": "THM_PCM_STORAGE",
+     "feasible": false,
+     "min_margin": -0.08938485443030704,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "thickness_m": 0.010553016661475557,
+      "k_eff_W_mK": 0.40584587386948867,
+      "matrix_volume_fraction": 1.4288281741769993e-06,
+      "matrix_density_kg_m3": 2101.924895901171,
+      "matrix_specific_heat_J_kgK": 667.6300722296763,
+      "pcm_density_kg_m3": 1032.2955762708223,
+      "pcm_latent_heat_J_kg": 259999.24965968425,
+      "pcm_specific_heat_J_kgK": 2793.1917920191463
+     },
+     "binding_constraint": "areal_mass_kg_m2"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-THM-03",
+   "domain": "thermal",
+   "title": "Lightweight roof/wall liner for a humid-tropics relief shelter",
+   "plausible_cards": [
+    "THM_PCM_STORAGE",
+    "THM_RADIATIVE_COOLING"
+   ],
+   "feasible_cards": [
+    "THM_PCM_STORAGE"
+   ],
+   "choice_sensitive": true,
+   "discriminating": true,
+   "results": [
+    {
+     "card_id": "THM_PCM_STORAGE",
+     "feasible": true,
+     "min_margin": 0.43406784247629443,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "thickness_m": 0.013667309517403182,
+      "k_eff_W_mK": 0.8617886771197444,
+      "matrix_volume_fraction": 5.21848389897217e-06,
+      "matrix_density_kg_m3": 6192.534646249263,
+      "matrix_specific_heat_J_kgK": 432.8757009577991,
+      "pcm_density_kg_m3": 1242.1845859242158,
+      "pcm_latent_heat_J_kg": 259998.84189258577,
+      "pcm_specific_heat_J_kgK": 2292.2447481511344
+     },
+     "binding_constraint": "latent_capacity_J_m2"
+    },
+    {
+     "card_id": "THM_RADIATIVE_COOLING",
+     "feasible": false,
+     "min_margin": -0.10901721756369738,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "surface_emissivity": 0.9799999997353152,
+      "solar_absorptivity": 0.020000000003385903,
+      "substrate_thickness_m": 0.03727110628090995,
+      "substrate_k_W_mK": 1.6962969005865014,
+      "substrate_density_kg_m3": 90.29950259936811
+     },
+     "binding_constraint": "lumped_net_radiative_cooling_W_m2"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-THM-04",
+   "domain": "thermal",
+   "title": "Data-centre liquid-loop heat recuperator",
+   "plausible_cards": [
+    "THM_COUNTERCURRENT_HX"
+   ],
+   "feasible_cards": [
+    "THM_COUNTERCURRENT_HX"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "THM_COUNTERCURRENT_HX",
+     "feasible": true,
+     "min_margin": 0.9499999999986343,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "m_dot_hot_kg_s": 0.3054990889805245,
+      "m_dot_cold_kg_s": 0.10880177804785031,
+      "overall_U_W_m2K": 439.19926174700004,
+      "heat_transfer_area_m2": 1.5269420146214636,
+      "length_m": 0.05000000000136575,
+      "hydraulic_diameter_m": 0.021305069090773933,
+      "wall_conductivity_W_mK": 1.180059623109667,
+      "wall_cross_section_m2": 0.00021222333169564693
+     },
+     "binding_constraint": "length_m"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-THM-05",
+   "domain": "thermal",
+   "title": "Avionics coolant heat-recovery core",
+   "plausible_cards": [
+    "THM_COUNTERCURRENT_HX"
+   ],
+   "feasible_cards": [
+    "THM_COUNTERCURRENT_HX"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "THM_COUNTERCURRENT_HX",
+     "feasible": true,
+     "min_margin": 0.9166666666645692,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "m_dot_hot_kg_s": 0.17058533286556288,
+      "m_dot_cold_kg_s": 0.2768811037684632,
+      "overall_U_W_m2K": 102.15803367915156,
+      "heat_transfer_area_m2": 0.8384202825208957,
+      "length_m": 0.05000000000125848,
+      "hydraulic_diameter_m": 0.0297787877971397,
+      "wall_conductivity_W_mK": 50.36126159151703,
+      "wall_cross_section_m2": 1.021767366403104e-05
+     },
+     "binding_constraint": "length_m"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-STR-01",
+   "domain": "structures",
+   "title": "Floor panel for a delivery drone payload bay",
+   "plausible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "feasible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "choice_sensitive": true,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "STR_SANDWICH_HONEYCOMB",
+     "feasible": true,
+     "min_margin": 0.2417256397642228,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.0005007619191753504,
+      "core_thickness_m": 0.010372591565185958,
+      "core_relative_density": 0.012350366107090385,
+      "cell_size_m": 0.005148062539996896
+     },
+     "binding_constraint": "total_thickness_m"
+    },
+    {
+     "card_id": "STR_LATTICE_TRUSS",
+     "feasible": true,
+     "min_margin": 0.2369548507004574,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.0005258338636952828,
+      "core_thickness_m": 0.010394009512102573,
+      "core_relative_density": 0.010000254559953119,
+      "strut_length_m": 0.009372879262731774,
+      "nodal_connectivity": 10.94534290116194
+     },
+     "binding_constraint": "total_thickness_m"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-STR-02",
+   "domain": "structures",
+   "title": "Satellite equipment mounting panel",
+   "plausible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "feasible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "choice_sensitive": true,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "STR_SANDWICH_HONEYCOMB",
+     "feasible": true,
+     "min_margin": 0.06789757262643525,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.00048065927267137293,
+      "core_thickness_m": 0.03632277853737196,
+      "core_relative_density": 0.010847435916080974,
+      "cell_size_m": 0.010883502270381996
+     },
+     "binding_constraint": "areal_mass_kg_m2"
+    },
+    {
+     "card_id": "STR_LATTICE_TRUSS",
+     "feasible": true,
+     "min_margin": 0.0674159249733447,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.0004965561278762325,
+      "core_thickness_m": 0.03631025039960602,
+      "core_relative_density": 0.010000005605512459,
+      "strut_length_m": 0.0074549235667669515,
+      "nodal_connectivity": 10.107608553813087
+     },
+     "binding_constraint": "areal_mass_kg_m2"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-STR-03",
+   "domain": "structures",
+   "title": "Aircraft cabin floor panel",
+   "plausible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "feasible_cards": [
+    "STR_SANDWICH_HONEYCOMB",
+    "STR_LATTICE_TRUSS"
+   ],
+   "choice_sensitive": true,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "STR_SANDWICH_HONEYCOMB",
+     "feasible": true,
+     "min_margin": 0.04398837429619772,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.001024434294769169,
+      "core_thickness_m": 0.010092479054445545,
+      "core_relative_density": 0.02396864230274078,
+      "cell_size_m": 0.0044038056911013404
+     },
+     "binding_constraint": "bending_stiffness_N_m"
+    },
+    {
+     "card_id": "STR_LATTICE_TRUSS",
+     "feasible": true,
+     "min_margin": 0.042813527711753285,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "face_thickness_m": 0.00109265076013187,
+      "core_thickness_m": 0.009970965308374952,
+      "core_relative_density": 0.016584802629449908,
+      "strut_length_m": 0.01283159151646071,
+      "nodal_connectivity": 10.615382747774806
+     },
+     "binding_constraint": "areal_mass_kg_m2"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-FLD-01",
+   "domain": "fluids",
+   "title": "Skin-friction reduction film for a long-haul airliner fuselage",
+   "plausible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "feasible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "FLD_RIBLET_DRAG",
+     "feasible": true,
+     "min_margin": 3.0883782390069916,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "riblet_spacing_m": 0.00012265134736949866,
+      "height_to_spacing": 0.2805877404531436,
+      "coverage_fraction": 0.9999999996784521
+     },
+     "binding_constraint": "drag_reduction_pct"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-FLD-02",
+   "domain": "fluids",
+   "title": "Hull drag reduction for a container ship",
+   "plausible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "feasible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "FLD_RIBLET_DRAG",
+     "feasible": true,
+     "min_margin": 2.2999999988756237,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "riblet_spacing_m": 6.811052304723447e-05,
+      "height_to_spacing": 0.5000048431501803,
+      "coverage_fraction": 0.9999999998080326
+     },
+     "binding_constraint": "drag_reduction_pct"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-FLD-03",
+   "domain": "fluids",
+   "title": "Wind-turbine blade surface drag reduction",
+   "plausible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "feasible_cards": [
+    "FLD_RIBLET_DRAG"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "FLD_RIBLET_DRAG",
+     "feasible": true,
+     "min_margin": 1.4749999993279204,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "riblet_spacing_m": 9.114884600357365e-05,
+      "height_to_spacing": 0.5000027316113062,
+      "coverage_fraction": 0.9999999998172101
+     },
+     "binding_constraint": "drag_reduction_pct"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-ADH-01",
+   "domain": "adhesion",
+   "title": "Glass-facade climbing inspection robot pads",
+   "plausible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "feasible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "ADH_FIBRILLAR",
+     "feasible": true,
+     "min_margin": 0.17309229324603692,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "fibril_radius_m": 1.173092622341759e-06,
+      "fibril_length_m": 2.5451542706151095e-06,
+      "packing_fraction": 0.36697224387544036,
+      "fibril_modulus_Pa": 1000017.090026123
+     },
+     "binding_constraint": "adhesion_pressure_Pa"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-ADH-02",
+   "domain": "adhesion",
+   "title": "Residue-free gripper for wafers and display glass",
+   "plausible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "feasible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "ADH_FIBRILLAR",
+     "feasible": true,
+     "min_margin": 0.6572175241255807,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "fibril_radius_m": 8.286103056284767e-07,
+      "fibril_length_m": 1.3946081288946557e-06,
+      "packing_fraction": 0.09154607903587988,
+      "fibril_modulus_Pa": 1000014.5658903273
+     },
+     "binding_constraint": "effective_array_modulus_Pa"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-ADH-03",
+   "domain": "adhesion",
+   "title": "Grasping pads for spacecraft servicing",
+   "plausible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "feasible_cards": [
+    "ADH_FIBRILLAR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "ADH_FIBRILLAR",
+     "feasible": true,
+     "min_margin": 0.14430789398009472,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "fibril_radius_m": 5.721540812056245e-06,
+      "fibril_length_m": 2.5560267722247026e-05,
+      "packing_fraction": 0.2909877071935347,
+      "fibril_modulus_Pa": 1000050.2408760741
+     },
+     "binding_constraint": "preload_pressure_Pa"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-WET-01",
+   "domain": "wetting",
+   "title": "Self-cleaning cover glass for desert PV modules",
+   "plausible_cards": [
+    "WET_SUPERHYDROPHOBIC"
+   ],
+   "feasible_cards": [
+    "WET_SUPERHYDROPHOBIC"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "WET_SUPERHYDROPHOBIC",
+     "feasible": true,
+     "min_margin": 0.10483848551554616,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "pillar_width_m": 5.524193097485269e-07,
+      "pillar_pitch_m": 2.053043818860269e-06,
+      "pillar_height_m": 9.453951292819095e-05,
+      "intrinsic_contact_angle_deg": 124.99999656165457
+     },
+     "binding_constraint": "cassie_apparent_angle_deg"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-WET-02",
+   "domain": "wetting",
+   "title": "Rain-shedding antenna radome",
+   "plausible_cards": [
+    "WET_SUPERHYDROPHOBIC"
+   ],
+   "feasible_cards": [
+    "WET_SUPERHYDROPHOBIC"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "WET_SUPERHYDROPHOBIC",
+     "feasible": true,
+     "min_margin": 0.11882909637055045,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "pillar_width_m": 2.275940414195385e-06,
+      "pillar_pitch_m": 6.80423041076708e-06,
+      "pillar_height_m": 9.433318737682287e-06,
+      "intrinsic_contact_angle_deg": 124.99999970248507
+     },
+     "binding_constraint": "solid_fraction_durability"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-OPT-01",
+   "domain": "optics",
+   "title": "Pigment-free green security film",
+   "plausible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "feasible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "feasible": true,
+     "min_margin": 0.47788974844155785,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "n_layer1": 1.8697127747959486,
+      "thickness_layer1_m": 6.470066151474166e-08,
+      "n_layer2": 2.2559147858964064,
+      "thickness_layer2_m": 6.269354787393051e-08,
+      "n_pairs": 8.739648710337612
+     },
+     "binding_constraint": "peak_reflectance"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-OPT-02",
+   "domain": "optics",
+   "title": "Fade-proof blue structural-colour coating",
+   "plausible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "feasible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "feasible": true,
+     "min_margin": 0.6114983812754549,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "n_layer1": 2.275086673944041,
+      "thickness_layer1_m": 4.840079128837753e-08,
+      "n_layer2": 2.526368837894111,
+      "thickness_layer2_m": 4.8670804694443664e-08,
+      "n_pairs": 12.759640542129773
+     },
+     "binding_constraint": "peak_reflectance"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-OPT-03",
+   "domain": "optics",
+   "title": "Near-infrared heat-mirror window film",
+   "plausible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "feasible_cards": [
+    "OPT_BRAGG_STRUCTURAL_COLOR"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "OPT_BRAGG_STRUCTURAL_COLOR",
+     "feasible": true,
+     "min_margin": 0.1111111059057278,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "n_layer1": 1.4255171275020957,
+      "thickness_layer1_m": 1.6037380648995153e-07,
+      "n_layer2": 2.5791730599003784,
+      "thickness_layer2_m": 9.661785614406964e-08,
+      "n_pairs": 17.297991216842902
+     },
+     "binding_constraint": "peak_reflectance"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-MT-01",
+   "domain": "mass_transfer",
+   "title": "Passive oxygen window for an underwater sensor",
+   "plausible_cards": [
+    "MT_PLASTRON_MEMBRANE"
+   ],
+   "feasible_cards": [
+    "MT_PLASTRON_MEMBRANE"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "MT_PLASTRON_MEMBRANE",
+     "feasible": true,
+     "min_margin": 8.589457100923616,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "membrane_thickness_m": 5.65606145114243e-05,
+      "porosity": 0.4927066347526538,
+      "pore_diameter_m": 2.8768371324402163e-07,
+      "tortuosity": 4.998167911796218,
+      "contact_angle_deg": 159.9999998264039
+     },
+     "binding_constraint": "capillary_breakthrough_head_m"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-MT-02",
+   "domain": "mass_transfer",
+   "title": "Bubble-free aquaculture membrane aerator",
+   "plausible_cards": [
+    "MT_PLASTRON_MEMBRANE"
+   ],
+   "feasible_cards": [
+    "MT_PLASTRON_MEMBRANE"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "MT_PLASTRON_MEMBRANE",
+     "feasible": true,
+     "min_margin": 10.0,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "membrane_thickness_m": 6.73941265309331e-06,
+      "porosity": 0.6760655261501795,
+      "pore_diameter_m": 3.903037236291636e-07,
+      "tortuosity": 1.6475080744436978,
+      "contact_angle_deg": 148.6777621770824
+     },
+     "binding_constraint": "mass_fourier_number"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-MT-03",
+   "domain": "mass_transfer",
+   "title": "Fog-water collector for a mountain village",
+   "plausible_cards": [
+    "MT_FOG_HARVEST_MESH"
+   ],
+   "feasible_cards": [
+    "MT_FOG_HARVEST_MESH"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "MT_FOG_HARVEST_MESH",
+     "feasible": true,
+     "min_margin": 0.07443693188137525,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "fibre_radius_m": 0.00035596577055298,
+      "shade_coefficient": 0.3905305700238395,
+      "mesh_area_m2": 92.55589741242444
+     },
+     "binding_constraint": "design_wind_load_N"
+    }
+   ]
+  },
+  {
+   "problem_id": "P-MT-04",
+   "domain": "mass_transfer",
+   "title": "Fog irrigation for a coastal desert farm",
+   "plausible_cards": [
+    "MT_FOG_HARVEST_MESH"
+   ],
+   "feasible_cards": [
+    "MT_FOG_HARVEST_MESH"
+   ],
+   "choice_sensitive": false,
+   "discriminating": false,
+   "results": [
+    {
+     "card_id": "MT_FOG_HARVEST_MESH",
+     "feasible": true,
+     "min_margin": 0.08154203157852677,
+     "regime_ok": true,
+     "regime_notes": [],
+     "best_design": {
+      "fibre_radius_m": 0.0002770431440702393,
+      "shade_coefficient": 0.5131228287520418,
+      "mesh_area_m2": 55.10747804134297
+     },
+     "binding_constraint": "water_yield_L_day"
+    }
+   ]
+  }
+ ]
+}

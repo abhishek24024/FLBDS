@@ -1,0 +1,262 @@
+{
+  "n_per_family": 2000,
+  "near_fraction": 0.5,
+  "families": {
+    "F_PCM": {
+      "uniform": {
+        "n": 1019,
+        "both_pass": 75,
+        "both_fail": 914,
+        "false_rejection_screen_fail_eval_pass": 4,
+        "false_assurance_screen_pass_eval_fail": 26
+      },
+      "near_certified": {
+        "n": 981,
+        "both_pass": 391,
+        "both_fail": 501,
+        "false_rejection_screen_fail_eval_pass": 3,
+        "false_assurance_screen_pass_eval_fail": 86
+      },
+      "total": {
+        "n": 2000,
+        "both_pass": 466,
+        "both_fail": 1415,
+        "false_rejection_screen_fail_eval_pass": 7,
+        "false_assurance_screen_pass_eval_fail": 112
+      },
+      "false_rejection_examples": [
+        {
+          "instance_id": "V10-F_PCM-009",
+          "design": {
+            "thickness_m": 0.040835839835085805,
+            "k_eff_W_mK": 1.0934954091199567,
+            "matrix_volume_fraction": 0.0,
+            "matrix_density_kg_m3": 1968.7685148555015,
+            "matrix_specific_heat_J_kgK": 800.5457841514211,
+            "pcm_density_kg_m3": 750.0,
+            "pcm_latent_heat_J_kg": 218137.92832689598,
+            "pcm_specific_heat_J_kgK": 2346.1215962372426
+          },
+          "screen_missed": [
+            "latent_capacity_J_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_PCM-004",
+          "design": {
+            "thickness_m": 0.022015031687982644,
+            "k_eff_W_mK": 0.8680289320898532,
+            "matrix_volume_fraction": 0.2368812760562103,
+            "matrix_density_kg_m3": 1964.9325791371598,
+            "matrix_specific_heat_J_kgK": 627.9850857446451,
+            "pcm_density_kg_m3": 1150.2091869435005,
+            "pcm_latent_heat_J_kg": 142262.7472707145,
+            "pcm_specific_heat_J_kgK": 2045.1903948055963
+          },
+          "screen_missed": [
+            "latent_capacity_J_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_PCM-006",
+          "design": {
+            "thickness_m": 0.03748660520764403,
+            "k_eff_W_mK": 0.18434130717187805,
+            "matrix_volume_fraction": 0.03632982750202472,
+            "matrix_density_kg_m3": 3921.4048433758085,
+            "matrix_specific_heat_J_kgK": 380.0,
+            "pcm_density_kg_m3": 1147.4435702053788,
+            "pcm_latent_heat_J_kg": 223134.58527512028,
+            "pcm_specific_heat_J_kgK": 2408.8114308733093
+          },
+          "screen_missed": [
+            "closed_form_surface_superheat_K"
+          ]
+        },
+        {
+          "instance_id": "V10-F_PCM-005",
+          "design": {
+            "thickness_m": 0.036371412102219655,
+            "k_eff_W_mK": 0.2914216375483859,
+            "matrix_volume_fraction": 0.07647589145626173,
+            "matrix_density_kg_m3": 2198.6048783596048,
+            "matrix_specific_heat_J_kgK": 683.7847147334334,
+            "pcm_density_kg_m3": 1046.5059445041893,
+            "pcm_latent_heat_J_kg": 254753.24590296732,
+            "pcm_specific_heat_J_kgK": 2448.342234090095
+          },
+          "screen_missed": [
+            "closed_form_surface_superheat_K"
+          ]
+        },
+        {
+          "instance_id": "V10-F_PCM-004",
+          "design": {
+            "thickness_m": 0.022240001327425936,
+            "k_eff_W_mK": 3.3471237475418336,
+            "matrix_volume_fraction": 0.09022443519605038,
+            "matrix_density_kg_m3": 7961.486992591939,
+            "matrix_specific_heat_J_kgK": 900.6368808711641,
+            "pcm_density_kg_m3": 879.0468360915072,
+            "pcm_latent_heat_J_kg": 142826.93900464982,
+            "pcm_specific_heat_J_kgK": 2034.8694292780497
+          },
+          "screen_missed": [
+            "latent_capacity_J_m2"
+          ]
+        }
+      ],
+      "false_assurance_reasons": {
+        "Capacity bound violated": 112
+      }
+    },
+    "F_HX": {
+      "uniform": {
+        "n": 1015,
+        "both_pass": 89,
+        "both_fail": 926,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 0
+      },
+      "near_certified": {
+        "n": 985,
+        "both_pass": 782,
+        "both_fail": 200,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 3
+      },
+      "total": {
+        "n": 2000,
+        "both_pass": 871,
+        "both_fail": 1126,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 3
+      },
+      "false_rejection_examples": [],
+      "false_assurance_reasons": {
+        "Degraded duty # W below required # W (ideal eps=# degraded to # by axi": 3
+      }
+    },
+    "F_RAD": {
+      "uniform": {
+        "n": 967,
+        "both_pass": 20,
+        "both_fail": 898,
+        "false_rejection_screen_fail_eval_pass": 33,
+        "false_assurance_screen_pass_eval_fail": 16
+      },
+      "near_certified": {
+        "n": 1033,
+        "both_pass": 678,
+        "both_fail": 208,
+        "false_rejection_screen_fail_eval_pass": 58,
+        "false_assurance_screen_pass_eval_fail": 89
+      },
+      "total": {
+        "n": 2000,
+        "both_pass": 698,
+        "both_fail": 1106,
+        "false_rejection_screen_fail_eval_pass": 91,
+        "false_assurance_screen_pass_eval_fail": 105
+      },
+      "false_rejection_examples": [
+        {
+          "instance_id": "V10-F_RAD-009",
+          "design": {
+            "surface_emissivity": 0.98,
+            "solar_absorptivity": 0.1275900936337111,
+            "substrate_thickness_m": 0.012031103027908252,
+            "substrate_k_W_mK": 0.034746057758717204,
+            "substrate_density_kg_m3": 24.465960110223573
+          },
+          "screen_missed": [
+            "lumped_net_radiative_cooling_W_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_RAD-007",
+          "design": {
+            "surface_emissivity": 0.84830331107353,
+            "solar_absorptivity": 0.1919176535925023,
+            "substrate_thickness_m": 0.011262644617535646,
+            "substrate_k_W_mK": 0.06966084809359066,
+            "substrate_density_kg_m3": 17.903807931178193
+          },
+          "screen_missed": [
+            "lumped_net_radiative_cooling_W_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_RAD-007",
+          "design": {
+            "surface_emissivity": 0.6722553590927959,
+            "solar_absorptivity": 0.12662540891761048,
+            "substrate_thickness_m": 0.0010000000000000002,
+            "substrate_k_W_mK": 0.02130133540799062,
+            "substrate_density_kg_m3": 136.64928141504362
+          },
+          "screen_missed": [
+            "lumped_net_radiative_cooling_W_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_RAD-004",
+          "design": {
+            "surface_emissivity": 0.8524350028036468,
+            "solar_absorptivity": 0.13579102125267756,
+            "substrate_thickness_m": 0.018049224830127067,
+            "substrate_k_W_mK": 0.02,
+            "substrate_density_kg_m3": 168.66733997015487
+          },
+          "screen_missed": [
+            "lumped_net_radiative_cooling_W_m2"
+          ]
+        },
+        {
+          "instance_id": "V10-F_RAD-006",
+          "design": {
+            "surface_emissivity": 0.6512094271621361,
+            "solar_absorptivity": 0.19041077884532587,
+            "substrate_thickness_m": 0.005484159022199917,
+            "substrate_k_W_mK": 0.02849679262029308,
+            "substrate_density_kg_m3": 33.34348420834662
+          },
+          "screen_missed": [
+            "lumped_net_radiative_cooling_W_m2"
+          ]
+        }
+      ],
+      "false_assurance_reasons": {
+        "Inner heat leakage # W/m# exceeds cap # W/m#": 105
+      }
+    },
+    "F_MEM": {
+      "uniform": {
+        "n": 999,
+        "both_pass": 304,
+        "both_fail": 688,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 7
+      },
+      "near_certified": {
+        "n": 1001,
+        "both_pass": 840,
+        "both_fail": 161,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 0
+      },
+      "total": {
+        "n": 2000,
+        "both_pass": 1144,
+        "both_fail": 849,
+        "false_rejection_screen_fail_eval_pass": 0,
+        "false_assurance_screen_pass_eval_fail": 7
+      },
+      "false_rejection_examples": [],
+      "false_assurance_reasons": {
+        "Coupled flux # mol/(m#s) below required # (R_pore=# s/m, R_bl=# s/m, D": 7
+      }
+    }
+  },
+  "seconds": 79.3
+}

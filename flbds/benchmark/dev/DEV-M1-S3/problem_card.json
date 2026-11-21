@@ -30,7 +30,7 @@
     "target_change": "absorb intermittent heat pulse in tight packaging envelope",
     "target_direction": "store-and-release",
     "boundary_type": "BC_FLUX",
-    "flux_or_load": 3500000.0
+    "flux_or_load": 200.0
   },
   "time_pattern": {
     "cycle_type": "cyclic",
@@ -40,10 +40,10 @@
   },
   "constraints": [],
   "hard_constraints": {
-    "max_thickness_m": null,
-    "max_mass_kg_m2": null,
+    "max_thickness_m": 0.04,
+    "max_mass_kg_m2": 45.0,
     "max_pressure_drop_Pa": null,
-    "max_surface_superheat_K": null,
+    "max_surface_superheat_K": 10.0,
     "min_pore_diameter_m": null,
     "min_cop": null,
     "max_envelope_height_m": null

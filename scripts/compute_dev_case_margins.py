@@ -2,7 +2,9 @@ import json
 from pathlib import Path
 
 # Load dev cases and compute margins
-dev_dir = Path("/home/abhishek24024/flbds/flbds/benchmark/dev")
+dev_dir = Path(__file__).resolve().parent.parent / "flbds" / "benchmark" / "dev"
+if not dev_dir.exists():
+    dev_dir = Path("/home/abhishek24024/flbds/flbds/benchmark/dev")
 
 cases = [
     "DEV-M1-S1", "DEV-M1-S2", "DEV-M1-S3",
@@ -82,22 +84,23 @@ for cid in cases:
         margin = lim / val
 
     elif "M4" in cid:
-        # Membrane diffusion: Oxygen flux vs required flux
-        # DEV-M4-S1: actual flux = 0.25 mol/m2s, required = 0.005 mol/m2s -> margin = 0.25 / 0.005 = 50.0x!
-        # DEV-M4-S2: actual flux = 0.22 mol/m2s, required = 0.008 mol/m2s -> margin = 0.22 / 0.008 = 27.5x!
-        # DEV-M4-S3: actual flux = 0.18 mol/m2s, required = 0.006 mol/m2s -> margin = 0.18 / 0.006 = 30.0x!
-        binding = "Oxygen Diffusion Flux (mol/m2s)"
-        if cid == "DEV-M4-S1":
-            actual_flux = 0.25
-            req_flux = 0.005
-        elif cid == "DEV-M4-S2":
-            actual_flux = 0.22
-            req_flux = 0.008
-        else:
-            actual_flux = 0.18
-            req_flux = 0.006
-        val = actual_flux
-        lim = req_flux
+        # Membrane diffusion + Wetting breakthrough ceiling (Laplace capillary limit)
+        # Breakthrough head: H_bt = (4 * gamma * |cos(theta)|) / (rho * g * d_pore)
+        # Head margin: H_bt / H_operating
+        d_pore = ref.get("pore_diameter_m", 50e-9)
+        gamma = ref.get("surface_tension_N_m", 0.072)
+        theta_deg = ref.get("contact_angle_deg", 110.0)
+        import math
+        cos_theta = abs(math.cos(math.radians(theta_deg)))
+        rho = 1000.0
+        g = 9.81
+        delta_P_bt = (4.0 * gamma * cos_theta) / d_pore
+        H_bt = delta_P_bt / (rho * g)
+        H_op = ref.get("hydrostatic_head_m", 100.0)
+
+        binding = "Capillary Breakthrough Head (m)"
+        val = H_bt
+        lim = H_op
         margin = val / lim
 
     flag = ""
@@ -122,5 +125,9 @@ print("-" * 95)
 for r in results:
     print(f"{r['case_id']:12s} | {r['binding_constraint']:32s} | {r['actual_value']:10.4f} | {r['limit']:10.4f} | {r['margin']:7.2f}x | {r['status']}")
 
-with open('/home/abhishek24024/flbds_data/benchmark/dev_case_margins.json', 'w') as f:
+out_path = Path("/home/abhishek24024/flbds_data/benchmark/dev_case_margins.json")
+if not out_path.parent.exists():
+    out_path = Path(__file__).resolve().parent.parent / "flbds_data" / "benchmark" / "dev_case_margins.json"
+out_path.parent.mkdir(parents=True, exist_ok=True)
+with open(out_path, 'w') as f:
     json.dump(results, f, indent=2)

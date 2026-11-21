@@ -1,0 +1,1043 @@
+{
+  "id": "https://openalex.org/W2108827313",
+  "doi": "https://doi.org/10.1063/1.2347266",
+  "title": "Plastron properties of a superhydrophobic surface",
+  "display_name": "Plastron properties of a superhydrophobic surface",
+  "publication_year": 2006,
+  "publication_date": "2006-09-04",
+  "ids": {
+    "openalex": "https://openalex.org/W2108827313",
+    "doi": "https://doi.org/10.1063/1.2347266",
+    "mag": "2108827313"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1063/1.2347266",
+    "doi": "https://doi.org/10.1063/1.2347266",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1063/1.2347266",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S105243760",
+      "display_name": "Applied Physics Letters",
+      "issn_l": "0003-6951",
+      "issn": [
+        "0003-6951",
+        "1077-3118",
+        "1520-8842"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "listed_in": [
+        "anvur-scientific",
+        "cwts-core",
+        "dongbi-a",
+        "jufo-3",
+        "ki-jl-1",
+        "norway-2",
+        "poland-100",
+        "russia-white-list-1",
+        "vabb-shw"
+      ],
+      "host_organization": "https://openalex.org/P4310320257",
+      "host_organization_name": "American Institute of Physics",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310320257"
+      ],
+      "host_organization_lineage_names": [
+        "American Institute of Physics"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Applied Physics Letters",
+    "raw_type": "journal-article"
+  },
+  "volume": null,
+  "type": "article",
+  "indexed_in": [
+    "crossref"
+  ],
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5026587248",
+        "display_name": "Neil James Shirtcliffe",
+        "orcid": "https://orcid.org/0000-0003-3877-3474",
+        "observed_orcids": [
+          "https://orcid.org/0000-0003-3877-3474"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I52590639",
+          "display_name": "Nottingham Trent University",
+          "ror": "https://ror.org/04xyxjd90",
+          "country_code": "GB",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ],
+      "countries": [
+        "GB"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Neil J. Shirtcliffe",
+      "raw_affiliation_strings": [
+        "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom",
+          "institution_ids": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5085166028",
+        "display_name": "Glen McHale",
+        "orcid": "https://orcid.org/0000-0002-8519-7986",
+        "observed_orcids": [
+          "https://orcid.org/0000-0002-8519-7986"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I52590639",
+          "display_name": "Nottingham Trent University",
+          "ror": "https://ror.org/04xyxjd90",
+          "country_code": "GB",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ],
+      "countries": [
+        "GB"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Glen McHale",
+      "raw_affiliation_strings": [
+        "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom",
+          "institution_ids": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5057337947",
+        "display_name": "Michael Ian Newton",
+        "orcid": "https://orcid.org/0000-0003-4231-1002",
+        "observed_orcids": [
+          "https://orcid.org/0000-0003-4231-1002"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I52590639",
+          "display_name": "Nottingham Trent University",
+          "ror": "https://ror.org/04xyxjd90",
+          "country_code": "GB",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ],
+      "countries": [
+        "GB"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Michael I. Newton",
+      "raw_affiliation_strings": [
+        "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom",
+          "institution_ids": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5051978401",
+        "display_name": "Carole Celia Perry",
+        "orcid": "https://orcid.org/0000-0003-1517-468X",
+        "observed_orcids": [
+          "https://orcid.org/0000-0003-1517-468X"
+        ]
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I52590639",
+          "display_name": "Nottingham Trent University",
+          "ror": "https://ror.org/04xyxjd90",
+          "country_code": "GB",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ],
+      "countries": [
+        "GB"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Carole C. Perry",
+      "raw_affiliation_strings": [
+        "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom",
+          "institution_ids": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5084609344",
+        "display_name": "F. BRIAN PYATT",
+        "orcid": null,
+        "observed_orcids": []
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I52590639",
+          "display_name": "Nottingham Trent University",
+          "ror": "https://ror.org/04xyxjd90",
+          "country_code": "GB",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ],
+      "countries": [
+        "GB"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "F. Brian Pyatt",
+      "raw_affiliation_strings": [
+        "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Nottingham Trent University School of Biomedical and Natural Sciences, , Clifton Lane, Nottingham NG11 8NS, United Kingdom",
+          "institution_ids": [
+            "https://openalex.org/I52590639"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 1,
+  "institutions_distinct_count": 1,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [
+    "https://openalex.org/I52590639"
+  ],
+  "apc_list": null,
+  "apc_paid": null,
+  "fwci": 4.702,
+  "has_fulltext": true,
+  "cited_by_count": 176,
+  "citation_normalized_percentile": {
+    "value": 0.95156906,
+    "is_in_top_1_percent": false,
+    "is_in_top_10_percent": true
+  },
+  "cited_by_percentile_year": {
+    "min": 96,
+    "max": 100
+  },
+  "biblio": {
+    "volume": "89",
+    "issue": "10",
+    "first_page": null,
+    "last_page": null
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T10313",
+    "display_name": "Surface Modification and Superhydrophobicity",
+    "score": 0.9976000189781189,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2508",
+      "display_name": "Surfaces, Coatings and Films"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/25",
+      "display_name": "Materials Science"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T10313",
+      "display_name": "Surface Modification and Superhydrophobicity",
+      "score": 0.9976000189781189,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2508",
+        "display_name": "Surfaces, Coatings and Films"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/25",
+        "display_name": "Materials Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11401",
+      "display_name": "Minerals Flotation and Separation Techniques",
+      "score": 0.00139999995008111,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2312",
+        "display_name": "Water Science and Technology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11737",
+      "display_name": "Advanced Materials and Mechanics",
+      "score": 9.999999747378752e-05,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2210",
+        "display_name": "Mechanical Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/plastron",
+      "display_name": "plastron",
+      "score": 0.8220000267028809
+    },
+    {
+      "id": "https://openalex.org/keywords/superhydrophobic-surfaces",
+      "display_name": "superhydrophobic surfaces",
+      "score": 0.9539999961853027
+    },
+    {
+      "id": "https://openalex.org/keywords/oxygen-extraction",
+      "display_name": "oxygen extraction",
+      "score": 0.5640000104904175
+    },
+    {
+      "id": "https://openalex.org/keywords/aerated-waters",
+      "display_name": "aerated water",
+      "score": 0.7979999780654907
+    },
+    {
+      "id": "https://openalex.org/keywords/biomimetic-materials",
+      "display_name": "biomimetic materials",
+      "score": 0.8130000233650208
+    },
+    {
+      "id": "https://openalex.org/keywords/air-trapping",
+      "display_name": "air trapping",
+      "score": 0.4659999907016754
+    },
+    {
+      "id": "https://openalex.org/keywords/surface-morphology",
+      "display_name": "surface morphology",
+      "score": 0.6710000038146973
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C98083399",
+      "wikidata": "https://www.wikidata.org/wiki/Q3246517",
+      "display_name": "Underwater",
+      "level": 2,
+      "score": 0.5565266609191895
+    },
+    {
+      "id": "https://openalex.org/C540031477",
+      "wikidata": "https://www.wikidata.org/wiki/Q629",
+      "display_name": "Oxygen",
+      "level": 2,
+      "score": 0.4961150586605072
+    },
+    {
+      "id": "https://openalex.org/C171250308",
+      "wikidata": "https://www.wikidata.org/wiki/Q11468",
+      "display_name": "Nanotechnology",
+      "level": 1,
+      "score": 0.4870746433734894
+    },
+    {
+      "id": "https://openalex.org/C192562407",
+      "wikidata": "https://www.wikidata.org/wiki/Q228736",
+      "display_name": "Materials science",
+      "level": 0,
+      "score": 0.4764419198036194
+    },
+    {
+      "id": "https://openalex.org/C147534773",
+      "wikidata": "https://www.wikidata.org/wiki/Q190120",
+      "display_name": "Water vapor",
+      "level": 2,
+      "score": 0.46942928433418274
+    },
+    {
+      "id": "https://openalex.org/C8625798",
+      "wikidata": "https://www.wikidata.org/wiki/Q752112",
+      "display_name": "Surface water",
+      "level": 2,
+      "score": 0.452392041683197
+    },
+    {
+      "id": "https://openalex.org/C86922832",
+      "wikidata": "https://www.wikidata.org/wiki/Q381105",
+      "display_name": "Aeration",
+      "level": 2,
+      "score": 0.44826799631118774
+    },
+    {
+      "id": "https://openalex.org/C530467964",
+      "wikidata": "https://www.wikidata.org/wiki/Q1997",
+      "display_name": "Carbon dioxide",
+      "level": 2,
+      "score": 0.44718798995018005
+    },
+    {
+      "id": "https://openalex.org/C39432304",
+      "wikidata": "https://www.wikidata.org/wiki/Q188847",
+      "display_name": "Environmental science",
+      "level": 0,
+      "score": 0.4109940528869629
+    },
+    {
+      "id": "https://openalex.org/C42360764",
+      "wikidata": "https://www.wikidata.org/wiki/Q83588",
+      "display_name": "Chemical engineering",
+      "level": 1,
+      "score": 0.3507564067840576
+    },
+    {
+      "id": "https://openalex.org/C87717796",
+      "wikidata": "https://www.wikidata.org/wiki/Q146326",
+      "display_name": "Environmental engineering",
+      "level": 1,
+      "score": 0.29656970500946045
+    },
+    {
+      "id": "https://openalex.org/C185592680",
+      "wikidata": "https://www.wikidata.org/wiki/Q2329",
+      "display_name": "Chemistry",
+      "level": 0,
+      "score": 0.2553061842918396
+    },
+    {
+      "id": "https://openalex.org/C18903297",
+      "wikidata": "https://www.wikidata.org/wiki/Q7150",
+      "display_name": "Ecology",
+      "level": 1,
+      "score": 0.22745996713638306
+    },
+    {
+      "id": "https://openalex.org/C127313418",
+      "wikidata": "https://www.wikidata.org/wiki/Q1069",
+      "display_name": "Geology",
+      "level": 0,
+      "score": 0.17063051462173462
+    },
+    {
+      "id": "https://openalex.org/C111368507",
+      "wikidata": "https://www.wikidata.org/wiki/Q43518",
+      "display_name": "Oceanography",
+      "level": 1,
+      "score": 0.1187637448310852
+    },
+    {
+      "id": "https://openalex.org/C86803240",
+      "wikidata": "https://www.wikidata.org/wiki/Q420",
+      "display_name": "Biology",
+      "level": 0,
+      "score": 0.09684610366821289
+    },
+    {
+      "id": "https://openalex.org/C127413603",
+      "wikidata": "https://www.wikidata.org/wiki/Q11023",
+      "display_name": "Engineering",
+      "level": 0,
+      "score": 0.09190276265144348
+    },
+    {
+      "id": "https://openalex.org/C178790620",
+      "wikidata": "https://www.wikidata.org/wiki/Q11351",
+      "display_name": "Organic chemistry",
+      "level": 1,
+      "score": 0.0
+    }
+  ],
+  "mesh": [],
+  "locations_count": 3,
+  "locations": [
+    {
+      "id": "doi:10.1063/1.2347266",
+      "doi": "https://doi.org/10.1063/1.2347266",
+      "is_oa": false,
+      "landing_page_url": "https://doi.org/10.1063/1.2347266",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters",
+        "issn_l": "0003-6951",
+        "issn": [
+          "0003-6951",
+          "1077-3118",
+          "1520-8842"
+        ],
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": true,
+        "listed_in": [
+          "anvur-scientific",
+          "cwts-core",
+          "dongbi-a",
+          "jufo-3",
+          "ki-jl-1",
+          "norway-2",
+          "poland-100",
+          "russia-white-list-1",
+          "vabb-shw"
+        ],
+        "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310320257"
+        ],
+        "host_organization_lineage_names": [
+          "American Institute of Physics"
+        ],
+        "type": "journal"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Applied Physics Letters",
+      "raw_type": "journal-article"
+    },
+    {
+      "id": "pmh:oai:irep.ntu.ac.uk:1312",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "http://irep.ntu.ac.uk/id/eprint/1312/1/184088_Postprint%2520McHale%2520APL%2520vol%252089%2520art%2520104106%25202006.pdf",
+      "pdf_url": "http://irep.ntu.ac.uk/id/eprint/1312/1/184088_Postprint%2520McHale%2520APL%2520vol%252089%2520art%2520104106%25202006.pdf",
+      "source": {
+        "id": "https://openalex.org/S4306400559",
+        "display_name": "Nottingham Trent University's Institutional Repository (Nottingham Trent Repository)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I52590639",
+        "host_organization_name": "Nottingham Trent University",
+        "host_organization_lineage": [
+          "https://openalex.org/I52590639"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "acceptedVersion",
+      "is_accepted": true,
+      "is_published": false,
+      "raw_source_name": "",
+      "raw_type": "Article"
+    },
+    {
+      "id": "pmh:oai:nrl.northumbria.ac.uk:8324",
+      "doi": null,
+      "is_oa": false,
+      "landing_page_url": "https://nrl.northumbria.ac.uk/id/eprint/8324/1/Postprint_McHale_APL_vol_89_art_104106_2006.pdf",
+      "pdf_url": "https://nrl.northumbria.ac.uk/id/eprint/8324/1/Postprint_McHale_APL_vol_89_art_104106_2006.pdf",
+      "source": {
+        "id": "https://openalex.org/S4306401884",
+        "display_name": "Northumbria Research Link (Northumbria University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": false,
+        "listed_in": [],
+        "host_organization": "https://openalex.org/I32394136",
+        "host_organization_name": "Northumbria University",
+        "host_organization_lineage": [
+          "https://openalex.org/I32394136"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "acceptedVersion",
+      "is_accepted": true,
+      "is_published": false,
+      "raw_source_name": "",
+      "raw_type": "Article"
+    }
+  ],
+  "best_oa_location": null,
+  "sustainable_development_goals": [],
+  "sustainable_development_goals_aurora": [
+    {
+      "id": "https://metadata.un.org/sdg/14",
+      "display_name": "Life below water",
+      "score": 0.5899999737739563
+    },
+    {
+      "id": "https://metadata.un.org/sdg/6",
+      "display_name": "Clean water and sanitation",
+      "score": 0.4399999976158142
+    }
+  ],
+  "study_designs": [],
+  "awards": [],
+  "funders": [
+    {
+      "id": "https://openalex.org/F4320332972",
+      "display_name": "Defence Science and Technology Laboratory",
+      "ror": "https://ror.org/04jswqb94"
+    },
+    {
+      "id": "https://openalex.org/F4320334627",
+      "display_name": "Engineering and Physical Sciences Research Council",
+      "ror": "https://ror.org/0439y7842"
+    }
+  ],
+  "has_content": {
+    "pdf": false,
+    "grobid_xml": false
+  },
+  "content_urls": null,
+  "referenced_works_count": 19,
+  "referenced_works": [
+    "https://openalex.org/W198539570",
+    "https://openalex.org/W225538892",
+    "https://openalex.org/W1969157373",
+    "https://openalex.org/W1983084194",
+    "https://openalex.org/W1989206806",
+    "https://openalex.org/W2016485222",
+    "https://openalex.org/W2018050798",
+    "https://openalex.org/W2018461552",
+    "https://openalex.org/W2022461459",
+    "https://openalex.org/W2025604172",
+    "https://openalex.org/W2026325087",
+    "https://openalex.org/W2056410764",
+    "https://openalex.org/W2118166595",
+    "https://openalex.org/W2137037787",
+    "https://openalex.org/W2152123134",
+    "https://openalex.org/W2496653890",
+    "https://openalex.org/W3004519212",
+    "https://openalex.org/W3100364046",
+    "https://openalex.org/W4289254170"
+  ],
+  "related_works": [
+    "https://openalex.org/W7097767108",
+    "https://openalex.org/W2033883629",
+    "https://openalex.org/W7162749879",
+    "https://openalex.org/W4404723810",
+    "https://openalex.org/W2100766608",
+    "https://openalex.org/W7099187216",
+    "https://openalex.org/W1974727572",
+    "https://openalex.org/W2019083695",
+    "https://openalex.org/W7167814716",
+    "https://openalex.org/W4410131759"
+  ],
+  "abstract_inverted_index": {
+    "Most": [
+      0
+    ],
+    "insects": [
+      1
+    ],
+    "and": [
+      2,
+      18,
+      48,
+      74
+    ],
+    "spiders": [
+      3
+    ],
+    "drown": [
+      4
+    ],
+    "when": [
+      5
+    ],
+    "submerged": [
+      6,
+      22
+    ],
+    "during": [
+      7
+    ],
+    "flooding": [
+      8
+    ],
+    "or": [
+      9
+    ],
+    "tidal": [
+      10
+    ],
+    "inundation,": [
+      11
+    ],
+    "but": [
+      12
+    ],
+    "some": [
+      13
+    ],
+    "are": [
+      14
+    ],
+    "able": [
+      15
+    ],
+    "to": [
+      16,
+      32,
+      36,
+      90
+    ],
+    "survive": [
+      17
+    ],
+    "others": [
+      19
+    ],
+    "can": [
+      20,
+      87
+    ],
+    "remain": [
+      21
+    ],
+    "indefinitely": [
+      23
+    ],
+    "without": [
+      24
+    ],
+    "harm.": [
+      25
+    ],
+    "Many": [
+      26
+    ],
+    "achieve": [
+      27
+    ],
+    "this": [
+      28,
+      69
+    ],
+    "by": [
+      29
+    ],
+    "natural": [
+      30
+    ],
+    "adaptations": [
+      31
+    ],
+    "their": [
+      33
+    ],
+    "surface": [
+      34,
+      62
+    ],
+    "morphology": [
+      35
+    ],
+    "trap": [
+      37
+    ],
+    "films": [
+      38
+    ],
+    "of": [
+      39,
+      63,
+      71,
+      78,
+      94
+    ],
+    "air,": [
+      40
+    ],
+    "creating": [
+      41
+    ],
+    "plastrons": [
+      42
+    ],
+    "which": [
+      43
+    ],
+    "fix": [
+      44
+    ],
+    "the": [
+      45,
+      57,
+      61
+    ],
+    "water-vapor": [
+      46
+    ],
+    "interface": [
+      47
+    ],
+    "provide": [
+      49
+    ],
+    "an": [
+      50,
+      64
+    ],
+    "incompressible": [
+      51
+    ],
+    "oxygen-carbon": [
+      52
+    ],
+    "dioxide": [
+      53
+    ],
+    "exchange": [
+      54
+    ],
+    "surface.": [
+      55
+    ],
+    "Here": [
+      56
+    ],
+    "authors": [
+      58
+    ],
+    "demonstrate": [
+      59
+    ],
+    "how": [
+      60
+    ],
+    "extremely": [
+      65
+    ],
+    "water-repellent": [
+      66
+    ],
+    "foam": [
+      67
+    ],
+    "mimics": [
+      68
+    ],
+    "mechanism": [
+      70
+    ],
+    "underwater": [
+      72
+    ],
+    "respiration": [
+      73
+    ],
+    "allows": [
+      75
+    ],
+    "direct": [
+      76
+    ],
+    "extraction": [
+      77
+    ],
+    "oxygen": [
+      79
+    ],
+    "from": [
+      80
+    ],
+    "aerated": [
+      81
+    ],
+    "water.": [
+      82
+    ],
+    "The": [
+      83
+    ],
+    "biomimetic": [
+      84
+    ],
+    "principle": [
+      85
+    ],
+    "demonstrated": [
+      86
+    ],
+    "be": [
+      88
+    ],
+    "applied": [
+      89
+    ],
+    "a": [
+      91
+    ],
+    "wide": [
+      92
+    ],
+    "variety": [
+      93
+    ],
+    "man-made": [
+      95
+    ],
+    "superhydrophobic": [
+      96
+    ],
+    "materials.": [
+      97
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 3
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 9
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 3
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 5
+    },
+    {
+      "year": 2022,
+      "cited_by_count": 7
+    },
+    {
+      "year": 2021,
+      "cited_by_count": 13
+    },
+    {
+      "year": 2020,
+      "cited_by_count": 9
+    },
+    {
+      "year": 2019,
+      "cited_by_count": 15
+    },
+    {
+      "year": 2018,
+      "cited_by_count": 9
+    },
+    {
+      "year": 2017,
+      "cited_by_count": 14
+    },
+    {
+      "year": 2016,
+      "cited_by_count": 10
+    },
+    {
+      "year": 2015,
+      "cited_by_count": 12
+    },
+    {
+      "year": 2014,
+      "cited_by_count": 16
+    },
+    {
+      "year": 2013,
+      "cited_by_count": 9
+    },
+    {
+      "year": 2012,
+      "cited_by_count": 6
+    }
+  ],
+  "updated_date": "2026-10-08T09:06:37.294493",
+  "created_date": "2016-06-24T00:00:00"
+}
